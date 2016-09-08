@@ -1,3 +1,5 @@
 # chaoticiak.github.io
 
-README? README for what? It's my site. Kinda. Also familiarizing myself with GitHub.
+As you probably might have noticed, it's for [my GitHub Pages site](chaoticiak.github.io).
+
+It's also to get myself familiar with how GitHub works. Yes, I probably should also contribute to other projects to get familiar with things like pull requests or something like that, but eh.
