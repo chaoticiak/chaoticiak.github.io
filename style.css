@@ -1,0 +1,26 @@
+html {
+    background-color: #ceea90;
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    max-width: 62em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    border: 6px solid #9cd520;
+    border-radius: 30px;
+}
+
+#title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    color: #9cd520;
+}
