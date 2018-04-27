@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #fff;
     max-width: 62em;
     margin-left: auto;
     margin-right: auto;
@@ -23,4 +23,12 @@ body {
     font-size: xx-large;
     font-weight: bold;
     color: #9cd520;
+}
+
+#menu {
+    text-align: center;
+}
+
+code {
+    background-color: #ccc;
 }
