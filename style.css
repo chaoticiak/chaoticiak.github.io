@@ -22,14 +22,31 @@ body {
     text-align: center;
     font-size: xx-large;
     font-weight: bold;
-    color: #9cd520;
-    text-shadow: 1px 1px 3px #8cc510;
+    color: #759f18;
+    text-shadow: 1px 1px 1px #5d7f13;
 }
 
 #menu {
     text-align: center;
 }
 
+dt {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
 code {
     background-color: #ccc;
+}
+
+.has-title {
+    border-bottom: 1px dashed;
+}
+
+.equation {
+    text-align: center;
+}
+
+.important {
+    color: #c00;
 }
