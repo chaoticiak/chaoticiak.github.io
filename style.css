@@ -1,6 +1,6 @@
 html {
-    background-color: #ceea90;
-    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    background-color: #ce9;
+    font-family: sans-serif;
     width: 100%;
     height: 100%;
 }
@@ -8,56 +8,108 @@ html {
 body {
     background-color: #fff;
     max-width: 62em;
+    line-height: 1.3;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: 1em;
+    padding: 1em;
     border: 6px solid #9cd520;
     border-radius: 30px;
 }
 
+p {
+    text-indent: 3ch;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+    color: #690;
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #690;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+h4 {
+    font-size: medium;
+    color: #690;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+}
+
 #title {
     text-align: center;
-    font-size: xx-large;
+    font-size: 2rem;
     font-weight: bold;
-    color: #759f18;
-    text-shadow: 1px 1px 1px #5d7f13;
+    color: #9cd520;
+    text-shadow: 1px 1px 0 #681;
 }
 
 #menu {
     text-align: center;
 }
 
-a {
-    text-decoration: none;
-    color: #33f;
+#lastupdated {
+    background-color: #efc;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 2em 0;
+    border: 1px solid #9cd520;
+    border-left-width: 10px;
 }
 
-a:hover {
+#lastupdated > p {
+    text-indent: -1rem;
+}
+
+#lastupdated > p:nth-of-type(n+2) {
+    font-size: small;
+    color: #666;
+}
+
+a {
+    text-decoration: none;
+    color: #00f;
+}
+
+a.anchor {
+    font-size: 0.8em;
+}
+
+a:not(.anchor):hover {
     text-decoration: underline;
 }
 
 a:visited {
-    color: #60c;
+    color: #93c;
+}
+
+code {
+    font-size: large;
+    background-color: #eee;
+    padding-left: 0.15em;
+    padding-right: 0.15em;
 }
 
 dt {
     font-weight: bold;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
-code {
-    background-color: #ccc;
+dt + dt {
+    margin-top: 0;
 }
 
-.has-title {
-    border-bottom: 1px dashed;
-}
-
-.equation {
-    text-align: center;
+dd {
+    margin-inline-start: 2rem;
+    margin-top: 0.2em;
+    text-indent: 2ch;
 }
 
 .important {
