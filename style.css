@@ -97,6 +97,23 @@ code {
     padding-right: 0.15em;
 }
 
+details {
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #eee;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+
+details > summary {
+    margin: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
 dt {
     font-weight: bold;
     margin-top: 0.5em;
@@ -107,7 +124,7 @@ dt + dt {
 }
 
 dd {
-    margin-inline-start: 2rem;
+    margin-inline-start: 2ch;
     margin-top: 0.2em;
     text-indent: 2ch;
 }

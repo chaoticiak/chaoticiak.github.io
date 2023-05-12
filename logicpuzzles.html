@@ -32,27 +32,12 @@
             width: 300px;
             height: auto;
         }
-        
-        details.spoiler {
-            border: 1px solid black;
-            border-radius: 15px;
-            background-color: #eee;
-            padding-left: 1rem;
-            padding-right: 0.5rem;
-        }
-        
-        details.spoiler > summary {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
     </style>
 </head>
 
 <body>
 <h1 id="title">My logic puzzles</h1>
-<nav id="menu"><a href="index.html">Main</a> &bull; <a href="works.html">Works</a> &bull; <a href="logicpuzzles.html">Logic Puzzles</a> &bull; <a href="faves.html">Faves</a></nav>
+<nav id="menu"><a href="index.html">Main</a> &bull; <a href="works.html">Works</a> &bull; <a href="logicpuzzles.html">Logic</a> &bull; <a href="faves.html">Faves</a></nav>
 
 <div id="lastupdated">
 <p>Last updated 12 May 2023: A <a href="#hidoku-20230310">brand new puzzle</a>! (It was written and shared on the same day as the previous update. I felt like I wanted to add more content before pushing an update; I ended up not doing so for quite some time, whoops.) Also, as part of updating the design of the whole website, this page gets some changes too.</p>
@@ -134,7 +119,7 @@
 
     <h3 id="hunt-polyglot"><a href="#toc" class="anchor">&#128285;</a> <a href="#hunt-polyglot" class="anchor">&#128279;</a> <a href="http://web.mit.edu/puzzle/www/2015/puzzle/polyglot/">Polyglot</a> (MIT Mystery Hunt 2015)</h3>
         <p>Not only this is my first hunt puzzle with a logic theme, this is my first hunt puzzle overall. (In fact, most hunt puzzles I write have logic themes.) By my modern standards, I think this puzzle is pretty weak, but it does have history.</p>
-        <details class="spoiler">
+        <details>
             <summary>Click here for spoilers on how to start</summary>
             <p>"Polyglot" means someone that speaks multiple languages. All the genres use black/white circles as clues, and all the grids have black/white circles only. In theme with the title, what "language", or genre, does each grid speak? You want to try every single combination and check if it's a valid puzzle (with a unique solution) or not.</p>
         </details>
@@ -142,7 +127,7 @@
     <h3 id="hunt-uspc"><a href="#toc" class="anchor">&#128285;</a> <a href="#hunt-uspc" class="anchor">&#128279;</a> <a href="https://2018.galacticpuzzlehunt.com/puzzle/unusual-and-strange-puzzle-collection">Unusual and Strange Puzzle Collection</a> (Galactic Puzzle Hunt 2018)</h3>
         <p>(co-written with Anderson Wang, with help from Nick Baxter)</p>
         <p>Pretty sure this was one of the toughest puzzles in the hunt, just because of how much work there is to do. On the other hand, that means a lot of logic puzzles!</p>
-        <details class="spoiler">
+        <details>
             <summary>Click here for spoilers on how to start</summary>
             <p>The title abbreviates to "USPC". All puzzles appear in past U.S. Puzzle Championships, so you can find the rules for the genres there. (Unfortunately you have to first sign up to the website; generally this is frowned upon in hunt puzzles.)</p>
         </details>
@@ -150,7 +135,7 @@
     <h3 id="hunt-sio"><a href="#toc" class="anchor">&#128285;</a> <a href="#hunt-sio" class="anchor">&#128279;</a> <a href="https://2019.galacticpuzzlehunt.com/puzzle/something-is-off">Something is Off</a> (Galactic Puzzle Hunt 2019)</h3>
         <p>(co-written with Anderson Wang and Alex Pei)</p>
         <p>The solution for this puzzle actually explicitly states that my quality standard decreased significantly during the writing of this puzzle. I think it's because I had so many other projects and tasks to juggle.</p>
-        <details class="spoiler">
+        <details>
             <summary>Click here for spoilers on how to start</summary>
             <p>They are pretty much normal logic puzzles... although something is off, some of these puzzles are clearly not unique. In fact each puzzle has exactly two different solutions.</p>
         </details>
@@ -158,7 +143,7 @@
     <h3 id="hunt-redsus"><a href="#toc" class="anchor">&#128285;</a> <a href="#hunt-redsus" class="anchor">&#128279;</a> <a href="https://silphpuzzlehunt.com/puzzle/red-sus">RED SUS</a> (Silph Puzzle Hunt 2021)</h3>
         <p>(co-written with lovemathboy)</p>
         <p>I said "co-written", but really I wrote 2 of the 10 logic puzzles (Fillomino and Heteromino). lovemathboy had the rest. I actually initially only wrote one, but for the sake of decency I wrote another one when we decided one of the puzzles was of rather poor quality.</p>
-        <details class="spoiler">
+        <details>
             <summary>Click here for spoilers on how to start</summary>
             <p>"RED SUS" is a meme in the video game Among Us, which had players doing jobs around a ship &mdash; but some of them are impostors that want to kill the other players instead. The player characters are simply recolored versions of the same identical sprite, so one of them is known simply as "red". Then "red sus" implies the red player character is doing suspicious things. In this puzzle, the red text in the rules is doing suspicious things too.</p>
         </details>
@@ -464,7 +449,7 @@
 
     <h3 id="nurikabe-20190519"><a href="#toc" class="anchor">&#128285;</a> <a href="#nurikabe-20190519" class="anchor">&#128279;</a> [2019-05-19] Nurikabe</h3>
         <p>I discovered a theory in Nurikabe puzzles, and I wanted to show it off using a toy example. This is the puzzle I decided to write for that. It can be easily solved intuitively, but I believe you need the theory in order to prove the solution is unique.</p>
-        <details class="spoiler">
+        <details>
             <summary>Click here to read the theory</summary>
             <p>Look at the <em>gridpoints</em> that touch some island. All internal gridpoints must touch islands, otherwise we have a 2x2 black area. However, an island of size N can touch at most 2N+2 gridpoints, so by summing up everything on the board, we know the maximum number of gridpoints touching islands. If this number is equal to, or close to, the number of internal gridpoints, then most of those gridpoints must be internal.</p>
         </details>
