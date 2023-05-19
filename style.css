@@ -16,6 +16,18 @@ body {
     border-radius: 30px;
 }
 
+@media (max-width: 1000px) {
+    body {
+        width: auto;
+        border-left: none;
+        border-right: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+}
+
 p {
     text-indent: 3ch;
     margin-top: 0.5rem;
