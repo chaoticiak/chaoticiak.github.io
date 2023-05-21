@@ -9,20 +9,19 @@ body {
     background-color: #fff;
     max-width: 62em;
     line-height: 1.3;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1em auto;
     padding: 1em;
     border: 6px solid #9cd520;
     border-radius: 30px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 66em), (pointer: coarse) {
     body {
+        max-width: none;
         width: auto;
         border-left: none;
         border-right: none;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 1em 0;
         padding-left: 0.5em;
         padding-right: 0.5em;
     }
