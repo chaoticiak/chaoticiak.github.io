@@ -20,9 +20,15 @@
 <p id="test">false</p>
 
 <script>
-    localStorage.clear();
+    function updateSize() {
+        document.getElementById("test").innerHTML = `${window.innerWidth} x ${window.innerHeight}`;
+    }
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    
+    /* localStorage.clear();
     alert(localStorage.getItem("test") == null);
-    /* document.getElementById("test").innerHTML = localStorage.getItem("test") + "<br>";
+    document.getElementById("test").innerHTML = localStorage.getItem("test") + "<br>";
     localStorage.setItem("test", "true");
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);

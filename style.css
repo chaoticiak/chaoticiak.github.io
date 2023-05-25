@@ -15,7 +15,7 @@ body {
     border-radius: 30px;
 }
 
-@media (max-width: 66em), (pointer: coarse) {
+@media (max-width: 66em) {
     body {
         max-width: none;
         width: auto;
@@ -120,7 +120,6 @@ details > summary {
     margin: 0;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-
     font-weight: bold;
     cursor: pointer;
 }
