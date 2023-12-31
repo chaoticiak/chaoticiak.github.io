@@ -124,6 +124,23 @@ details > summary {
     cursor: pointer;
 }
 
+details.warning {
+    border: 1px solid #c00;
+    border-radius: 15px;
+    background-color: #fdd;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+
+details.warning > summary {
+    color: #c00;
+}
+
+details.warning > summary::before {
+    content: "⚠ ";
+    color: #c00;
+}
+
 dt {
     font-weight: bold;
     margin-top: 0.5em;
