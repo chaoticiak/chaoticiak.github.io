@@ -14,7 +14,8 @@
 <nav id="menu"><a href="index.html">Main</a> &bull; <a href="works.html">Works</a> &bull; <a href="logicpuzzles.html">Logic</a> &bull; <a href="faves.html">Faves</a> &bull; <a href="furry.html">Furry</a></nav>
 
 <div id="lastupdated">
-<p>Last updated 25 May 2023: The "academic" section is now renamed "nonfiction", because I have a few essays that are even less academic than the penalty theory article.</p>
+<p>Last updated 05 January 2024: I have another publication.</p>
+<p>Previously updated 25 May 2023: The "academic" section is now renamed "nonfiction", because I have a few essays that are even less academic than the penalty theory article.</p>
 <p>Previously updated 12 May 2023: Fresh new look! Also folded the old Articles page here.</p>
 </div>
 
@@ -39,6 +40,16 @@
         <p>As part of my Masters degree research, I worked on a specific problem. It's matrix multiplication/exponentiation, but with two specific criteria: the matrix is huge (formally, exponential-space; the input is a black box algorithm that can spit out any given entry), and the entries are real numbers (and so not precise; formally, that black box also accepts a precision argument and gives an approximation of the entry with that precision). It's not surprising that the matrix exponentiation problem with this setting is PSPACE-hard.</p>
         <p>...or well, that's the most general formulation of the problem. The matrix has a lot of structure, since this problem really comes from trying to approximate solutions to partial differential equations. (The gist is you're sampling points at regular interval; then the continuous nature of a PDE becomes discrete, and a computer can approximate it.) When I brought certain structures to the matrix, the complexity of the problem went down. One particular result is, if the matrix is a circular band matrix with a fixed constant bandwidth, the matrix exponentiation problem falls into the complexity class #P (or its equivalent with real computation).</p>
         <p>This complexity theory part of the research became my Masters thesis. The cited paper above talks more broadly with all the PDE setting.</p>
+
+        <h4>Egalitarian Price of Fairness of Indivisible Goods</h4>
+        <div style="margin-top: -0.2em; font-size: 0.9em;">
+            Karen Frilya Celine, Muhammad Ayaz Dzulfikar, Ivan Adrian Koswara<br>
+            <em>PRICAI 2023: Trends in Artificial Intelligence</em>, 2024.
+        </div>
+        
+        <p>This started as the final project for a course I took during my Ph.D. study, on mechanism design (problems about taking individual preferences and returning an aggregate common result, such as voting and fair division). We investigated a concept called "price of fairness" in fair division.</p>
+        <p>Suppose we have goods to divide among players; each player values the goods differently, and we're looking to optimize some specific objective by assigning the goods to the players. Without any further restriction, we might be able to reach a high value; however, if we also require the division to be "fair" in some sense, it will cost us by reducing the maximum possible value. In this case, we're looking at maximizing the egalitarian welfare (the minimum value obtained by a player), and we're looking at various kinds of fairness criteria such as envy-freeness up to one good, balancedness, and such. We also look at the impact of maximizing another kind of welfare, whether this causes the egalitarian welfare to drop.</p>
+        <p>We did very well on this project, well enough that the lecturer advised us to publish it somewhere. The lecturer had some past papers published in similar conferences related to artificial intelligence. I still don't know how this is related to AI at all &mdash; it's more an economic / game theory thing &mdash; but we followed his advice anyway and got it published here.</p>
     </section>
     
     
