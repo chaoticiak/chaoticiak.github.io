@@ -157,7 +157,7 @@ dd {
 }
 
 span[title] {
-    border-bottom: #000 dashed 1px;
+    text-decoration: underline dashed 1px;
     cursor: help;
 }
 
