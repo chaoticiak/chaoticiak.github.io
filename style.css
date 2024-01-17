@@ -156,6 +156,26 @@ dd {
     text-indent: 2ch;
 }
 
+span[title] {
+    border-bottom: #000 dashed 1px;
+    cursor: help;
+}
+
+.image {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .important {
     color: #c00;
 }
+
+.alert {
+    border: 1px solid #c00;
+    border-radius: 15px;
+    background-color: #fdd;
+    padding: 0.5rem;
+    color: #c00;
+}
+
