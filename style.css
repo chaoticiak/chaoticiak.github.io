@@ -101,6 +101,22 @@ a:visited {
     color: #93c;
 }
 
+blockquote {
+    margin-left: 2rem;
+    border-left: #888888 solid 3px;
+    padding-left: 0.5rem;
+}
+
+blockquote.dense > p {
+    line-height: 1rem;
+    text-indent: 0;
+}
+
+blockquote > footer {
+    margin-top: 1rem;
+    font-style: italic;
+}
+
 code {
     font-size: large;
     background-color: #eee;
