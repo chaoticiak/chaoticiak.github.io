@@ -36,22 +36,33 @@ p {
 h2 {
     font-size: 1.7rem;
     color: #690;
-    margin-top: 1.5rem;
-    margin-bottom: 0.4rem;
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
 }
 
 h3 {
     font-size: 1.3rem;
     color: #690;
-    margin-top: 1rem;
-    margin-bottom: 0.3rem;
+    padding-top: 0.3rem;
+    margin-top: 0.7rem;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0;
 }
 
 h4 {
-    font-size: medium;
+    font-size: 1.1rem;
     color: #690;
-    margin-top: 1rem;
-    margin-bottom: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-top: 0.7rem;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0;
+}
+
+h2:target, h3:target, h4:target {
+    background-color: #dfb;
+    border-right: #690 8px double;
 }
 
 #title {
