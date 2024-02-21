@@ -2,129 +2,18 @@
 <html>
 
 <head>
-    <title>Penalty theory - chaoticiak.github.io</title>
+    <title>Redirecting...</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .has-title {
-            border-bottom: 1px dashed;
-        }
-
-        .equation {
-            text-align: center;
-        }
-    </style>
+    <meta http-equiv="refresh" content="5;url=writing/penalty-theory-for-dynasty-genres.html" />
 </head>
 
 <body>
-<h1 id="title">Penalty theory for dynasty genres</h1>
-<nav id="menu"><a href="index.html">Main website</a></nav>
-    
-<div id="lastupdated">
-<p>Last updated 04 February 2024: Please go to one of the other resources linked below.</p>
-<p>Previously created 17 November 2020: Note that this page will likely be taken down as there are much better other sources out there.</p>
-</div>
 
-<p><strong class="important">There are better resources for penalty theory out there.</strong> The two I know are <a href="https://tck.mn/blog/penalty-theory/">Penalty theory in dynasty puzzles (by tckmn)</a> and <a href="https://docs.google.com/document/d/1WW2WKuCNrakIXDomgt5onrL38H1FAWU0onLa-3KXF0M/edit#heading=h.czfcddt6p42n">Teal's Mini Heyawake Guide :)) (by Teal)</a>. I'm leaving this below as preservation because I found this article being linked in several places, but I'm not updating this any more as others are doing a much better job than me. What follows below are completely unchanged from when I first posted this quick draft in 2020.</p>
+<p>I moved the content on this page to <a href="writing/penalty-theory-for-dynasty-genres.html"><b>a new page</b></a>. Please update your bookmarks.</p>
+<p>You should be automatically redirected within a few seconds; if not, please click the above link.</p>
+<!-- Delete this page at some point. Make sure to update all existing links. -->
 
-<hr>
-
-    <p>I'll clean this up for better presentation later. <a href="https://twitter.com/chaotic_puzzles/status/1259012122878423041">Old Twitter thread.</a></p>
-    <p>The penalty equation for dynasty genres, on <span class="has-title" title="I think">any subset of the grid</span>, is as follows:</p>
-    <p class="equation">
-        (3 &times; number of black squares)<br>
-        + (number of primitive loops)<br>
-        + <span class="has-title" title="Over all segments of the perimeter">&Sigma;</span> (ceiling(perimeter segment length / 2) - number of black squares on this segment)<br>
-        <br>=<br><br>
-        (grid size)<br>
-        + (number of odd-length perimeter segments / 2)<br>
-        + (number of white components)
-    </p>
-    <hr>
-    <p>The idea is to count pairs of (cell, a side of that cell), and then categorize them depending on how the side looks. Note that for each color of cells, there are exactly 4 &times; number of squares of that color. Also, there are only a few kinds of sides: white-white (between two white squares), white-black (between a white and a black), white-edge (a white square on the perimeter), black-edge (a black square on the perimeter). There is no black-black because this is a dynasty genre, and there is no edge-edge since it's meaningless.</p>
-    <p>For white cells, each white-white contributes two pairs, so:</p>
-    <p class="equation">
-        (4 &times; number of black cells) = (number of black-white sides) + (number of black-edge sides)
-    </p>
-    <p>For black cells, there is no black-black, so:</p>
-    <p class="equation">
-        (4 &times; number of white cells) = (2 &times; number of white-white sides) + (number of white-black sides) + (number of white-edge sides)
-    </p>
-    <p>We also have other equations. For example, the following is straightforward:</p>
-    <p class="equation">
-        (number of black cells) + (number of white cells) = (grid size)
-    </p>
-    <p>Meanwhile, the following is not at all obvious. This can be proven using graph theory; treating white squares as vertices and adjacent white squares as edges, by Euler's characteristic the number of edges is at least (number of vertices - number of components). Each extra edge is given by a "primitive loop"; essentially, a set of primitive loops has the property that no loop can be "obtained" from the other.</p>
-    <p>As an example, consider a 2&times;3 rectangle. There are 3 loops (two small squares and one the whole rectangle), but only 2 primitive ones: whichever 2 you take, the last one follows from the two.</p>
-    <p class="equation">
-        (number of white-white sides) = (number of white cells) - (number of white components) + (number of primitive loops)
-    </p>
-    <p>Finally, for each segment of perimeter,
-    <p class="equation">
-        (number of white-edge sides on this segment) - (number of black-edge sides on this segment)<br>
-        =<br>
-        (length of this segment) - (2 &times; number of black squares on this segment)<br>
-        =<br>
-        2 &times; (ceiling(length of segment) / 2 - number of black squares on this segment)<br>
-        - (1 if the segment is odd length, 0 otherwise)
-    </p>
-    <p>Note that we design the equation this way because the number of black edges is at most ceiling(length of segment) / 2, so the bracketed expression in the second-to-last line is nonnegative. Therefore, adding over all perimeter segments,</p>
-    <p class="equation">
-        (number of white-edge sides) - (number of black-edge sides)<br>
-        =<br>
-        2 &times; <span class="has-title" title="Over all segments of the perimeter">&Sigma;</span> (ceiling(length of segment) / 2 - number of black squares on this segment)<br>
-        - (number of odd-length perimeter segments)
-    </p>
-    <hr>
-    <p>We subtract the first two equations (counting white and black sides) to get</p>
-    <p class="equation">
-        (4 &times; number of black cells)<br>
-        - (4 &times; number of white cells)<br>
-        =<br>
-        (number of black-edge sides - number of white-edge sides)<br>
-        - (2 &times; number of white-white sides)
-    </p>
-    <p>Using the white-white side equation,</p>
-    <p class="equation">
-        (4 &times; number of black cells)<br>
-        - (4 &times; number of white cells)<br>
-        =<br>
-        (number of black-edge sides - number of white-edge sides)<br>
-        - (2 &times; number of white cells)<br>
-        + (2 &times; number of white components)<br>
-        - (2 &times; number of primitive loops)
-    </p>
-    <p>Using the grid size equation and simplifying the common term,</p>
-    <p class="equation">
-        (6 &times; number of black cells)<br>
-        - (2 &times; grid size)<br>
-        =<br>
-        (number of black-edge sides - number of white-edge sides)<br>
-        + (2 &times; number of white components)<br>
-        - (2 &times; number of primitive loops)
-    </p>
-    <p>Using the perimeter equation,</p>
-    <p class="equation">
-        (6 &times; number of black cells)<br>
-        - (2 &times; grid size)<br>
-        =<br>
-        2 &times; <span class="has-title" title="Over all segments of the perimeter">&Sigma;</span> (ceiling(perimeter segment length) / 2 - number of black squares on this segment)<br>
-        - (number of odd-length perimeter segments) / 2
-        + (2 &times; number of white components)<br>
-        - (2 &times; number of primitive loops)
-    </p>
-    <p>Dividing by 2 and rearranging gives the penalty equation above:</p>
-    <p class="equation">
-        (3 &times; number of black squares)<br>
-        + (number of primitive loops)<br>
-        + <span class="has-title" title="Over all segments of the perimeter">&Sigma;</span> (ceiling(perimeter segment length / 2) - number of black squares on this segment)<br>
-        =<br>
-        (grid size)<br>
-        + (number of odd-length perimeter segments / 2)<br>
-        + (number of white components)
-    </p>
-    <p>Note that two of three terms of the bottom side is constant (grid size and number of odd-length perimeter segments). When applied to the whole grid, the number of white components is 1, so the entire bottom side is constant.</p>
-    <p>If you're applying penalty theory, you usually have a very large number of black squares, and usually a known number of them too (or at least a lower bound). Note that the other two terms of the top side are also nonnegative, so they must be very small; this is what lets you count penalties.</p>
 </body>
 
 </html>

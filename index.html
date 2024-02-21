@@ -7,80 +7,155 @@
     <meta property="og:description" content="Personal website of chaotic_iak / Ivan Koswara / Sky">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-<h1 id="title">chaoticiak.github.io</h1>
-<nav id="menu"><a href="index.html">Main</a> &bull; <a href="works.html">Works</a> &bull; <a href="logicpuzzles.html">Logic</a> &bull; <a href="faves.html">Faves</a> &bull; <a href="furry.html">Furry</a></nav>
+<header>
+    <h1 id="title">chaoticiak.github.io</h1>
+    <nav id="menu"><ul>
+        <li><a href="index.html">chaoticiak.github.io</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="logic.html">Logic</a></li>
+        <li><a href="faves.html">Faves</a></li>
+        <li><a href="furry.html">Furry</a></li>
+    </ul></nav>
+</header>
 
-<div id="lastupdated">
-<p>Last updated 31 December 2023: Main page updated to become an "about me" page. A lot of other pages are also updated.</p>
+<div id="changelog">
+<p><b>Last updated <time datetime="2024-02-XXX">XXX February 2024</time>.</b> Complete rework of the site! I rewrote a lot of things, both content matter (like prose) and behind the scenes (like stylesheet).</p>
+<details><summary>Full changelog of the XXX February 2024 update</summary>
+    <ul>
+        <li><strong>Some pages have been moved.</strong> The logic archive is now located at <b><a href="logic.html">logic.html</a></b> instead of <s>logicpuzzles.html</s>. My MITMH24 recap is now <b><a href="writing/mitmh24.html">writing/mitmh24.html</a></b>, in a new directory. My penalty theory writeup is similarly moved to that directory, <b><a href="writing/penalty-theory-for-dynasty-genres.html">writing/penalty-theory-for-dynasty-genres.html</a></b>.</li>
+        <li>For some of the more popular pages that I moved, the old pages now redirect to the new pages. Please update your bookmarks!</li>
+        <li>Internally, I've divided the pages of the website into two. "Main pages" are those linked in the navigation menu on top-right; "supplemental pages" are everything else. I have different color accents for both.</li>
+        <li>Speaking of styling, there has been some other changes too. For example, the font throughout the website is now <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> instead of whatever your default is.</li>
+        <li><strong>There is now some JavaScript.</strong> It's used to add intra-page links; the ones with &#x1F51D; and &#x1F517; are now auto-generated. If you disable JavaScript for some reason, they will not generate. I try my best to keep the site otherwise functional, though.</li>
+        <li><b><a href="index.html">index.html</a></b> (this page): The "about me" section has been chopped up into sections. The "online presence" sections have been merged into a single "contact me" section.</li>
+        <li><b><a href="works.html">works.html</a></b>: A little bit of restructuring and rewriting.</li>
+        <li>Speaking of works, I copied several things to my website. Two of my essays, <a href="writing/what-is-a-puzzle.html"><cite>What is a puzzle?</cite></a> and <a href="writing/maro-was-right.html"><cite>Maro was right</cite></a>, are now on my website as a copy from the Cohost posts.</li>
+        <li>In addition, my oldest fanfiction ever, <a href="writing/story-crash.html"><cite>Crash!</cite></a>, is also preserved to avoid relying on FanFiction.Net. oh god i wrote this in 2011 this is embarrassing</li>
+        <li><b><a href="logic.html">logic.html</a></b>: <strong>Keep track of your solved puzzles!</strong> The logic archive page now supports keeping track of which puzzles you've solved. This requires JavaScript, and it stores to your device and uses the local storage of your browser.</li>
+        <li><b><a href="logic.html">logic.html</a></b>: There are also a lot of other updates; check the page itself.</li>
+        <li><b><a href="faves.html">faves.html</a></b>: A whole lot more puzzles and games, with quite a big restructuring.</li>
+        <li><b><a href="furry.html">furry.html</a></b>: Some amount of restructuring, as well as <a href="furry.html#au">a section for my alternate universe</a>.</li>
+        <li>The subpage from furry.html is also updated.</li>
+        <li>Behind the scenes, I've restructured the pages and the stylesheets. There are now more &lt;section&gt;s and such, although you won't see them unless you dive into the source.</li>
+    </ul>
+</details>
+<details><summary>Previous updates</summary>
+    <p><b><time datetime="2023-12-31">31 December 2023</time>.</b> Main page updated to become an "about me" page. A lot of other pages are also updated.</p>
+</details>
 </div>
 
-<p>Welcome to my site! I'm most widely known as <strong>chaotic_iak</strong> online, although I'm also known under other names: <strong>Ivan Koswara</strong> when my real name matters, and <strong>Sky</strong> in furry circles as the name of my main fursona.</p>
-<p>This is my personal website. Feel free to browse through the menu above. I'm also present in many other websites; see below.</p>
+<p>Welcome to my site, <b>chaoticiak.github.io</b>! You might know me as <b>chaotic_iak</b> online, or <b>Ivan Adrian Koswara</b> in real life, or <b>Sky</b> in furry circles.</p>
+
+<p style="margin-bottom: 5rem;">This is my personal website. You can navigate through the main pages of the site through the menu above. Read on for information about me and how to contact me.</p>
 
 
 
-<section><h2>About me</h2>
-    <p>My full name is <strong>Ivan Adrian Koswara</strong>, although I sometimes drop the middle name when I want to use a shorter name. I'm from Indonesia and was born in the 1990's. I study theoretical computer science, and (as of this writing) I am a Ph.D. student in National University of Singapore. I have <a href="works.html#publications">a few publications</a>.</p>
-    <p>Online, my username is <strong>chaotic_iak</strong>, sometimes with the underscore dropped. There's a story about this username (see below). Generally, I use my real name when interacting with people I first knew in real life, and my username when interacting with people I first knew online. I'm not a stickler with usernames; you can also call me "chao" (most common), "chaotic", or "iak". If you want to pronounce "chao", you can use either a "hard ch" sound (like <strong>ch</strong>aos) or a "soft ch" sound (like <strong>ch</strong>oose).</p>
-    <details><summary>Click for a story about my username</summary>
-        <p>Back in my kid days, I was a big fan of the Sonic the Hedgehog franchise. (Now I'm much more a big fan of Pokémon instead, although I do still indulge in Sonic games from time to time.) Two of my favorite characters were Tails and Cream, and I knew there was something called "chao" in there. So I took them together as "Chao" + "T" for Tails + "C" for Cream, with an "i" to make it a full word, capitalized as "ChaoTiC". I added an identifier "iak" from my real name, and that was my username: ChaoTiC_iak.</p>
-        <p>Over time, I found this reasoning (and the capitalization) to be pretty dumb. I kept the letters, but dropped the capitalization, thereby also dropping the reference to Sonic.</p>
-    </details>
-    <p>I am also a <a href="furry.html">furry</a>. My main fursona is <a href="furry.html#sky"><strong>Sky</strong></a>, an anthro <a href="https://bulbapedia.bulbagarden.net/wiki/Shaymin_(Pok%C3%A9mon)">Shaymin Sky Forme</a>. As such, I'm also often called Sky in furry circles. I love fluffy and cute things, and <a href="faves.html#art">my favorite artists</a> are representative of this.</p>
-    <p>In addition to the academic, I also like to solve and write puzzles. Logic puzzles, like Sudoku, are my favorite kind of puzzles; I've written <a href="logicpuzzles.html">a lot of logic puzzles</a>. That said, I've also written <a href="works.html#puzzles-and-games">other kinds of puzzles</a>.</p>
-    <p>I'm also a gamer, although <a href="faves.html#games">the games I like</a> are generally niche. My favorite genres are puzzle games and rhythm games, although I also play other games (most notably the Pokémon series). I don't like realistic graphics and shy away from many AAA games. I value gameplay and innovation a lot, so I generally gravitate toward indie games that can go wild with their premise.</p>
-</section>
+<section><h2 id="about">About me</h2>
 
-
-
-<section><h2>Online presence</h2>
-    <p>This is where you can find the most generic, universal "me". It's basically just my real-life self but online (as opposed to me that's tailored to a more specific audience).</p>
-    <p>Note that I am <em>not</em> fond of random chatter. If I don't already know you and you wish to contact me, please also state where you know me from and why you're contacting me; just a "hi" is not enough. If I don't know what you want, I'll likely ignore your chat, and it's possible I end up blocking you. So please make it clear what you want in your first message.</p>
-    <p>All those <span class="important">[my username]</span>s are just <strong>chaotic_iak</strong>. Some mild obfuscation to defeat bots that just scrape everything.</p>
+    <section><h3 id="rl">Real life and academic</h3>
+        <p>My full name is <b>Ivan Adrian Koswara</b>, although I sometimes drop the middle name (into <b>Ivan Koswara</b>) when it's not needed and I want to use a shorter name.</p>
+        <p>My pronouns are <b>he/him</b>, but I'm not a stickler about it.</p>
+        <p>I'm from Indonesia and was born in 1995. I received my bachelor and masters degrees from KAIST in South Korea. Currently, I am a Ph.D. student in National University of Singapore. I am studying theoretical computer science and mathematics, and I have published <a href="works.html#publications">a few papers</a>.</p>
+        <p>During my school days, I participated in numerous math competitions. I was a medalist for the national mathematical olympiad (Olimpiade Sains Nasional) and I was a participant in <a href="https://www.imo-official.org/participant_r.aspx?id=21794">International Mathematical Olympiad in 2012</a>.</p>
+    </section>
     
-    <dl>
-        <dt><a href="https://twitter.com/chaotic_iak">Twitter (@chaotic_iak)</a></dt>
-            <dd>My stream of thoughts. Often retweets cute furry/Pokémon pictures.</dd>
-        <dt><a href="https://cohost.org/chaoticiak">cohost (@chaoticiak)</a></dt>
-            <dd>I set up an alternative account due to the Twitter fiasco in November 2022. I've since started using it as a blog, although I'm not that active. Yet.</dd>
-        <dt><a href="https://www.reddit.com/user/chaotic_iak">Reddit (chaotic_iak)</a></dt>
-            <dd>I'm somewhat active on Reddit; you can usually find me in r/magicTCG and r/dominion.</dd>
-        <dt><a href="https://discord.com">Discord</a> (@<span class="important">[my username]</span>)</dt>
-            <dd>Basically the modern IRC. I'm a moderator in a puzzling community, and I'm in several other servers.</dd>
-        <dt><a href="https://telegram.org">Telegram</a> (@<span class="important">[my username]</span>)</dt>
-            <dd>I'm also on Telegram. For some reason I usually prefer Telegram chat for furry contacts and Discord DMs for non-furry contacts, but you can contact me either way.</dd>
-        <dt>E-mail (<span class="important">[my username]</span>@yahoo.co.id)</dt>
-            <dd>I also have several e-mail accounts for different purposes; you can contact me through this one.</dd>
-    </dl>
-</section>
-
-
-
-<section><h2>Puzzles and games</h2>
-    <p>I used to solve and write puzzles. (Nowadays my output is much smaller, but I still do it from time to time.) I also play a lot of games and I enjoy designing games, both board games and video games.</p>
+    <section><h3 id="online">Online</h3>
+        <p>Online, my username is <b>chaotic_iak</b>. Sometimes the underscore is dropped. There is a silly story behind this username (see below).</p>
+        <p>I'm not picky on how you call me. I've heard people calling me <b>chaotic</b>, <b>chao</b>, or <b>iak</b>. I personally recommend <b>chao</b>, but I respond to any of them. Likewise, if you want to pronounce <b>chao</b>, you can use a "hard ch" sound (like the English word <i>chaos</i>) or a "soft ch" sound (like <i>choose</i>).</p>
+        <p>I'm active in a lot of places online. <a href="#contact">See below</a> for ways to reach me.</p>
+        <details class="notecard callout"><summary>A story about my username</summary>
+            <p>When I was still young, I was a big fan of the Sonic the Hedgehog franchise. Two of my favorite characters were <a href="https://sonic.fandom.com/wiki/Miles_%22Tails%22_Prower">Tails</a> and <a href="https://sonic.fandom.com/wiki/Cream_the_Rabbit">Cream</a>, and I knew there was something called <a href="https://sonic.fandom.com/wiki/Chao">Chao</a>.</p>
+            <p>Seems like I already had some fun with words even as a kid. I took them together as "Chao" + "T" for Tails + "C" for Cream, with an "i" to make it a full word, and ended up with <b>ChaoTiC</b> with that capitalization. I added an identifier "iak" (initials of my real name) to give my username: <b>ChaoTiC_iak</b>.</p>
+            <p>Over time, I realized this reasoning was kind of dumb, but the name had already stuck; I already associated myself with this username. At the very least, I dropped the capitalization so that it wasn't awful to type, leading to my current username <b>chaotic_iak</b>. This mostly dropped the reference to Sonic, although the nickname <b>chao</b> was still sort of derived from there.</p>
+            <p>(If you're wondering, nowadays I'm a big fan of Pokémon instead. I do still play some Sonic games from time to time, just not as much a fanatic over the series as before.)</p>
+        </details>
+        
+        <section><h4 id="puzzlers-club">Puzzlers Club</h4>
+            <p>One place I hang out the most is <b>Puzzlers Club (<abbr>PC</abbr>)</b>. It's a community on Discord that started in 2017, as a spin-off of a previous community that had split focus. As per its name, it's primarily focused on puzzles, but it's also a community with diverse other interests (mostly similarly thinky). I am a moderator there.</p>
+            <p>Puzzlers Club has produced several things:</p>
+            <ul>
+                <li>Numerous logic puzzle sets for 24-Hour Puzzle Championship and Logic Masters India. Generally I organized these; you can find write-ups about them on <a href="logic.html#events">my logic archive</a>.</li>
+                <li>A PC-only event called Logic Showcase, where people are given a prompt to write a particular kind of logic puzzles, and the puzzles are then put up for a vote. I contributed a few puzzles to various installments of this.</li>
+                <li>A PC-only event called Secret Solver, which is like <a href="https://en.wikipedia.org/wiki/Secret_Santa">Secret Santa</a> but you write puzzles instead of buying gifts for your recipient.</li>
+            </ul>
+            <p>Unfortunately, it is private. New members need to be vouched/recommended by an existing member. If you saw advertisement for joining PC, such as in past <abbr title="24-Hour Puzzle Championship">24HPC</abbr> and <abbr title="Logic Masters India">LMI</abbr> contests, that no longer works.</p>
+        </section>
+    </section>
     
-    <dl>
-        <dt><a href="https://twitter.com/chaotic_puzzles">Twitter (@chaotic_puzzles)</a></dt>
-            <dd>A Twitter account for my puzzles. Now pretty defunct; I'm still figuring out how and where I want to share my puzzles.</dd>
-        <dt><a href="https://logicmastersindia.com/forum/">Logic Masters India</a> (chaotic_iak)</dt>
-            <dd>I used to do a lot of puzzle contests on LMI. Not only solving them, but I also <a href="works.html#logic-puzzles">wrote several contests</a> as well.</dd>
-        <dt><a href="https://steamcommunity.com/id/chaotic_iak/">Steam (chaotic_iak)</a></dt>
-            <dd>I have a Steam account and I play a lot of games. As explained above, though, most of them are indie games. Some of my favorite games <a href="faves.html#games">get a mention</a>.</dd>
-        <dt><a href="https://www.nintendo.com/us/switch/">Nintendo Switch</a> (chaoticiak, SW-6267-2170-3046)</dt>
-            <dd>I have a Switch too. I do play some AAA games, but usually Nintendo stuff. Lots of Pokémon, occasional Mario. And before you ask, I don't have any other gaming console and am not interested in one.</dd>
-    </dl>
+    <section><h3 id="puzzle">Puzzles and games</h3>
+        <p>I love puzzles. I solve and write quite a lot of them.</p>
+        <p>My favorite kinds of puzzles are logic puzzles. Logic puzzles in this case means things like <a href="https://en.wikipedia.org/wiki/Sudoku">Sudoku</a> and <a href="https://en.wikipedia.org/wiki/Kakuro">Kakuro</a>: puzzles you can solve without knowing anything about words, or history, or pop culture, or anything like that. I have written a ton of logic puzzles, including some logic competitions, and I've been in the process of filling up <a href="logic.html">my logic archive</a>.</p>
+        <p>I also enjoy playing "thinky games", specific kinds of video games that are about solving puzzles and challenges. Most often they are puzzle games such as <a href="https://www.monsterexpedition.com"><cite>A Monster's Expedition</cite></a> and <a href="https://www.hempuli.com/baba/"><cite>Baba Is You</cite></a>. While I don't have commercial releases, I have written <a href="works.html#puzzlescript">some free games using PuzzleScript</a>.</p>
+        <p>I also occasionally dabble in puzzlehunts: events containing puzzles with no instructions, where you have to first figure out what you even need to do. Hunts are done in teams, and I have gone through multiple teams, mainly following where my friends are. My current team is <a href="https://www.puzzles.wiki/wiki/%E2%9B%8E_UNICODE_EQUIVALENCE"><b>&#x26CE; UNICODE EQUIVALENCE</b></a>.</p>
+    </section>
+    
+    <section><h3 id="furry">Furry</h3>
+        <p>I am a <a href="furry.html">furry</a>. My main fursona is <b><a href="furry.html#sky">Sky</a></b>, an anthro <a href="https://bulbapedia.bulbagarden.net/wiki/Shaymin_(Pok%C3%A9mon)">Shaymin Sky Forme</a>. I have made several friends as a furry, and I'm known as <b>Sky</b>, the same as my fursona's name.</p>
+        <p>Besides Sky, I also have several other characters, most of them anthro Pokémon.</p>
+        <p>I love fluffy and cute things. My favorite Pokémon species are mainly the cute kinds. Likewise, <a href="furry.html#art">my favorite furry pictures</a> are also the cute kinds.</p>
+    </section>
+    
 </section>
 
 
 
-<section><h2>Furry circles</h2>
-    <p>I'm also a furry. Most of my furry activity takes place on <a href="https://twitter.com/chaotic_iak">Twitter</a> (@chaotic_iak, same link as above), mostly confined into retweeting cute things.</p>
-    <details class="warning"><summary>Warning: NSFW content may follow</summary>
-        <p>I am also active in 18+ spaces. I don't see any problem of being open about this side of myself, but I don't want to expose anyone randomly. If you wish to click through, go to <a href="nsfw.html">my NSFW page</a> for more details.</p>
-    </details>
+<section><h2 id="contact">Contact me</h2>
+    <p>These are some places you can find me online, which includes the most common ways to contact me.</p>
+    <p><strong>Note:</strong> <a href="https://nohello.net/en/">Please do not just say hello.</a> You're welcome to contact me, but tell me how you found me (or this website) and why you're contacting me. Otherwise, you risk having me ignore your message, or even assume you're a spammer and block you.</p>
+    
+    <section><h3 id="general-me">General online presence</h3>
+        <section><h4>Twitter: <a href="https://twitter.com/chaotic_iak">@chaotic_iak</a></h4>
+            <p>I used to use it a lot; nowadays I mostly retweet cute furry and Pokémon pictures.</p>
+        </section>
+        <section><h4>Cohost: <a href="https://cohost.org/chaoticiak">@chaoticiak</a></h4>
+            <p>After the Twitter buyout in November 2022, I started finding other spaces online. I signed up for Cohost, and now I think it's my main place to post things publicly.</p>
+        </section>
+        <section><h4>Bluesky: <a href="https://bsky.app/profile/chaoticiak.bsky.social">@chaoticiak.bsky.social</a></h4>
+            <p>After the Twitter buyout in November 2022, I started finding other spaces online. I got an invite link for Bluesky and set up an account. I haven't really used it, though; I'm just following a few accounts.</p>
+        </section>
+        <section><h4>Reddit: <a href="https://www.reddit.com/user/chaotic_iak">chaotic_iak</a></h4>
+            <p>A majority of my Reddit activity is on <a href="https://www.reddit.com/r/magicTCG/">r/magicTCG</a>; I rarely go to other subreddits.</p>
+        </section>
+    </section>
+    
+    <section><h3 id="chat">Chatting platforms</h3>
+        <p><strong>Note:</strong> Replace <b>[my username]</b> by <b>chaotic_iak</b>. A little obfuscation to defeat bots.</p>
+        
+        <section><h4>Discord: @[my username]</h4>
+            <p>A lot of my online activity is on Discord.</p>
+            <p>I'm in a puzzle server called Puzzlers Club, where I'm a moderator and one of the earliest members. I post a lot of content there; only things that I think are good enough will find their way out the server. That server is private, though.</p>
+            <p>I'm also in many other servers, but I don't talk much in them.</p>
+        </section>
+        <section><h4>Telegram: @[my username]</h4>
+            <p>For some reason, I mainly use Telegram for furry contacts, and Discord for other online friends. But you can contact me either way.</p>
+        </section>
+        <section><h4>E-mail</h4>
+            <p>My personal e-mail is <b>[my username]@yahoo.co.id</b>. <strong>Note the ending of the address.</strong></p>
+            <p>My business/academic e-mail is <b>[my name]@comp.nus.edu.sg</b>, where <b>[my name]</b> is <b>ivanak</b>.</p>
+            <p>I check my e-mails pretty often; you can expect it to be read within 24 hours, and likely less. If I haven't replied by then, either I forgot to reply to your message or it went to my spam folder; try sending me another or contacting me some other way.</p>
+        </section>
+    </section>
+    
+    <section><h3 id="gaming">Gaming accounts</h3>
+        <section><h4>Logic Masters India: <a href="https://logicmastersindia.com/forum/view-profile.asp?uid=2069">chaotic_iak</a></h4>
+            <p>I used to participate in a lot of LMI contests. (I still do, although with occasional hiatus.)</p>
+            <p>My profile has a list of my past performances. It also has some of my authored contests, although I also archive them on <a href="logic.html#where-lmi">my logic archive</a> page.</p>
+        </section>
+        <section><h4>Steam: <a href="https://steamcommunity.com/id/chaotic_iak/">chaotic_iak</a></h4>
+            <p>I play a lot of games and have quite particular opinions about them. Most games I play are indie.</p>
+            <p>I also often buy games and then don't find the time to play them. Oops.</p>
+        </section>
+        <section><h4>Nintendo Switch: chaoticiak (SW-6267-2170-3046)</h4>
+            <p>I mainly play games on Steam, but I do also play on Switch. Usually games where a joystick is preferred over a keyboard.</p>
+            <p>Most of my AAA gaming happens here; a lot of Pokémon, occasional Mario. Sometimes I double-dip on some indie games I love to support them extra.</p>
+            <p>I don't have any other gaming console and am not interested in getting one.</p>
+        </section>
+    </section>
+    
 </section>
 
 </body>

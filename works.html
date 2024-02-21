@@ -7,191 +7,276 @@
     <meta property="og:description" content="Various works of chaotic_iak / Ivan Koswara">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-<h1 id="title">My works</h1>
-<nav id="menu"><a href="index.html">Main</a> &bull; <a href="works.html">Works</a> &bull; <a href="logicpuzzles.html">Logic</a> &bull; <a href="faves.html">Faves</a> &bull; <a href="furry.html">Furry</a></nav>
+<header>
+    <h1 id="title">My works</h1>
+    <nav id="menu"><ul>
+        <li><a href="index.html">chaoticiak.github.io</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="logic.html">Logic</a></li>
+        <li><a href="faves.html">Faves</a></li>
+        <li><a href="furry.html">Furry</a></li>
+    </ul></nav>
+</header>
 
-<div id="lastupdated">
-<p>Last updated 17 January 2024: I wrote a <a href="mitmh24.html">MITMH24 recap</a>.</p>
-<p>Previously updated 05 January 2024: I have another publication.</p>
-<p>Previously updated 25 May 2023: The "academic" section is now renamed "nonfiction", because I have a few essays that are even less academic than the penalty theory article.</p>
-<p>Previously updated 12 May 2023: Fresh new look! Also folded the old Articles page here.</p>
+<div id="changelog">
+<p><b>Last updated <time datetime="2024-02-XXX">XXX February 2024</time>.</b> Some content update along with the full site revamp. The Cohost essays and my old 2011 story are now archived here too.</p>
+<details><summary>Previous updates</summary>
+    <p><b><time datetime="2024-01-17">17 January 2024</time>.</b> I wrote a <a href="mitmh24.html">MITMH24 recap</a>.</p>
+    <p><b><time datetime="2024-01-05">05 January 2024</time>.</b> I have another publication.</p>
+</details>
 </div>
 
-<p>I've created a lot of things, many of them scattered all over the internet. I figured archiving them here is not a bad idea.</p>
+<p>I've created a lot of things, for a wide range of "created" and "things". Here's a collection of them that I can recall. Feel free to <a href="index.html#contact">contact me</a> if you find something not listed.</p>
 
 
 
-<section><h2 id="nonfiction"><a href="#title" class="anchor">&#128285;</a> <a href="#nonfiction" class="anchor">&#128279;</a> Non-fiction</h2>
-    <p>I'm an academic, and in general I occasionally write about non-fiction, "serious" topics.</p>
-    <p>As of the latest update of this page, I have a Masters degree and am pursuing my Ph.D. degree. My favorite topic of research is computational complexity theory, with a side of recreational mathematics. Normally, if I was to write a paper, I would look around this topic. But as academic research goes, sometimes I have a lead in other topics.</p>
+<section><h2 id="nonfiction">Nonfiction writing</h2>
+    <p>I have written many pieces of nonfiction, "serious" writing. Some of them are academic papers, coming from an academic background. Others aren't as academic, but I still wrote them for some purpose.</p>
     
+    <section><h3 id="publications">Academic publications</h3>
     
-    <section><h3 id="publications"><a href="#title" class="anchor">&#128285;</a> <a href="#publications" class="anchor">&#128279;</a> Academic publications</h3>
-        <p>Various papers and publications I've written. ...well, there's only one so far.</p>
-    
-        <h4>Bit-Complexity of Classical Solutions of Linear Evolutionary Systems of Partial Differential Equations</h4>
-        <div style="margin-top: -0.2em; font-size: 0.9em;">
+        <article><h4>Bit-Complexity of Classical Solutions of Linear Evolutionary Systems of Partial Differential Equations</h4>
+        <p class="subtitle">
             Ivan Koswara, Gleb Pogudin, Svetlana Selivanova, Martin Ziegler<br>
             <em>Journal of Complexity</em>, Vol. 76, 2023.
-        </div>
+        </p>
+            <p>A project that my supervisor (Martin Ziegler) worked on with a few colleagues, including me. I contributed on a specific part of this project, which became my masters thesis.</p>
+            <details><summary>Layman explanation</summary>
+                <p>The general problem tackled by this paper is about partial differential equations. We want to approximate the solution by dividing space and time into discrete steps, i.e. we sample the solution at regular intervals and turn the differential equation into a <em>difference</em> equation, which can be solved by <a href="https://en.wikipedia.org/wiki/Matrix_difference_equation">raising a matrix to a power</a>.</p>
+                <p>The problem with approximation is that errors can easily accumulate. In "normal" programming, there is often a floating-point data type to handle real numbers crudely. This is usually good enough for some basic purposes, but when we want more precision and correctness, we have to do something custom.</p>
+                <p>There is a branch of theoretical computer science that deals with the computability of real numbers, usually called <b>exact arithmetic</b>. Ultimately, the question is simply, how much precision do we need to approximate the solution of a PDE, and how efficient can we do it?</p>
+                <p>To see how this problem is not so clear, note the following. Obviously we can get more precision by sampling more points in space. Say, we want to get one extra bit of precision; then we halve the step size. But this means we sample twice as many points in space, and this causes the matrix to be twice as large in each dimension. The problem grows exponentially.</p>
+                <p>The part I worked on is about a special case of PDEs: the PDE is circular. In this case, the matrix becomes a <a href="https://en.wikipedia.org/wiki/Circulant_matrix">circulant matrix</a>, which further reduces down to a polynomial. My problem becomes about raising a polynomial to some exponential power. However, due to the circular property, I had to sum up the coefficients of not just one term, but many terms; exponentially many terms, in fact.</p>
+                <p>Since this problem is derived from PDEs, the polynomial also has some specific properties, such as the sum of coefficients being 1. I took advantage of it: I managed to apply probabilistic theory techniques to show that the coefficient for some exponent would be too small and could be approximated by 0, meaning I only had to compute a small number of the terms.</p>
+            </details>
+        </article>
         
-        <p>As part of my Masters degree research, I worked on a specific problem. It's matrix multiplication/exponentiation, but with two specific criteria: the matrix is huge (formally, exponential-space; the input is a black box algorithm that can spit out any given entry), and the entries are real numbers (and so not precise; formally, that black box also accepts a precision argument and gives an approximation of the entry with that precision). It's not surprising that the matrix exponentiation problem with this setting is PSPACE-hard.</p>
-        <p>...or well, that's the most general formulation of the problem. The matrix has a lot of structure, since this problem really comes from trying to approximate solutions to partial differential equations. (The gist is you're sampling points at regular interval; then the continuous nature of a PDE becomes discrete, and a computer can approximate it.) When I brought certain structures to the matrix, the complexity of the problem went down. One particular result is, if the matrix is a circular band matrix with a fixed constant bandwidth, the matrix exponentiation problem falls into the complexity class #P (or its equivalent with real computation).</p>
-        <p>This complexity theory part of the research became my Masters thesis. The cited paper above talks more broadly with all the PDE setting.</p>
-
-        <h4>Egalitarian Price of Fairness of Indivisible Goods</h4>
-        <div style="margin-top: -0.2em; font-size: 0.9em;">
+        <article><h4>Egalitarian Price of Fairness of Indivisible Goods</h4>
+        <p class="subtitle">
             Karen Frilya Celine, Muhammad Ayaz Dzulfikar, Ivan Adrian Koswara<br>
             <em>PRICAI 2023: Trends in Artificial Intelligence</em>, 2024.
-        </div>
+        </p>
+            <p>A research project for a course that I and my friends did. The professor liked it and encouraged us to present it at a conference, so we did and got it published.</p>
+            <p>It's funny that we ended up publishing this in a conference about artificial intelligence, because this has nothing to do with it. But it's still published, and it's still a chance for us to make our names out there.</p>
+            <details><summary>Layman explanation</summary>
+                <p>The general problem is about the concept of <b>price of fairness</b> in fair division.</p>
+                <p>When we want to allocate a number of goods to some players, we are balancing various goals. We can optimize the social welfare, e.g. the total utility/value obtained by the players. However, this might lead to an absurdly unfair allocation, where many players feel they don't get a fair share. Alternately, we can try to appease everyone by making the division fair. However, the social welfare might end up being low as a result.</p>
+                <p>Price of fairness is invented to capture this concept. In short, this is the ratio of the maximum social welfare we can achieve if we don't have to make things fair, divided by the maximum social welfare if we <em>do</em> have to make things fair. A high price of fairness represents a huge cost to appease everyone.</p>
+                <p>This is a relatively recent concept that was invented in 2011. There have been several results about this in the past. Specifically, there is a paper about utilitarian price of fairness for divisible goods; about egalitarian price of fairness for divisible goods; and about utilitarian price of fairness for indivisible goods. Clearly, there's something missing.</p>
+                <p>The professor of the course pointed this to us, and we decided to pursue it. We investigated the egalitarian price of fairness for indivisible goods. Egalitarian welfare means the <em>lowest</em> utility obtained by the players, and we want to maximize this minimum. Indivisible goods means the goods are discrete and cannot be split arbitrarily; think of houses and computers, instead of cakes and parcels of land.</p>
+                <p>We looked at several properties: three fairness properties and two properties about maximizing another kind of welfare. For each one, we gave lower and upper bounds of the price of fairness. The proofs were diverse; several proofs were simply about giving a construction, while other proofs were more involved. One of the trickiest proofs, which we were proud to come up with, was about showing that the egalitarian price of fairness of <b>RR</b> (an allocation obtained by using the <a href="https://en.wikipedia.org/wiki/Round-robin_item_allocation">round-robin algorithm</a>) is at most 2<var>n</var>&minus;1 (where <var>n</var> is the number of players).</p>
+            </details>
+        </article>
+    
+    </section>
+    
+    <section><h3 id="essays">Essays and other pieces</h3>
         
-        <p>This started as the final project for a course I took during my Ph.D. study, on mechanism design (problems about taking individual preferences and returning an aggregate common result, such as voting and fair division). We investigated a concept called "price of fairness" in fair division.</p>
-        <p>Suppose we have goods to divide among players; each player values the goods differently, and we're looking to optimize some specific objective by assigning the goods to the players. Without any further restriction, we might be able to reach a high value; however, if we also require the division to be "fair" in some sense, it will cost us by reducing the maximum possible value. In this case, we're looking at maximizing the egalitarian welfare (the minimum value obtained by a player), and we're looking at various kinds of fairness criteria such as envy-freeness up to one good, balancedness, and such. We also look at the impact of maximizing another kind of welfare, whether this causes the egalitarian welfare to drop.</p>
-        <p>We did very well on this project, well enough that the lecturer advised us to publish it somewhere. The lecturer had some past papers published in similar conferences related to artificial intelligence. I still don't know how this is related to AI at all &mdash; it's more an economic / game theory thing &mdash; but we followed his advice anyway and got it published here.</p>
+        <article><h4><a href="writing/what-is-a-puzzle.html">What is a puzzle?</a></h4>
+        <p class="subtitle">Published <time datetime="2023-03-01">01 March 2023</time>, originally on <a href="https://cohost.org/chaoticiak/post/1037785-what-is-a-puzzle">Cohost</a></p>
+            <p>Being exposed to puzzles for a long time, I end up having a lot of opinions about them. This question is something that's been in my mind, and after several circumstances, I ended up writing my thoughts about it.</p>
+            <p>You can read the piece yourself. In summary, though, my definition is much more strict than others; when others think something is a bad puzzle, I simply think it's not a puzzle at all. Some important aspects include having to be authored by a human and having to convey some idea, because a puzzle is a medium of communication.</p>
+        </article>
+        
+        <article><h4><a href="writing/maro-was-right.html">Maro was right</a></h4>
+        <p class="subtitle">Published <time datetime="2023-05-23">23 May 2023</time>, originally on <a href="https://cohost.org/chaoticiak/post/1537948-maro-was-right">Cohost</a></p>
+            <p>Writing hunt puzzles isn't easy. But the thing bugging me is that, a lot of people say this is because "finding ideas is hard". I disagree with this strongly; I think ideas are easy to come with if you're willing to devote the time for it, although it may take a lot of iteration to shape an idea to the final product.</p>
+            <p>I wrote this piece as a result, where I described several examples in which I managed to force myself to come up with ideas on the spot. It didn't help; if any, I believe people ended up just being mad at me. I still stand by the opinion in this piece, though.</p>
+        </article>
+        
+        <article><h4><a href="writing/mitmh24.html">MITMH24: A Skymin's Perspective</a></h4>
+        <p class="subtitle">Published <time datetime="2024-01-17">17 January 2024</time></p>
+            <p>Another MIT Mystery Hunt came and went. By tradition, excited solvers wanted to write a recap of their experience to share with the world. For the 2023 edition, I wrote mine <a href="https://cohost.org/chaoticiak/post/1037253-mit-mystery-hunt-202">about a month late</a>. This time, I think this is one of the earliest recaps.</p>
+            <p>What makes the recap interesting is that I was hunting with my team, ⛎ UNICODE EQUIVALENCE. For many, this team seems to be full of mysteries; how did it form, why is it a powerhouse? And my writing reveals a bit of UE's internals. (It's nothing too weird; it's just a team of people with good chemistry, and we organize our work well.)</p>
+            <p>It also includes my opinion on the state of MITMH at the end of the piece, with some rather harsh words. MITMH is something dear to some people, and the fact that I'm willfully going against traditions ended up rubbing some people wrong. It's my piece, though, and I still stand by my opinion.</p>
+            <p>My only regret is not checking with UE whether what I was sharing would be okay. I did later clarify that the piece was entirely my opinion and beliefs, not anyone else's or UE's.</p>
+        </article>
+        
     </section>
     
-    
-    <section><h3 id="misc-nonfiction"><a href="#title" class="anchor">&#128285;</a> <a href="#misc-nonfiction" class="anchor">&#128279;</a> Miscellaneous</h3>
-        <p>Other things I've written that are non-fiction. Other than puzzles/games; those go to the next category.</p>
+    <section><h3 id="abandoned-writing">Abandoned writing</h3>
+        
+        <details><summary>Click to reveal</summary>
+        
+        <article><h4><a href="writing/games-are-hard.html">Games are hard</a></h4>
+        <p class="subtitle">Last updated <time datetime="2018-04-27">27 April 2018</time></p>
+            <p>Games and puzzles are hard. But how hard? There have been quite a lot of results on the computational complexity of games and puzzles, and I used to collect them and put them in a list. It's an interesting way to compare if a game is particularly harder than another, or compare how games are proven to be hard.</p>
+            <p>That was years ago, though. My interest on the project died off, and I didn't touch it for quite a long time. Finally I decided to face the reality that this project is abandoned, I'm no longer motivated to do it. I wonder if anyone else keeps any similar list...</p>
+        </article>
 
-        <dl>
-            <dt><a href="https://cohost.org/chaoticiak/post/1037785-what-is-a-puzzle">What is a puzzle?</a> (published: 1 March 2023)</dt>
-                <dd>What is a puzzle? There are many definitions out there. In this essay, I decided to take a rather radical approach that requires puzzles to convey an idea. It ended up being rather contentious. Some people said my definition would probably fit better for the definition of a "good" puzzle, and I'm inclined to agree; in that case, I just say bad "puzzles" aren't really puzzles at all. Although controversial, I've received feedback from some people that the main ideas help them focus differently in making puzzles, in that they put greater emphasis in conveying some idea through their puzzles.</dd>
-            <dt><a href="https://cohost.org/chaoticiak/post/1537948-maro-was-right">Maro was right</a> (published: 23 May 2023)</dt>
-                <dd>Mark Rosewater, the head designer of <em>Magic: The Gathering</em>, often says "restriction breeds creativity". I wrote this essay showing that he's right, with several examples from my own life. The motivation was seeing some people complaining that finding ideas for writing hunt puzzles was hard. I claimed it wasn't hard, it's just they were looking at it wrong, and I cleaned up my talking points into an essay. Several people then pointed out what I counted as an "idea" might have been different from what they did. Definitional problem strikes again. I still think this is valuable advice for any creative work, although it's mainly focused on the initial idea of the work. There are still plenty of things to do after getting the idea, and some people might stumble there, but my essay doesn't discuss about them.</dd>
-            <dt><a href="mitmh24.html">MITMH24: A Skymin's Perspective</a> (updated: 17 January 2024)</dt>
-                <dd>MIT Mystery Hunt 2024 came and went, which brought a lot of experience with it. I normally write a recap of it somewhere more public (like <a href="https://cohost.org/chaoticiak/post/1037253-mit-mystery-hunt-202">on Cohost for 2023</a>), but this one is much longer and much more detailed, and I also wanted to style it the way I want, so it's hosted here instead.</dd>
-            <dt><a href="hardgames.html">Games are hard</a> (updated: 27 April 2018)</dt>
-                <dd>Games (and puzzles) are hard. But how hard? Given that I'm a complexity theorist, naturally I want to look at them from a computational complexity perspective. Years ago, I diligently grabbed various links that proved certain games/puzzles were NP-hard or other suitable hardness (or easiness!) notions. I haven't updated it for quite some time, though. I should clean it up later.</dd>
-            <dt><a href="penaltydynasty.html">Penalty theory for dynasty genres</a> (updated: 17 November 2020)</dt>
-                <dd>In paper puzzles, "dynasty" is a term to refer to the ruleset "shade some cells black; no two black cells are orthogonally adjacent and all white cells form a contiguous region". Turns out there is a mathematical theory to count the maximum possible number of black cells in the grid; moreover, if a puzzle says the number of black cells has to be close to the maximum, then the theory can also infer a whole lot of things. I believe this theory was originally found by <a href="https://twitter.com/agnomy">@agnomy</a> on Twitter; I then translated it from Japanese into a tweet thread, and then wrote down a clearer (but still rough) version as a webpage above. Others have since taken the reins; for example, tckmn has <a href="https://tck.mn/blog/penalty-theory/">this page</a> that better introduces the theory. It's unlikely I will update this page any more, since better sources exist elsewhere; if any, I might take it down some time.</dd>
-        </dl>
+        <article><h4><a href="writing/penalty-theory-for-dynasty-genres.html">Penalty theory for dynasty genres</a></h4>
+        <p class="subtitle">Published <time datetime="2020-11-17">17 November 2020</time></p>
+            <p>One day, someone shared a particular new theory for Heyawake puzzles on Twitter. It was unfortunately in Japanese, but I could look at the images and had the mathematical ability to analyze and reconstruct the proof, so I wrote a translated version as a Twitter thread, and then another version that became this piece.</p>
+            <p>Since then, a few other people went beyond by writing up even cleaner and more comprehensive guides of this theory (and Heyawake puzzles in general). I decided I could leave the task to them. I linked a few of those inside the page as a post-mortem update, but otherwise, the page is no longer maintained.</p>
+        </article>
+        
+        </details>
     </section>
+    
 </section>
 
 
 
-<section><h2 id="puzzles-and-games"><a href="#title" class="anchor">&#128285;</a> <a href="#puzzles-and-games" class="anchor">&#128279;</a> Puzzles and games</h2>
-    <p>One of my biggest interests is puzzles. Naturally, I've written a lot of them. Logic puzzles, hunt puzzles, puzzle games? You name it.</p>
+<section><h2 id="puzzles-games">Puzzles and games</h2>
+    <p>As a big fan of puzzles, I have written a lot of them. Logic puzzles? Hunt puzzles? Puzzle games? Yes.</p>
+    
+    <div class="notecard warning">
+        <p><strong>Warning:</strong> There may be spoilers in my comments about each puzzle. I believe the comments shouldn't spoil much about the puzzles; for example, I might just mention something that should also be pretty clear when you first open the puzzle. That said, I'm warning in advance, and if you want to avoid spoilers entirely, try your best at not reading the comments.</p>
+    </div>
+        
+    <section><h3 id="logic"><a href="logic.html">Logic puzzle archive</a></h3>
+        <p>I love writing logic puzzles, and I have written a lot of them. I realize that they are spread out over various places: my puzzle blogs (now all abandoned), various contests and sets, and other places online. I took all of them and put them together on <b><a href="logic.html">a single page</a></b>.</p>
+        <p>The ultimate goal is that it will be comprehensive. Every single logic puzzle I've written should be in there, possibly with a few exceptions for exceptionally bad puzzles that I don't want to republish. It is a long work, but I'm slowly chipping away at it.</p>
+        <p>Everything about my logic puzzle output will be available in the above link, so I won't duplicate them here. The rest are for my non-logic puzzles (or at least, not pure logic).</p>
+    </section>
+    
+    <section><h3 id="hunt">Hunt puzzles</h3>
+        <p>Besides logic puzzles, I also write hunt puzzles: puzzles where you generally have no instructions and you have to figure out what to do, so that you arrive at a single answer &mdash; usually an English word or phrase.</p>
+        <p>Most of my hunt puzzles have heavy logic flavor, such as logic puzzles with a secret twist.</p>
+        
+        <article><h4><a href="http://web.mit.edu/puzzle/www/2015/puzzle/polyglot/">Polyglot</a></h4>
+        <p class="subtitle">Published <time datetime="2015-01">January 2015</time>, for <cite>MIT Mystery Hunt 2015</cite></p>
+            <p>My first ever hunt puzzle was part of the biggest hunt of the year. Being mostly a logic person, it is logic-related, although it has some aha to discover.</p>
+            <p>This puzzle isn't very good by my modern standards, but it was a valuable experience to try writing a hunt puzzle.</p>
+        </article>
+        
+        <article><h4><a href="https://2018.galacticpuzzlehunt.com/puzzle/unusual-and-strange-puzzle-collection">Unusual and Strange Puzzle Collection</a></h4>
+        <p class="subtitle">Published <time datetime="2018-03">March 2018</time>, for <cite>Galactic Puzzle Hunt 2018</cite>, co-written with Anderson Wang</p>
+            <p>As part of ✈✈✈ Galactic Trendsetters ✈✈✈, I was invited to write for Galactic Puzzle Hunt, and I decided to go for more hunt puzzle writing.</p>
+            <p>Naturally, it's more logic puzzle stuff, although the aha is different from <cite>Polyglot</cite>. Also, it turns out to be quite a big, meaty puzzle that took solvers a lot of hours.</p>
+            <p>I think the puzzle is great to solve casually. This also taught me to scope my puzzles better.</p>
+            <p>As explained on the solution page, I wrote all the logic puzzles and Anderson wrote the word searches. That wasn't entirely it, though. Since Anderson was well-versed at hunt puzzles, he helped immensely in guiding the direction of this hunt puzzle. (I could write the logic puzzles, but putting them together into a cohesive hunt puzzle was harder.)</p>
+        </article>
+        
+        <article><h4 id="hunthunthunt"><a href="resources/hunthunthunt.zip">hunt hunt hunt</a> (810KB ZIP file)</h4>
+        <p class="subtitle">Published <time datetime="2018-12">December 2018</time>, for <cite>Secret Solver 2018</cite></p>
+            <p><strong>Mini-hunt set.</strong> It has 5 puzzles and a meta.</p>
+            <p><a href="index.html#puzzlers-club">Puzzlers Club</a> has an annual Secret Solver event. It's like the Christmas tradition <a href="https://en.wikipedia.org/wiki/Secret_Santa">Secret Santa</a>, but instead of buying a gift, it's writing a puzzle. (And we eventually reveal the author of each puzzle.)</p>
+            <p>In 2018, I was assigned to write for <a href="https://beta.vero.site">betaveros</a>. Normally I'm hesitant in writing hunt puzzles, but because betaveros was a good friend of mine, I knew him well enough to be able to not only write a puzzle, but a whole mini-hunt set.</p>
+            <p>I didn't give the set any particular name, so this is just based on the file name that I sent.</p>
+            <p>It's a file because I sent it directly. I recognize having to download a file now is bothersome, though. In the future, I might look into converting this into pages here on my website.</p>
+        </article>
+        
+        <article><h4><a href="https://2019.galacticpuzzlehunt.com/puzzle/courage-and-purity">Courage and Purity</a></h4>
+        <p class="subtitle">Published <time datetime="2019-03">March 2019</time>, for <cite>Galactic Puzzle Hunt 2019</cite></p>
+            <p>After 2018, I wrote more for GPH in the next installment. I actually wrote two puzzles.</p>
+            <p>This is my first foray of going completely out of my comfort zone. There is nothing logicky about this. It involves words, and I generally don't like words. (Although I don't like researching topics like history and pop culture even more.)</p>
+            <p>I think the puzzle is ultimately not very remarkable, but I'm still happy to have tried something new.</p>
+        </article>
+        
+        <article><h4><a href="https://2019.galacticpuzzlehunt.com/puzzle/something-is-off">Something is Off</a></h4>
+        <p class="subtitle">Published <time datetime="2019-03">March 2019</time>, for <cite>Galactic Puzzle Hunt 2019</cite>, co-written with Anderson Wang and Alex Pei</p>
+            <p>My other contribution to GPH 2019.</p>
+            <p>Once again, it's logic-related. That said, after all the logic is done, there is a step involving words, and I'm happy I had help from people in the writing team to flesh that part out.</p>
+            <p>In fact, I had even more help than that. I forgot what the exact circumstances were, but I remember I was very busy at this point. I felt I didn't particularly contribute many logic puzzles, although I did some.</p>
+        </article>
+        
+        <article><h4><a href="https://silphpuzzlehunt.com/puzzle/minute-details">Minute Details</a></h4>
+        <p class="subtitle">Published <time datetime="2021-12">December 2021</time>, for <cite>Silph Puzzle Hunt</cite></p>
+            <p>Silph Puzzle Hunt was a successor of <cite>Smogon Puzzle Hunt</cite>, and the hunt as a whole generally had a Pokémon theme &mdash; although that doesn't mean the individual puzzles were themed. It was also run by some of my online friends, so I was invited to write, after previously having solved a few installments of it when it was Smogon-based.</p>
+            <p>This is not logic-related at all. I'm also not sure how much I can say without spoiling a lot about the puzzle. I guess I can say, this puzzle came from an observation I had. I tried various ways to execute the idea and failing a lot for not having the experience and patience to research. I ultimately decided a word search was the most suitable way for me to do this idea.</p>
+        </article>
+        
+        <article><h4><a href="https://silphpuzzlehunt.com/puzzle/red-sus">RED SUS</a></h4>
+        <p class="subtitle">Published <time datetime="2021-12">December 2021</time>, for <cite>Silph Puzzle Hunt</cite>, co-written with lovemathboy</p>
+            <p>This puzzle, also part of Silph Puzzle Hunt, was actually mostly lovemathboy's. I was just invited to write one of its logic components. Although, after we figured out another logic component was too unexciting and lame, we replaced it and I wrote another for it.</p>
+            <p>I think my contribution here would be a fine logic puzzle on its own, but I don't want to spoil the surprise.</p>
+        </article>
+    </section>
+    
+    <section><h3 id="games">Games and custom levels</h3>
+        <p>I've created several games. Right now, all games I made were written in <a href="https://www.puzzlescript.net">PuzzleScript</a>, a scripting language to easily write the kind of games that's common with puzzle games (hence the name). All of these are pretty old, but I'm still pretty happy with them.</p>
+        <p>In addition, I've also created several custom levels for various games.</p>
+        
+        <article><h4><a href="https://www.puzzlescript.net/play.html?p=8450765"><cite>12345</cite></a></h4>
+        <p class="subtitle">Published <time>2014</time></p>
+            <p>The first PuzzleScript game I wrote. The core concept is about merging blocks of the same number together, with two 5's merging into nothing, and the goal is to get rid of everything. All blocks move at the same time, which makes the game to resemble <a href="https://asherv.com/threes/"><cite>Threes</cite></a> to some extent.</p>
+            <p>I believe this was released along with an "easy version" with completely different puzzles, but I don't think I have that version any more.</p>
+            <p>It's pretty decent. I've learned things about game design from doing this. For example, having multiple objects move together tends to be hard to visualize. I also wish I did better with the level design. But I'm still happy I did this.</p>
+        </article>
+        
+        <article><h4><a href="https://www.puzzlescript.net/play.html?p=6788cb68b7743dfaa293"><cite>Repel</cite></a></h4>
+        <p class="subtitle">Published <time>2014</time></p>
+            <p>Back when I was active in the PuzzleScript community, I saw someone sharing their game about magnetic blocks that repel each other. The level design for that game was... very lacking, and I decided to take it on my own to devise better levels, as well as handle some edge cases.</p>
+            <p>I think my levels ended up being more interesting. The original had a lot of Sokoban-y block pushing, but without the tight space that made it hard, so it was just boring. My levels had a whole lot more blocks and interactions between them.</p>
+            <p>There are certainly things I would change if I were to update the game now. Although, again, my time is spent elsewhere. I'm still pretty happy that I did something, though.</p>
+        </article>
+        
+        <article><h4><a href="https://www.puzzlescript.net/play.html?p=62070c89dc7604de2484"><cite>Rock, Paper, Scissors</cite></a></h4>
+        <p class="subtitle">Published <time>2015</time></p>
+            <p>A puzzle game about rock, paper, and scissors. It's a Sokoban-like where you have to make your way out with these obstacles along the way. Rocks are heavy and you can't push multiple rocks at once. Paper is sticky, and pieces of paper stick together to form one larger block. Scissors are sharp and you can't push them from their sharp side. And they interact with each other in the obvious way, allowing you to annihilate objects to make your way out.</p>
+            <p>I'm really proud of the concept and I think it's rich in ideas. Although, for whatever reason, the levels were designed to be "three-fold": reach the exit, collect an optional collectible, and do both at once. The game doesn't keep track of this for you; you just do it yourself. That part is a bit weird.</p>
+            <p>I think the main thing I regret from this is the level design. A lot of the levels aren't very inspired; I believe the only one I'm very happy with was the last level out of 18. If I ever revisit this game in the future, making better levels is definitely my top priority. But I'm still happy with the concept and I think it's worth playing.</p>
+        </article>
+        
+        <article><h4><a href="https://www.puzzlescript.net/play.html?p=8450765"><cite>JAM3 Game</cite></a></h4>
+        <p class="subtitle">Published <time>2015</time></p>
+            <p>JAM3 Game, or "Just Another Match 3 Game". It's not exactly your usual puzzle game; it's reminiscent of those casual games like <cite>Bejeweled</cite> and <cite>Candy Crush</cite>. But also, somehow it's puzzly.</p>
+            <p>The motivation behind creating this game was actually to find something I would be able to stream. Creating a usual puzzle game on stream was a bit awkward, because the puzzles would be clearly spoiled on stream, so I was looking for something involving random generation. And this came to my mind. I don't believe I actually ended up streaming it.</p>
+            <p>I think it's pretty crude. It might be interesting to play as something unusual, but I wish I had done it better.</p>
+        </article>
+        
+        <article><h4><cite>TIS-100</cite> (<a href="https://zachtronics.com/tis-100/">website</a>)</h4>
+        <p class="subtitle">Published <time>2015</time> by <cite>Zachtronics</cite>, official level published <time datetime="2015-07">July 2015</time></p>
+            <p><strong>Level name:</strong> <code>(NEXUS&nbsp;17.135.0) SEQUENCE GAP INTERPOLATOR</code></p>
+            <p>A programming game about using Assembly-like instructions on synchronous nodes on a grid. Made by <a href="https://zachtronics.com"><cite>Zachtronics</cite></a>, one of the most well-known developers of the programming game genre; they created <a href="https://zachtronics.com/spacechem/"><cite>SpaceChem</cite></a>.</p>
+            <p>In June 2015, they made a level editor for TIS-100 and called for submissions to make a bonus campaign. I submitted a level, which got accepted as part of the 25-level act.</p>
+            <p>In short, you're given a sequence of consecutive numbers, with one missing. Find the missing number. I believe the sequences are 4&ndash;5 numbers long.</p>
+            <p>It's actually slightly changed from my original design. The original design had the sequence to start at 1. I don't mind the change, since the smart solution I had in mind is still present. Have fun solving it and competing with others for the leaderboard!</p>
+        </article>
+        
+        <article><h4><cite>Tetrobot and Co.</cite> (<a href="https://store.steampowered.com/app/235980/Tetrobot_and_Co/">Steam</a>)</h4>
+        <p class="subtitle">Published <time>2013</time> by <cite>Swing Swing Submarine</cite>, unofficial levels published <time datetime="2018">2018&ndash;2019</time></p>
+            <p><strong>My custom levels:</strong> <a href="https://steamcommunity.com/id/chaotic_iak/myworkshopfiles/?appid=235980">Steam Workshop listing</a></p>
+            <p>A puzzle game about a robot that can store and release cubes of various materials with distinct properties.</p>
+            <p>I found this game and the possibilities captivated me. I wrote a few levels and published them on the Steam Workshop.</p>
+            <p>One of the projects I had in mind was the following. I had an idea about making "evil" versions of in-game levels that were much harder to solve. I managed to write two of them, but then my motivation died off and I haven't picked it up since.</p>
+            <p>A lot of my levels involved building giant structures. This might have been interesting the first time, but it started to get tiring and cumbersome. Also, I learned of a random bug in the game where the undo would reset the entire level progress, so a long level would just lead to frustration.</p>
+            <p>I think my levels are worth at least looking at. If you want to play them, make sure you have the patience &mdash; and the calm to not get enraged if you encounter the bug.</p>
+        </article>
+        
+        <article><h4><cite>Super Mario Maker 2</cite></h4>
+        <p class="subtitle">Published <time>2019</time> by <cite>Nintendo</cite>, unofficial level</p>
+            <p><strong>My level:</strong> <cite>Back and Forth</cite> (<code>R8H-174-52G</code>)</p>
+            <p>I do like Mario games, and I'm intrigued at the idea of a level editor, so I got this game.</p>
+            <p>Mario levels span a very broad range. Official-like levels, Kaizo levels with precision and surprise, artistic levels that play themselves, and so on. For me, since I like puzzles, I decided to make one that was relatively puzzly.</p>
+            <p>My level needs quite a lot of precision, but there is absolutely no surprise whatsoever. Everything in the level is right there, and you can even climb to the roof of the level, so you can look at the whole thing and plan ahead before you begin. In fact, I can show you a screenshot of the main part of the level; I posted it <a href="https://twitter.com/chaotic_iak/status/1145193591473467393">on Twitter</a>.</p>
+            <p>I haven't really got into the game any more, so I'm not sure how well it's received. I think, like a lot of custom levels in many games, it might just be lost in the swamp. I do remember showing a friend this level though, and they were frustrated by it (in a good way).</p>
+        </article>
+        
+    </section>
 
-    <section><h3 id="logic-puzzles"><a href="#title" class="anchor">&#128285;</a> <a href="#logic-puzzles" class="anchor">&#128279;</a> Logic Puzzles</h3>
-        <p>My biggest puzzle output is logic puzzles. Being a non-native speaker, as well as consuming niche pop culture, makes it hard for me to write word puzzles like crosswords. Even hunt puzzles are generally logic-based. And I just find it fascinating that a static image with just numbers and shapes can offer so much.</p>
-        
-        <dl>
-            <dt><a href="logicpuzzles.html">My logic puzzles page</a> (last updated: 12 May 2023)</dt>
-                <dd>This is easily the biggest resource here. It's an ongoing project where I'm porting all my logic puzzles that I've written elsewhere into one place, not unlike my works page. (Although if I dump all the logic puzzles to this very page, it would fill 99% of the page content.) That said, it's an ongoing project; I have a lot of puzzles, and I want to also verify they are correct as I port them, so it will be slow. Even slower, given that I also have other things to take care of.</dd>
-            <dt><a href="https://chaosatthesky.wordpress.com/">Chaos at the Sky</a></dt>
-                <dd>My old blog, which is the most recent of my blogs. Now abandoned.</dd>
-            <dt>Competitions on Logic Masters India</dt>
-                <dd>I wrote these:
-                    <ul style="margin-top: 0.2em; text-indent: 0;">
-                        <li><a href="http://logicmastersindia.com/lmitests/?test=M201305P">Deception</a> (2013)</li>
-                        <li><a href="http://logicmastersindia.com/lmitests/?test=M201603F">NEW, HUGE, AND CHALLENGING!</a> (2016)</li>
-                        <li>Linked Poset Futoshiki in <a href="http://logicmastersindia.com/2016/04P/">Puzzle Marathon 2016</a> (2016)</li>
-                        <li><a href="https://logicmastersindia.com/2020/11P/">25 Years</a> (2020)</li>
-                    </ul>
-                </dd>
-            <dt>24-Hour Puzzle Championship</dt>
-                <dd>I wrote for the following rounds: 2018 Round 3, 2019 Round 7, 2023 Round 10 and 11</dd>
-        </dl>
-    </section>
-    
-    
-    <section><h3 id="hunt-puzzles"><a href="#title" class="anchor">&#128285;</a> <a href="#hunt-puzzles" class="anchor">&#128279;</a> Hunt puzzles</h3>
-        <p>I do write hunt puzzles! Well, most of them are "logic puzzles with a twist", but they are still hunt puzzles and they still have some sort of aha. Those that are logic-with-aha are also linked on my logic puzzles page above, but also repeated here. But I also try to write some other puzzles.</p>
-        
-        <dl>
-            <dt><a href="http://web.mit.edu/puzzle/www/2015/puzzle/polyglot/">Polyglot</a> (MIT Mystery Hunt 2015)</dt>
-                <dd>First puzzle I've written. By modern standards this is kind of meh, but it's still my first.</dd>
-            <dt><a href="https://cdn.discordapp.com/attachments/390805946215170051/526780315939635203/hunthunthunt.zip">hunt hunt hunt (810KB ZIP file)</a> (Secret Solver 2018)</dt>
-                <dd>As part of Secret Solver (a Secret Santa-like event where you send puzzles instead of gifts), I wrote a whole set of 5 hunt puzzles + a metapuzzle for my recipient, <a href="https://beta.vero.site">betaveros</a>. He's a good friend of mine, so I managed to crank out this set relating to his various interests. And yes, on retrospect I should have titled the hunt better.</dd>
-            <dt><a href="https://2018.galacticpuzzlehunt.com/puzzle/unusual-and-strange-puzzle-collection">Unusual and Strange Puzzle Collection</a> (Galactic Puzzle Hunt 2018, co-written with Anderson Wang)</dt>
-                <dd>I'm pretty proud of several logic puzzles I have here. The main problem is that it's quite a lot for a hunt puzzle.</dd>
-            <dt><a href="https://2019.galacticpuzzlehunt.com/puzzle/courage-and-purity">Courage and Purity</a> (Galactic Puzzle Hunt 2019)</dt>
-                <dd>What is this, not a logic-with-aha? Somehow this puzzle is indeed something else.</dd>
-            <dt><a href="https://2019.galacticpuzzlehunt.com/puzzle/something-is-off">Something is Off</a> (Galactic Puzzle Hunt 2019, co-written with Anderson Wang and Alex Pei)</dt>
-                <dd>A valiant idea, but the execution left much to be desired, mostly because I got swamped and even had to recruit help from other people.</dd>
-            <dt><a href="https://silphpuzzlehunt.com/puzzle/minute-details">Minute Details</a> (Silph Puzzle Hunt, in 2021)</dt>
-                <dd>Another one that's not logic-with-aha. It had a fascinating evolution from idea to print.</dd>
-            <dt><a href="https://silphpuzzlehunt.com/puzzle/red-sus">RED SUS</a> (Silph Puzzle Hunt, in 2021, co-written with lovemathboy)</dt>
-                <dd>Really, this is lmb's brainchild first and foremost; I just helped write a few things just to make it more cursed.</dd>
-        </dl>
-    </section>
-    
-    
-    <section><h3 id="puzzlescript"><a href="#title" class="anchor">&#128285;</a> <a href="#puzzlescript" class="anchor">&#128279;</a> PuzzleScript</h3>
-        <p><a href="https://www.puzzlescript.net">PuzzleScript</a> is a scripting language to easily write a certain style of games: generally two-dimensional, grid-based, turn-based, and the rules generally just involve pattern matching. Many puzzle games (e.g. Sokoban) fall here, hence why the language is named so. Early on, I was very captivated with this language and wrote a few games in it. These are pretty old; I still have some ideas, but what I don't have is time and motivation.</p>
-        
-        <dl>
-            <dt><a href="https://www.puzzlescript.net/play.html?p=8450765">12345</a> (2014)</dt>
-                <dd>My first ever game. The core concept is about merging blocks together; if a block tries to push into another like one, they merge and increase in number. There are several more mechanics later on. I've since learned games where you move everything on the grid at once feels clunky.</dd>
-            <dt><a href="https://www.puzzlescript.net/play.html?p=6788cb68b7743dfaa293">Repel</a> (2014)</dt>
-                <dd>In the Google Group about PuzzleScript, I once saw someone sharing a game involving magnetic blocks that repel each other. I remember the level design was bad; a lot of space, a lot of boring block-pushing, and not enough of the fun mechanic. So I made my own take on it with several levels and a couple new mechanics. I think the new levels were somewhat better, but the mechanics were weird. (You can push a magnet against a solid object to "knock" the magnet, disabling it momentarily. What?)</dd>
-            <dt><a href="https://www.puzzlescript.net/play.html?p=62070c89dc7604de2484">Rock, Paper, Scissors</a> (2015)</dt>
-                <dd>Perhaps the game I'm most proud of. Rock, paper, scissors; three kinds of objects, three different behaviors, with various interactions as objects interact. (Not too hard to guess what would happen, honestly.) While I'm very happy with the mechanics, I wish I had better level design. Maybe something to come back to.</dd>
-            <dt><a href="https://www.puzzlescript.net/play.html?p=074d30dd6361cb2b43aa">JAM3 Game</a> (2015)</dt>
-                <dd>A match-3 game, but somehow it's puzzly. Set up the board so that you can get a specific desired match. Apparently I made this in a few days, as something I could try to stream (because streaming writing puzzles would defeat the purpose of puzzles). Again, I think the core idea is interesting, but it might need some more whipping to shape.</dd>
-        </dl>
-    </section>
-    
-    
-    <section><h3 id="custom-levels"><a href="#title" class="anchor">&#128285;</a> <a href="#custom-levels" class="anchor">&#128279;</a> Custom levels for games</h3>
-        <p>Some games allow players to make their own levels. Wow! Sometimes I, well, do that.</p>
-        
-        <h4>TIS-100 (<a href="https://zachtronics.com/tis-100/">website</a>)</h4>
-            <p>A programming game by Zachtronics. Program a 3x4 grid of cores doing assembly instructions synchronously.</p>
-            <p>This is notable because my level is <em>official</em>. My level is part of the extra campaign! (Back when the game was in Early Access, Zach invited users to submit levels to make up the extra campaign; mine was chosen as one of the 25.) It's called <code>(NEXUS&nbsp;17.135.0) SEQUENCE GAP INTERPOLATOR</code>. It's slightly changed from my original design, but I still take it.</p>
-        
-        <h4>Tetrobot and Co. (<a href="http://www.swingswingsubmarine.com/games/tetrobot-and-co/">website</a>)</h4>
-            <p>A puzzle game where you control a robot that can transport and utilize various kinds of blocks to make your way through.</p>
-            <p>It has built-in Steam Workshop support. I really liked the idea of the game and had several ideas for custom levels. I was testing around with things and made these levels:</p>
-            
-            <ul>
-                <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1264796427"><code>Buildbot</code></a>: Build giant structures from a bunch of boxes.</li>
-                <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1266388657"><code>Nine Problems</code></a>: Solve nine minipuzzles.</li>
-            </ul>
-            
-            <p>After that, I noticed that many main-game levels were essentially divided into parts that otherwise didn't interact. In a way, the main-game levels felt not cohesive enough. What if I made them interact more? I also had this mischievous idea of making "alternate" versions of levels that utilized much more mechanics of the game; for example, levels that looked like early levels but needed knowledge of all the late-game mechanics. That results in these levels:</p>
-            
-            <ul>
-                <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1665650659"><code>1-2?: A Bot and His (Pesky) Block</code></a></li>
-                <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1719262247"><code>1-3?: Hopes Floating Away</code></a></li>
-            </ul>
-            
-            <p>...where are the others? Well, way too many other projects. I know I have a screencap of the entire 1-4 somewhere in my notes, for example, so I will want to make 1-4? at some point. When, though, no idea.</p>
-        
-        <h4>Super Mario Maker 2</h4>
-            <p>I did make a level for this, too! It's called "Back and Forth" (<code>R8H-174-52G</code>). True to my puzzle nature, you can look at the entire level from the start and there's nothing hidden (the breakable blocks don't hide anything, for example). I think this is a nice contrast from many other Mario levels. When every single RNG or unknown information is removed, can you put your skill to the test and beat the level?</p>
-            <p>Now, it would be nice if I could embed a screencap or video or something to show the level. I'll have to figure it out later. For now, you'll have to get the game if you want to look at this level.</p>
-    </section>
 
 
+<section><h2 id="creative">Creative writing</h2>
 
-<section><h2 id="furry"><a href="#title" class="anchor">&#128285;</a> <a href="#furry" class="anchor">&#128279;</a> Furry and creative writing</h2>
-    <p>I'm also unabashedly a furry. Besides through puzzles, I do occasionally flex my creative muscles by writing.</p>
+    <section><h3 id="furry">Furry fandom and my alternate universe</h3>
+        <p>A lot of my creative writing is related to my furry identity; in particular, my alternate universe where my characters live. I occasionally write about them. Everything related to this AU can be found inside <b><a href="furry.html">my furry page</a></b>.</p>
+    </section>
     
-    
-    <section><h3 id="sfw-content"><a href="#title" class="anchor">&#128285;</a> <a href="#sfw-content" class="anchor">&#128279;</a> SFW content</h3>
-        <p>Things that are innocent, family-friendly, and generally just chill.</p>
-        <p>At first I thought I only had one story. Then I realized I technically had another, although it has a rather strange format. I was thinking of adding a subsection for "worldbuilding", for my original characters and versions of them in various settings (mostly this D&D one), but I figured this second story suffices.</p>
+    <section><h3 id="other-stories">Other stories</h3>
+        <p>I also wrote some other stories separate from my furry continuity.</p>
         
-        <dl>
-            <dt><a href="https://www.fanfiction.net/s/6137452/1/Crash">Crash!</a> (2010)</dt>
-                <dd>God, this was written when I was still in high school? I remember asking my English teacher to also help review it so I could improve. Anyway, this was a fan fiction involving Tails and Cream from the <em>Sonic the Hedgehog</em> series; back then I was so big about these two characters in particular. Cute, kinda silly. I should probably port it over to this site just so I don't have to rely on FanFiction.Net.</dd>
-            <dt><a href="https://docs.google.com/document/d/1BorKIMsjY8d8Ref3L0R8coPh1eVnbnQ6WDvYz-6aiKQ/edit?usp=sharing">Vee - His Story</a> (2022 &ndash; now)</dt>
-                <dd>I'm playing in an unusual D&D campaign with a friend as the DM. There are like 10&ndash;15 players, divided into two larger groups of around 5 and several smaller groups of 1-3; I'm in one of the small groups. Sessions take place whenever we can, although we all are in the same world of furries in a post-apocalyptic st. This story is, in a way, a recap of the journey of Vee the artificer/wizard Eevee, my character in the campaign; it will be updated whenever I feel like it. On retrospect, this story still had quite a lot of unnecessary detail; I should give it a rewrite some time to condense down earlier entries.</dd>
-        </dl>
+        <article><h4><a href="writing/story-crash.html"><cite>Crash!</cite></a></h4>
+        <p class="subtitle">Published <time datetime="2011-09-08">08 September 2011</time>, originally on <a href="https://www.fanfiction.net/s/6137452/2/Crash">FanFiction.Net</a></p>
+            <p>A light-hearted short story, a fanfiction about Tails and Cream from the <cite>Sonic the Hedgehog</cite> franchise. What's that sound from Tails' workshop?</p>
+            <p>God, this was written when I was still in high school, when I was still such a big fan of these two characters that <a href="index.html#online">made up my username</a>. I remember I asked my English teacher to help review it so I could improve. (If you look at the reviews on FF.Net, you'll find it.)</p>
+            <p>The adult me would say this story had cringe writing, and it's not wrong. But it does add a bit to the charm, with the cuteness and innocence of the story. Besides, this is a stepping stone for my future endeavor in writing, and creative work in general. However silly it is, I'm glad I wrote it.</p>
+        </article>
+        
+        <article><h4 id="vee-his-story"><cite>Vee &mdash; His Story</cite> (<a href="https://docs.google.com/document/d/1BorKIMsjY8d8Ref3L0R8coPh1eVnbnQ6WDvYz-6aiKQ/edit?usp=sharing">Google Docs</a>)</h4>
+        <p class="subtitle">Published <time>2022</time>, ongoing</p>
+            <p>A living story that basically recaps a D&amp;D campaign I'm playing in.</p>
+            <p>The history behind this story is unusual. I'm playing in a D&amp;D campaign with my character, <a href="furry.html#vee">Vee the artificer</a>. The campaign itself is unusual, because we have like 10&ndash;15 players split into several groups, each one having an independent campaign in the same world. My group has me as the main character, with a few supporting characters played by some friends.</p>
+            <p>I found myself wanting to summarize and recap my campaign, so I began to write this story. As the campaign is still going, the story is also still going, although I haven't kept it up to date (I believe the last thing recorded was a session in February 2023, and we've done around 10 sessions after that).</p>
+            <p>The story itself, as it is, has quite a lot of details. I might end up rewriting and cleaning it up to summarize it better. But if you're curious about my campaign, you can see it from my point of view by reading this.</p>
+        </article>
     </section>
     
-    
-    <section><h3 id="nsfw-content"><a href="#title" class="anchor">&#128285;</a> <a href="#nsfw-content" class="anchor">&#128279;</a> NSFW content</h3>
-        <p>...and well, the rest.</p>
-        <p>See, I'm not going to hide that I do embrace NSFW (not safe for work) stuff. I don't think it's a problem to say about it. However, I do know that others don't want to be randomly exposed to it.</p>
-        <p>As such, I have <a href="nsfw.html">my NSFW page</a>. Obviously, <span class="important"><strong>that page is NSFW, enter at your own risk</strong></span>.</p>
-    </section>
 </section>
 
 </body>

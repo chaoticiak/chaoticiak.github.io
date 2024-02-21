@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Games are hard - chaoticiak.github.io</title>
+    <meta property="og:title" content="Games are hard">
+    <meta property="og:description" content="chaotic_iak's list of computational complexity of games">
+    <link rel="icon" type="image/png" href="../icon.png">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="writing.css">
+    <script src="../script.js"></script>
+</head>
+
+<body>
+<header>
+    <h1 id="title">Games are hard</h1>
+    <nav id="menu"><ul>
+        <li><a href="../index.html">chaoticiak.github.io</a></li>
+        <li><a href="../works.html">Back to works</a></li>
+    </ul></nav>
+</header>
+
+<div id="changelog">
+<p><strong>This page is no longer updated.</strong> I am no longer actively watching this page. There might be styling errors, rotted links, and so on.</p>
+<details><summary>Previous updates</summary>
+    <p><b><time datetime="2018-04-27">27 April 2018</time>.</b> This was the last update time of the original page that I maintained on my WordPress blog. I think I only started setting up a website in 2020, so I copied over the full text as-is, without formatting it.</p>
+</details>
+</div>
+
+<div class="notecard warning">
+    <p><strong>I'm no longer maintaining this page.</strong> Unfortunately, I don't know if there's any other place where these kinds of results are collected. Wikipedia has lists such as <a href="https://en.wikipedia.org/wiki/List_of_NP-complete_problems#Games_and_puzzles">NP-complete games and puzzles</a>, although it might be missing some results that are included here. For that reason, I'm keeping the page up to preserve it.</p>
+    <p>However, I have been lacking the motivation to add new things here for over five years now, so I'll just face the truth that I'm no longer maintaining this page. If you're interested in picking up this project, feel free to do so. What follows below is completely unchanged from its latest update in 2018.</p>
+</div>
+
+<hr>
+
+    <p>I love puzzles and games a lot. I also enjoy theoretical computer science. So, of course this had to be done.</p>
+    <p>This page documents as many possible puzzles/games/etc and their computational complexity, along with sources leading to them. I strive to make this as complete as possible, but it's obviously very hard, so you're welcome to help; you can contact me through my e-mail, available on the main page.</p>
+    <p><strong>Note:</strong> There is a difference between <strong>satisfiability/consistency</strong> problems and <strong>uniqueness/soundness</strong> problems. For certain games/puzzles, there are two questions that make sense: whether a given instance of a puzzle has <strong>at least</strong> one solution (it is <em>satisfiable/consistent</em>), and whether it has <strong>at most</strong> one solution (it is <em>sound</em>). We can generalize the soundness problem: given an instance of a partially-solved puzzle, whether there exists "anything" that can be deduced (the contents of a cell, etc). Most works only talk about whether something is satisfiable, but whether something is sound is also important: most logic puzzles should only have one solution (it's in the name, the solution should be deducible through logic and not guessing); if you have multiple solutions in Minesweeper, you need to resort to guessing and thus might lose just due to chance, etc. I try my best to document this distinction below.</p>
+    <hr>
+    <h2>NP-complete</h2>
+    <ul>
+        <li><a href="http://people.cs.umass.edu/~mcphailb/papers/2005lightup.pdf">Akari</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www.mountainvistasoft.com/docs/BattleshipsAsDecidabilityProblem.pdf">Battleships</a> (satisfiability) from 3-SAT, from bin packing</li>
+        <li><a href="http://arxiv.org/pdf/1403.5830v1.pdf">Bejeweled</a> (whether a given gem can be popped) from 1-in-3 SAT</li>
+        <li><a href="http://www2.stetson.edu/~efriedma/papers/corral/corral.html">Corral</a> (satisfiability) from 3-colorability of planar graphs</li>
+        <li><a href="http://www.ics.uci.edu/~eppstein/pubs/Epp-SN-87.pdf">Cryptarithms (Verbal Arithmetic)</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www-imai.is.s.u-tokyo.ac.jp/~yato/data2/MasterThesis.pdf">Fillomino</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=C7530265886EAAF0BD17B8F22A9873CF?doi=10.1.1.19.6267&rep=rep1&type=pdf">Galaxies</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://users-cs.au.dk/koda/thesis.pdf#page=111">Hashi(wokakero)</a> (satisfiability) from existence of Hamiltonian circuits in unit-distance graphs</li>
+        <li><a href="http://link.springer.com/chapter/10.1007%2F978-3-540-72914-3_18#page-1">Heyawake</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www6.in.tum.de/Main/Publications/Ruepp2010a.pdf">Kakuro</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://chaosatthesky.wordpress.com/2014/01/07/p075/">KenKen (TomTom)</a> (satisfiability) from Latin Square</li>
+        <li><a href="https://www.jstage.jst.go.jp/article/ipsjjip/20/3/20_694/_pdf">Kurodoko</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www.sciencedirect.com/science/article/pii/0166218X84900751">Latin Square</a> (satisfiability) from triangulation of tripartite graphs</li>
+        <li><a href="http://dimacs.rutgers.edu/~graham/pubs/papers/cormodelemmings.pdf">Lemmings</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://arxiv.org/pdf/cs/0512049v1.pdf">Mastermind</a>  (satisfiability) from vertex cover</li>
+        <li><a href="http://www2.stetson.edu/~efriedma/papers/pearl/pearl.html">Masyu</a> (satisfiability) from existence of Hamiltonian circuits in cubic graphs</li>
+        <li><a href="http://link.springer.com/article/10.1007%2FBF03025367">Minesweeper</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www.liacs.nl/assets/2012-01JanvanRijn.pdf">Nonogram</a> (satisfiability) from Nondeterministic Constraint Logic</li>
+        <li><a href="http://cage.ugent.be/~klein/papers/nurikabe.pdf">Nurikabe</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www.patterna-game.com/2016/06/02/the-computational-complexity-of-patterna/">Patterna</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://chaosatthesky.wordpress.com/2014/01/08/ripple-effect-is-np-complete/">Ripple Effect</a> (satisfiability) from 3-SAT, Latin Square</li>
+        <li><a href="http://www-imai.is.s.u-tokyo.ac.jp/~yato/data2/MasterThesis.pdf">Slitherlink</a> (satisfiability) from existence of Hamiltonian circuits in cubic graphs</li>
+        <li><a href="http://arxiv.org/pdf/1501.06398v1.pdf">Solitaire Chess</a> (satisfiability) from 3-SAT</li>
+        <li><a href="http://www-imai.is.s.u-tokyo.ac.jp/~yato/data2/MasterThesis.pdf">Sudoku</a> (satisfiability) from Latin Square</li>
+        <li><a href="http://erikdemaine.org/papers/Tetris_COCOON2003/paper.pdf">Tetris</a> (whether one can survive over a known finite sequence of pieces) from 3-partition</li>
+        <li><a href="http://arxiv.org/pdf/1411.5765.pdf">TrackMania</a> (whether one can finish the lap) from 3-SAT</li>
+        <li><a href="http://www.sciencedirect.com/science/article/pii/S0020019011002870">Zen Puzzle Garden</a> (satisfiability) from existence of Hamiltonian circuits in cubic graphs</li>
+    </ul>
+
+    <h2>coNP-complete</h2>
+    <ul>
+        <li><a href="http://www.patterna-game.com/2016/06/02/the-computational-complexity-of-patterna/">Patterna</a> (soundness) from 3-UNSAT</li>
+    </ul>
+
+    <h2>NP-hard</h2>
+    <ul>
+        <li><a href="http://arxiv.org/pdf/1203.1895v1.pdf">Pokémon (with only Trainers)</a> (whether one can reach a target point) from 3-SAT</li>
+        <li><a href="http://arxiv.org/pdf/1408.3645.pdf">Game about Squares</a> (consistency) from 3-SAT</li>
+    </ul>
+    <h2>PSPACE-complete</h2>
+    <ul>
+        <li><a href="http://arxiv.org/pdf/1408.6315.pdf">2048</a> (reaching target configuration) from Nondeterministic Constraint Logic</li>
+        <li><a href="http://arxiv.org/pdf/1411.5951.pdf">Bloxorz</a> from Nondeterministic Constraint Logic</li>
+        <li><a href="http://webdocs.cs.ualberta.ca/~joe/Preprints/Sokoban/">Sokoban</a> from simulating linear bounded automata</li>
+        <li><a href="http://erikdemaine.org/papers/Mario_FUN2016/paper.pdf">Super Mario Bros</a> (whether one can reach a target point) from QBF</li>
+    </ul>
+    <h2>PSPACE-hard</h2>
+    <ul>
+        <li><a href="http://arxiv.org/pdf/1203.1895v1.pdf">Pokémon</a> (whether one can reach a target point) from Sokoban</li>
+    </ul>
+    <h2>Undecidable</h2>
+    <ul>
+        <li><a href="http://arxiv.org/pdf/1412.0784v1.pdf">Braid</a> (whether one can reach a target point) from simulating counter machine</li>
+    </ul>
+</body>
+
+</html>

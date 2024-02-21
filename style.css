@@ -1,208 +1,334 @@
+/*** General page ***/
+
+/* Load fonts from stylesheet
+- Roboto
+- Roboto Mono
+*/
+@import url("fonts/fonts.css");
+
+/* Custom colors */
+:root {
+    /* Standard accent is "Shaymin green", taken from the green "mohawk" of Gen 5 Skymin sprite:
+    https://archives.bulbagarden.net/media/upload/2/2f/Spr_5b_492S.png
+    P.S. The values I remember were (156, 213, 32) but I can't find a matching sprite, was I daydreaming or something?
+    */
+    --accent: rgb(156, 214, 33);
+    
+    /* Shades of accent */
+    --dark: #690;
+    --light: #efc;
+    
+    /* Other common colors */
+    --red: #c00;
+    --pink: #fdd;
+}
+
 html {
-    background-color: #ce9;
-    font-family: sans-serif;
     width: 100%;
     height: 100%;
+    background-color: color-mix(in srgb, var(--accent) 50%, white);
+    font-family: "Roboto", sans-serif;
 }
-
 body {
-    background-color: #fff;
     max-width: 62em;
-    line-height: 1.3;
     margin: 1em auto;
     padding: 1em;
-    border: 6px solid #9cd520;
+    background-color: #fff;
+    border: 6px solid var(--accent);
     border-radius: 30px;
+    line-height: 1.3;
 }
+@media (max-width: 66em) { body {
+    max-width: none;
+    width: auto;
+    border-left: none;
+    border-right: none;
+    margin: 1em 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+} }
 
-@media (max-width: 66em) {
-    body {
-        max-width: none;
-        width: auto;
-        border-left: none;
-        border-right: none;
-        margin: 1em 0;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-    }
-}
 
-p {
-    text-indent: 3ch;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
 
-h2 {
-    font-size: 1.7rem;
-    color: #690;
-    padding-top: 0.5rem;
-    margin-top: 1rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
-}
-
-h3 {
-    font-size: 1.3rem;
-    color: #690;
-    padding-top: 0.3rem;
-    margin-top: 0.7rem;
-    padding-bottom: 0.3rem;
-    margin-bottom: 0;
-}
-
-h4 {
-    font-size: 1.1rem;
-    color: #690;
-    padding-bottom: 0.2rem;
-    margin-top: 0.7rem;
-    padding-bottom: 0.2rem;
-    margin-bottom: 0;
-}
-
-h2:target, h3:target, h4:target {
-    background-color: #dfb;
-    border-right: #690 8px double;
-}
+/*** Top matter: title, menu, changelog ***/
 
 #title {
+    margin: 1rem 0 0.5rem 0;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    color: #9cd520;
-    text-shadow: 1px 1px 0 #681;
+    color: var(--accent);
+    text-shadow: 1px 1px 0 var(--dark);
 }
 
+/* Menu is an <ul>, but it's written in a single line
+First <li> links to the main page and is followed by >
+Other <li>s link to other pages and are followed by •, except for the last one
+*/
 #menu {
+    padding: 0.3em 0;
+    text-align: right;
+}
+#menu menu {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+#menu li {
+    margin: 0;
+    display: inline-block;
+}
+#menu li:first-of-type::after {
+    display: inline-block;
+    content: "\A0>"; /* nbsp, > */
+}
+#menu li + li:has(+ li)::after {
+    display: inline-block;
+    content: "\A0\2022"; /* nbsp, bullet */
+}
+
+/* A #changelog is also .notecard .accented, see below
+Maybe I should re-organize the stylesheet so I don't have to hack specificity */
+#changelog#changelog {
+    margin-bottom: 3em;
+}
+#changelog details {
+    padding: 0;
+    background-color: inherit;
+    border: none;
+}
+#changelog summary {
+    font-weight: normal;
+}
+#changelog p {
+    text-indent: 0;
+}
+
+
+
+/*** h2-h3 headers and internal linking ***/
+
+h2, h3 {
+    clear: right;
+    color: var(--dark);
+}
+h2 {
+    margin: 2em 0 0;
+    padding: 0.5rem 0;
+    font-size: 1.67rem;
+}
+h3 {
+    margin: 1em 0 0;
+    padding: 0.3rem 0;
+    font-size: 1.33rem;
+}
+h2:target, h3:target {
+    background-color: var(--light);
+    border-right: var(--dark) 8px double;
+}
+a.anchor {
+    font-size: 0.9em; /* Emoji size feels bigger than usual text */
+}
+
+
+
+/*** Checkbox styling ***/
+
+input[type="checkbox"] {
+    display: none;
+}
+label:has(input[type="checkbox"]) {
+    padding: 2px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    background-color: #ddd;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+label:has(input[type="checkbox"]:not(:checked))::before {
+    content: "\274C"; /* X sign */
+}
+label:has(input[type="checkbox"]:checked)::before {
+    content: "\2705"; /* checkmark */
+}
+
+
+
+/*** JavaScript check ***/
+
+.yes-js {
+    display: none;
+}
+
+
+
+/*** Misc block elements ***/
+
+p {
+    margin: 0.5rem 0;
+    text-indent: 3ch;
+}
+
+blockquote {
+    margin: 1rem 0 1rem 2rem;
+    padding: 0 0 0 0.5rem;
+    border-left: 3px solid #999;
+}
+blockquote > footer {
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+figure {
+    margin: 1rem 0;
     text-align: center;
 }
-
-#lastupdated {
-    background-color: #efc;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    padding: 0 2em 0;
-    border: 1px solid #9cd520;
-    border-left-width: 10px;
+figure.float-right {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    /* text-align: right; */
+}
+@media (max-width: 66em) { figure.float-right {
+    float: none;
+    margin: 1rem 0;
+    text-align: center;
+} }
+figure.bg-white img {
+    background-color: white;
+    padding: 0.5rem;
 }
 
-#lastupdated > p {
-    text-indent: -1rem;
+h4 {
+    color: var(--dark);
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem 0;
+}
+h4::before {
+    content: "\2794\A0"; /* heavy right arrow, nbsp */
 }
 
-#lastupdated > p:nth-of-type(n+2) {
-    font-size: small;
-    color: #666;
+hr {
+    margin: 1rem 0;
+}
+
+li {
+    margin: 0.2em 0;
+}
+
+ol, ul {
+    padding-left: 3ch; /* Matches <p> text-indent */
+}
+
+/* <code> is technically inline, but I'm using the exact same style as <pre>
+If it ever changes, I'll move it over
+*/
+pre, code {
+    font-family: "Roboto Mono", monospace;
+    background-color: #eee;
+    padding: 0 0.2em;
+}
+
+
+
+/*** Misc inline elements ***/
+
+/* Has title attribute, i.e. tooltip
+I know tooltips are generally not very good/accessible
+I'm mostly looking for a way to do footnote-like remark like What-If
+*/
+[title] {
+    text-decoration: underline dashed 1px;
+    cursor: help;
 }
 
 a {
     text-decoration: none;
     color: #00f;
 }
-
-a.anchor {
-    font-size: 0.8em;
-}
-
 a:not(.anchor):hover {
     text-decoration: underline;
 }
-
-a:visited {
-    color: #93c;
+a:not(.anchor):visited {
+    color: #b1b;
 }
 
-blockquote {
-    margin-left: 2rem;
-    border-left: #888888 solid 3px;
-    padding-left: 0.5rem;
+button {
+    font-family: inherit;
 }
 
-blockquote.dense > p {
+strong {
+    color: var(--red);
+    font-weight: bold;
+}
+
+summary {
+    padding: 0.5em 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+details[open] > summary {
+    border-bottom: 1px solid #bbb;
+}
+
+
+
+/*** Classes for styling ***/
+
+/* Subtitles following a heading
+Subtitle size probably depends on the heading it follows
+(Font sizes are 1.67rem, 1.33rem, 1rem for h2, h3, h4)
+*/
+.subtitle {
+    margin-top: 0;
+    text-indent: 0;
+}
+h2:has(+ .subtitle), h3:has(+ .subtitle), h4:has(+ .subtitle) {
+    margin-bottom: 0;
+}
+h3 + .subtitle {
+    font-size: 0.9rem;
+}
+h4 + .subtitle {
+    font-size: 0.9rem;
+}
+
+/* Callout boxes
+Used for asides, warnings, etc
+*/
+.notecard, #changelog {
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+    border-width: 1px;
+    border-style: solid;
+    border-left-width: 10px;
+}
+.notecard + .notecard {
+    margin-top: 1.5rem;
+}
+.callout {
+    background-color: #eee;
+    border-color: #999;
+}
+.warning {
+    background-color: var(--pink);
+    border-color: var(--red);
+}
+.accented, #changelog {
+    background-color: var(--light);
+    border-color: var(--accent);
+}
+/* Boxed text, generally only for referencing notecards */
+.boxedtext {
+    padding: 2px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* Kinda a hack, not sure if good to use
+Currently used in:
+mitmh24 (blockquote about winners)
+*/
+.dense, .dense * {
     line-height: 1rem;
     text-indent: 0;
 }
-
-blockquote > footer {
-    margin-top: 1rem;
-    font-style: italic;
-}
-
-code {
-    font-size: large;
-    background-color: #eee;
-    padding-left: 0.15em;
-    padding-right: 0.15em;
-}
-
-details {
-    border: 1px solid black;
-    border-radius: 15px;
-    background-color: #eee;
-    padding-left: 1rem;
-    padding-right: 0.5rem;
-}
-
-details > summary {
-    margin: 0;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-details.warning {
-    border: 1px solid #c00;
-    border-radius: 15px;
-    background-color: #fdd;
-    padding-left: 1rem;
-    padding-right: 0.5rem;
-}
-
-details.warning > summary {
-    color: #c00;
-}
-
-details.warning > summary::before {
-    content: "⚠ ";
-    color: #c00;
-}
-
-dt {
-    font-weight: bold;
-    margin-top: 0.5em;
-}
-
-dt + dt {
-    margin-top: 0;
-}
-
-dd {
-    margin-inline-start: 2ch;
-    margin-top: 0.2em;
-    text-indent: 2ch;
-}
-
-span[title] {
-    text-decoration: underline dashed 1px;
-    cursor: help;
-}
-
-.image {
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.important {
-    color: #c00;
-}
-
-.alert {
-    border: 1px solid #c00;
-    border-radius: 15px;
-    background-color: #fdd;
-    padding: 0.5rem;
-    color: #c00;
-}
-

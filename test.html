@@ -7,27 +7,52 @@
     <meta property="og:description" content="this embed is working">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="writing/writing.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-<h1 id="title">Test</h1>
-<nav id="menu"><a href="index.html">Main</a> &bull; <a href="works.html">Works</a> &bull; <a href="logicpuzzles.html">Logic</a> &bull; <a href="faves.html">Faves</a> &bull; <a href="furry.html">Furry</a></nav>
+<header>
+    <h1 id="title">Test</h1>
+    <nav id="menu"><ul>
+        <li><a href="index.html">chaoticiak.github.io</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="logic.html">Logic</a></li>
+        <li><a href="faves.html">Faves</a></li>
+        <li><a href="furry.html">Furry</a></li>
+    </ul></nav>
+</header>
 
-<div id="lastupdated">
+<div id="changelog">
 <p>This shouldn't be public.</p>
 </div>
 
-<p id="test">false</p>
+<p id="test">failed to run</p>
+
+<style>
+details.reveal > summary {
+    display: block;
+}
+details[open] > summary {
+    display: none;
+}
+</style>
+
+<details class="reveal"><summary>test</summary>
+    <p>asdf</p>
+</details>
+
 
 <script>
     function updateSize() {
-        document.getElementById("test").innerHTML = `${window.innerWidth} x ${window.innerHeight}`;
+        document.getElementById("test").innerHTML = `${window.innerWidth} x ${window.innerHeight}` + " \"\" " + `" ${this.location} "`;
     }
     updateSize();
     window.addEventListener("resize", updateSize);
     
     /* localStorage.clear();
     alert(localStorage.getItem("test") == null);
+    console.log(localStorage.getItem("test"));
     document.getElementById("test").innerHTML = localStorage.getItem("test") + "<br>";
     localStorage.setItem("test", "true");
     for (let i = 0; i < localStorage.length; i++) {
