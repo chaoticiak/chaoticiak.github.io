@@ -109,7 +109,7 @@ Maybe I should re-organize the stylesheet so I don't have to hack specificity */
 /*** h2-h3 headers and internal linking ***/
 
 h2, h3 {
-    clear: right;
+    clear: both;
     color: var(--dark);
 }
 h2 {
@@ -162,6 +162,56 @@ label:has(input[type="checkbox"]:checked)::before {
 
 
 
+/*** Positioning with float and flex ***/
+
+/* Float */
+.float-left {
+    float: left;
+    clear: left;
+    margin: 0 1rem 1rem 0;
+}
+.float-right {
+    float: right;
+    clear: right;
+    margin: 0 0 1rem 1rem;
+}
+@media (max-width: 66em) { .float-left, .float-right {
+    float: none;
+    margin: 1rem auto;
+    text-align: center;
+} }
+.clear-float {
+    clear: both;
+}
+
+/* Flex */
+.flex-area {
+    display: flex;
+}
+.flex-main {
+    flex: 1;
+}
+.flex-left {
+    flex: 0;
+    order: -1;
+    margin: 0 1rem 1rem 0;
+}
+.flex-right {
+    flex: 0;
+    order: 1;
+    margin: 0 0 1rem 1rem;
+}
+@media (max-width: 66em) {
+    .flex-area {
+        display: block;
+    }
+    .flex-left, .flex-right {
+        margin: 1rem auto;
+    }
+}
+
+
+
 /*** Misc block elements ***/
 
 p {
@@ -183,19 +233,16 @@ figure {
     margin: 1rem 0;
     text-align: center;
 }
-figure.float-right {
-    float: right;
-    margin: 0 0 1rem 1rem;
-    /* text-align: right; */
+figure img {
+    width: 100%;
 }
-@media (max-width: 66em) { figure.float-right {
-    float: none;
-    margin: 1rem 0;
-    text-align: center;
-} }
+figure figcaption {
+    width: 100%;
+}
 figure.bg-white img {
     background-color: white;
     padding: 0.5rem;
+    width: calc(100% - 1rem);
 }
 
 h4 {
@@ -209,6 +256,9 @@ h4::before {
 
 hr {
     margin: 1rem 0;
+}
+hr.invisible {
+    border: none;
 }
 
 li {
