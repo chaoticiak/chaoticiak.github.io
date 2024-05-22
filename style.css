@@ -188,15 +188,15 @@ label:has(input[type="checkbox"]:checked)::before {
 .flex-area {
     display: flex;
 }
-.flex-main {
+.flex-area > .flex-main {
     flex: 1;
 }
-.flex-left {
+.flex-area > .flex-left {
     flex: 0;
     order: -1;
     margin: 0 1rem 1rem 0;
 }
-.flex-right {
+.flex-area > .flex-right {
     flex: 0;
     order: 1;
     margin: 0 0 1rem 1rem;
@@ -205,9 +205,29 @@ label:has(input[type="checkbox"]:checked)::before {
     .flex-area {
         display: block;
     }
-    .flex-left, .flex-right {
+    .flex-area > .flex-left,
+    .flex-area > .flex-right {
         margin: 1rem auto;
     }
+}
+
+
+
+/*** Table formatting ***/
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+th, td {
+    border: 1px solid black;
+    padding: 0.2em;
+}
+th.align-left, td.align-left {
+    text-align: left;
+}
+th.align-right, td.align-right {
+    text-align: right;
 }
 
 
@@ -369,7 +389,7 @@ Used for asides, warnings, etc
 }
 /* Boxed text, generally only for referencing notecards */
 .boxedtext {
-    padding: 2px;
+    padding: 0 2px;
     border-width: 1px;
     border-style: solid;
 }
