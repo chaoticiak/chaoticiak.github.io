@@ -50,7 +50,8 @@
 </header>
 
 <div id="changelog">
-<p><b>Last updated <time datetime="2024-05-22">22 May 2024</time>.</b> Several new puzzles, detailed below. Behind the scenes, I slightly changed the HTML page layout; would you believe I've been writing my pages entirely by hand? Also, a bug fix regarding a Cross the Streams that was named "Battleships (Hidden)" because of copy-paste error.</p>
+<p><b>Last updated <time datetime="2024-06-17">17 June 2024</time>.</b> Several bugfixes mostly about wrong/missing intra-page links.</p>
+<p><b>Previously updated <time datetime="2024-05-22">22 May 2024</time>.</b> Several new puzzles, detailed below. Behind the scenes, I slightly changed the HTML page layout; would you believe I've been writing my pages entirely by hand? Also, a bug fix regarding a Cross the Streams that was named "Battleships (Hidden)" because of copy-paste error.</p>
 <ul>
     <li><a href="#event-deception">Deception</a> is now up</li>
     <li><a href="#event-polyglot">Polyglot</a> is now up</li>
@@ -145,7 +146,7 @@
         <li><a href="#heteromino">Heteromino</a></li>
         <li><a href="#heyawake">Heyawake</a></li>
         <li><a href="#hidoku">Hidoku</a></li>
-        <li><a href="#kurodoko">Kakuro</a></li>
+        <li><a href="#kakuro">Kakuro</a></li>
         <li><a href="#kurodoko">Kurodoko</a></li>
         <li><a href="#kurotto">Kurotto</a></li>
         <li><a href="#masyu">Masyu</a></li>
@@ -155,6 +156,7 @@
         <li><a href="#nurikabe">Nurikabe</a></li>
         <li><a href="#posetfutoshiki">Poset Futoshiki</a></li>
         <li><a href="#rampage">Rampage</a></li>
+        <li><a href="#signalloop">Signal Loop</a></li>
         <li><a href="#skyscrapers">Skyscrapers</a></li>
         <li><a href="#slitherlink">Slitherlink</a></li>
         <li><a href="#starbattle">Star Battle</a></li>
@@ -162,6 +164,7 @@
         <li><a href="#tapa">Tapa</a></li>
         <li><a href="#turnaround">Turnaround</a></li>
         <li><a href="#yajilin">Yajilin</a></li>
+        <li><a href="#yinyang">Yin-Yang</a></li>
         <li><a href="#misc">Miscellaneous</a></li>
     </ul></div>
 </section>
@@ -1006,8 +1009,8 @@
     <div class="notecard accented"><ul>
         <li><a href="#gaps-2018-05-24hpc-06"><span class="code">[2018-05-24HPC-06]</span></a></li>
         <li>Other variants</li><ul>
-            <li><a href="#gapsabacus-2017-12-tga-3"><span class="code">[2017-12-TGA-3]</span> Abacus</a></li>
-            <li><a href="#gapsabacusdomino-2017-12-tga-4"><span class="code">[2017-12-TGA-4]</span> Abacus, Domino</a></li>
+            <li><a href="#gapsabacus-2017-12-tga-3"><span class="code">[2017-12-TGA-3]</span> Abacus (Prototype)</a></li>
+            <li><a href="#gapsabacusdomino-2017-12-tga-4"><span class="code">[2017-12-TGA-4]</span> Abacus (Prototype), Domino</a></li>
         </ul>
     </ul></div>
 
@@ -1023,7 +1026,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="gapsabacus-2017-12-tga-3" class="checkable"><span class="code">[2017-12-TGA-3]</span> Gaps (Abacus)</h3>
+    <section><h3 id="gapsabacus-2017-12-tga-3" class="checkable"><span class="code">[2017-12-TGA-3]</span> Gaps (Abacus (Prototype))</h3>
     <p class="subtitle">Part of <a href="#event-tga">The Great Abacus</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -1042,7 +1045,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="gapsabacusdomino-2017-12-tga-4" class="checkable"><span class="code">[2017-12-TGA-4]</span> Gaps (Abacus, Domino)</h3>
+    <section><h3 id="gapsabacusdomino-2017-12-tga-4" class="checkable"><span class="code">[2017-12-TGA-4]</span> Gaps (Abacus (Prototype), Domino)</h3>
     <p class="subtitle">Part of <a href="#event-tga">The Great Abacus</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -1302,7 +1305,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="heyawakesurveyors-2013-05-deception-11" class="checkable"><span class="code">[2013-05-Deception-11]</span> Surveyors Heyawake</h3>
+    <section><h3 id="heyawakesurveyors-2013-05-deception-11" class="checkable"><span class="code">[2013-05-Deception-11]</span> Surveyors Heyawake (Prototype)</h3>
     <p class="subtitle">Part of <a href="#event-deception">Deception</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -1323,7 +1326,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="heyawakesurveyors-2013-05-deception-12" class="checkable"><span class="code">[2013-05-Deception-12]</span> Surveyors Heyawake</h3>
+    <section><h3 id="heyawakesurveyors-2013-05-deception-12" class="checkable"><span class="code">[2013-05-Deception-12]</span> Surveyors Heyawake (Prototype)</h3>
     <p class="subtitle">Part of <a href="#event-deception">Deception</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -1484,6 +1487,9 @@
     </div>
     <p>I never understand the rationale behind Masyu's clues. White circles seem to be much more flexible and abundant. Why does black circle demand going straight on both cells instead of just either of the cells?</p>
     <div class="notecard accented"><ul>
+        <li><a href="#masyu-2015-01-polyglot-14"><span class="code">[2015-01-Polyglot-14]</span></a></li>
+        <li><a href="#masyu-2015-01-polyglot-44"><span class="code">[2015-01-Polyglot-44]</span></a></li>
+        <li><a href="#masyu-2015-01-polyglot-74"><span class="code">[2015-01-Polyglot-74]</span></a></li>
         <li>Semi-Liar</li><ul>
             <li><a href="#masyusemiliar-2013-05-deception-03"><span class="code">[2013-05-Deception-03]</span></a></li>
             <li><a href="#masyusemiliar-2013-05-deception-04"><span class="code">[2013-05-Deception-04]</span></a></li>
@@ -1573,7 +1579,7 @@
         <p>Place some mines on the grid. Mines cannot be placed on numbers. Each number indicates how many mines are among cells touching that number.</p>
     </div>
     <div class="notecard accented"><ul>
-        <li>Minesweeper Sudoku</li><ul>
+        <li>Sudoku</li><ul>
             <li><a href="#minesweepersudoku-2011-03-bmpc1-8"><span class="code">[2011-03-BMPC1-8]</span></a></li>
             <li><a href="#minesweepersudoku-2011-04-26"><span class="code">[2011-04-26]</span></a></li>
             <li><a href="#minesweepersudoku-2011-04-27"><span class="code">[2011-04-27]</span></a></li>
@@ -2054,10 +2060,8 @@
         <p><strong>Antisignal Loop:</strong> Draw a loop traveling orthogonally on cells. The loop visits all cells other than those with white circles. The loop makes a turn on each black circle.</p>
     </div>
     <div class="notecard accented"><ul>
-        <li>Regionless</li><ul>
-            <li><a href="#signalloop-2015-01-polyglot-52"><span class="code">[2015-01-Polyglot-52]</span> Signal Loop</a></li>
-            <li><a href="#antisignalloop-2015-01-polyglot-57"><span class="code">[2015-01-Polyglot-57]</span> Antisignal Loop</a></li>
-        </ul>
+        <li><a href="#signalloop-2015-01-polyglot-52"><span class="code">[2015-01-Polyglot-52]</span> Signal Loop</a></li>
+        <li><a href="#antisignalloop-2015-01-polyglot-57"><span class="code">[2015-01-Polyglot-57]</span> Antisignal Loop</a></li>
     </ul></div>
 
     <section><h3 id="signalloop-2015-01-polyglot-52" class="checkable"><span class="code">[2015-01-Polyglot-52]</span> Signal Loop</h3>
@@ -2774,8 +2778,8 @@
             <li><a href="#yajilinbattleships-2013-05-deception-14"><span class="code">[2013-05-Deception-14]</span></a></li>
         </ul>
         <li>Other variants</li><ul>
-            <li><a href="#yajilinalmost-2018-03-uspc-1"><span class="code">[2018-03-USPC-1]</span></a> Almost Yajilin</li>
-            <li><a href="#yajilinmyopia-2023-04-24hpc10-13"><span class="code">[2023-04-24HPC10-13]</span></a> Myopia</li>
+            <li><a href="#yajilinalmost-2018-03-uspc-1"><span class="code">[2018-03-USPC-1]</span> Almost Yajilin</a></li>
+            <li><a href="#yajilinmyopia-2023-04-24hpc10-13"><span class="code">[2023-04-24HPC10-13]</span> Myopia</a></li>
         </ul>
     </ul></div>
 
@@ -2917,8 +2921,11 @@
         <li><a href="#battleshipshidden-2023-04-24hpc10-15"><span class="code">[2023-04-24HPC10-15]</span> Battleships (Hidden)</a></li>
         <li><a href="#crossthestreams-2024-04-24hpc13-12"><span class="code">[2024-04-24HPC13-12]</span> Cross the Streams</a></li>
         <li><a href="#doppelblock-2019-04-24hpc-05"><span class="code">[2019-04-24HPC-05]</span> Doppelblock</a></li>
+        <li><a href="#doubleornothing-2023-04-24hpc11-17"><span class="code">[2023-04-24HPC11-17]</span> Double or Nothing</a></li>
+        <li><a href="#ebonyivoryabacus-2017-12-tga-5"><span class="code">[2017-12-TGA-5]</span> Ebony & Ivory (Abacus (Prototype))</a></li>
+        <li><a href="#ebonyivoryabacusloop-2017-12-tga-6"><span class="code">[2017-12-TGA-6]</span> Ebony & Ivory (Abacus (Prototype), Loop)</a></li>
         <li><a href="#firstseencoral-2023-04-24hpc10-03"><span class="code">[2023-04-24HPC10-03]</span> First Seen Coral</a></li>
-        <li><a href="#fourwindsgapped-2018-03-uspc-4"><span class="code">[2023-04-24HPC10-03]</span> First Seen Coral</a></li>
+        <li><a href="#fourwindsgapped-2018-03-uspc-4"><span class="code">[2018-03-USPC-4]</span> Four Winds (Gapped)</a></li>
         <li><a href="#fullqueen-2019-04-24hpc-17"><span class="code">[2019-04-24HPC-17]</span> Full Queen</a></li>
         <li><a href="#geometricdistribution-2018-03-uspc-6"><span class="code">[2018-03-USPC-6]</span> Geometric Distribution</a></li>
         <li><a href="#hitoriknappdaneben-2024-01-28"><span class="code">[2024-01-28]</span> Hitori (Knapp-Daneben)</a></li>
@@ -2934,8 +2941,8 @@
         <li><a href="#starrynight-2020-07-typed-18"><span class="code">[2020-07-Typed-18]</span> Starry Night</a></li>
         <li><a href="#statuepark-2015-01-polyglot-83"><span class="code">[2015-01-Polyglot-83]</span> Statue Park</a></li>
         <li><a href="#sunandmoon-2015-01-polyglot-41"><span class="code">[2015-01-Polyglot-41]</span> Sun and Moon</a></li>
-        <li><a href="#tilepaintabacus-2017-12-tga-1"><span class="code">[2017-12-TGA-1]</span> Tile Paint (Abacus)</a></li>
-        <li><a href="#tilepaintabacuswall-2017-12-tga-2"><span class="code">[2017-12-TGA-2]</span> Tile Paint (Abacus, Wall)</a></li>
+        <li><a href="#tilepaintabacus-2017-12-tga-1"><span class="code">[2017-12-TGA-1]</span> Tile Paint (Abacus (Prototype))</a></li>
+        <li><a href="#tilepaintabacuswall-2017-12-tga-2"><span class="code">[2017-12-TGA-2]</span> Tile Paint (Abacus (Prototype), Wall)</a></li>
         <li><a href="#triocut-2018-05-24hpc-12"><span class="code">[2018-05-24HPC-12]</span> Trio Cut</a></li>
         <li><a href="#triplets-2024-04-24hpc13-07"><span class="code">[2024-04-24HPC13-07]</span> Triplets</a></li>
     </ul></div>
@@ -3060,7 +3067,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="ebonyivoryabacus-2017-12-tga-5" class="checkable"><span class="code">[2017-12-TGA-5]</span> Ebony &amp; Ivory (Abacus)</h3>
+    <section><h3 id="ebonyivoryabacus-2017-12-tga-5" class="checkable"><span class="code">[2017-12-TGA-5]</span> Ebony &amp; Ivory (Abacus (Prototype))</h3>
     <p class="subtitle">Part of <a href="#event-tga">The Great Abacus</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -3079,7 +3086,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="ebonyivoryabacusloop-2017-12-tga-6" class="checkable"><span class="code">[2017-12-TGA-6]</span> Ebony &amp; Ivory (Abacus, Loop)</h3>
+    <section><h3 id="ebonyivoryabacusloop-2017-12-tga-6" class="checkable"><span class="code">[2017-12-TGA-6]</span> Ebony &amp; Ivory (Abacus (Prototype), Loop)</h3>
     <p class="subtitle">Part of <a href="#event-tga">The Great Abacus</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -3431,7 +3438,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="tilepaintabacus-2017-12-tga-1" class="checkable"><span class="code">[2017-12-TGA-1]</span> Tile Paint (Abacus)</h3>
+    <section><h3 id="tilepaintabacus-2017-12-tga-1" class="checkable"><span class="code">[2017-12-TGA-1]</span> Tile Paint (Abacus (Prototype))</h3>
     <p class="subtitle">Part of <a href="#event-tga">The Great Abacus</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
@@ -3449,7 +3456,7 @@
     </figure>
     </div></section>
 
-    <section><h3 id="tilepaintabacuswall-2017-12-tga-2" class="checkable"><span class="code">[2017-12-TGA-2]</span> Tile Paint (Abacus, Wall)</h3>
+    <section><h3 id="tilepaintabacuswall-2017-12-tga-2" class="checkable"><span class="code">[2017-12-TGA-2]</span> Tile Paint (Abacus (Prototype), Wall)</h3>
     <p class="subtitle">Part of <a href="#event-tga">The Great Abacus</a>.</p>
     <div class="flex-area">
     <div class="flex-main">
