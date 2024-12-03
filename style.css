@@ -78,11 +78,11 @@ Other <li>s link to other pages and are followed by •, except for the last one
     margin: 0;
     display: inline-block;
 }
-#menu li:first-of-type::after {
+#menu li:has(+ li.focus-start)::after {
     display: inline-block;
-    content: "\A0>"; /* nbsp, > */
+    content: "\A0\2014"; /* nbsp, em dash */
 }
-#menu li + li:has(+ li)::after {
+#menu li:has(+ li)::after {
     display: inline-block;
     content: "\A0\2022"; /* nbsp, bullet */
 }
