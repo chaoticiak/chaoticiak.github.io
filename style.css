@@ -62,8 +62,8 @@ body {
 }
 
 /* Menu is an <ul>, but it's written in a single line
-First <li> links to the main page and is followed by >
-Other <li>s link to other pages and are followed by •, except for the last one
+<li> with class "focus-start" starts with em dash
+All other <li> start with bullet, except the first one has nothing
 */
 #menu {
     padding: 0.3em 0;
@@ -232,6 +232,22 @@ th.align-right, td.align-right {
 
 
 
+/*** Gallery styling ***/
+
+ul.gallery {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+ul.gallery li {
+    display: inline flow-root;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+
 /*** Misc block elements ***/
 
 p {
@@ -320,6 +336,10 @@ a:not(.anchor):hover {
 }
 a:not(.anchor):visited {
     color: #b1b;
+}
+
+a.nsfw::after {
+    content: "\1F51E";
 }
 
 button {

@@ -8,6 +8,14 @@
 </channel>
 
 <item>
+    <title>Neocities site</title>
+    <link>https://chaoticiak.github.io/updates.html</link>
+    <guid>https://chaoticiak.github.io/updates.html#2025-06-12-neocities</guid>
+    <pubDate>12 Jun 2025 03:00:00 +0800</pubDate>
+    <description>I have a Neocities site at chaoticiak.neocities.org and have ported over a large amount of my furry page there.</description>
+</item>
+
+<item>
     <title>RSS Feed and Updates page</title>
     <link>https://chaoticiak.github.io/updates.html</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-12-03-rss</guid>
