@@ -1,7 +1,7 @@
 /*** Colors ***/
 
 :root {
-    /* Articles not in main site are in "Eevee brown", taken from brightly-lit brown color (around face) of Gen 5 sprite:
+    /* Non-main articles are in "Eevee brown", taken from brightly-lit brown color (around face) of Gen 5 sprite:
     https://archives.bulbagarden.net/media/upload/9/9c/Spr_5b_133.png
     */
     --accent: rgb(214, 156, 74);

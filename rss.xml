@@ -8,8 +8,16 @@
 </channel>
 
 <item>
+    <title>Restructuring</title>
+    <link>https://chaoticiak.github.io/updates.html#2025-06-17-restructuring</link>
+    <guid>https://chaoticiak.github.io/updates.html#2025-06-17-restructuring</guid>
+    <pubDate>13 Jun 2025 07:00:00 +0800</pubDate>
+    <description>I looked over my furry page and I think I've ported over everything I want.</description>
+</item>
+
+<item>
     <title>More Neocities site</title>
-    <link>https://chaoticiak.github.io/updates.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2025-06-13-neocities</link>
     <guid>https://chaoticiak.github.io/updates.html#2025-06-13-neocities</guid>
     <pubDate>13 Jun 2025 07:00:00 +0800</pubDate>
     <description>I looked over my furry page and I think I've ported over everything I want.</description>
@@ -17,7 +25,7 @@
 
 <item>
     <title>Neocities site</title>
-    <link>https://chaoticiak.github.io/updates.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2025-06-12-neocities</link>
     <guid>https://chaoticiak.github.io/updates.html#2025-06-12-neocities</guid>
     <pubDate>12 Jun 2025 03:00:00 +0800</pubDate>
     <description>I have a Neocities site at chaoticiak.neocities.org and have ported over a large amount of my furry page there.</description>
@@ -25,7 +33,7 @@
 
 <item>
     <title>RSS Feed and Updates page</title>
-    <link>https://chaoticiak.github.io/updates.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2024-12-03-rss</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-12-03-rss</guid>
     <pubDate>3 Dec 2024 21:00:00 +0800</pubDate>
     <description>I now have a RSS feed, so now you can subscribe to it. I also have a page for site updates to go along with it.</description>
@@ -33,7 +41,7 @@
 
 <item>
     <title>Contacts update</title>
-    <link>https://chaoticiak.github.io/index.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2024-11-08-contacts</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-11-08-contacts</guid>
     <pubDate>8 Nov 2024 00:00:00 +0800</pubDate>
     <description>A little contact update change. Also, my interests drift in and out; here's hoping my interest gets back into updating this site and stuff.</description>
@@ -41,7 +49,7 @@
 
 <item>
     <title>Vee's new image</title>
-    <link>https://chaoticiak.github.io/furry.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2024-09-27-vee</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-09-27-vee</guid>
     <pubDate>27 Sep 2024 00:00:00 +0800</pubDate>
     <description>Guess who got a new commission?</description>
@@ -49,7 +57,7 @@
 
 <item>
     <title>Cohost archive</title>
-    <link>https://chaoticiak.github.io/writing/cohost-archive.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2024-09-10-cohost</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-09-10-cohost</guid>
     <pubDate>10 Sep 2024 00:00:00 +0800</pubDate>
     <description>Cohost is shutting down, so I archived my Cohost posts.</description>
@@ -57,7 +65,7 @@
 
 <item>
     <title>Logic Showcase 61 results</title>
-    <link>https://chaoticiak.github.io/writing/ls61.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2024-06-26-ls61</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-06-26-ls61</guid>
     <pubDate>26 Jun 2024 00:00:00 +0800</pubDate>
     <description>Here are the results for Logic Showcase 61! I also submitted an entry to my own showcase.</description>
@@ -65,7 +73,7 @@
 
 <item>
     <title>Logic Showcase 61 entries</title>
-    <link>https://chaoticiak.github.io/writing/ls61.html</link>
+    <link>https://chaoticiak.github.io/updates.html#2024-06-12-ls61</link>
     <guid>https://chaoticiak.github.io/updates.html#2024-06-12-ls61</guid>
     <pubDate>12 Jun 2024 00:00:00 +0800</pubDate>
     <description>Here are the entries for Logic Showcase 61!</description>

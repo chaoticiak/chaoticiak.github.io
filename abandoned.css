@@ -1,0 +1,11 @@
+/*** Colors ***/
+
+:root {
+    /* Abandoned or outdated articles are in gray just to emphasize I no longer tend them
+    */
+    --accent: #666;
+    
+    /* Shades of accent */
+    --dark: #333;
+    --light: #aaa;
+}
