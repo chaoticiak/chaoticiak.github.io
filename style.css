@@ -232,7 +232,13 @@ th.align-right, td.align-right {
 
 
 
-/*** Gallery styling ***/
+/*** <ul> collapsible styling ***/
+/* Includes gallery, which has a more specific structure */
+
+ul.collapse li {
+    display: inline list-item flow-root;
+    margin-right: 2em;
+}
 
 ul.gallery {
     text-align: center;
