@@ -352,6 +352,10 @@ button {
     font-family: inherit;
 }
 
+p.noindent {
+    text-indent: 0;
+}
+
 strong {
     color: var(--red);
     font-weight: bold;
