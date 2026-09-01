@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Togetrick - chaoticiak.github.io</title>
+    <meta name="viewport" content="initial-scale=1,width=device-width">
+    <meta property="og:title" content="Togetrick - chaoticiak.github.io">
+    <meta property="og:description" content="Cooperative trick-taking game (heavily inspired by The Crew), invented by chaotic_iak / Ivan Koswara">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+<header>
+    <h1 id="title">Togetrick</h1>
+    <nav id="menu"><ul>
+        <li><a href="index.html">chaoticiak.github.io</a></li>
+        <li><a href="updates.html">Updates</a></li>
+        <li class="focus-start"><a href="works.html">Works</a></li>
+        <li><a href="logic.html">Logic</a></li>
+        <li><a href="faves.html">Faves</a></li>
+        <li><a href="https://chaoticiak.neocities.org/">Furry</a></li>
+    </ul></nav>
+</header>
+
+<div id="changelog">
+<p><b>v0.1, on <time datetime="2026-09-01">01 September 2026</time>.</b> First version.</p>
+</div>
+
+
+
+<p><b>Togetrick</b> is a cooperative trick-taking game played with a standard deck of cards plus a few common components. It is invented by me (chaotic_iak / Ivan Koswara), and it is inspired by <a href="https://boardgamegeek.com/boardgamefamily/63179/game-the-crew"><cite>The Crew</cite></a> series.</p>
+<p>A full game of Togetrick is a single scenario. The scenario defines the win condition and any special rules. A scenario consists of one or more deals. A deal is a full round of playing cards. Each player plays one card following certain rules, making up a "trick"; the deal consists of playing tricks until all players have played all their cards. The win condition will generally involve playing cards or winning tricks by the right player at the right time; the goal is to cooperate with your fellow players to accomplish these objectives together.</p>
+<p>Togetrick is designed to be very flexible. Other than the basic trick-taking rules, scenarios can take virtually any form. Different objectives lead to different strategies to handle them. In some scenarios, deals may even influence future deals. Even the same scenario may offer many choices and permutations of those choices; by design, you are encouraged to try each scenario multiple times to explore its variety.</p>
+<p><strong>The basic rules of Togetrick are designed for exactly 4 players.</strong> However, <a href="#other-player-counts">variant rules</a> can be used to play Togetrick with anywhere between 1&ndash;5 players.</p>
+
+<details class="notecard callout"><summary>Click to read the background story behind why this game was developed (pretty long)</summary>
+    <p>In 2019, <a href="https://boardgamegeek.com/boardgame/284083/the-crew-the-quest-for-planet-nine"><cite>The Crew: The Quest for Planet Nine</cite></a> was released. It is a trick-taking game, but that's not new; many well-known traditional card games, such as Contract Bridge, Hearts, and Spades, are trick-taking games. It is a cooperative game, but even among trick-taking games, that's not new; contract bridge is played in partnerships. What's different is that it is <em>fully</em> cooperative. It's everyone against the game.</p>
+    <p>It was an immediate hit. The basic trick-taking gameplay is simple to understand. Yet, as shown by the variety in the 50 missions, it is very extensible and flexible. Many play groups try to work through the entire campaign. Some, itching for more after completing the campaign, came up with <a href="https://boardgamegeek.com/boardgame/284083/the-crew-the-quest-for-planet-nine/forums/69">many custom missions</a>.</p>
+    <p>Then in 2021, <a href="https://boardgamegeek.com/boardgame/324856/the-crew-scenario-deep-sea"><cite>The Crew: Scenario Deep Sea</cite></a> came out. In <cite>Planet Nine</cite>, every player is assigned individual tasks in the form of "win this card"; <cite>Scenario Deep Sea</cite> shows the tasks don't have to all be in that form. In 2026, <a href="https://boardgamegeek.com/boardgame/462192/the-crew-journey-to-the-ends-of-the-earth"><cite>The Crew: Journey to the Ends of the Earth</cite></a> came out. Shared group objectives, previously existing as full missions in the first two games, now become tasks that can be randomized. A mission is no longer restricted to just one deal; <cite>Ends of the Earth</cite> asks players to complete task after task, racing to complete a journey by completing tasks of enough total difficulty within a specific number of deals. The trick-taking is still the same, but pretty much everything else has been overhauled.</p>
+    <p>I already loved the first two games. When <cite>Ends of the Earth</cite> was released though, I was immediately captivated by how different its structure was. Missions taking multiple deals? Tasks that award points (i.e. spaces to move along the journey)? I recognized that the magic of <cite>The Crew</cite> is really from how flexible the gameplay is. The goal is variable and depends on the mission, so changing the mission also changes the goal.</p>
+    <p>While this was ongoing, there was a 2024 spin-off <a href="https://boardgamegeek.com/boardgame/406299/the-crew-family-adventure"><cite>The Crew: Family Adventure</cite></a> which used the "follow suit/number" mechanic of Crazy Eights and <cite>UNO</cite>. The game received mixed reception, mostly because it was marketed to families and hence its missions were too easy. However, the core gameplay still fascinated me; it showed the mechanic didn't have to be trick-taking. A different 2025 game with a ridiculously long title, <a href="https://boardgamegeek.com/boardgame/429293/the-lord-of-the-rings-the-fellowship-of-the-ring-t"><cite>The Lords of the Rings: The Fellowship of the Ring &mdash; Trick-Taking Game</cite></a>, took a different approach to cooperative trick-taking. It integrated theme more strongly, and it introduced extra components and rules throughout the campaign instead of simply using the same deck of cards. (It has since received <a href="https://boardgamegeek.com/boardgame/448271/the-lord-of-the-rings-the-two-towers-trick-taking">a standalone sequel</a>.)</p>
+    <p>And it brings us to now. Impressed by <cite>The Crew</cite> series, I decided to try making a variant. The truth is, although I love the first two games (and I'm itching to play the third game soon), there are some aspects of the games that I don't quite like. Among the various missions in <cite>Planet Nine</cite> and <cite>Deep Sea</cite>, the ones I like the most are definitely the ones that do <em>not</em> use task cards; I find them the most novel and interesting. Thus the many task cards in <cite>Planet Nine</cite> and <cite>Deep Sea</cite> aren't particularly useful for me. Besides that, <cite>Planet Nine</cite>'s missions feel too "samey"; <cite>Deep Sea</cite>'s tasks might be significantly easier or harder in certain combinations; and <cite>Ends of the Earth</cite> lacks elegance in the travel spaces and have clarity issues regarding the tasks' texts.</p>
+    <p>At first, I tried to develop a <cite>The Crew</cite> variant. In particular, it used <cite>The Crew</cite> deck (i.e. 4 suits in 1&ndash;9, plus a trump suit in 1&ndash;4), it had the usual rules regarding communication, and so on; my contribution would be simply to invent new missions and goals. However, as I gave it more thought, I wondered, did I need to use <cite>The Crew</cite> deck? I could use a standard deck, which was more widely available. Detaching away from <cite>The Crew</cite> also meant I could change the basic gameplay &mdash; it would still be cooperative trick-taking, but it could have a different form of communication. It could become its own thing rather than a clone of <cite>The Crew</cite>.</p>
+    <p><b>Togetrick</b> is the end result. It is a cooperative trick-taking game. Although it owes its existence to <cite>The Crew</cite> series and to some extent the LOTR trick-taking series, it has been developed from scratch, with some new mechanics on its own. It is designed to use common components; in particular, the cards come from a standard 52-card deck. It emphasizes flexibility; there's a ton of variety built-in, so you can use the game as a sandbox. Play it however you want. (That said, it dispenses with theme entirely; I'm not the best at coming up with theming, so it will only come later, if at all.)</p>
+    <p>The name "Togetrick" comes from "together" and "trick". The name is coincidentally very similar to <a href="https://bulbapedia.bulbagarden.net/wiki/Togetic_(Pok%C3%A9mon)">Togetic</a>, a Pokémon species known for happiness and joy.</p>
+</details>
+
+
+
+<section><h2 id="toc" class="no-top-link">Table of contents</h2>
+    <div class="notecard accented"><ul>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#gameplay">Gameplay</a><ul>
+            <li><a href="#preparing-deal">Preparing a deal</a></li>
+            <li><a href="#playing-trick">Playing a trick</a></li>
+            <li><a href="#leading-following">Leading and following suit</a></li>
+            <li><a href="#winning-trick">Winning a trick</a></li>
+            <li><a href="#table-talk">Table talk</a></li>
+        </ul></li>
+        <li><a href="#other-player-counts">Playing with other player counts</a><ul>
+            <li><a href="#artificial-players">Artificial players</a></li>
+            <li><a href="#possessing-ghost">Possessing ghost</a></li>
+            <li><a href="#recommended-mix">Recommended mix</a></li>
+        </ul></li>
+        <li><a href="#about-scenarios">About scenarios</a><ul>
+            <li><a href="#getting-random-entry">Getting a random entry</a></li>
+        </ul></li>
+        <li><a href="#list-scenarios">List of scenarios</a><ul>
+            <li><a href="#none-or-all">None or All (3 deals)</a></li>
+        </ul></li>
+    </ul></div>
+</section>
+
+
+
+<section><h2 id="components">Components</h2>
+    <p>The following is a list of components required for the basic rules of Togetrick. Some scenarios and variants may require additional components.</p>
+    <p>The components are designed to be easy to find. The deck, while specially prepared, simply comes from a standard 52-card deck. The other components can use virtually anything convenient.</p>
+    
+    <section><h4>Basic components</h4><ul>
+        <li>33 cards to make up the <b>deck</b>. They come from a standard 52-card deck, <a href="#playing-cards">as described below</a>.</li>
+        <li>5 <b>reserve boards</b>, to mark reserved cards<ul>
+            <li>Ideally something flat that's larger than a card, e.g. a coaster, so the reserved card can be put on top of it.</li>
+            <li>As a substitute, you can instead use some small marker, e.g. a coin, to be put on top of the reserved card.</li>
+        </ul></li>
+        <li>A <b>captain figure</b> for the captain, such as an action figure or the deckbox</li>
+    </ul></section>
+
+    <section><h4 id="playing-cards">The playing cards</h4>
+        <p>The main component is a 33-card <b>deck</b>, obtained by removing some cards from a standard 52-card deck. The deck contains the following:</p>
+        <ul>
+            <li>In clubs, diamonds, and hearts: Aces and 2&ndash;10</li>
+            <li>In spades: Jack, Queen, King</li>
+        </ul>
+        <p>The <b>basic</b> suits are clubs, diamonds, and hearts. Always treat Aces as rank 1. Thus each basic suit has 10 cards, ranked 10 (highest) to 1 (lowest).</p>
+        <p>The <b>trump</b> suit is spades. It has 3 cards, ranked King (highest), Queen, Jack (lowest).</p>
+        
+        <details class="notecard callout"><summary>Click for details regarding ranks</summary>
+            <p>The basic cards have number ranks, 1&ndash;10. The trump ranks are not numbers.</p>
+            <p>Many tasks in scenarios talk about properties of ranks as though they are numbers. Therefore, if they only make sense for numbers, they only apply to number ranks. For example, whether a rank "is even" or "is odd" only makes sense for number ranks; trump ranks are neither even nor odd.</p>
+            <p>In Togetrick, "consecutive" means "differ by 1". As such, it also only applies to number ranks. In particular, Jack and Queen are not consecutive, nor are Queen and King.</p>
+        </details>
+    </section>
+    
+</section>
+
+
+
+<section><h2 id="gameplay">Gameplay</h2>
+    <p>Togetrick is scenario-based. A game of Togetrick is played according to the rules of the scenario you choose, and they may vary greatly between scenarios. However, every scenario will have you play one or more <b>deals</b>. Each deal can be divided into two phases: <a href="#preparing-deal">preparing the deal</a>, then <a href="#playing-trick">playing tricks</a>.</p>
+    <p>The following describes the basic rules to follow for each deal. Note that scenarios and variants may modify these basic rules.</p>
+    
+    
+    <section><h3 id="preparing-deal">Preparing a deal</h3>
+        <p>To prepare the deal, follow these steps:</p>
+        <ol>
+            <li>Choose one player to be the <b>captain</b>. They take the captain figure.</li>
+            <li>Shuffle all 33 cards, and distribute them face-down to each player to form their <b>hand</b>. The captain gets 9 cards, and each other player gets 8 cards.</li>
+            <li>Check the scenario text for any instructions you might need to follow after distributing cards.</li>
+            <li>Give each player a <b>personal reserve board</b>. Put the remaining <b>central reserve board</b> in the middle of the table.</p>
+            <li>The captain chooses one card from their hand and places it face-up on the central reserve board.</li>
+            <li>Starting from the player to the left of the captain, and going clockwise ending with the captain, each player chooses one of the following to <b>load their reserve</b>:<ul>
+                <li>They place a card from their hand face-up onto their personal reserve board.</li>
+                <li>They take the card from the central reserve board and put it on their personal reserve board. They then place a card from their hand face-up onto the central reserve board.</li>
+            </ul></li>
+            <li>The card that remains on the central reserve board is the <b>exiled card</b>. Put it out of play; it will not be used this deal.</li>
+        </ol>
+        
+        <p>Hands are private information. Each player may look at the cards in their hand, but should not show it to any other player.</p>
+        <p>The face-up card on your personal reserve board is your <b>reserve card</b>. The reserve card is <em>not</em> part of your hand, but you can play it as though it's part of your hand. This gives you flexibility while playing tricks, as explained in under <a href="#leading-following">leading and following suit</a>.</p>
+        <p>Once the deal has been prepared, with each player's hand and reserve cards decided, play may begin. Continue to <a href="#playing-trick">playing tricks</a>.</p>
+        
+        <div class="notecard callout">
+            <p>The procedure of loading reserves has multiple purposes. It lets you adjust your hand's composition. It allows you to pass a card to another player or to put a card out of play. It gives you the opportunity to indirectly communicate to other players. Take advantage of it.</p>
+        </div>
+    </section>
+    
+    
+    <section><h3 id="playing-trick">Playing a trick</h3>
+        <p>Once <a href="#preparing-deal">the deal has been prepared</a>, you will play cards into tricks. To play a trick, follow these steps:</p>
+        <ol>
+            <li>The lead player <b>leads</b> by playing a card.</li>
+            <li>In clockwise order, each other player plays a card. Players must <b>follow suit</b> if possible.</li>
+            <li>Determine who <b>wins</b> the trick. They gather the cards in the trick and put them in front of themself.</li>
+        </ol>
+        
+        <p>After the trick, check if the deal has ended. If any player still has any cards left (in hand or reserve), play another trick. If not, the deal is over. Since each player begins with 8 cards in hand, you will play a total of 8 tricks each deal.</p>
+    </section>
+    
+    
+    <section><h3 id="leading-following">Leading and following suit</h3>
+        <p>One player, called the <b>lead player</b>, will <b>lead</b> a trick. They play any card from their hand or reserve, by placing it face-up on the table. This card is called the lead card, and its suit is the lead suit. For the first trick of a deal, the lead player is the captain; for the other tricks, the lead player is the player who won the previous trick.</p>
+        <p>In clockwise order from the lead player, each other player plays a card. A player must <b>follow suit</b> if able. If they have any card in their hand that is the same suit as the lead suit, they must play one of them. If not, they may play any card from their hand. (It doesn't matter what other non-lead players played before you; you only need to follow the lead suit.)</p>
+        <p>These are the <em>only</em> rules regarding playing a card into a trick. There is no requirement to play a higher card if possible. There is no requirement to "break trumps". Any other rule you might know from a traditional trick-taking game does not apply in Togetrick.</p>
+        
+        <section><h4>Reserve cards</h4>
+            <p>Reserve cards are special because they let you violate following suit requirements. While preparing the deal, you placed one card on your personal reserve board; this is your <b>reserve card</b>. (One card was left on the central reserve board; this is the exiled card, not a reserve card.)</p>
+            <p>You may play your reserve card as though it's in your hand. However, the reserve card is <em>not</em> actually in your hand, so it is <em>not</em> considered for the purpose of following suit. Even if your reserve card is in the lead suit, you are never forced to play it.</p>
+            <p>However, if you choose to play the reserve card, it must still be legal. If the reserve card is <em>not</em> in the lead suit, you may play it only if you cannot follow suit with your hand.</p>
+            <p>Once your reserve card has been played, it acts like any other card. You only have one reserve card; you don't get to replace it with another card after you play it. Although the reserve card is not part of your hand, you must play it at some point during the deal; if your hand is empty when you have to play a card, you must play your reserve card.</p>
+        </section>
+    </section>
+    
+    
+    <section><h3 id="winning-trick">Winning a trick</h3>
+        <p>Once all players have played a card each, determine the card that <b>wins</b> the trick, as follows:</p>
+        <ol>
+            <li>If the trick contains any trump (spades), the highest trump card wins the trick.</li>
+            <li>Otherwise, among the cards of the lead suit, the highest card wins the trick. Recall that Aces are always rank 1.</li>
+        </ol>
+        <p>The player who played the winning card is the winner of the trick. They gather the cards in the trick and place them face-up in front of themself, separate from their hand or reserve.</p>
+        
+        <div class="notecard callout">
+            <p>In traditional trick-taking games, won tricks are usually set face-down, and only the most recently won trick may be inspected. I personally dislike the memory component, so the default is that won tricks are left face-up. However, if you prefer to flip won tricks face-down, you may do so.</p>
+        </div>
+    </section>
+    
+    
+    <section><h3 id="table-talk">Table talk</h3>
+        <p>Starting from when the deal is being prepared, up until the last trick is played and won, you should not talk about any card in your hand. By extension, this also includes any information or strategy that can only be inferred from the contents your hand.</p>
+        <p>Other than that, how much table talk you want to allow is up to you. Some groups prefer to play completely silently, not discussing strategy or gameplay at all. Some others talk about objectives in a broad sense, such as suggesting who should win a trick and reminding any particular objective to accomplish. Your group can decide on what is the most enjoyable for you.</p>
+        <p>If you aren't in a deal, you are always allowed to talk and discuss strategies freely. This includes, but is not limited to, discussing the following: choices required by a scenario, who should be the captain this deal, strategies for tackling a task (before any player sees any card), etc.</p>
+    </section>
+    
+</section>
+
+
+
+<section><h2 id="other-player-counts">Playing with other player counts</h2>
+    <p>Togetrick is designed first and foremost for exactly 4 players. However, Togetrick is also designed to be flexible, including with player count. The <a href="#artificial-players"><b>artificial players</b> variant</a> allows fewer than 4 players to play, and the <a href="#possessing-ghost"><b>possessing ghost</b> variant</a> allows 5 players to play. See the <a href="#recommended-mix">recommended mix</a> for advice on playing with these variants.</p>
+    <p>When using either of these variants, determine all setup &mdash; such as how many and what kind of artificial players you use, and who the ghost will be &mdash; before choosing the scenario. These choices should remain the same for the whole game.</p>
+    <p>Although these variants should give a similar experience as the standard 4-player game, there may be significant differences. Some scenarios might be easier or harder than intended when using these variants. A few scenarios do not support these variants.</p>
+    
+    
+    <section><h3 id="artificial-players">Artificial players</h3>
+        <p><b>Artificial players</b> help to increase the player count to 4. Each artificial player has its own hand and will play cards into tricks, just like a human player does. There are two kinds of artificial players:</p>
+        <ul>
+            <li>The <b>puppet</b> has a reduced hand, and draws a new card after every trick. It is heavily inspired by the solo variant of the LOTR trick-taking games.</li>
+            <li>The <b>robot</b> reveals its entire hand, but can only play the first legal card in its hand. Compared with the puppet, the robot reveals much more information to the players, but at the cost of being much less flexible. It is heavily inspired by <a href="https://boardgamegeek.com/thread/2305592/solo-running">Solo Running</a>, a solo variant for <cite>The Crew</cite> designed by Tom Scutt.</li>
+        </ul>
+        <p>You may add artificial players in any combination, including multiple separate copies of the same kind. When adding artificial players, also determine where they are sitting with respect to the human players.</p>
+        <p>Each artificial player has a <b>handler</b>, a human player that will make all decisions for the artificial player. The handler of each artificial player may change between deals, although I recommend sticking with the same handler for an entire scenario simply to reduce confusion.</p>
+        <p>Artificial players cannot be the captain. When choosing the captain, choose among human players.</p>
+        
+        <div class="notecard accented"><section><h4>Puppets</h4>
+            <p>While distributing cards, <strong>distribute only 4 cards</strong> face-up into the puppet's hand. The remaining cards form a face-down <b>puppet draw pile</b>. If there are multiple puppets, they all share the same puppet draw pile.</p>
+            <p>The puppet loads its reserve and plays cards normally &mdash; although remember that the puppet's handler makes all decisions for the puppet.</p>
+            <p>After each trick, if the puppet draw pile still has any cards (i.e. in the first 4 tricks), the puppet draws a card face-up into its hand. Note that the puppet still draws a card even if it plays its reserve.</p>
+        </section></div>
+        
+        <div class="notecard accented"><section><h4>Robots</h4>
+            <p>The robot receives 8 cards as normal. Turn them face-up, but <strong>keep them in the order dealt</strong>. The robot's hand forms the <b>queue</b>.</p>
+            <p>The robot loads its reserve normally &mdash; although remember that the robot's handler makes all decisions for the robot. When choosing a card from the robot's hand to be put onto a reserve, you may choose any card from the robot's queue, regardless of position.</p>
+            <p>When playing a card into a trick, the robot only has two choices: play its reserve, or play the <strong>first legal card</strong> in its queue. When following suit, the first legal card is the first card of the lead suit. In other cases, it simply means the first card in the queue.</p>
+        </section></div>
+    </section>
+    
+    
+    <section><h3 id="possessing-ghost">Possessing ghost</h3>
+        <p>When playing with 5 players, one player will become the <b>ghost</b>. The ghost is <em>not</em> a player for game purposes, unless rules specifically refer to the ghost. For example, ghosts don't play cards normally, players next to the ghost are considered adjacent to each other, most scenarios ignore ghosts, etc. However, the ghost can <b>possess</b> other players and play cards on their behalf.</p>
+        <p><strong>Extra components:</strong> 8 <b>pass tokens</b> for the non-ghost players, plus a <b>ghost figure</b> and an additional <b>reserve board</b> for the ghost.</p>
+        
+        <section><h4>Preparing the deal</h4>
+            <p>The ghost cannot be the captain. When choosing the captain, choose among the other players.</p>
+            <p><strong>The card distribution is different.</strong> Give 8 cards to the ghost, 7 cards to the captain, and 6 cards to each other player. In addition, each non-ghost player (including the captain) takes 2 pass tokens.</p>
+            <p>While loading reserves, the ghost takes the <strong>last turn</strong> to load their reserve, after all other players have loaded their reserves.</p>
+        </section>
+        
+        <section><h4>Playing tricks</h4>
+            <p>The ghost does <em>not</em> play cards normally. When players play in clockwise order, always skip the ghost's turn.</p>
+            <p>Instead, each non-ghost player has a new possible action. When it's your turn to play a card, you may choose to <b>pass and become possessed</b> instead of playing a card normally. If you choose to pass, follow these steps:</p>
+            <ol>
+                <li>Return a pass token you have.</li>
+                <li>The ghost plays a card from their hand or reserve. The usual restrictions apply, including having to follow suit if possible, and the reserve card being not considered when following suit.</li>
+                <li>The card played by the ghost is treated as if you played it, for all purposes. For example, if it's the winning card, you're considered to have won the trick.</li>
+                <li>The trick continues clockwise to your left, not the ghost's left.</li>
+            </ol>
+            <p>You only have 2 pass tokens. If both of them have been used, you may not pass for the rest of the deal. On the other hand, if you run out of cards but still need to play a card, you must pass (and become possessed).</p>
+            <p><strong>Exactly one player must pass each trick.</strong> In other words, the ghost must possess someone each trick. If someone has passed before you this trick, you may not pass. If nobody has passed this trick and everyone after you no longer have pass tokens, you must pass.</p>
+        </section>
+    </section>
+    
+    
+    <section><h3 id="recommended-mix">Recommended mix</h3>
+        <p>These variants can be combined in any way. You can have both kinds of artificial players simultaneously, although that will increase the mental load simply because of their different rules. You can have artificial players and the ghost at the same time: add artificial players to bring the player count to 5, then choose one player (human or artificial) to become the ghost.</p>
+        <p>The following are some recommended mix for playing with various player counts.</p>
+        
+        <section><h4>5 players</h4><ul>
+            <li>Play with the ghost.</li>
+        </ul></section>
+        
+        <section><h4>4 players</h4><ul>
+            <li>Play using basic rules without artificial players or ghost.</li>
+            <li>Play with 1 robot, which becomes the ghost.</li>
+        </ul></section>
+        
+        <section><h4>3 players</h4><ul>
+            <li>Play with 1 puppet.</li>
+            <li>Play with 1 robot.</li>
+        </ul></section>
+        
+        <section><h4>2 players</h4><ul>
+            <li>Play with 2 puppets.<ul>
+                <li>You two should sit opposite each other, with puppets to your left and right.</li>
+                <li>Each of you should be the handler for one puppet; you may choose which direction.</li>
+            </ul></li>
+            <li>Play with 2 robots.<ul>
+                <li>Similar to above, you should sit opposite each other.</li>
+                <li>Note that all hands are public information in this variant. For that reason, you may talk and discuss strategies even during the deal.</li>
+            </ul></li>
+        </ul></section>
+        
+        <section><h4>1 player</h4>
+            <ul>
+                <li>Play with 3 puppets.<ul>
+                    <li>You still have a full hand in addition to the 3 puppets. The full hand will be the captain.</li>
+                    <li>Compare with the LOTR trick-taking games, which is effectively 4 puppets and no full hand.</li>
+                </ul></li>
+                <li>Play double-handed with 2 robots.<ul>
+                    <li>You have <strong>two</strong> full hands. They should be opposite each other. Choose one of them to become the captain.</li>
+                    <li>Note that this is essentially the second 2-player variants above, just that you handle both full hands.</li>
+                </ul></li>
+                <li>Play with 4 robots. You are the ghost.<ul>
+                    <li>The captain is the robot to your left. Normally robots cannot be the captain, but because you are the only human player, there is no confusion.</li>
+                </ul></li>
+            </ul>
+            <details class="notecard callout"><summary>Click for some thoughts about the 1-player mixes</summary>
+                <p>Robots are inherently more difficult than puppets, and you need some flexibility to counteract the robots. It's possible to play with 3 puppets, but it's very difficult to play with 3 robots. This is why the robot variant adds another full hand.</p>
+                <p>On the other hand, the ghost introduces a lot more flexibility. With a ghost, a robot now has three choices: play reserve, play first legal card, or pass. And when it passes, you get to play any legal card from your hand. This gives tremendous flexibility, making it possible to play with 4 robots.</p>
+            </details>
+        </section>
+        
+    </section>
+</section>
+
+
+
+<section><h2 id="about-scenarios">About scenarios</h2>
+    <p>The main draw of Togetrick is the flexibility of the scenarios. With the same cooperative trick-taking structure, different goals and rules lead to different ways to play the game. This section describes some general scenario elements that appear in <a href="#list-scenarios">the list of scenarios</a>.</p>
+    
+    <section><h3 id="getting-random-entry">Getting a random entry</h3>
+        <p>Several scenarios present a <b>random table</b>. Each random table is headed by a "entry" column, which contains 11 entries: each number rank from 1&ndash;10, and "trump".</p>
+        <p>These scenarios will ask you to <b>"get a random entry"</b>. Before the deal, shuffle the deck and draw the top card. If it has a number rank, look at the entry for the corresponding rank. If it's a trump card, look at the "trump" entry. This is the entry you get.</p>
+        <p>Note that the deck has 33 cards. Each number rank is present on 3 cards, and there are 3 trump cards. So each entry is equally likely.</p>
+        <p>Most scenarios ask you to get a random entry multiple times (usually once per deal). Unless otherwise stated, the scenarios do <em>not</em> want repeat entries. If the card leads you to an entry you've already gotten this game, discard it and draw another.</p>
+        
+        <div class="notecard callout">
+            <p>You are of course welcome to use the random tables differently. Perhaps instead of randomizing, you want to directly choose an entry you've never tried before. Or you might want to try every single permutation of entries as its own separate game, like some people do with <a href="https://boardgamegeek.com/thread/2619042/completed-the-base-game-here-are-the-stats">all 816 possible combinations of scoring cards in <cite>Sprawlopolis</cite></a>. Feel free to play however you like.</p>
+        </div>
+    </section>
+</section>
+
+
+
+<section><h2 id="list-scenarios">List of scenarios</h2>
+    <p>If you're looking for a starting scenario, try <a href="#none-or-all">None or All</a>.</p>
+    
+    <section><h3 id="none-or-all">None or All (3 deals)</h3>
+        <p class="subtitle">Nothing or everything. What's your choice?</p>
+        
+        <p>Play a total of 3 deals. Before each deal, <a href="#getting-random-entry">get a random entry</a> (no repeats) from the task table. If you're playing Togetrick for the first time, I recommend using entries 1, 2, 3 instead of getting random entries.</p>
+        <p>Once you get your entry, choose either the "None" task or the "All" task. Then play a deal, aiming to complete the chosen task a group. Some tasks have clarifications that can be found below the table.</p>
+        <p>If you successfully complete the chosen task, you score +2 points for a None task, or +3 points for an All task. If you fail the task, you don't score any points. In either case, move on to the next deal.</p>
+        <details class="notecard accented"><summary>Click for task table</summary>
+            <p>You may use the provided checkboxes to track your progress; for instance, which task you choose and whether you win it. Note that the checkboxes will reset if you refresh the page.</p>
+            <table style="width: 100%;" class="align-center">
+                <colgroup>
+                    <col style="width: 4em;">
+                    <col style="width: 6em;">
+                    <col style="width: 1.5em;"> <col style="width: 1.5em;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tr>
+                    <th scope="col">Entry</th>
+                    <th scope="col">Type</th>
+                    <th scope="col" colspan=2>Check</th>
+                    <th scope="col">Task</th>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">1</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No player may win 2 consecutive tricks.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every player must win 2 consecutive tricks.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">2</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No reserve card may lead nor win a trick.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every reserve card must lead a trick and win it.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">3</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No trick may contain 2+ cards of the same number rank.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every trick must contain 2+ cards of the same number rank.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">4</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No player may win 2+ cards of the same number rank.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every player must win all 3 cards of some number rank.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">5</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No card of rank 9&ndash;10 may win a trick.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every card of rank 1 must win a trick.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">6</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No number rank may have 2+ cards of that rank each winning a trick.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every number rank in the range 1&ndash;6 (inclusive) must have a card of that rank winning a trick.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">7</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No player may win a number of clubs cards between 1&ndash;4 (inclusive).</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every player must win a number of clubs cards between 2&ndash;3.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">8</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No player may win an equal number of diamonds cards and hearts cards.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every player must win an equal number of diamonds cards and hearts cards, at least 1 each.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">9</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No trick may be won by the card played last in the trick.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every trick must be won by the card played last in the trick.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">10</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No trick may consist entirely of cards whose number ranks all have the same parity, ignoring trumps.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every trick must consist entirely of cards whose number ranks all have the same parity, ignoring trumps.</td>
+                </tr>
+                <!------------------------------------------------------------------------------------>
+                <tr>
+                    <th scope="row" rowspan=2 class="align-center">Trump</th>
+                    <td class="align-center">None (+2)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>No trick may consist entirely of cards in the same suit as the exiled card. The exiled card cannot be a trump.</td>
+                </tr>
+                <tr>
+                    <td class="align-center">All (+3)</td>
+                    <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
+                    <td>Every trick must contain a card in the same suit as the exiled card. The exiled card cannot be a trump.</td>
+                </tr>
+            </table>
+            <details class="notecard callout"><summary>Click for task clarifications</summary><ul>
+                <li><strong>Entry 3:</strong> Other cards in the trick don't matter. As long as some two cards have the same number rank, it counts for this task, either against (for the "None" task) or for (for the "All" task).</li>
+                <li><strong>Entry 4:</strong> Similarly to entry 3 above, other cards won by the player don't matter. For the "All" task, which rank you win a triplet of may be different between players, it doesn't have to be the same rank.</li>
+                <li><strong>Entry 5:</strong> For the "All" task, you need all 3 cards of rank 1. In particular, the exiled card cannot be rank 1.</li>
+                <li><strong>Entry 6:</strong> For the "None" task, this means at most one card of rank 10 may win a trick; at most one card of rank 9 may win a trick; and so on. Trumps are irrelevant and may win tricks. For the "All" task, some card of rank 1 must win a trick; some card of rank 2 must win a trick; and so on until rank 6. The suit doesn't matter, and you can have different suits for different ranks. You also may have duplicates and cards of other ranks, the extras simply won't help for the task.</li>
+                <li><strong>Entry 7:</strong> For the "None" task, you can win either no clubs cards at all, or 5+ of them. For the "All" task, you need to win either 2 or 3 clubs cards. Cards of other suits are irrelevant.</li>
+                <li><strong>Entry 8:</strong> By "equal number", it means the number of diamonds cards won by that player, and the number of hearts cards won by the same player. The number of cards won between different players has no relation, you may win the same number or a different number of cards from other players. For the "None" task, you may win no card of one suit (diamonds or hearts), although then you must win at least one card of the other suit.</li>
+                <li><strong>Entry 10:</strong> If a trick contains any trump, ignore the trumps and check the parities of the remaining cards. Note that if a trick contains all three trumps, then there's only one basic card remaining, so all number ranks in that trick have the same parity.</li>
+                <li><strong>Ghost:</strong> The ghost is ignored from all tasks. For example, the ghost's reserve card doesn't matter for entry 2. The ghost themself doesn't matter for entries 4, 7, 8.</li>
+            </ul></details>
+        </details>
+        
+        <p>At the end of all 3 deals, add up all points you obtained from the tasks. Consult the following table to determine your title:</p>
+        <table class="align-center">
+            <tr> <th scope="col">Pts</th> <th scope="col">Title</th> </tr>
+            <tr> <td class="align-center">9</td> <td class="align-center">Master</td> </tr>
+            <tr> <td class="align-center">7&ndash;8</td> <td class="align-center">Expert</td> </tr>
+            <tr> <td class="align-center">5&ndash;6</td> <td class="align-center">Graduate</td> </tr>
+            <tr> <td class="align-center">3&ndash;4</td> <td class="align-center">Senior</td> </tr>
+            <tr> <td class="align-center">0&ndash;2</td> <td class="align-center">Junior</td> </tr>
+        </table>
+        
+        <details class="notecard callout"><summary>Click for design notes for this scenario</summary>
+            <p>This scenario was originally designed as an introduction to Togetrick. In particular, it explicitly tried to be different from <cite>Planet Earth</cite> and <cite>Deep Sea</cite>: the mission had multiple deals, and the tasks were "shared" by the group instead of assigned to a particular player. Now, the scenario became pretty similar to an ordinary stage of <cite>Ends of the Earth</cite>, since there was a choice of two tasks and you got different amount of points depending on the difficulty. But at that time, I didn't yet have <cite>Ends of the Earth</cite>, so I wasn't tired of the structure yet. Besides, I decided it was fine; I felt I liked the structure anyway.</p>
+            <p>To give this scenario its own flavor away from <cite>Ends of the Earth</cite>, I made each deal to have its own choice of tasks. The 1st deal was always a choice between a specific pair of tasks; the 2nd deal between the next pair of tasks; and so on. This allowed me to give each deal its own theme.</p>
+            <p>Togetrick had its own novel component, the reserve system, so I considered tasks regarding the reserve. I came up with "no reserve card may win a trick". I later realized "every reserve card must win a trick" was also an interesting idea, and that gave me the "nothing or everything" theme for the deal. (The tasks would later be modified, because they were pretty easy and somewhat luck-based with what you could reserve.) Initially, the theme was very strict: it was the exact same thing in the "nothing" form and in the "everything" form. I relaxed it to allow better balance. I also made sure the "everything" task is not simply a subset of the "nothing" task.</p>
+            <p>Since the scenario was designed as an introduction, it initially only came with 3 pairs of tasks, and you went through all of them. I later came up with 2 more, and the scenario became pretty long at 5 deals. But I kept coming up with more, so I decided to turn it into a random table. This keeps the scenario small with just 3 deals. It also gives replayability; a run through the scenario only gives you 3 tasks out of 22, meaning you have plenty more you can try.</p>
+        </details>
+    </section>
+    
+    <section><h3 id="balancing-act">Balancing Act (4 deals)</h3>
+        <p class="subtitle">Make sure your performers take turns showing off.</p>
+        
+        <p><strong>Extra components:</strong> A way to keep track of scores.</p>
+        <p>Before the scenario, choose 2 players to become the <b>performers</b>.</p>
+        <p>Play a total of 4 deals. Before the 1st deal, <a href="#getting-random-entry">get two random entries</a> (no repeats). Choose one of them to use for the 1st&ndash;2nd deals. Before the 3rd deal, get two more random entries (no repeats, including with the earlier choices). Choose one to use for the 3rd&ndash;4th deals.</p>
+        <p>Each entry gives a way to score points. When a performer performs the indicated task, they score the indicated points. (Non-performers never score any points, whether they do the task or not.) Some tasks have clarifications that can be found below the table.</p>
+        <p>However, you must keep everything balanced. If at any point, one performer has 3+ points more than another performer, <strong>your game ends immediately</strong>. Do not finish the deal; proceed directly to final scoring.</p>
+        
+        <details class="notecard accented"><summary>Click for task table</summary>
+            <p>You may use the provided checkboxes to track which entries you've gotten. Note that the checkboxes will reset if you refresh the page.</p>
+            <table style="width: 100%;" class="align-center">
+                <colgroup>
+                    <col style="width: 4em;">
+                    <col style="width: 1.5em;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tr>
+                    <th scope="col" colspan=2>Entry</th>
+                    <th scope="col">Task</th>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">1</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+1 point whenever you win a card not in the lead suit.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">2</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+2 points whenever you win a trick you lead.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">3</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+1 point whenever you win a card whose rank matches the current trick number &mdash; i.e. win 1's in 1st trick, win 2's in 2nd trick, etc.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">4</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+2 points whenever you win a trick whose highest and lowest number ranks (ignoring trumps) differ by 4 or less.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">5</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+1 point whenever you win a card whose rank you have already won (before this trick).</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">6</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+2 points whenever you win a trick using a card whose suit you haven't already won (before this trick).</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">7</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+1 point whenever you win a card of the same suit as your reserve card, as long as your reserve card hasn't been played at the start of the trick.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">8</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+2 points whenever you win a trick containing a card of the same rank as your reserve card, as long as your reserve card hasn't been played at the start of the trick.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">9</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+1 point whenever you play a non-trump card of the same suit and lower rank as the lead card.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">10</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+2 points whenever you play a card with equal number rank to another card already played in the trick.</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="align-center">Trump</th>
+                    <td class="align-center"><input type="checkbox"></td>
+                    <td>+1 point whenever another player (after you) plays a card in a different suit from the card you played this trick.</td>
+                </tr>
+            </table>
+            <details class="notecard callout"><summary>Click for task clarifications</summary><ul>
+                <li><strong>Entry 1:</strong> Usually, you win by following suit, and this task counts off-suit cards. However, if you win by playing trump off-suit, the trump itself also counts.</li>
+                <li><strong>Entry 4:</strong> Ignore all trumps in the trick, then look at the remaining cards (who all have number ranks). If the difference between the highest and the lowest ranks is 4 or less, the trick counts for the task. If there's only one number (i.e. all trumps are played in the same trick), the difference is 0 and so it counts.</li>
+                <li><strong>Entry 5:</strong> If you haven't already had any card of a rank, you won't score points for cards of that rank in this trick, no matter how many of them show up in the trick. e.g. If you don't have any 4 and the trick has two 4's, you score nothing for winning them; you will only score a point from winning the third 4.</li>
+                <li><strong>Entries 7&ndash;8:</strong> If you play the reserve card this trick, remember the card; these tasks can still work this trick and you can still score points for the trick. Once you play your reserve card, you can never score points for these tasks any more in future tricks.</li>
+                <li><strong>Entries 9&ndash;10:</strong> These entries award points during a trick, when you play the card. If the scores become too imbalanced after your played card, the game immediately ends, even if another performer would be able to balance the score later in the same trick.</li>
+                <li><strong>Entry Trump:</strong> Similarly, this entry awards points during a trick. With this task, it's possible multiple performers get points with the same card play. The points are awarded simultaneously, so checking whether the scores become too imbalanced is only done after awarding all the points from the card play. If you haven't played any card into this trick yet, you won't score any points.</li>
+                <li><strong>Ghost:</strong> The card played by a ghost counts as a card played by the possessed player for all purposes, including for entries 9&ndash;trump.</li>
+            </ul></details>
+        </details>
+        
+        <p>Your final score is equal to the sum of all points obtained by the performers, plus 3 points for every deal you successfully complete. (Note that failing out at the last trick of a deal still means you didn't successfully complete the deal.) Consult the following table to determine your award:</p>
+        <table class="align-center">
+            <tr> <th scope="col">Pts</th> <th scope="col">Title</th> </tr>
+            <tr> <td class="align-center">60+</td> <td class="align-center">Platinum trophy</td> </tr>
+            <tr> <td class="align-center">45&ndash;59</td> <td class="align-center">Gold medal</td> </tr>
+            <tr> <td class="align-center">30&ndash;44</td> <td class="align-center">Silver medal</td> </tr>
+            <tr> <td class="align-center">15&ndash;29</td> <td class="align-center">Bronze medal</td> </tr>
+        </table>
+        
+        <div class="notecard callout"><section><h4>Expert variants</h4>
+            <p>You may play with either of these variants (but not both). They make the game significantly harder. Some entries in the award table become impossible; consider yourself skilled players if you score 40+ points.</p>
+            <ul>
+                <li>Play with 3 performers, or all 4 performers. The imbalanced condition is still the same: if a performer has 3+ points more than another performer, the game ends immediately.</li>
+                <li>Reduce the margin: if a performer has 2+ points more than another performer, the scenario ends immediately. When using this variant, you may give one performer 1 initial point before the 1st deal, so the "+2 points" tasks don't immediately cause you to lose.</p>
+            </ul>
+        </section></div>
+        
+        <details class="notecard callout"><summary>Click for design notes for this scenario</summary>
+            <p>As the second scenario developed (after <a href="#none-or-all">None or All</a>), I wanted to make it significantly different from the pass/fail format. When reading the rules for <cite>Ends of the Earth</cite>, I noticed several tasks award points every time something happens. I was intrigued at this idea, and at first I designed a simple scenario where you would simply get points from tasks. (Each task would have a par score, and you would add up all points and compare them to the sum of the par scores, similar to <a href="https://boardgamegeek.com/boardgame/251658/sprawlopolis"><cite>Sprawlopolis</cite></a>.)</p>
+            <p>Then I had an idea of balancing scores. There would be two tasks. Each one would score points, but if you got too many points from one task, you would fail out. So you wanted to complete the tasks as many times as possible, but you had to make sure they would come out balanced.</p>
+            <p>A newer take of it was themed after global warming, and later simply a machine. There was a "hot" task that was easy to do, but your temperature couldn't exceed a certain limit. You had to offset it by doing the "cold" task which was harder.</p>
+            <p>I think the idea could work, but I was having trouble finding interesting tasks. At the same time, I got the idea of assigning the scores to players instead. There would be only one task, which was individual. Each player would score their own points from the task, and you would need to make sure the players' scores were kept balanced.</p>
+            <p>That would eventually be developed into this scenario. The base rules now only require balancing 2 players' scores, since balancing 4 scores is much more difficult. The specifics are modified, including giving two choices when picking which task to take.</p>
+        </details>
+    </section>
+    
+</section>
+
+
+
+<!--
+<section><h2 id="appendix">Appendix</h2>
+    <section><h3 id="terminology">Terminology</h3><dl>
+        &nbsp;
+    </dl></section>
+    
+    <section><h3 id="design-notes">Design notes</h3>
+        <details class="notecard callout"><summary>Click to read some design notes and thoughts</summary>
+            <p>&nbsp;</p>
+        </details>
+    </section>
+</section>
+-->
+
+
+
+</body>
+
+</html>

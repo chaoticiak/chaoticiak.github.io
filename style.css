@@ -134,7 +134,7 @@ a.anchor {
 
 /*** Checkbox styling ***/
 
-input[type="checkbox"] {
+label > input[type="checkbox"] {
     display: none;
 }
 label:has(input[type="checkbox"]) {
@@ -219,6 +219,10 @@ table {
     border-collapse: collapse;
     margin-bottom: 1em;
 }
+table.align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
 th, td {
     border: 1px solid black;
     padding: 0.2em;
@@ -228,6 +232,9 @@ th.align-left, td.align-left {
 }
 th.align-right, td.align-right {
     text-align: right;
+}
+th.align-center, td.align-center {
+    text-align: center;
 }
 
 
@@ -269,6 +276,16 @@ blockquote {
 blockquote > footer {
     margin-top: 1rem;
     font-style: italic;
+}
+
+dd {
+    margin-top: 0.5em;
+    margin-left: 0;
+    font-weight: bold;
+}
+dt {
+    margin-left: 0;
+    text-indent: 3ch; /* Matches <p> text-indent */
 }
 
 figure {
