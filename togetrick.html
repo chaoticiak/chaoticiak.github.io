@@ -4,12 +4,24 @@
 <head>
     <title>Togetrick - chaoticiak.github.io</title>
     <meta name="viewport" content="initial-scale=1,width=device-width">
-    <meta property="og:title" content="Togetrick - chaoticiak.github.io">
+    <meta property="og:title" content="Togetrick">
     <meta property="og:description" content="Cooperative trick-taking game, designed by chaotic_iak / Ivan Koswara">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        /* For design notes and other tidbits */
+        /* Player-specific rules */
+        .player {
+            background-color: #ffc;
+            border-color: #cc6;
+        }
+        
+        /* Solo-specific rules */
+        .solo {
+            background-color: #fec;
+            border-color: #ca6;
+        }
+        
+        /* Design notes */
         .design {
             background-color: #ddf;
             border-color: #66c;
@@ -35,325 +47,264 @@
 </header>
 
 <div id="changelog">
-<p><b>v0.1b, on <time datetime="2026-09-08">08 September 2026</time>.</b> Some formatting changes, including a clearer setup step for scenarios. Commented out several random table entries. Still no proper playtesting yet, a lot of variants are because I'm undecided on what choice to do.</p>
-<p><b>v0.1a, on <time datetime="2026-09-01">01 September 2026</time>.</b> Very early draft, mainly to have something going. <strong>None of this has been playtested yet.</strong> The gameplay loop, the other player counts, the scenario flow, the specific tasks, none. I'm working on testing them.</p>
+<p><b>v0.1d, <time datetime="2026-09-24">24 September 2026</time>.</b> Extensive redesign of the game.</p>
 </div>
 
 
 
-<p><b>Togetrick</b> is a cooperative trick-taking game played with a standard deck of cards plus a few common components. It is invented by me (chaotic_iak / Ivan Koswara), and it is inspired by <a href="https://boardgamegeek.com/boardgamefamily/63179/game-the-crew"><cite>The Crew</cite></a> series.</p>
-<p>A full game of Togetrick is a single scenario. The scenario defines the win condition and any special rules. A scenario consists of one or more deals. A deal is a full round of playing cards. Each player plays one card following certain rules, making up a "trick"; the deal consists of playing tricks until all players have played all their cards. The win condition will generally involve playing cards or winning tricks by the right player at the right time; the goal is to cooperate with your fellow players to accomplish these objectives together.</p>
-<p>Togetrick is designed to be very flexible. Other than the basic trick-taking rules, scenarios can take virtually any form. Different objectives lead to different strategies to handle them. In some scenarios, deals may even influence future deals. Even the same scenario may offer many choices and permutations of those choices; by design, you are encouraged to try each scenario multiple times to explore its variety.</p>
-<p><strong>The basic rules of Togetrick are designed for exactly 4 players.</strong> However, <a href="#other-player-counts">variant rules</a> can be used to play Togetrick with anywhere between 1&ndash;5 players.</p>
+<p><b>Togetrick</b>, invented by me (chaotic_iak / Ivan Koswara), is a campaign-based cooperative trick-taking game for 3&ndash;4 players (with a solo variant). It is designed to be playable with a standard deck of cards plus some common components.</p>
 
-<details class="notecard design"><summary>Click to read the background story behind why this game was developed (pretty long)</summary>
-    <p>In 2019, <a href="https://boardgamegeek.com/boardgame/284083/the-crew-the-quest-for-planet-nine"><cite>The Crew: The Quest for Planet Nine</cite></a> was released. It is a trick-taking game, but that's not new; many well-known traditional card games, such as Contract Bridge, Hearts, and Spades, are trick-taking games. It is a cooperative game, but even among trick-taking games, that's not new; contract bridge is played in partnerships. What's different is that it is <em>fully</em> cooperative. It's everyone against the game.</p>
-    <p>It was an immediate hit. The basic trick-taking gameplay is simple to understand. Yet, as shown by the variety in the 50 missions, it is very extensible and flexible. Many play groups try to work through the entire campaign. Some, itching for more after completing the campaign, came up with <a href="https://boardgamegeek.com/boardgame/284083/the-crew-the-quest-for-planet-nine/forums/69">many custom missions</a>.</p>
-    <p>Then in 2021, <a href="https://boardgamegeek.com/boardgame/324856/the-crew-scenario-deep-sea"><cite>The Crew: Scenario Deep Sea</cite></a> came out. In <cite>Planet Nine</cite>, every player is assigned individual tasks in the form of "win this card"; <cite>Scenario Deep Sea</cite> shows the tasks don't have to all be in that form. In 2026, <a href="https://boardgamegeek.com/boardgame/462192/the-crew-journey-to-the-ends-of-the-earth"><cite>The Crew: Journey to the Ends of the Earth</cite></a> came out. Shared group objectives, previously existing as full missions in the first two games, now become tasks that can be randomized. A mission is no longer restricted to just one deal; <cite>Ends of the Earth</cite> asks players to complete task after task, racing to complete a journey by completing tasks of enough total difficulty within a specific number of deals. The trick-taking is still the same, but pretty much everything else has been overhauled.</p>
-    <p>I already loved the first two games. When <cite>Ends of the Earth</cite> was released though, I was immediately captivated by how different its structure was. Missions taking multiple deals? Tasks that award points (i.e. spaces to move along the journey)? I recognized that the magic of <cite>The Crew</cite> is really from how flexible the gameplay is. The goal is variable and depends on the mission, so changing the mission also changes the goal.</p>
-    <p>While this was ongoing, there was a 2024 spin-off <a href="https://boardgamegeek.com/boardgame/406299/the-crew-family-adventure"><cite>The Crew: Family Adventure</cite></a> which used the "follow suit/number" mechanic of Crazy Eights and <cite>UNO</cite>. The game received mixed reception, mostly because it was marketed to families and hence its missions were too easy. However, the core gameplay still fascinated me; it showed the mechanic didn't have to be trick-taking. A different 2025 game with a ridiculously long title, <a href="https://boardgamegeek.com/boardgame/429293/the-lord-of-the-rings-the-fellowship-of-the-ring-t"><cite>The Lords of the Rings: The Fellowship of the Ring &mdash; Trick-Taking Game</cite></a>, took a different approach to cooperative trick-taking. It integrated theme more strongly, and it introduced extra components and rules throughout the campaign instead of simply using the same deck of cards. (It has since received <a href="https://boardgamegeek.com/boardgame/448271/the-lord-of-the-rings-the-two-towers-trick-taking">a standalone sequel</a>.)</p>
-    <p>And it brings us to now. Impressed by <cite>The Crew</cite> series, I decided to try making a variant. The truth is, although I love the first two games (and I'm itching to play the third game soon), there are some aspects of the games that I don't quite like. Among the various missions in <cite>Planet Nine</cite> and <cite>Deep Sea</cite>, the ones I like the most are definitely the ones that do <em>not</em> use task cards; I find them the most novel and interesting. Thus the many task cards in <cite>Planet Nine</cite> and <cite>Deep Sea</cite> aren't particularly useful for me. Besides that, <cite>Planet Nine</cite>'s missions feel too "samey"; <cite>Deep Sea</cite>'s tasks might be significantly easier or harder in certain combinations; and <cite>Ends of the Earth</cite> lacks elegance in the travel spaces and have clarity issues regarding the tasks' texts.</p>
-    <p>At first, I tried to develop a <cite>The Crew</cite> variant. In particular, it used <cite>The Crew</cite> deck (i.e. 4 suits in 1&ndash;9, plus a trump suit in 1&ndash;4), it had the usual rules regarding communication, and so on; my contribution would be simply to invent new missions and goals. However, as I gave it more thought, I wondered, did I need to use <cite>The Crew</cite> deck? I could use a standard deck, which was more widely available. Detaching away from <cite>The Crew</cite> also meant I could change the basic gameplay &mdash; it would still be cooperative trick-taking, but it could have a different form of communication. It could become its own thing rather than a clone of <cite>The Crew</cite>.</p>
-    <p><b>Togetrick</b> is the end result. It is a cooperative trick-taking game. Although it owes its existence to <cite>The Crew</cite> series and to some extent the LOTR trick-taking series, it has been developed from scratch, with some new mechanics on its own. It is designed to use common components; in particular, the cards come from a standard 52-card deck. It emphasizes flexibility; there's a ton of variety built-in, so you can use the game as a sandbox. Play it however you want. (That said, it dispenses with theme entirely; I'm not the best at coming up with theming, so it will only come later, if at all.)</p>
-    <p>The name "Togetrick" comes from "together" and "trick". The name is coincidentally very similar to <a href="https://bulbapedia.bulbagarden.net/wiki/Togetic_(Pok%C3%A9mon)">Togetic</a>, a Pokémon species known for happiness and joy.</p>
-</details>
+<div class="notecard warning">
+    <p>This game is still a work in progress. Nothing on this page or its related pages is set in stone.</p>
+</div>
 
 
 
-<section><h2 id="toc" class="no-top-link">Table of contents</h2>
-    <div class="notecard accented"><ul>
+<section class="notecard callout"><h2 id="toc" class="no-top-link">Table of contents</h2>
+    <details><summary>Click to show the table of contents</summary><ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#starting-campaign">Starting your campaign</a></li>
         <li><a href="#components">Components</a></li>
-        <li><a href="#gameplay">Gameplay</a><ul>
-            <li><a href="#choosing-scenario">Choosing a scenario</a></li>
-            <li><a href="#preparing-deal">Preparing a deal</a></li>
-            <li><a href="#playing-trick">Playing a trick</a></li>
-            <li><a href="#leading-following">Leading and following suit</a></li>
-            <li><a href="#winning-trick">Winning a trick</a></li>
-            <li><a href="#table-talk">Table talk</a></li>
-            <li><a href="#winning-scenario">Winning a scenario</a></li>
+        <li><a href="#playing-deal">Playing a deal</a><ul>
+            <li><a href="#preparing-deal">Preparing the deal</a></li>
+            <li><a href="#seeding-pool">Seeding the pool</a></li>
+            <li><a href="#playing-trick">Playing out a trick</a></li>
+            <li><a href="#about-pool">About the pool</a></li>
         </ul></li>
-        <li><a href="#other-player-counts">Playing with other player counts</a><ul>
-            <li><a href="#artificial-players">Artificial players</a></li>
-            <li><a href="#multi-handed">Multi-handed</a></li>
-            <li><a href="#possessing-ghost">Possessing ghost</a></li>
-            <li><a href="#recommended-mix">Recommended mix</a></li>
-        </ul></li>
-        <li><a href="#about-scenarios">About scenarios</a><ul>
-            <li><a href="#getting-random-entry">Getting a random entry</a></li>
-        </ul></li>
-        <li><a href="#list-scenarios">List of scenarios</a><ul>
-            <li><a href="#none-or-all">None or All (3 deals)</a></li>
-            <li><a href="#balancing-act">Balancing Act (4 deals)</a></li>
-        </ul></li>
-    </ul></div>
+        <li><a href="#solo-variant">Solo variant</a></li>
+        <li><a href="#about-campaign">About the campaign</a></li>
+        <li><a href="#design-thoughts">Design thoughts</a></li>
+    </ul></details>
+</section>
+
+
+
+<section><h2 id="overview">Overview</h2>
+    <p>Togetrick is a trick-taking game. It is a class of games often found in traditional card games: each player plays one card from their hand, following suit if possible, and the player who played the highest card "wins" the trick. However, unlike traditional games such as contract bridge and Hearts, Togetrick is a cooperative game. You win or lose together as a group, and you need to help each other if you want to succeed.</p>
+    <p>Togetrick is presented as a campaign, divided into numerous paths. Each path has a main challenge that you need to clear by playing rounds of trick-taking gameplay. Many paths also come with extra challenges. Completing a challenge unlocks rewards, such as access to other paths.</p>
+    <p>The main mechanism in Togetrick is the "pool": an additional communal hand which all players may play from, following certain rules. Thus, you don't always play from your hand; you will sometimes play from the pool as well.</p>
+    <p>Togetrick is also designed to be played with components that are easy to come by: a standard deck of cards, plus several tokens of any kind. Together with this page (and a way to record your progress), you have everything you need to play.</p>
+    <p>The idea of "campaign-based cooperative trick-taking game" was originally inspired by <cite>The Crew</cite> series, with some influence from <cite>The Lords of the Rings: Trick-Taking Game</cite> series. However, Togetrick has since diverged from <cite>The Crew</cite> enough that it is essentially its own game.</p>
+    <p>&nbsp;</p>
+    <p>Togetrick has two modes: one for 3 players ("3p"), and one for 4 players ("4p"). Although the rules for 3p and 4p share many similarities, there are significant differences between them, such as how to make use of the pool. <span class="boxedtext player">Yellow boxes</span> indicate rules that apply only for a specific number of players.</p>
+    <p>Togetrick also has a solo variant, which is compatible with either 3p or 4p mode. <span class="boxedtext solo">Orange boxes</span> indicate rules that apply only for the solo variant.</p>
+    <p><span class="boxedtext accented">Green boxes</span> indicate important rules. <span class="boxedtext callout">Gray boxes</span> indicate rules that are less important, such as rare edge cases or simple variants.</p>
+    <p>I am a big fan of describing my thoughts about design. <span class="boxedtext design">Blue boxes</span> indicate design thoughts. They are not required to understand the rules of the game.</p>
+</section>
+
+
+
+<section><h2 id="starting-campaign">Starting your campaign</h2>
+    <p>Togetrick is presented as a campaign, divided into numerous paths. Each path has a main challenge that you need to clear by playing several <b>deals</b>, each being a round of trick-taking gameplay. Many paths also come with extra challenges. Completing a challenge unlocks rewards, such as access to other paths.</p>
+    <p>To start your campaign, first gather <a href="#components">the components</a> to play the game, then play the Path of Beginnings.</p>
+    <div class="notecard player">
+        <p>The two modes, 3p and 4p, have somewhat different campaigns. Many challenges are slightly different, so they can offer a similar difficulty. Go to either <a href="togetrick-3p.html#path-of-beginnings">the 3p campaign</a> or <a href="togetrick-4p.html#path-of-beginnings">the 4p campaign</a> as appropriate. The link should take you to the corresponding version for Path of Beginnings.</p>
+    </div>
+    <p>The main challenge of Path of Beginnings consists of 3 tasks. You must complete all 3 tasks to complete the challenge.</p>
+    <p>Each task is played in its own separate deal. Read <a href="#playing-deal">the section for playing a deal</a> for instructions on how to set up and play a deal. You want to complete the task; if you fail the task, try again.</p>
+    <p>Once you have completed all 3 tasks, you have completed your first challenge. From this point on, refer to <a href="#about-campaign">the campaign section</a> for more rules about how to play the campaign.</p>
+    <div class="notecard callout">
+        <p>The path also has an extra challenge. The extra challenge is significantly more difficult; it is meant for expert players who already have experience with other cooperative trick-taking games, such as <cite>The Crew</cite> series. Feel free to ignore it and only come back to it later.</p>
+    </div>
+    <div class="notecard solo">
+        <p>The solo variant is compatible with either mode, but you must choose the mode you're playing at the start of the campaign. Choose whether you're playing the 3p mode or the 4p mode. (When playing solo, the 3p mode is easier.) For the rest of these rules, follow the rules for the corresponding player count. You also need to additionally read the rules for <a href="#solo-variant">the solo variant</a>.</p>
+    </div>
 </section>
 
 
 
 <section><h2 id="components">Components</h2>
-    <p>The following is a list of components required for the basic rules of Togetrick. Some scenarios and variants may require additional components.</p>
-    <p>The components are designed to be easy to find. The deck, while specially prepared, simply comes from a standard 52-card deck. The other components can use virtually anything convenient.</p>
-    
-    <section><h4>Basic components</h4><ul>
-        <li>33 cards to make up the <b>deck</b>. They come from a standard 52-card deck, <a href="#playing-cards">as described below</a>.</li>
-        <li>5 <b>reserve boards</b>, to mark reserved cards<ul>
-            <li>Ideally something flat that's larger than a card, e.g. a coaster, so the reserved card can be put on top of it.</li>
-            <li>As a substitute, you can instead use some small marker, e.g. a coin, to be put on top of the reserved card.</li>
-        </ul></li>
-        <li>A <b>captain figure</b> for the captain, such as an action figure or the deckbox</li>
-    </ul></section>
+    <p>The following components are used in all Togetrick games. Some paths require additional components.</p>
+    <ul>
+        <li>A <b>deck</b> of 33 cards; <a href="#playing-cards">see below</a></li>
+        <li><span class="boxedtext player">(3p) 9 / (4p) 8</span> <b>pool tokens</b> (small objects, such as coins or dice)</li>
+        <li>A <b>captain figure</b> (something with table presence, such as an action figure or the deckbox)</li>
+    </ul>
 
     <section><h4 id="playing-cards">The playing cards</h4>
-        <p>The main component is a 33-card <b>deck</b>, obtained by removing some cards from a standard 52-card deck. The deck contains the following:</p>
+        <p>The 33-card deck is obtained from a standard 52-card deck. Keep the following cards:</p>
         <ul>
             <li>In clubs, diamonds, and hearts: Aces and 2&ndash;10</li>
             <li>In spades: Jack, Queen, King</li>
         </ul>
-        <p>The <b>basic</b> suits are clubs, diamonds, and hearts. Always treat Aces as rank 1. Thus each basic suit has 10 cards, ranked 10 (highest) to 1 (lowest).</p>
-        <p>The <b>trump</b> suit is spades. It has 3 cards, ranked King (highest), Queen, Jack (lowest).</p>
-        
-        <details class="notecard callout"><summary>Click for details regarding ranks</summary>
-            <p>The basic cards have number ranks, 1&ndash;10. The trump ranks are not numbers.</p>
-            <p>Many tasks in scenarios talk about properties of ranks as though they are numbers. Therefore, if they only make sense for numbers, they only apply to number ranks. For example, whether a rank "is even" or "is odd" only makes sense for number ranks; trump ranks are neither even nor odd.</p>
-            <p>In Togetrick, "consecutive" means "differ by 1". As such, it also only applies to number ranks. In particular, Jack and Queen are not consecutive, nor are Queen and King.</p>
-        </details>
+        <p>The <b>basic</b> suits are clubs, diamonds, and hearts. Each basic suit has 10 cards, ranked 1 (lowest) to 10 (highest). (In Togetrick, always treat Aces as rank 1. They are the lowest rank.)</p>
+        <p>The <b>trump</b> suit is spades. It has 3 cards, ranked Jack (lowest), Queen, King (highest).</p>
+        <p>When any rule or scenario refers to a "number rank", it means a rank in one of the basic suits. The trump ranks are not number ranks.</p>
+        <div class="notecard callout">
+            <p>Although the remaining cards are not part of the deck, keep them handy; you might be asked to use them for tracking certain things.</p>
+        </div>
     </section>
-    
 </section>
 
 
 
-<section><h2 id="gameplay">Gameplay</h2>
-    <p>Togetrick is scenario-based. A game of Togetrick is played according to the rules of <a href="#choosing-scenario">the scenario you choose</a>, and they may vary greatly between scenarios. However, every scenario will have you play one or more <b>deals</b>. Each deal can be divided into two phases: <a href="#preparing-deal">preparing the deal</a>, then <a href="#playing-trick">playing tricks</a>.</p>
+<section><h2 id="playing-deal">Playing a deal</h2>
+    <p>Paths will require you to play one or more deals. Each deal follows this basic structure unless otherwise instructed. Each deal consists of three phases: <a href="#preparing-deal">preparing the deal</a>, then <a href="#seeding-pool">seeding the pool</a>, and finally <a href="#play-trick">playing out tricks</a>.</p>
     
-    
-    <section><h3 id="choosing-scenario">Choosing a scenario</h3>
-        <p>The first thing you do in a game of Togetrick is to choose the scenario you want to play. You can read up <a href="#about-scenarios">about scenarios</a>, or look at the <a href="#list-scenarios">list of scenarios</a>.</p>
-        <p>The scenario may describe some setup instructions, including possibly extra components. Prepare the components and follow the instructions now.</p>
-        <div class="notecard accented">
-            <p><strong>New players:</strong> If you're new to cooperative trick-taking games, choose <a href="#none-or-all">None or All</a> as your scenario. Use entries 1, 2, 3 (instead of getting random entries). For each entry, choose the "None" task.</p>
-            <p>If you're new to Togetrick, but have plenty of experience in cooperative trick-taking games (I'm talking like getting to mission ~40 in <cite>Planet Nine</cite>), choose None or All as the scenario and use entries 1, 2, 3 as well, but you may choose which task you want to do for each entry.</p>
-        </div>
-    </section>
-    
-    
-    <section><h3 id="preparing-deal">Preparing a deal</h3>
-        <p>To prepare the deal, follow these steps:</p>
+    <section><h3 id="preparing-deal">Preparing the deal</h3>
         <ol>
             <li>Choose one player to be the <b>captain</b>. They take the captain figure.</li>
-            <li>Shuffle all 33 cards, and distribute them face-down to each player to form their <b>hand</b>. The captain gets 9 cards, and each other player gets 8 cards.</li>
-            <li>Check the scenario text for any instructions you might need to follow after distributing cards.</li>
-            <li>Give each player a <b>personal reserve board</b>. Put the remaining <b>central reserve board</b> in the middle of the table.</p>
-            <li>The captain chooses one card from their hand and places it face-up on the central reserve board.</li>
-            <li>Starting from the player to the left of the captain, and going clockwise ending with the captain, each player chooses one of the following to <b>load their reserve</b>:<ul>
-                <li>They place a card from their hand face-up onto their personal reserve board.</li>
-                <li>They take the card from the central reserve board and put it on their personal reserve board. They then place a card from their hand face-up onto the central reserve board.</li>
-            </ul></li>
-            <li>The card that remains on the central reserve board is the <b>exiled card</b>. Put it out of play; it will not be used this deal.</li>
+            <li>Each player takes <span class="boxedtext player">(3p) 3 pool tokens / (4p) 2 pool tokens</span>.</li>
+            <li>Shuffle all 33 cards.</li>
+            <li>Prepare an area of the table to become the <b>pool</b>. Put <span class="boxedtext player">(3p) 3 cards / (4p) 1 card</span> face-up into the pool.</li>
+            <li>Distribute the remaining cards to the players, so each player gets <span class="boxedtext player">(3p) 10 cards / (4p) 8 cards</span> to form their <b>hand</b>.</li>
+            <li>You might have some instructions to do "after distributing cards". Do them now.</li>
         </ol>
         
-        <p>Hands are private information. Each player may look at the cards in their hand, but should not show it to any other player.</p>
-        <p>The face-up card on your personal reserve board is your <b>reserve card</b>. The reserve card is <em>not</em> part of your hand, but you can play it as though it's part of your hand. This gives you flexibility while playing tricks, as explained in under <a href="#leading-following">leading and following suit</a>.</p>
-        <p>Once the deal has been prepared, with each player's hand and reserve cards decided, play may begin. Continue to <a href="#playing-trick">playing tricks</a>.</p>
+        <p>Your hand is private information. You may look at it, but do not show it to any other player. You also may not talk about your hand, or any information you can derive from your hand.</p>
+    </section>
+    
+    
+    <section><h3 id="seeding-pool">Seeding the pool</h3>
+        <p>Before play properly begins, you need to make a major decision: to seed the pool.</p>
+        <ol>
+            <li>Each player simultaneously chooses 2 cards from their hand and puts them face-down on the table.</li>
+            <li>Once everyone is ready, each player reveals their chosen cards face-up, then places them into the pool.</li>
+            <li>Organize the pool by suit.</li>
+        </ol>
+        <p>There are 9 cards in the pool, and each player has <span class="boxedtext player">(3p) 8 cards / (4p) 6 cards</span> left in their hand.</p>
         
         <div class="notecard callout">
-            <p>The procedure of loading reserves has multiple purposes. It lets you adjust your hand's composition. It allows you to pass a card to another player or to put a card out of play. It gives you the opportunity to indirectly communicate to other players. Take advantage of it.</p>
+            <p>Since you cannot talk about cards in your hand, seeding the pool is the main way of communicating to other players. At the same time, it is also a way to adjust your hand. Seeding the pool effectively is key to tackling more difficult challenges, but learning how to utilize this mechanic is something you have to learn with practice.</p>
+            <p>You may look at who seeds what cards. You may also ask for a reminder of who seeded a particular card in the pool.</p>
         </div>
     </section>
     
     
-    <section><h3 id="playing-trick">Playing a trick</h3>
-        <p>Once <a href="#preparing-deal">the deal has been prepared</a>, you will play cards into tricks. To play a trick, follow these steps:</p>
-        <ol>
-            <li>The lead player <b>leads</b> by playing a card.</li>
-            <li>In clockwise order, each other player plays a card. Players must <b>follow suit</b> if possible.</li>
-            <li>Determine who <b>wins</b> the trick. They gather the cards in the trick and put them in front of themself.</li>
-        </ol>
-        
-        <p>After the trick, check if the deal has ended. If any player still has any cards left (in hand or reserve), play another trick. If not, the deal is over. Since each player begins with 8 cards in hand, you will play a total of 8 tricks each deal.</p>
-    </section>
-    
-    
-    <section><h3 id="leading-following">Leading and following suit</h3>
-        <p>One player, called the <b>lead player</b>, will <b>lead</b> a trick. They play any card from their hand or reserve, by placing it face-up on the table. This card is called the lead card, and its suit is the lead suit. For the first trick of a deal, the lead player is the captain; for the other tricks, the lead player is the player who won the previous trick.</p>
-        <p>In clockwise order from the lead player, each other player plays a card. A player must <b>follow suit</b> if able. If they have any card in their hand that is the same suit as the lead suit, they must play one of them. If not, they may play any card from their hand. (It doesn't matter what other non-lead players played before you; you only need to follow the lead suit.)</p>
-        <p>These are the <em>only</em> rules regarding playing a card into a trick. There is no requirement to play a higher card if possible. There is no requirement to "break trumps". Any other rule you might know from a traditional trick-taking game does not apply in Togetrick.</p>
-        
-        <section><h4>Reserve cards</h4>
-            <p>Reserve cards are special because they let you violate following suit requirements. While preparing the deal, you placed one card on your personal reserve board; this is your <b>reserve card</b>. (One card was left on the central reserve board; this is the exiled card, not a reserve card.)</p>
-            <p>You may play your reserve card as though it's in your hand. However, the reserve card is <em>not</em> actually in your hand, so it is <em>not</em> considered for the purpose of following suit. Even if your reserve card is in the lead suit, you are never forced to play it.</p>
-            <p>However, if you choose to play the reserve card, it must still be legal. If the reserve card is <em>not</em> in the lead suit, you may play it only if you cannot follow suit with your hand.</p>
-            <p>Once your reserve card has been played, it acts like any other card. You only have one reserve card; you don't get to replace it with another card after you play it. Although the reserve card is not part of your hand, you must play it at some point during the deal; if your hand is empty when you have to play a card, you must play your reserve card.</p>
-        </section>
-    </section>
-    
-    
-    <section><h3 id="winning-trick">Winning a trick</h3>
-        <p>Once all players have played a card each, determine the card that <b>wins</b> the trick, as follows:</p>
+    <section><h3 id="playing-trick">Playing out a trick</h3>
+        <p>Each deal consists of 8 tricks. In each trick, the lead player will play a card, then in clockwise order, each other player will play a card. In the 1st trick of a deal, the lead player is the captain. Afterward, the lead player is the player who won the previous trick.</p>
+        <p>To play a card, place it face-up in front of you. Typically you will play from your hand; however, in each trick, exactly one player will play from the pool. The main difference between 3p and 4p is whether you play from the pool <em>in addition to</em> or <em>instead of</em> your hand. Read <a href="#about-pool">about the pool</a> for more information about how to play from the pool.</p>
+        <p>Regardless of player count, you are playing a card from somewhere: your hand or the pool. This is called your "set". Except for the lead card (i.e. the first card played in the trick), when you play a card from a set, you must <b>follow suit</b> if able. If the set contains any card matching the suit of the lead card, you must play one of them. If not, you may play any card from the set.</p>
+        <p>Once all players have had a turn, the trick is over. Regardless of player count, there will be 4 cards in the trick. The winning card is determined as follows:</p>
         <ol>
             <li>If the trick contains any trump (spades), the highest trump card wins the trick.</li>
-            <li>Otherwise, among the cards of the lead suit, the highest card wins the trick. Recall that Aces are always rank 1.</li>
+            <li>Otherwise, among the cards of the lead suit, the highest card wins the trick. (Note that Aces are always rank 1.)</li>
         </ol>
-        <p>The player who played the winning card is the winner of the trick. They gather the cards in the trick and place them face-up in front of themself, separate from their hand or reserve.</p>
+        <p>The player who played the winning card gathers the played cards face-up in front of themself. They become the lead player for the next trick.</p>
+        <p>A deal ends after 8 tricks. All players are out of cards, and the pool has one card remaining.</p>
+        <p>Read the instructions of the path to learn what to do with the deal. Typically, you play a deal because there is a task you need to complete, and you either succeed or fail.</p>
         
         <div class="notecard callout">
-            <p>In traditional trick-taking games, won tricks are usually set face-down, and only the most recently won trick may be inspected. I personally dislike the memory component, so the default is that won tricks are left face-up. However, if you prefer to flip won tricks face-down, you may do so.</p>
+            <p>When playing a card, the only requirement is that you must follow suit if able. There are no other requirements. In some traditional trick-taking games, you might find rules such as, you can only lead trumps if someone has played it before ("breaking trumps"), or that you must play a higher card if possible, etc. Those rules do not apply in Togetrick.</p>
+            <p>In traditional trick-taking games, once a trick is won, its cards are turned face-down and nobody may inspect them any more. I personally don't like the memory aspect, so the default rules is that won tricks are left face-up. However, you may choose to turn won tricks face-down for an additional challenge.</p>
         </div>
     </section>
     
     
-    <section><h3 id="table-talk">Table talk</h3>
-        <p>Starting from when the deal is being prepared, up until the last trick is played and won, you should not talk about any card in your hand. By extension, this also includes any information or strategy that can only be inferred from the contents your hand.</p>
-        <p>Other than that, how much table talk you want to allow is up to you. Some groups prefer to play completely silently, not discussing strategy or gameplay at all. Some others talk about objectives in a broad sense, such as suggesting who should win a trick and reminding any particular objective to accomplish. Your group can decide on what is the most enjoyable for you.</p>
-        <p>If you aren't in a deal, you are always allowed to talk and discuss strategies freely. This includes, but is not limited to, discussing the following: choices required by a scenario, who should be the captain this deal, strategies for tackling a task (before any player sees any card), etc.</p>
-    </section>
-    
-    
-    <section><h3 id="winning-scenario">Winning a scenario</h3>
-        <p>A deal by itself is not really "won" or "lost". The scenario will tell you what to do with a deal you finished. In some scenarios, you have a task to complete in a deal, and you either succeed or fail. In others, there is no such strict success-or-failure distinction; you might be trying to score points instead. Simply follow what the scenario says.</p>
-        <p>A scenario is also not "won" or "lost". Most scenarios are point-based. Generally, you will get to the end of the scenario no matter what, then you simply tally up your points. You can strive for a high score. Alternately, these scenarios offer a point table at the end; you may aim to reach a new entry in the table. Simply follow what the scenario says.</p>
-        <div class="notecard accented">
-            <p><strong>New players:</strong> If you're playing the <a href="#none-or-all">None or All</a> scenario, you will play through 3 deals. Each deal has a task, and you might either succeed or fail it. In either case, you always move on to the next task. After you complete all 3 deals, tally up your points, and consider your first game a success.</p>
-        </div>
-    </section>
-    
-</section>
-
-
-
-<section><h2 id="other-player-counts">Playing with other player counts</h2>
-    <p>Togetrick is designed first and foremost for exactly 4 players. However, Togetrick is also designed to be flexible, including with player count. The <a href="#artificial-players"><b>artificial players</b> variant</a> and the <a href="#multi-handed"><b>multi-handed</b> variant</a> allow fewer than 4 players to play, and the <a href="#possessing-ghost"><b>possessing ghost</b> variant</a> allows 5 players to play. See the <a href="#recommended-mix">recommended mix</a> for advice on playing with these variants.</p>
-    <p>When using either of these variants, determine all setup &mdash; such as how many and what kind of artificial players you use, and who the ghost will be &mdash; before choosing the scenario. These choices should remain the same for the whole game.</p>
-    <p>Although these variants should give a similar experience as the standard 4-player game, there may be significant differences. Some scenarios might be easier or harder than intended when using these variants. A few scenarios do not support these variants.</p>
-    
-    
-    <section><h3 id="artificial-players">Artificial players</h3>
-        <p><b>Artificial players</b> help to increase the player count to 4. Each artificial player has its own hand and will play cards into tricks, just like a human player does. There are two kinds of artificial players:</p>
+    <section><h3 id="about-pool">About the pool</h3>
+        <p>The pool is an additional communal hand. After seeding the pool, the pool should have 9 cards. All players have access to the pool, but playing from the pool requires pool tokens and is governed by some special rules. Read these rules carefully.</p>
+        
+        <section class="notecard player"><h4>3-player game</h4>
+            <p>In 3p, you play from the pool <strong>in addition to</strong> from your hand.</p>
+            <p>After you play a card from your hand, you may additionally play a card from the pool. (Thus you play two cards this trick.) Put one of your pool tokens on top of the card from the pool. If you have no pool token remaining, you cannot play from the pool.</p>
+            <p><strong>Note:</strong> You may only play from the pool <em>after</em> you play from your hand. This also means, even if you are the lead player, the pool card is played after your hand card, so the lead card is your hand card, not the pool card.</p>
+        </section>
+        
+        <section class="notecard player"><h4>4-player game</h4>
+            <p>In 4p, you play from the pool <strong>instead of</strong> from your hand.</p>
+            <p>When it's your turn to play a card, instead of playing from your hand, you may play a card from the pool. Put one of your pool tokens on top of the card. If you have no pool token remaining, you cannot play from the pool.</p>
+            <p><strong>Note:</strong> Even though you must follow suit if able, this is only determined once you choose whether to play from your hand or from the pool. For example, even if you can follow suit from your hand and not from the pool, you may choose to play from the pool (and then you can play any card from the pool).</p>
+        </section>
+        
+        <p>Regardless of player count, there is one rule that governs playing from the pool: <strong>in each trick, exactly one player must play from the pool.</strong></p>
         <ul>
-            <li>The <b>puppet</b> has a reduced hand, and draws a new card after every trick. It is heavily inspired by the solo variant of the LOTR trick-taking games.</li>
-            <li>The <b>robot</b> reveals its entire hand, but can only play the first legal card in its hand. Compared with the puppet, the robot reveals much more information to the players, but at the cost of being much less flexible. It is heavily inspired by <a href="https://boardgamegeek.com/thread/2305592/solo-running">Solo Running</a>, a solo variant for <cite>The Crew</cite> designed by Tom Scutt.</li>
+            <li>If someone has already played from the pool this trick, then you may not play from the pool.</li>
+            <li>If nobody has played from the pool this trick yet, and you are the last player with any pool token remaining (usually because you are the last player of the trick), then you must play from the pool.</li>
         </ul>
-        <p>You may add artificial players in any combination, including multiple separate copies of the same kind. When adding artificial players, also determine where they are sitting with respect to the human players.</p>
-        <p>Each artificial player has a <b>handler</b>, a human player that will make all decisions for the artificial player. The handler of each artificial player may change between deals, although I recommend sticking with the same handler for an entire scenario simply to reduce confusion.</p>
-        <p>Artificial players cannot be the captain. When choosing the captain, choose among human players.</p>
-        
-        <div class="notecard accented"><section><h4>Puppets</h4>
-            <p>While distributing cards, <strong>distribute only 4 cards</strong> face-up into the puppet's hand. The remaining cards form a face-down <b>puppet draw pile</b>. If there are multiple puppets, they all share the same puppet draw pile.</p>
-            <p>The puppet loads its reserve and plays cards normally &mdash; although remember that the puppet's handler makes all decisions for the puppet.</p>
-            <p>After each trick, if the puppet draw pile still has any cards (i.e. in the first 4 tricks), the puppet draws a card face-up into its hand. Note that the puppet still draws a card even if it plays its reserve.</p>
-        </section></div>
-        
-        <div class="notecard accented"><section><h4>Robots</h4>
-            <p>The robot receives 8 cards as normal. Turn them face-up, but <strong>keep them in the order dealt</strong>. The robot's hand forms the <b>queue</b>.</p>
-            <p>The robot loads its reserve normally &mdash; although remember that the robot's handler makes all decisions for the robot. When choosing a card from the robot's hand to be put onto a reserve, you may choose any card from the robot's queue, regardless of position.</p>
-            <p>When playing a card into a trick, the robot only has two choices: play its reserve, or play the <strong>first legal card</strong> in its queue. When following suit, the first legal card is the first card of the lead suit. In other cases, it simply means the first card in the queue.</p>
-        </section></div>
-        
-        <div class="notecard callout">
-            <p>When using puppets, it becomes more likely that you might lose to luck. For instance, if a puppet needs to win no tricks at all, and they randomly get dealt the King during the deal, you've failed the objective without being able to prevent it, and it may feel unfair to some. It's a risk you take if you use puppets.</p>
-            <p>Conversely, when using robots, you can often solve a deal in advance. In the most extreme case, when playing with 1 player and using robots for all artificial players, you know every card, and you can solve the deal on the get go. But this requires a great deal of thinking and planning in your head, and some players might not like it.</p>
-        </div>
     </section>
     
+</section>
+
+
+
+<section><h2 id="solo-variant">Solo variant</h2><div class="notecard solo">
+    <p>The solo variant changes the game: instead of a game of limited communication, it is now a puzzle of ordering and planning. It is compatible with either 3p or 4p mode. You choose which mode you're playing at the start of the campaign, and you follow the rules for the corresponding player count.</p>
+    <p>In the solo variant, you are joined with a number of <b>bots</b>. The number of bots is equal to the player count you choose, and each bot will handle one hand. Apply the following rule changes:</p>
+    <ul>
+        <li><strong>During preparation:</strong> After dealing each hand, flip each hand face-up, but <strong>do not change the order of the cards</strong>. The order of cards in the hand must be clear, from first to last. (You may splay each hand so you can see all the cards.)</li>
+        <li><strong>When playing a card:</strong> If a bot plays a card <em>from its hand</em>, it will play <strong>the first legal card</strong> in its hand. If the bot can follow suit, it plays the first card of that suit in its hand. If the bot cannot follow suit (or if it leads), it simply plays the first card in its hand.</li>
+    </ul>
+    <p>All other decisions are controlled by you. In particular, these include:</p>
+    <ul>
+        <li>Which bot will be the captain</li>
+        <li>Which cards are seeded from each hand<ul>
+            <li>You may choose any two cards from each hand. The rule about first legal card only applies when playing a card, not while seeding.</li>
+        </ul></li>
+        <li>Whether a bot uses a pool token, and if so, which card is played from the pool<ul>
+            <li>You may choose any card from the pool. The rule about first legal card only applies when playing a card from a bot's hand.</li>
+        </ul></li>
+        <li>Any other choices called for by the campaign</li>
+    </ul>
+    <p>Whenever the rules or campaign refer to a "player", it means a bot.</p>
     
-    <section><h3 id="possessing-ghost">Possessing ghost</h3>
-        <p>When playing with 5 players, one player will become the <b>ghost</b>. The ghost is <em>not</em> a player for game purposes, unless rules specifically refer to the ghost. For example, ghosts don't play cards normally, players next to the ghost are considered adjacent to each other, most scenarios ignore ghosts, etc. However, the ghost can <b>possess</b> other players and play cards on their behalf.</p>
-        <p><strong>Extra components:</strong> 8 <b>pass tokens</b> for the non-ghost players, plus a <b>ghost figure</b> and an additional <b>reserve board</b> for the ghost.</p>
-        
-        <section><h4>Preparing the deal</h4>
-            <p>The ghost cannot be the captain. When choosing the captain, choose among the other players.</p>
-            <p><strong>The card distribution is different.</strong> Give 8 cards to the ghost, 7 cards to the captain, and 6 cards to each other player. In addition, each non-ghost player (including the captain) takes 2 pass tokens.</p>
-            <p>While loading reserves, the ghost takes the <strong>last turn</strong> to load their reserve, after all other players have loaded their reserves.</p>
-        </section>
-        
-        <section><h4>Playing tricks</h4>
-            <p>The ghost does <em>not</em> play cards normally. When players play in clockwise order, always skip the ghost's turn.</p>
-            <p>Instead, each non-ghost player has a new possible action. When it's your turn to play a card, you may choose to <b>pass and become possessed</b> instead of playing a card normally. If you choose to pass, follow these steps:</p>
-            <ol>
-                <li>Return a pass token you have.</li>
-                <li>The ghost plays a card from their hand or reserve. The usual restrictions apply, including having to follow suit if possible, and the reserve card being not considered when following suit.</li>
-                <li>The card played by the ghost is treated as if you played it, for all purposes. For example, if it's the winning card, you're considered to have won the trick.</li>
-                <li>The trick continues clockwise to your left, not the ghost's left.</li>
-            </ol>
-            <p>You only have 2 pass tokens. If both of them have been used, you may not pass for the rest of the deal. On the other hand, if you run out of cards but still need to play a card, you must pass (and become possessed).</p>
-            <p><strong>Exactly one player must pass each trick.</strong> In other words, the ghost must possess someone each trick. If someone has passed before you this trick, you may not pass. If nobody has passed this trick and everyone after you no longer have pass tokens, you must pass.</p>
-        </section>
+    <div class="notecard warning">
+        <p>While the solo variant is compatible with most of the campaign, there are some paths that require some solo-specific rule changes, or are simply unplayable in solo. (These usually involve tasks where one player must make a secret choice.)</p>
+    </div>
+</div></section>
+
+
+
+<section><h2 id="about-campaign">About the campaign</h2>
+    <p>Togetrick is presented as a campaign, divided into numerous <b>paths</b>. Each path has a main challenge that you need to clear by playing several deals. Many paths also come with extra challenges. Completing a challenge unlocks rewards, such as access to other paths.</p>
+    <p>When you start a game of Togetrick, choose a path you have unlocked. At the beginning, you only have access to Path of Beginnings; as you progress through the campaign, you will unlock access to other paths. Follow the instructions for the path you chose. Whenever it asks you to play a deal, follow the rules for <a href="#playing-deal">playing a deal</a>.
+    <p>&nbsp;</p>
+    <p>Each path has a <b>main challenge</b>. Typically you are presented with a list of tasks, each to be completed in its own deal, and you need to complete all of them to complete the path. However, the structure of a path may greatly vary, and part of the fun of exploring is to discover unusual ways to play the game under the basic trick-taking rules.</p>
+    <p>Paths may also have <b>extra challenges</b>. Extra challenges are optional. However, the main challenge is typically mandatory; to complete an extra challenge, you need to also complete the main challenge unless otherwise instructed. Extra challenges are typically independent of each other; you may complete each extra challenge separately in different playthroughs.</p>
+    <p>You need a way to record your progress, such as pen and paper or a spreadsheet. The most important one is to record paths you have unlocked and challenges you have completed; you may also want to record other information as you come across them.</p>
+    
+    <div class="notecard player">
+        <p>The two modes, 3p and 4p, have somewhat different campaigns. Many challenges are slightly different, so they can offer a similar difficulty.</p>
+        <ul>
+            <li><a href="togetrick-3p.html">The 3p campaign</a></li>
+            <li><a href="togetrick-4p.html">The 4p campaign</a></li>
+        </ul>
+    </div>
+    <div class="notecard solo">
+        <p><a href="#solo-variant">The solo variant</a> is compatible with either mode, but you must choose the mode you're playing at the start of the campaign. Choose whether you're playing the 3p mode or the 4p mode. (When playing solo, the 3p mode is easier.) For the rest of these rules, follow the rules for the corresponding player count.</p>
+    </div>
+</section>
+
+
+
+<section class="notecard design"><h2 id="design-thoughts">Design thoughts</h2>
+    <section><h4>Why this game was developed</h4>
+        <p>In 2019, a game called <cite>The Crew: The Quest for Planet Nine</cite>. I don't remember when I was introduced to this game, but when I picked it up, I was impressed. Using the classic trick-taking formula but implementing it in a fully cooperative game was awesome. (Contract bridge had partnerships, but it was still competitive 2v2.) I particularly loved the variety of missions, and I loved how it encouraged people to design <a href="https://boardgamegeek.com/boardgame/284083/the-crew-the-quest-for-planet-nine/forums/69">their own custom missions</a>.</p>
+        <p>Later on, <cite>The Crew: Mission Deep Sea</cite> and <cite>The Crew: Journey to the Ends of the Earth</cite> were released. They used the same cooperative trick-taking base, but put it in different contexts, with even more variety in mission formats. In addition, two games with mouthful titles, <cite>The Lords of the Rings: The Fellowship of the Ring &mdash; Trick-Taking Game</p> and its sequel, also took the cooperative trick-taking base but implemented the win conditions differently. <cite>The Crew: Family Adventure</cite> was a spin-off, based on following suit/number (as in Crazy Eights and <cite>UNO</cite>), but otherwise was still cooperative with a variety of tasks.</p>
+        <p>I loved the creativity you could express through the missions. In particular, I loved the missions that did <em>not</em> involve task cards; I think those were the most fascinating and novel. When <cite>Ends of the Earth</cite> introduced tasks that had variable scoring, I was also enamored with them. <cite>Ends of the Earth</cite> also brought the possibility of a mission spanning multiple deals, something that I haven't considered before.</p>
+        <p>At first, I set out to develop a variant for <cite>The Crew</cite>. The goal was to introduce more of these kinds of wacky missions; I remember one of my ideas was that you could score positive or negative points, and your goal was to balance your running score so it wasn't too high or too low. But as I thought about it more, I realized I didn't have to be bound to the structure of <cite>The Crew</cite>. I could develop my own game. I could put in my own unique twist that made it feel pretty different from the other cooperative trick-taking games.</p>
+        <p>I focused on making it playable using a standard deck of cards, but still keeping it intuitive, which led to an unusual stripped deck. I experimented with a few mechanics involving "stashing" a card out of your hand, and iterating on it led to the pool mechanic.</p>
+        <p>Right from the outset, I always wanted my game to be very extensible; using the same core basic rules, you could set a variety of different goals (or "scenarios" as I called them). However, I learned this was not a good way to present your game; it became somewhat confusing. I ended up packaging the different scenarios into an overarching campaign, so I could present each step of the campaign as its own thing. This is definitely inspired by some campaign-based games (both board games and video games) out there, although my specific inspiration was <cite>Codenames: Critical Role Adventures</cite>.</p>
+        <p>The name "Togetrick" comes from "together" and "trick". The name is coincidentally very similar to <a href="https://bulbapedia.bulbagarden.net/wiki/Togetic_(Pok%C3%A9mon)">Togetic</a>, a Pokémon species known for happiness and joy. However, the game has no theme whatsoever, since I'm horrible at coming up with themes.</p>
     </section>
     
-    
-    <section><h3 id="multi-handed">Multi-handed</h3>
-        <p>Playing <b>multi-handed</b> simply means you control multiple hands. You handle each hand separately; you may not mix multiple hands together. From the game's point of view, the hands are treated as completely separate players, even if they are handled by the same you.</p>
-        <p>Playing multi-handed simulates the standard rules the most, because there are no special rules regarding how to handle e.g. artificial players. However, it is usually confusing for some players. In addition, you still end up knowing more information than you normally would, so it won't match a full 4-player game exactly.</p>
-        <p>If you play multi-handed, I strongly recommend that you only control two hands at once, and they are next to each other on the table.</p>
+    <section><h4>How I arrived at the pool mechanic</h4>
+        <p>The initial design of Togetrick had aimed to be extremely flexible. This included player count: although it was designed primarily for 4 players (the 3p mode didn't come until way later), I included rules to add a 5th player. This 5th player, called "ghost" at the time, wasn't a player for the game purposes. However, in each trick, exactly one player must pass from playing a card from their hand, and the ghost played a card on their behalf instead. This is already very close to the pool mechanic!</p>
+        <p>I don't know exactly how the ghost mechanic came to mind. I believe I once read an interesting rule for trick-taking games somewhere, where one player could pass from playing a card. In order to make sure the trick had exactly 4 cards, I substituted it with the ghost playing a card on their behalf instead.</p>
+        <p>At the time, each player had an individual "reserve" card. This was how players communicated back then; they revealed their reserve card face-up, and it was not counted as part of their hand for the purpose of following suit. There were additional rules about how players could exchange cards; basically, one card was reserved in the middle of the table, and players could either take it as their reserve (and put another card from their hand as the central reserve), or simply reserve one of the cards from their hand. This was bogging down the gameplay, and I struck the individual reserve idea; instead, all reserve cards were pooled together.</p>
+        <p>Finally, I realized playing a card from the common reserve was exactly how the ghost worked. I merged the two rules, and it ended up being the pool mechanic.</p>
     </section>
     
-    
-    <section><h3 id="recommended-mix">Recommended mix</h3>
-        <p>These variants can be combined in any way. You can have both kinds of artificial players simultaneously, although that will increase the mental load simply because of their different rules. You can have artificial players and the ghost at the same time: add artificial players to bring the player count to 5, then choose one player (human or artificial) to become the ghost.</p>
-        <p>The following are some recommended mix for playing with various player counts.</p>
-        
-        <section><h4>5 players</h4><ul>
-            <li>Play with the ghost.</li>
-        </ul></section>
-        
-        <section><h4>4 players</h4><ul>
-            <li>Play using basic rules without artificial players or ghost.</li>
-            <li>Play with 1 robot, which becomes the ghost.</li>
-        </ul></section>
-        
-        <section><h4>3 players</h4><ul>
-            <li>Play with 1 puppet.</li>
-            <li>Play with 1 robot.</li>
-            <li>Play with the ghost. One player becomes the ghost. The other two players both play multi-handed.</p>
-        </ul></section>
-        
-        <section><h4>2 players</h4><ul>
-            <li>Play multi-handed, so each player controls two adjacent hands.</li>
-            <li>Play with 2 puppets.<ul>
-                <li>You two should sit opposite each other, with puppets to your left and right.</li>
-                <li>Each of you should be the handler for one puppet; you may choose which direction.</li>
-            </ul></li>
-            <li>Play with 2 robots.<ul>
-                <li>Similar to above, you should sit opposite each other.</li>
-                <li>Note that all hands are public information in this variant. For that reason, you may talk and discuss strategies even during the deal.</li>
-            </ul></li>
-            <li>Any of the above variants can be played with the ghost. In this case, a robot becomes the ghost.</li>
-        </ul></section>
-        
-        <section><h4>1 player</h4>
-            <ul>
-                <li>Play with 3 puppets.<ul>
-                    <li>You still have a full hand in addition to the 3 puppets. The full hand will be the captain.</li>
-                    <li>Compare with the LOTR trick-taking games, which is effectively 4 puppets and no full hand.</li>
-                </ul></li>
-                <li>Play multi-handed with 2 robots.<ul>
-                    <li>Normally you should take adjacent hands for playing multi-handed. However, because you're the only player on the table, you can (and should) control opposite hands.</li>
-                    <li>Note that this is essentially the third 2-player variants above.</li>
-                </ul></li>
-                <li>Play with 4 robots. You are the ghost.<ul>
-                    <li>When playing solo this way, there is a rule change for card distribution. You get 9 cards, and each robot gets 6 cards. You take place of the captain for putting the first card onto the central reserve board. Then each robot in clockwise order loads its reserve, then you load your reserve last.</li>
-                    <li>The captain is the robot to your left. Normally robots cannot be the captain, but because you are the only human player, there is no confusion.</li>
-                </ul></li>
-            </ul>
-            <details class="notecard design"><summary>Click for some thoughts about the 1-player mixes</summary>
-                <p>Robots are inherently more difficult than puppets, and you need some flexibility to counteract the robots. It's possible to play with 3 puppets, but it's very difficult to play with 3 robots. This is why the robot variant adds another full hand.</p>
-                <p>On the other hand, the ghost introduces a lot more flexibility. With a ghost, a robot now has three choices: play reserve, play first legal card, or pass. And when it passes, you get to play any legal card from your hand. This gives tremendous flexibility, making it possible to play with 4 robots.</p>
-            </details>
-        </section>
-        
+    <section><h4>How I came up with the solo variant</h4>
+        <p>The initial design of Togetrick had aimed to be extremely flexible. This included player count: although it was designed primarily for 4 players (the 3p mode didn't come until way later), I included rules to subtract player counts by substituting them with artificial players.</p>
+        <p>At the time, I had two kinds of artificial players. One was a "puppet". A puppet only revealed a few (4) cards from its hand, but the group may play any face-up card from the puppet. This was directly lifted from the solo rules for <cite>LOTR Trick-Taking Game</cite>.</p>
+        <p>The other was a "bot". This was inspired by a fan-made solo variant for <cite>The Crew</cite>, called <a href="https://boardgamegeek.com/thread/2305592/solo-running">Solo Running</a>, invented by Tom Scutt. In this variant, you play a standard 4p game, but you only directly control one hand. The other three hands are controlled by bots with different behaviors: playing the first legal card, playing the highest legal card, and playing the lowest legal card. For me, the "first legal card" bot was the most fascinating, and I directly stole it for the bot. You could replace a player with the bot, and while the group could see its cards, it would play the first legal card each time, so it wasn't easy to get it to play the right card at the right time.</p>
+        <p>In the original design for Togetrick, there was no specific solo variant; solo simply meant all other hands were controlled by bots. This was very difficult; you had so little control over anything. However, I found out that combining this with the ghost player (see above) gave you just enough control to be able to plan things.</p>
+        <p>When I moved to the pool mechanic, I also dropped the artificial players; I wanted the core game to work good enough before I wanted to support anything else. However, as a primarily-solo player, I wanted to keep the solo variant. I loved how the "everyone are bots except you control the pool" rule felt like, so I put it in again.</p>
+        <p>As an aside, I knew the solo variant would never replicate the feel of the real game (with multiple players). The real game relies on limited communication and hidden information, something that is impossible solo. So I instead went for a planning puzzle: you have full information, the goal is to execute it. This is somewhat reminiscent of <cite>Space Alert</cite>, a real-time cooperative game; the full game with multiple players relies on the chaotic communication, but the solo game gives you full agency, and the challenge becomes to keep everything straight and sorted out in your head alone.</p>
     </section>
 </section>
 
 
 
+    <script>
+    /*
 <section><h2 id="about-scenarios">About scenarios</h2>
-    <p>The main draw of Togetrick is the flexibility of the scenarios. With the same cooperative trick-taking structure, different goals and rules lead to different ways to play the game. This section describes some general scenario elements that appear in <a href="#list-scenarios">the list of scenarios</a>.</p>
+    <p>The main draw of Togetrick is the flexibility of the scenarios. With the same cooperative trick-taking structure, different goals and rules lead to different ways to play the game. This section describes some general scenario elements that appear in the <a href="#list-scenarios">list of scenarios</a>.</p>
     
     <section><h3 id="getting-random-entry">Getting a random entry</h3>
         <p>Several scenarios present a <b>random table</b>. Each random table is headed by a "entry" column, which contains 11 entries: each number rank from 1&ndash;10, and &spadesuit;.</p>
         <p>These scenarios will ask you to <b>"get a random entry"</b>. Before the deal, shuffle the deck and draw the top card. If it has a number rank, look at the entry for the corresponding rank. If it's a trump card (i.e. spades), look at the &spadesuit; entry. This is the entry you get.</p>
-        <p>Note that the deck has 33 cards. Each number rank is present on 3 cards, and there are 3 trump cards. So each entry is equally likely.</p>
-        <p>Most scenarios ask you to get a random entry multiple times (usually once per deal). Unless otherwise stated, the scenarios do <em>not</em> want repeat entries. If the card leads you to an entry you've already gotten this game, discard it and draw another.</p>
+        <p>Most scenarios ask you to get a random entry multiple times (usually once per deal). Unless otherwise stated, the scenarios do <em>not</em> want repeat entries. If you would get an entry you've gotten earlier this game, discard it and draw another.</p>
         
         <div class="notecard callout">
             <p>You are of course welcome to use the random tables differently. Perhaps instead of randomizing, you want to directly choose an entry you've never tried before. Or you might want to try every single permutation of entries as its own separate game, like some people do with <a href="https://boardgamegeek.com/thread/2619042/completed-the-base-game-here-are-the-stats">all 816 possible combinations of scoring cards in <cite>Sprawlopolis</cite></a>. Feel free to play however you like.</p>
@@ -364,12 +315,50 @@
 
 
 <section><h2 id="list-scenarios">List of scenarios</h2>
-    <div class="notecard accented">
-        <p><strong>New players:</strong> As recommended when <a href="#choosing-scenario">choosing a scenario</a>, if you're new to Togetrick, choose <a href="#none-or-all">None or All</a> with entries 1, 2, 3 rather than random entries. Choose the "None" tasks if you are new to cooperative trick-taking games in general; the "All" tasks are designed for experienced players and are very difficult.</p>
-    </div>
+    <section class="notecard accented"><h4>For new players</h4>
+        <p>If this is your first game of Togetrick, play the <a href="#first-steps">First Steps</a> scenario. Additionally, if you have no experience in cooperative trick-taking games, play the scenario on the Easy difficulty. If you already have some experience, such as through <cite>The Crew</cite> series, you may try the Normal or Hard difficulties.</p>
+    </section>
     <div class="notecard warning">
-        <p>Since this page is still very much a draft, I cut down on the number of entries available to focus on the main mechanics first.</p>
+        <p>The rules are still a draft. For that reason, many tables are not complete.</p>
     </div>
+    
+    <section><h3 id="first-steps">First Steps (as many deals as you want)</h3>
+        <p class="subtitle">Your first scenario, to get used to Togetrick mechanics.</p>
+        
+        <p>This is a starting scenario, designed to ease you into the mechanics of Togetrick.</p>
+        <p>Each task is something you need to complete in one deal. Complete each task one by one. You may retry as much as you want, or even skip a task if you prefer so. I recommend playing the tasks in order.</p>
+        <p>You are welcome to pause the scenario and pick it up another time with the next task.</p>
+        <p>There are 3 difficulties: Easy, Normal, Hard. Choose the appropriate difficulty depending on your experience.</p>
+        
+        <details class="notecard accented"><summary>Click for task tables</summary>
+            <p>You may use the provided checkboxes to track your progress; for instance, whether you've won a task. Note that the checkboxes will reset if you refresh the page, so if you want to pause the scenario to pick it up another time, you want an external way to record your progress.</p>
+            
+            <section><h4>Easy</h4>
+                <table style="width: 100%;" class="align-center">
+                    <colgroup>
+                        <col style="width: 2.5em;"> <col style="width: 1.5em;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tr>
+                        <th scope="col" colspan=2>Easy</th>
+                        <th scope="col">Task</th>
+                    </tr>
+                    <tr>
+                        <th class="align-center" scope="row">1st</th> <td class="align-center"><input type="checkbox"></td>
+                        <td>The captain wins no tricks.</td>
+                    </tr>
+                    <tr>
+                        <th class="align-center" scope="row">2nd</th> <td class="align-center"><input type="checkbox"></td>
+                        <td>The unplayed card in the pool is the 7 of Hearts.</td>
+                    </tr>
+                    <tr>
+                        <th class="align-center" scope="row">3rd</th> <td class="align-center"><input type="checkbox"></td>
+                        <td>The unplayed card in the pool is the 7 of Hearts.</td>
+                    </tr>
+                </table>
+            </section>
+        </details>
+    </section>
     
     <section><h3 id="none-or-all">None or All (3 deals)</h3>
         <p class="subtitle">Nothing or everything. What's your choice?</p>
@@ -497,8 +486,8 @@
                 </tr>
                 <tr>
                     <td class="align-center"><input type="checkbox"></td> <td class="align-center"><input type="checkbox"></td>
-                    <td><b>All (+3):</b> Every trick must contain a card in the same suit as the exiled card. The exiled card cannot be a trump.</td> -->
-                </tr>
+                    <td><b>All (+3):</b> Every trick must contain a card in the same suit as the exiled card. The exiled card cannot be a trump.</td>
+                </tr> -->
             </table>
             <details class="notecard callout"><summary>Click for task clarifications</summary><ul>
                 <li><strong>Entry 2:</strong> In both tasks, every reserve card must win a trick. The difference is whether the reserve card must lead the trick too ("All" task) or must <em>not</em> lead the trick ("None" task).</li>
@@ -644,6 +633,8 @@
             <p>That would eventually be developed into this scenario. The base rules now only require balancing 2 players' scores, since balancing 4 scores is much more difficult. The specifics are modified, including giving two choices when picking which task to take.</p>
         </details>
     </section>
+    */
+    </script>
     
 </section>
 
