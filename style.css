@@ -88,7 +88,8 @@ All other <li> start with bullet, except the first one has nothing
 }
 
 /* A #changelog is also .notecard .accented, see below
-Maybe I should re-organize the stylesheet so I don't have to hack specificity */
+Maybe I should re-organize the stylesheet so I don't have to hack specificity
+*/
 #changelog#changelog {
     margin-bottom: 3em;
 }
@@ -106,23 +107,47 @@ Maybe I should re-organize the stylesheet so I don't have to hack specificity */
 
 
 
-/*** h2-h3 headers and internal linking ***/
+/*** Headers and internal linking (top/here links) ***/
+
+/* Some headers are inside .notecard
+The .notecard should get the margin, not the header
+*/
 
 h2, h3 {
     clear: both;
     color: var(--dark);
 }
+h4 {
+    color: var(--dark);
+}
+
 h2 {
-    margin: 2em 0 0;
+    margin: 1.5em 0 0;
     padding: 0.5rem 0;
     font-size: 1.67rem;
 }
+.notecard > h2 { margin-top: 0; }
+.notecard:has(> h2:first-child) { margin-top: 2.5em; }
+
 h3 {
     margin: 1em 0 0;
     padding: 0.3rem 0;
     font-size: 1.33rem;
 }
-h2:target, h3:target {
+.notecard > h3 { margin-top: 0; }
+.notecard:has(> h3:first-child) { margin-top: 1.6em; }
+
+h4 {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1rem;
+}
+h4::before {
+    content: "\2794\A0"; /* heavy right arrow, nbsp */
+}
+.notecard > h4 { margin-top: 0.5em; } /* h4 has no padding so this gives the margin */
+.notecard:has(> h4:first-child) { margin-top: 1em; }
+
+h2:target, h3:target, h4:target {
     background-color: var(--light);
     border-right: var(--dark) 8px double;
 }
@@ -304,15 +329,6 @@ figure.bg-white img {
     width: calc(100% - 1rem);
 }
 
-h4 {
-    color: var(--dark);
-    font-size: 1rem;
-    margin: 1rem 0 0.5rem 0;
-}
-h4::before {
-    content: "\2794\A0"; /* heavy right arrow, nbsp */
-}
-
 hr {
     margin: 1rem 0;
 }
@@ -371,6 +387,10 @@ button {
 
 p.noindent {
     text-indent: 0;
+}
+p.align-center {
+    text-indent: 0;
+    text-align: center;
 }
 
 strong {
