@@ -436,14 +436,11 @@ h4 + .subtitle {
 Used for asides, warnings, etc
 */
 .notecard, #changelog {
-    margin: 0.5rem 0;
+    margin: 1rem 0;
     padding: 0 1rem;
     border-width: 1px;
     border-style: solid;
     border-left-width: 10px;
-}
-.notecard + .notecard {
-    margin-top: 1.5rem;
 }
 .callout {
     background-color: #eee;

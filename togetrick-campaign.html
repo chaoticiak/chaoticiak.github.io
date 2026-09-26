@@ -8,8 +8,13 @@
     <meta property="og:description" content="Cooperative trick-taking game, designed by chaotic_iak / Ivan Koswara">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="subpage.css">
     <style>
+        /* Player-specific rules */
+        .player {
+            background-color: #ffc;
+            border-color: #cc6;
+        }
+        
         /* Solo-specific rules */
         .solo {
             background-color: #fec;
@@ -39,6 +44,7 @@
 </header>
 
 <div id="changelog">
+<p><b>v0.1e, <time datetime="2026-09-27">27 September 2026</time>.</b> A little bit of campaign work just so I have something.</p>
 <p><b>v0.1d, <time datetime="2026-09-25">25 September 2026</time>.</b> Extensive redesign of the game.</p>
 </div>
 
@@ -78,42 +84,45 @@
                 <li>If no player shows a thumb up, repeat this process until someone gets assigned the task.</li>
             </ul>
         </div>
+        
+        <div class="notecard solo">
+            <p>As bots cannot vote, you make the decision on which bot gets assigned the task.</p>
+        </div>
     </section>
+    
+    
+    <section><h3 id="helper-cards">Helper cards</h3>
+        <p>Some paths make use of the remaining cards that weren't used while preparing the 33-card deck. These cards are called <b>helper cards</b>, and they comprise of:</p>
+        <ul>
+            <li>1&ndash;10 of &spadesuit; spades</li>
+            <li>Jack, Queen, and King of &clubs; clubs, &diamondsuit; diamonds, and &hearts; hearts</li>
+            <li>(Jokers are never needed. However, in some cases, they may help substituting for other cards. You may make use of them as you see fit.)</li>
+        </ul>
+        
+        <p>Not every helper card will be used each time. Refer to setup instructions to prepare the helper cards. Helper cards are usually face up in front of a player, although sometimes they are face down.</p>
+        <p>Helper cards <strong>never</strong> go into your hand. Make sure not to mix them with cards in your hand.</p>
+        <p>At the end of the deal, make sure to separate the helper cards from the rest of the deck.</p>
+    </section>
+    
+    
 </section>
 
 
 
 <section><h2 id="paths">Paths</h2>
     <section><h3 id="path-of-beginnings">Path of Beginnings</h3>
-    <p class="subtitle">Everyone needs to start somewhere.</p>
+    <p class="subtitle">Everyone has to start somewhere.</p>
         
         <div class="notecard accented" style="margin-bottom: 1em;">
             <p>Welcome to Togetrick! Path of Beginnings is your first step toward exploring the campaign. Follow the instructions for <a href="togetrick.html#starting-campaign">starting your campaign</a>.</p>
         </div>
         
         <p><span class="boxedtext accented">Main mission:</span> Complete each of the following tasks, one each deal. You may retry tasks freely.</p>
-        
-        <table style="width: 100%;" class="align-center">
-            <colgroup>
-                <col style="width: 5em;">
-                <col style="width: auto;">
-            </colgroup>
-            <tr>
-                <th scope="col">Number</th>
-                <th scope="col">Task</th>
-            </tr>
-            <tr>
-                <th scope="row">1st</th>
-                <td>Every player must win at least 1 trick.</td>
-            </tr>
-            <tr>
-                <th scope="row">2nd</th>
-                <td>Every non-trump card played from the pool must follow suit.</td>
-            </tr>
-            <tr>
-                <th scope="row">3rd</th>
-                <td>The unplayed card in the pool is the 7 of Hearts (7&hearts;).</td>
-            </tr>
+        <table style="width: min(100%, 50em);" class="align-center">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row">1st</th> <td>Every player must win at least 1 trick.</td> </tr>
+            <tr> <th scope="row">2nd</th> <td>Every card with rank 9 must win its trick.</td> </tr>
+            <tr> <th scope="row">3rd</th> <td>The unplayed card in the pool is 6&diamondsuit; (6 of Diamonds).</td> </tr>
         </table>
         
         <details class="notecard accented"><summary>Click once you've completed the main mission</summary>
@@ -132,6 +141,82 @@
     </section>
     
     
+    <section><h3 id="path-of-cooperation">Path of Cooperation</h3>
+    <p class="subtitle">Work together to tackle these tasks.</p>
+        
+        <p><span class="boxedtext accented">Main mission:</span> Complete each of the following tasks, one each deal. You may retry tasks freely.</p>
+        <table style="width: min(100%, 50em);" class="align-center">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row">1st</th> <td>Every card played from the pool must win its trick.</td> </tr>
+            <tr> <th scope="row">2nd</th> <td>No trick may be led by a &clubs; clubs card.</td> </tr>
+            <tr> <th scope="row">3rd</th> <td>Every trick must contain at least one card of rank 1&ndash;3.</td> </tr>
+            <tr> <th scope="row">4th</th> <td>In each trick, there must be at least one odd number rank and at least one even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
+        </table>
+        
+        <p><span class="boxedtext warning">Extra mission:</span> Play two deals. For the first deal, choose any two of the above tasks, and complete them simultaneously. For the second deal, complete the other two tasks simultaneously. If you fail, you must start over (possibly with new choices).</p>
+        
+        <details class="notecard accented"><summary>Click once you've completed the main mission</summary>
+            <p>&nbsp;</p>
+        </details>
+        
+        <details class="notecard warning"><summary>Click once you've completed the extra mission</summary>
+            <p>&nbsp;</p>
+        </details>
+    </section>
+    
+    
+    <section><h3 id="path-of-courage">Path of Courage</h3>
+    <p class="subtitle">Muster the courage to take on these tasks while your fellow players support you.</p>
+        
+        <p><span class="boxedtext accented">Main mission:</span> Complete each of the following tasks, one each deal. You may retry tasks freely.</p>
+        <p>Each task is to be assigned to a player by <a href="#individual-voting">individual voting</a>.</p>
+        <table style="width: min(100%, 50em);" class="align-center">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row">1st</th> <td>Win at least 5 tricks.</td> </tr>
+            <tr> <th scope="row">2nd</th> <td>Win at least 1 hearts (&hearts;) card, and an equal number of diamonds (&diamondsuit;) cards.</td> </tr>
+            <tr> <th scope="row">3rd</th> <td>Win some trick using a card of rank 1.</td> </tr>
+            <tr> <th scope="row">4th</th> <td>Win all 9 other cards of the same suit as the leftover card in the pool. (The leftover card cannot be a trump.)</td> </tr>
+        </table>
+        
+        <p><span class="boxedtext warning">Extra mission:</span> Play two deals. For the first deal, choose any two of the above tasks. Assign them with individual voting in either order (captain chooses), but the tasks must go to <strong>different</strong> players. Complete them simultaneously. For the second deal, assign and complete the other two tasks simultaneously in the same way. If you fail, you must start over (possibly with new choices).</p>
+        
+        <details class="notecard accented"><summary>Click once you've completed the main mission</summary>
+            <p>&nbsp;</p>
+        </details>
+        
+        <details class="notecard warning"><summary>Click once you've completed the extra mission</summary>
+            <p>&nbsp;</p>
+        </details>
+    </section>
+    
+    
+    <section><h3 id="path-of-recycle">Path of Recycle</h3>
+    <p class="subtitle">The cards left out from the deck now get to play.</p>
+        
+        <p><span class="boxedtext accented">Main mission:</span> Complete each of the following tasks, one each deal. You may retry tasks freely.</p>
+        <p><strong>Setup:</strong> These tasks require the use of <a href="#helper-cards">helper cards</a>.
+        <table style="width: min(100%, 50em);" class="align-center">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row" rowspan=2>1st</th>
+                <td><strong>Helpers:</strong> K&clubs;&diamondsuit;&hearts; (the Kings of Clubs, Diamonds, and Hearts). <span class="boxedtext player">(4p) And 10&spades; (10 of Spades).</span><br>Shuffle and distribute one card to each player, face-up.</td> </tr><tr>
+                <td><strong>Task:</strong> Each player may not win any card of the same suit as their helper.</td>
+            </tr>
+            <tr> <th scope="row" rowspan=2>2nd</th>
+                <td><strong>Helpers:</strong> 1&ndash;8&spadesuit; (1&ndash;8 of Spades), and any 4 red cards.<br>Shuffle and distribute equally to each player, face-up.</td> </tr><tr>
+                <td><strong>Task:</strong> Each player must win as many tricks as they have &spadesuit; spades helpers.</td>
+            </tr>
+            <tr> <th scope="row" rowspan=2>3rd</th>
+                <td><strong>Helpers:</strong> 1&ndash;10&spadesuit; (1&ndash;10 of Spades).<br>Shuffle and distribute <span class="boxedtext player">(3p) 3 cards / (4p) 2 cards</span> to each player, discarding any left over. Each player chooses one helper they got and places it face-up in front of them.</td> </tr><tr>
+                <td><strong>Task:</strong> Each player must win <span class="boxedtext player">(3p) all 3 cards / (4p) at least 2 cards</span> of the same rank as their helper.</td>
+            </tr>
+        </table>
+        
+        <details class="notecard accented"><summary>Click once you've completed the main mission</summary>
+            <p>&nbsp;</p>
+        </details>
+    </section>
+    
+    
 </section>
 
 
@@ -140,23 +225,12 @@
     <p>The wilderness is not a path. It's a place for me to put various ideas I have that aren't yet integrated into paths.</p>
     
     
-    <section><h4>Individual voting</h4>
-        <p>Each task is assigned to one player by <a href="#individual-voting">individual voting</a>.</p>
+    <section><h4>Tasks that look better for a specific player count</h4>
+        <p>These tasks are better for a specific player count.</p>
         
         <ul>
-            <li>You must win at least 1 hearts (&hearts;) card, and an equal number of diamonds (&diamondsuit;) cards.</li>
-        </ul>
-    </section>
-    
-    
-    <section><h4>Uses the other cards</h4>
-        <p>Since the deck is only 33 cards, some cards are unused. These tasks make use of them. <span class="boxedtext design">When these tasks say "red" honors, it's mostly to more easily distinguish them from the spades.</span></p>
-        
-        <ul>
-            <li>Take 1&ndash;8&spadesuit; plus 4 red honors. Shuffle them and distribute them equally to all players, then reveal them. (They are not part of the hand.) For each &spadesuit;, each player must win the trick numbered that rank. i.e. The 1st trick must be won by the player with 1&spadesuit;; the 2nd trick must be won by the player with 2&spadesuit;; etc.</li>
-            <li>Take 8 spades plus (3p) 7 / (4p) 8 honors. Shuffle them and distribute them equally to all players. (They are not part of the hand.) Each player may look at them, but do not show them to other players. You must win exactly the same number of tricks as you have spades.</li>
-            <li>Take 1&ndash;10&spadesuit; plus 2 red honors. Shuffle them and distribute them equally to all players, then reveal them. (They are not part of the hand.) You may not win any card of a rank represented by your &spadesuit;.</li>
-            <li>Some tasks in <cite>Ends of the Earth</cite> that use the number tokens can be adapted here. The most notable one I can remember: Take 1&ndash;3&spadesuit;. The captain closes their eyes, then shuffle and reveal 2 of them. The captain must win tricks exactly equal to the sum, but they don't know this number. (Every other player knows.) Only the captain may communicate. (To prevent others from simply communicating the number somehow.) (There's a harder task with 1&ndash;4, but it seems difficult with only 8 tricks; the better extension might be 0&ndash;3.)</li>
+            <li>(3p) Every player must win at least one &hearts; hearts card. <span class="boxedtext player">(4p) At 4p this becomes significantly harder, since the standard follow-suit-only tricks gets you 3 tricks but not 4.</span></li>
+            <li>(4p) No player may win two (or more) cards of the same rank. <span class="boxedtext player">(3p) Disregard tricks containing trumps? Consider the pool as an extra player?</span></li>
         </ul>
     </section>
     
