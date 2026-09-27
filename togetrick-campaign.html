@@ -26,6 +26,12 @@
             background-color: #ddf;
             border-color: #66c;
         }
+        
+        /* Hack for extensive path spacing */
+        section:has(> #paths) section:has(> h3) {
+            margin-top: 6em;
+            margin-bottom: 6em;
+        }
     </style>
     <script src="script.js"></script>
     <script>
@@ -64,9 +70,13 @@
     <details><summary>Click to show the table of contents</summary><ul>
         <li><a href="#concepts">Concepts</a><ul>
             <li><a href="#individual-voting">Individual voting</a></li>
+            <li><a href="#helper-cards">Helper cards</a></li>
         </ul></li>
         <li><a href="#paths">Paths</a><ul class="collapse">
             <li><a href="#path-of-beginnings">Beginnings</a></li>
+            <li><a href="#path-of-cooperation">Cooperation</a></li>
+            <li><a href="#path-of-courage">Courage</a></li>
+            <li><a href="#path-of-recycle">Recycle</a></li>
         </ul></li>
         <li><a href="#wilderness">The Wilderness</a></li>
     </ul></details>
@@ -86,7 +96,7 @@
         </div>
         
         <div class="notecard solo">
-            <p>As bots cannot vote, you make the decision on which bot gets assigned the task.</p>
+            <p>In the solo variant, as bots cannot vote, you make the decision on which bot gets assigned the task.</p>
         </div>
     </section>
     
