@@ -8,17 +8,18 @@
     <meta property="og:description" content="Cooperative trick-taking game, designed by chaotic_iak / Ivan Koswara">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="subpage.css">
     <style>
         /* Player-specific rules */
         .player {
-            background-color: #ffc;
-            border-color: #cc6;
+            background-color: #cfc;
+            border-color: #6c6;
         }
         
         /* Solo-specific rules */
         .solo {
-            background-color: #fec;
-            border-color: #ca6;
+            background-color: #efc;
+            border-color: #ac6;
         }
         
         /* For design notes and other tidbits */
@@ -27,10 +28,17 @@
             border-color: #66c;
         }
         
-        /* Hack for extensive path spacing */
-        section:has(> #paths) section:has(> h3) {
+        /* Hack for extensive world spacing */
+        section:has(> #list-of-worlds) section:has(> h3) {
             margin-top: 6em;
             margin-bottom: 6em;
+        }
+        
+        /* Task tables are often full width, but not too large */
+        table.task-table {
+            width: min(100%, 50em);
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
     <script src="script.js"></script>
@@ -50,14 +58,20 @@
 </header>
 
 <div id="changelog">
+<p><b>v0.2, <time datetime="2026-10-05">05 October 2026</time>.</b> Settled in on the main ruleset, now primarily designing the campaign. Lots of ideas, but very few actually penned down, and they might not even stay.</p>
 <p><b>v0.1e, <time datetime="2026-09-27">27 September 2026</time>.</b> A little bit of campaign work just so I have something.</p>
 <p><b>v0.1d, <time datetime="2026-09-25">25 September 2026</time>.</b> Extensive redesign of the game.</p>
 </div>
 
 
 
-<div class="notecard warning" style="margin-bottom: 2rem;">
-    <p>This is the campaign page for <b>Togetrick</b>. Go to <a href="togetrick.html">the main page</a> for the basic rules of the game.</p>
+<div class="notecard accented flex-area">
+    <div class="flex-right" style="margin: 0.5em; font-size: 150%; width: auto;">
+        <p style="text-indent: 0; margin: 0; vertical-align: middle;"><a href="togetrick.html" target="_blank">[Rules&nbsp;page]</a></p>
+    </div>
+    <div class="flex-main" style="margin: 0.5em;">
+        <p style="text-indent: 0; margin: 0; vertical-align: middle;">This page lists the campaign rules and content for my cooperative trick-taking game, <b>Togetrick</b>. You need to read the main rules as well for this page to make sense.</p>
+    </div>
 </div>
 
 <div class="notecard warning">
@@ -68,23 +82,105 @@
 
 <section class="notecard callout"><h2 id="toc" class="no-top-link">Table of contents</h2>
     <details><summary>Click to show the table of contents</summary><ul>
-        <li><a href="#concepts">Concepts</a><ul>
+        <li><a href="#about-campaign">About the campaign</a><ul>
+            <li><a href="#regular-world">Regular world</a></li>
+            <li><a href="#record-campaign">Recording the campaign</a></li>
+            <li><a href="#player-count">Player count</a></li>
+            <li><a href="#beyond-campaign">Beyond the campaign</a></li>
+        </ul></li>
+        <!-- <li><a href="#concepts">Concepts</a><ul>
             <li><a href="#individual-voting">Individual voting</a></li>
             <li><a href="#helper-cards">Helper cards</a></li>
+        </ul></li> -->
+        <li><a href="#list-of-worlds">List of worlds</a><ul class="collapse">
+            <li><a href="#world-startia">Startia</a></li>
+            <li><a href="#world-astar">Astar</a></li>
         </ul></li>
-        <li><a href="#paths">Paths</a><ul class="collapse">
-            <li><a href="#path-of-beginnings">Beginnings</a></li>
-            <li><a href="#path-of-cooperation">Cooperation</a></li>
-            <li><a href="#path-of-courage">Courage</a></li>
-            <li><a href="#path-of-recycle">Recycle</a></li>
-        </ul></li>
-        <li><a href="#wilderness">The Wilderness</a></li>
+        <!-- <li><a href="#wilderness">The Wilderness</a></li> -->
     </ul></details>
 </section>
 
 
 
+<section><h2 id="about-campaign">About the campaign</h2>
+    <p>Togetrick is presented as a campaign, divided into numerous <b>worlds</b>. Most worlds are <a href="#regular-world"><b>regular worlds</b></a>, which are little more than collections of tasks (usually related in theme). However, <b>special worlds</b> defy categorization; each one is a new surprise. You can read <a href="#list-of-worlds">the list of worlds</a>.</p>
+    <p>At the beginning of the campaign, you only have access to the regular world <a href="#world-startia">Startia</a>. Each world has one or more <b>objectives</b>. Completing an objective gives a reward, usually access to a new world; this is how you can explore the worlds in the campaign. In addition, the campaign has <i>meta-progression</i>: progress in a world may affect another world. Thus sometimes it is impossible to complete an advanced objective in a world for the time being, and you need to return after you are more ready.</p>
+    <p>Worlds vary wildly in size. Some worlds are small enough that they can be fully completed in a single game session. Others may require multiple hours to go through. The entire campaign will undoubtedly take a while to play, so you are recommended to <a href="#record-campaign">keep a record your campaign</a> so you can pause playing and pick it up another time.</p>
+    
+    
+    <section><h3 id="regular-world">Regular world</h3>
+        <p>A <b>regular world</b> consists of a collection of <b>tasks</b>. Each task only cares about a single deal; there's nothing that requires you to track something across multiple deals. Therefore, when you play in a regular world, each deal is independent.</p>
+        <p>There are two kinds of tasks: binary tasks and score tasks.</p>
+        <p><b>Binary tasks</b> are yes/no. You either succeed or fail, there is no in-between.</p>
+        <p><b>Score tasks</b> award some number of points depending on your performance on the deal. Some score tasks have <b>fail conditions</b>; failing the condition results in no score.</p>
+        <p>Your progress will not get reset. Once you record a success on a binary task, it won't later become failed; once you record a certain high score, that number won't later be reduced.</p>
+        <p>Some tasks are not immediately accessible to you. Typically, completing objectives in the world &mdash; such as succeeding on enough tasks in the world or getting a high enough total high score &mdash; will unlock more tasks for you to attempt.</p>
+        
+        <div class="notecard accented">
+            <p><strong>Before distributing cards:</strong> If you play in a regular world, first choose <strong>one or more tasks</strong> to attempt. Usually you choose only one task, but it's legal to choose more (see below).</p>
+            <p>In order for a deal to be successful, you must succeed on <strong>all</strong> chosen tasks. (A score task without a fail condition will always count as succeeded.) If any of the tasks is failed, the entire deal also fails and you don't record anything from the deal.</p>
+            <p>If the deal is successful, you get to record the deal. Mark all chosen binary tasks as succeeded if not yet already, and record the score (if it's a new high score) for each score task.</p>
+        </div>
+        <div class="notecard callout">
+            <p>You may choose any number of tasks to attempt simultaneously. Because you must succeed on <em>every</em> chosen task simultaneously, typically you want to choose only one task at a time.</p>
+            <p>The major exception is if an objective tells you otherwise. Many advanced objectives require you to succeed on multiple tasks at once.</p>
+            <p>You may also simply attempt multiple tasks at once just because you like the challenge. If you are trying to "speedrun" the campaign by playing as few deals as possible, this is a good way to tackle more tasks in fewer deals, if you can handle the difficulty.</p>
+            <p>Tasks may be attempted in any order, you don't have to follow the same sequence as presented.</p>
+        </div>
+        <div class="notecard design">
+            <p>Binary tasks are simply score tasks with "score 1 point (i.e. a success) if you don't meet the fail condition", but it is much easier for people to understand binary tasks as their own thing.</p>
+        </div>
+    </section>
+    
+    
+    <section><h3 id="record-campaign">Recording your campaign</h3>
+        <p>Currently, I don't have a built-in way to let you record your campaign. Use your own method, such as using pen and paper, or a spreadsheet.</p>
+        <p>You will need to record these items:</p>
+        <ul>
+            <li>Which binary tasks you have completed, and what high score you have on each score task</li>
+            <li>Which objectives you have completed</li>
+            <li>Which worlds you have unlocked</li>
+            <li>Any other information you are instructed to record</li>
+        </ul>
+        
+        <div class="notecard callout">
+            <p>It's possible to record the progress as individual players rather than as a group. This is ideal if you have a rotating group and don't expect to play with the same group regularly. Each player records any progress they get.</p>
+            <p>When players with different progress meet, use the lowest progress. For example, a binary task is only considered completed if all players have marked it completed; a score task's high score is the lowest among all players' high scores.</p>
+        </div>
+        
+    </section>
+    
+    
+    <section><h3 id="player-count">Player count</h3>
+        <p>Togetrick supports 3p and 4p modes, and this is also reflected in the campaign by using the same campaign. However, there are occasional differences to allow both modes to have similar difficulty. Most of these differences are in task details, but some worlds may be accessible only to 3p and others only to 4p.</p>
+        
+        <div class="notecard callout">
+            <p>It's possible to switch modes during the campaign; for instance, if you have a 4-player group, but one is unavailable for a session, you might proceed with the 3p mode for the session. (Note that this is largely untested, and there might be some slight balance issues, but it should largely be fine.)</p>
+        </div>
+        
+        <div class="notecard solo">
+            <p>The solo variant follows the 4p rules, with some changes specific to <a href="togetrick.html#solo-variant">the solo variant</a>.</p>
+            <p>Some parts of the campaign are not available in solo. (These usually involve a player making a secret choice.)</p>
+        </div>
+    </section>
+    
+    
+    <section><h3 id="beyond-campaign">Beyond the campaign</h3>
+        <p>Although Togetrick is presented as a campaign, you don't have to use it.</p>
+        <p>Perhaps you don't like the unlock system, and simply want to try everything one by one. Nothing's stopping you. Play however you want, and enjoy.</p>
+        <p>Perhaps you have completed the campaign. Congratulations! The campaign is always evolving, and I expect to continue expanding the campaign for the foreseeable future.</p>
+        <p>Perhaps you want to make use of the basic Togetrick rules, but play with your own creations. Your own tasks and worlds. That's how I came up with Togetrick in the first place, through a desire of playing my own creation. I'm always interested to hear your inventions; let me know and they might just make it to be part of the campaign.</p>
+    </section>
+    
+</section>
+
+
+
+<!--
 <section><h2 id="concepts">Concepts</h2>
+    <p>Several concepts in the campaign are repeated over multiple worlds. They are explained here. You don't have to read them until you encounter one.</p>
+    
+    
     <section><h3 id="individual-voting">Individual voting</h3>
         <p>Some tasks are assigned to a single player. Paths have a variety of ways to assign the tasks, but a common method is <b>individual voting</b>. If a task is to be assigned by individual voting, follow these rules.</p>
         <div class="notecard accented">
@@ -116,65 +212,77 @@
     
     
 </section>
+-->
 
 
-
-<section><h2 id="paths">Paths</h2>
-    <section><h3 id="path-of-beginnings">Path of Beginnings</h3>
+<section><h2 id="list-of-worlds">List of worlds</h2>
+    
+    <section><h3 id="world-startia">Startia</h3>
     <p class="subtitle">Everyone has to start somewhere.</p>
         
-        <div class="notecard accented" style="margin-bottom: 1em;">
-            <p>Welcome to Togetrick! Path of Beginnings is your first step toward exploring the campaign. Follow the instructions for <a href="togetrick.html#starting-campaign">starting your campaign</a>.</p>
+        <div class="notecard accented">
+            <p>Welcome to Togetrick! Startia is the first world of your Togetrick campaign. If you haven't already, read about <a href="togetrick.html#starting-campaign">starting your campaign</a>.</p>
         </div>
         
-        <p><span class="boxedtext accented">Main mission:</span> Complete each of the following tasks, one each deal. You may retry tasks freely.</p>
-        <table style="width: min(100%, 50em);" class="align-center">
-            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="row">1st</th> <td>Every player must win at least 1 trick.</td> </tr>
-            <tr> <th scope="row">2nd</th> <td>Every card with rank 9 must win its trick.</td> </tr>
-            <tr> <th scope="row">3rd</th> <td>The unplayed card in the pool is 6&diamondsuit; (6 of Diamonds).</td> </tr>
+        <p><strong>Regular world.</strong> Complete each of the following tasks. You may retry tasks freely.</p>
+        
+        <table class="task-table">
+            <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row">A</th> <td>Every player must win at least 1 trick.</td> </tr>
+            <tr> <th scope="row">B</th> <td>Every card with rank 9 must win its trick.</td> </tr>
+            <tr> <th scope="row">C</th> <td>The unplayed card in the pool is 6&diamondsuit; (6 of Diamonds).</td> </tr>
         </table>
         
-        <details class="notecard accented"><summary>Click once you've completed the main mission</summary>
-            <p>Congratulations! In the future, this will unlock you several paths, but right now they are not yet ready.</p>
-            <!-- <p>You may now play any path you have unlocked. You may also want to read about <a href="togetrick.html#continuing-campaign">continuing your campaign</a> in general.</p> -->
-            
-            <hr>
-            <p>You also have unlocked a secret extra mission for this path!</p>
-            <p><span class="boxedtext warning">Extra mission:</span> Play a single deal and complete all 3 tasks in the main mission simultaneously.</p>
-            
-            <details class="notecard warning"><summary>Click once you've completed the extra mission</summary>
-                <p>Congratulations! At some point I will give you a reward for this mission, but not right now.</p>
-            </details>
-            
+        <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on all 3 tasks</summary>
+            <p>Congratulations! You have now begun your campaign in earnest. First read <a href="#about-campaign">about the campaign</a> to learn how the campaign works in general. Once you're ready, head to your newly unlocked world <a href="#world-astar">Astar</a>.</p>
         </details>
+        
     </section>
     
     
-    <section><h3 id="path-of-cooperation">Path of Cooperation</h3>
-    <p class="subtitle">Work together to tackle these tasks.</p>
+    <section><h3 id="world-astar">Astar</h3>
+    <p class="subtitle">A world of harmony, where everyone works together to succeed.</p>
         
-        <p><span class="boxedtext accented">Main mission:</span> Complete each of the following tasks, one each deal. You may retry tasks freely.</p>
-        <table style="width: min(100%, 50em);" class="align-center">
-            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="row">1st</th> <td>Every card played from the pool must win its trick.</td> </tr>
-            <tr> <th scope="row">2nd</th> <td>No trick may be led by a &clubs; clubs card.</td> </tr>
-            <tr> <th scope="row">3rd</th> <td>Every trick must contain at least one card of rank 1&ndash;3.</td> </tr>
-            <tr> <th scope="row">4th</th> <td>In each trick, there must be at least one odd number rank and at least one even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
+        <p><strong>Regular world.</strong> Complete each of the following tasks. (You may try tasks in any order.) You may retry tasks freely.</p>
+        
+        <table class="task-table">
+            <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row">A</th> <td>Every trick must be won by the player who played from the pool. <span class="boxedtext player">(In 3p, the winning card may be the card played from hand.)</span></td> </tr>
+            <tr> <th scope="row">B</th> <td>No trick may be led by a &clubs; clubs card.</td> </tr>
+            <tr> <th scope="row">C</th> <td>Every trick must contain at least one card whose rank is in the range 1&ndash;3.</td> </tr>
+            <tr> <th scope="row">D</th> <td>Every trick must contain at least one card with odd number rank, and at least one card with even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
         </table>
         
-        <p><span class="boxedtext warning">Extra mission:</span> Play two deals. For the first deal, choose any two of the above tasks, and complete them simultaneously. For the second deal, complete the other two tasks simultaneously. If you fail, you must start over (possibly with new choices).</p>
-        
-        <details class="notecard accented"><summary>Click once you've completed the main mission</summary>
-            <p>&nbsp;</p>
+        <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on 2 tasks, or attempt all 4 tasks</summary>
+            <p>You've unlocked some additional tasks!</p>
+            <table class="task-table">
+                <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
+                <tr> <th scope="row">E</th> <td>The 1st trick must contain a card with rank 1; the 2nd trick must contain a card with rank 2; and so on until the 8th trick.</td> </tr>
+                <tr> <th scope="row">F</th> <td>Every card with rank 1 must win a trick.</td> </tr>
+            </table>
+            
+            <p>But more importantly, you've unlocked the <b>Astar Matchmaker</b>!</p>
+            
+            <section class="notecard accented"><h4>Astar Matchmaker</h4>
+                <p>In Astar Matchmaker, your goal is to form as many <b>task pairs</b> as possible.</p>
+                <p><strong>Forming a task pair:</strong> Choose any two tasks you've unlocked in Astar. Play a deal and succeed on both tasks simultaneously.</p>
+                <p><strong>Faithful rule:</strong> A task may only be involved in one task pair.</p>
+                <p><strong>Rearranging Astar task pairs:</strong> You may break up a task pair at any time. You may also re-form any task pair you already formed in the past (as long as you obey the faithful rule) without having to replay the deal.</p>
+                
+                <div class="notecard callout">
+                    <p>You may form "unofficial" task pairs involving tasks that are already in other task pairs. These unofficial task pairs won't count (because of the faithful rule), but they count as having been formed, so they may help you rearrange later. I also recommend listing down every task pair you've ever formed, again to help you rearrange.</p>
+                </div>
+                
+                <div class="notecard design">
+                    <p>In graph theory, this is known as a <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)">matching</a>.</p>
+                </div>
+            </section>
         </details>
         
-        <details class="notecard warning"><summary>Click once you've completed the extra mission</summary>
-            <p>&nbsp;</p>
-        </details>
     </section>
     
     
+    <!--
     <section><h3 id="path-of-courage">Path of Courage</h3>
     <p class="subtitle">Muster the courage to take on these tasks while your fellow players support you.</p>
         
@@ -225,12 +333,13 @@
             <p>&nbsp;</p>
         </details>
     </section>
+    -->
     
     
 </section>
 
 
-
+<!--
 <section class="notecard design"><h2 id="wilderness">The Wilderness</h2>
     <p>The wilderness is not a path. It's a place for me to put various ideas I have that aren't yet integrated into paths.</p>
     
@@ -246,7 +355,7 @@
     
     
 </section>
-
+-->
 
 
 </html>

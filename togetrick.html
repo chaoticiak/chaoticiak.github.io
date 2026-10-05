@@ -8,17 +8,18 @@
     <meta property="og:description" content="Cooperative trick-taking game, designed by chaotic_iak / Ivan Koswara">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="subpage.css">
     <style>
         /* Player-specific rules */
         .player {
-            background-color: #ffc;
-            border-color: #cc6;
+            background-color: #cfc;
+            border-color: #6c6;
         }
         
         /* Solo-specific rules */
         .solo {
-            background-color: #fec;
-            border-color: #ca6;
+            background-color: #efc;
+            border-color: #ac6;
         }
         
         /* Design notes */
@@ -47,10 +48,20 @@
 </header>
 
 <div id="changelog">
+<p><b>v0.2, <time datetime="2026-10-05">05 October 2026</time>.</b> Settled in on the main ruleset, now primarily designing the campaign. Lots of ideas, but very few actually penned down, and they might not even stay.</p>
 <p><b>v0.1d, <time datetime="2026-09-25">25 September 2026</time>.</b> Extensive redesign of the game.</p>
 </div>
 
 
+
+<div class="notecard accented flex-area">
+    <div class="flex-right" style="margin: 0.5em; font-size: 150%; width: auto;">
+        <p style="text-indent: 0; margin: 0; vertical-align: middle;"><a href="togetrick-campaign.html" target="_blank">[Campaign&nbsp;page]</a></p>
+    </div>
+    <div class="flex-main" style="margin: 0.5em;">
+        <p style="text-indent: 0; margin: 0; vertical-align: middle;">Togetrick is campaign-based, so this link is placed on top for easy access. (If you imagine this as a published game, this page would be the rulebook and the campaign page would be a separate book.)</p>
+    </div>
+</div>
 
 <p><b>Togetrick</b>, invented by me (chaotic_iak / Ivan Koswara), is a campaign-based cooperative trick-taking game for 3&ndash;4 players (with a solo variant). It is designed to be playable with a standard deck of cards plus some common components.</p>
 
@@ -62,11 +73,10 @@
 
 <section class="notecard callout"><h2 id="toc" class="no-top-link">Table of contents</h2>
     <details><summary>Click to show the table of contents</summary><ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#about-campaign">About the campaign</a><ul>
-            <li><a href="#starting-campaign">Starting your campaign</a></li>
-            <li><a href="#continuing-campaign">Continuing your campaign</a></li>
+        <li><a href="#overview">Overview</a><ul>
+            <li><a href="#navigating-this-page">Navigating this page</a></li>
         </ul></li>
+        <li><a href="#starting-campaign">Starting your campaign</a></li>
         <li><a href="#components">Components</a></li>
         <li><a href="#playing-deal">Playing a deal</a><ul>
             <li><a href="#preparing-deal">Preparing the deal</a></li>
@@ -76,8 +86,6 @@
             <li><a href="#misc-rules">Miscellaneous rules</a></li>
         </ul></li>
         <li><a href="#solo-variant">Solo variant</a></li>
-        <li><a href="#about-campaign">About the campaign</a></li>
-        <li><a href="#design-thoughts">Design thoughts</a></li>
     </ul></details>
 </section>
 
@@ -85,73 +93,46 @@
 
 <section><h2 id="overview">Overview</h2>
     <p>Togetrick is a trick-taking game. It is a class of games often found in traditional card games: each player plays one card from their hand, following suit if possible, and the player who played the highest card "wins" the trick. However, unlike traditional games such as contract bridge and Hearts, Togetrick is a cooperative game. You win or lose together as a group, and you need to help each other if you want to succeed.</p>
-    <p>Togetrick is presented as a campaign, divided into numerous paths. Each path has a main mission that you need to clear by playing rounds of trick-taking gameplay. Paths may also have optional extra missions. Completing a challenge may unlock rewards, such as access to other paths.</p>
+    <p>Togetrick is presented as a campaign, divided into numerous worlds. Worlds have tasks that you can complete by playing rounds of trick-taking gameplay. Completing objectives in worlds gives rewards, including access to other worlds.</p>
     <p>The main mechanism in Togetrick, which distinguishes it from other trick-taking games, is the "pool": an additional communal hand which all players may play from, following certain rules. Thus, you don't always play from your hand; you will sometimes play from the pool as well.</p>
     <p>Togetrick is also designed to be played with components that are easy to come by: a standard deck of cards, plus several tokens of any kind. Together with the campaign page (and a way to record your progress), you have everything you need to play.</p>
     <p>The idea of "campaign-based cooperative trick-taking game" was originally inspired by <cite>The Crew</cite> series, with some influence from <cite>The Lords of the Rings: Trick-Taking Game</cite> series. However, Togetrick has since diverged from <cite>The Crew</cite> enough that it is essentially its own game.</p>
-    <p>&nbsp;</p>
-    <p>Togetrick has two modes: one for 3 players ("3p"), and one for 4 players ("4p"). Although the rules for 3p and 4p share many similarities, there are significant differences between them, such as how to make use of the pool. <span class="boxedtext player">Yellow boxes</span> indicate rules that apply only for a specific number of players.</p>
-    <p>Togetrick also has a solo variant, which is compatible with either 3p or 4p mode. <span class="boxedtext solo">Orange boxes</span> indicate rules that apply only for the solo variant.</p>
-    <p><span class="boxedtext accented">Green boxes</span> indicate important rules. <span class="boxedtext callout">Gray boxes</span> indicate rules that are less important, such as rare edge cases or simple variants.</p>
-    <p>I am a big fan of describing my thoughts about design. <span class="boxedtext design">Blue boxes</span> indicate design thoughts. They are not required to understand the rules of the game.</p>
+    
+    <section><h3 id="navigating-this-page">Navigating this page</h3>
+        <p>Togetrick has two modes: one for 3 players ("3p"), and one for 4 players ("4p"). Although the rules for 3p and 4p share many similarities, there are significant differences between them, such as how to make use of the pool. <span class="boxedtext player">Green boxes</span> indicate rules that apply only for a specific number of players.</p>
+        <p>Togetrick also has a solo variant. <span class="boxedtext solo">Lime boxes</span> indicate rules that apply only for the solo variant.</p>
+        <p><span class="boxedtext accented">Brown boxes</span> indicate important rules. <span class="boxedtext callout">Gray boxes</span> indicate rules that are less important, such as rare edge cases.</p>
+        <p>I am a big fan of describing my thoughts about design. <span class="boxedtext design">Blue boxes</span> indicate design thoughts. They are not required to understand the rules of the game.</p>
+    </section>
 </section>
 
 
 
-<section><h2 id="about-campaign">About the campaign</h2>
-    <div class="notecard accented" style="margin-bottom: 2rem;">
-        <p style="text-indent: 0; text-align: center; font-size: 150%;"><a href="togetrick-campaign.html" target="_blank">[Campaign page]</a></p>
-    </div>
-    
-    <p>Togetrick is presented as a campaign, divided into numerous <b>paths</b>. Each path has a <b>main mission</b> that you need to clear by playing several <b>deals</b>, each deal being a round of trick-taking gameplay. Paths may also have optional <b>extra missions</b>. Completing a mission may unlock rewards, such as access to other paths.</p>
-    
-    <div class="notecard player">
-        <p>Both 3p and 4p use the same campaign, with mostly identical progression. However, some paths may have different details, primarily to make sure they are of similar difficulty between 3p and 4p. Make sure to read the path carefully for any differences specific to player counts.</p>
-        
-        <div class="notecard solo">
-            <p>The solo variant is compatible with both 3p and 4p. However, while it may be possible to switch modes during the campaign, it is recommended to stay with the same mode throughout the campaign for a more consistent difficulty. Whichever mode you choose, you need to follow the rules for the corresponding player count, as well as the rules for <a href="#solo-variant">the solo variant</a>.</p>
-            <p>In some cases, some paths of the campaign are not available in solo mode. (These usually involve a player making a secret choice.)</p>
+<section><h2 id="starting-campaign">Starting your campaign</h2>
+    <div class="notecard accented">
+        <p>If you're new to Togetrick, start by reading this section.</p>
+        <p><span class="boxedtext solo">If you're playing solo, you need to also read about <a href="#solo-variant">the solo variant</a>.</span></p>
         </div>
     </div>
     
-    <section><h3 id="starting-campaign">Starting your campaign</h3>
-        <div class="notecard accented">
-            <p>If you're new to Togetrick, start by reading this section.</p>
-        </div>
-        
-        <p>To start your campaign, first gather <a href="#components">the components</a> to play the game. Then open the campaign page to <a href="togetrick-campaign.html#path-of-beginnings" target="_blank">Path of Beginnings</a>, and keep it ready to the side.</p>
-        <p>For Path of Beginnings, the main mission is to complete 3 tasks. Each task is played in its own separate deal, so you will start with the 1st task.</p>
-        <p>To play a deal, first you need to <a href="#preparing-deal">prepare the deal</a>. Follow the instructions based on your player count.</p>
-        <p>Each player will then need to <a href="#seeding-pool">seed the pool</a> by putting two cards into the pool. The pool is the main mechanism in Togetrick. You may also want to read about <a href="#playing-trick">playing out tricks</a> to learn how the pool is used.</p>
-        <div class="notecard callout">
-            <p>It's okay if you don't know what two cards to seed into the pool. For now, simply seed any two. It takes practice and experience to learn how to seed the pool effectively, and experience starts with a first step.</p>
-        </div>
-        <p>Once the pool has been seeded, you will now <a href="#playing-trick">play out 8 tricks</a>. Follow the instructions on how to play a trick based on your play count, then repeat until everyone is out of cards. (The pool will have 1 card remaining.)</p>
-        <p>The deal is now over. Check the 1st task; did you complete the task? If you failed, that's okay. You've learned a lot by playing your first deal. Simply try again, this time with a much better idea of how the game will work.</p>
-        
-        <details class="notecard accented"><summary>Click here once you've completed the 1st task</summary>
-            <p>Congratulations for completing your 1st task! You can now move on to the 2nd task. Once you complete that one too, you can move on to the 3rd task.</p>
-            <p>Note that the 2nd task cares about what happens <em>during</em> the deal, so you need to be aware of it throughout the deal.</p>
-            <p>If you fail on a task, just retry the task. You don't have to start over from the 1st task again.</p>
-            <p>Once you have completed all 3 tasks, you have completed the main mission of Path of Beginnings! Read the path for what to do next.</p>
-        </details>
-    </section>
+    <p>Togetrick is presented as a campaign, divided into numerous worlds. Worlds have tasks that you can complete by playing rounds of trick-taking gameplay, called <b>deals</b>.</p>
+    <p>At the beginning, you only have access to the world <a href="togetrick-campaign.html#world-startia" target="_blank">Startia</a>. Open that page. You'll need to reference it, and the campaign page in general, throughout your campaign.</p>
+    <p>Startia is a regular world, which means it comprises of several tasks (in this case 3), and you will attempt them one by one. Start with task A: <b>"Every player must win at least 1 trick"</b>. You need to play a deal to succeed on this task.</p>
+    <p>To play a deal, first you need to <a href="#preparing-deal">prepare the deal</a>. Follow the instructions based on your player count.</p>
+    <p>Each player will then need to <a href="#seeding-pool">seed the pool</a> by putting two cards into the pool. The pool is the main mechanism in Togetrick. You may also want to read about <a href="#playing-trick">playing out tricks</a> to learn how the pool is used.</p>
+    <div class="notecard callout">
+        <p>It's okay if you don't know what two cards to seed into the pool. For now, simply seed any two; the very first task is designed to be winnable with virtually any seeding. Besides, it takes practice and experience to learn how to seed the pool effectively, and experience starts with a first step.</p>
+    </div>
+    <p>Once the pool has been seeded, you will now <a href="#playing-trick">play out 8 tricks</a>. Follow the instructions on how to play a trick based on your player count, then repeat until everyone is out of cards. (The pool will have one card remaining.)</p>
+    <p>The deal is now over. Did you succeed on the task?</p>
+    <p>If you failed, that's okay. You've learned a lot by playing your first deal. Simply try again, this time with a much better idea of how the game will work.</p>
     
-    
-    <section><h3 id="continuing-campaign">Continuing your campaign</h3>
-        <div class="notecard accented">
-            <p>You don't need to read this section until you've completed your first path.</p>
-        </div>
-        
-        <p>At any given time, you have some number of paths unlocked. (For instance, completing Path of Beginnings unlocks several paths.) Choose any path you have unlocked, and follow its instructions.</p>
-        <p>Most paths are designed to be playable by itself, so feel free to explore in any order you wish. If you are stuck on a path, you can try another. You might also want to revisit a path to complete the optional extra missions you skipped previously.</p>
-        <p>However, the campaign is long. You will likely not be able to finish everything in a single session, so you will need to record your progress. Also, although each path is designed to be completed in a single session, it's possible you have to pause mid-way through a path; in that case, you also need to record your progress on that path.
-        <p>Currently, saving is not supported directly on the website. You need your own way to record your progress, such as using pen or paper or using a spreadsheet. The most important aspects to keep track of are: which paths you have unlocked, and which missions (main/extra) you have completed. You may also find other discoveries in your campaign that you want to record.</p>
-        
-        <div class="notecard callout">
-            <p>Although Togetrick is presented as a campaign, you are free to make use of it however you want. You may ditch the campaign aspect entirely and simply play paths in any order, regardless of unlocks. You may be particularly fond of a specific path and want to play it over and over. You might even want to take aspects from different paths together, or you may even entirely make your own paths. Feel free to be creative!</p>
-        </div>
-    </section>
+    <details class="notecard accented"><summary>Open after you succeed on task A</summary>
+        <p>Congratulations for succeeding on your first task! Move on to task B, then task C. Look at the campaign page for the descriptions of these tasks.</p>
+        <p>Note that task B cares about what happens <em>during</em> the deal, so you need to be aware of it throughout the deal.</p>
+        <p>If you fail on a task, just retry the task. You don't have to start over from the first task again.</p>
+        <p>Once you have succeeded on all 3 tasks, you have completed the <b>objective</b> in Startia! The entry for Startia on the campaign page has a block that you can open and read.</p>
+    </details>
 </section>
 
 
@@ -159,12 +140,12 @@
 <section><h2 id="components">Components</h2>
     <p>The following components are used in all Togetrick games. Some paths require additional components.</p>
     <ul>
-        <li>A <b>deck</b> of 33 cards; <a href="#playing-cards">see below</a></li>
+        <li>A <b>deck</b> of 33 cards; see below</li>
         <li><span class="boxedtext player">(3p) 9 / (4p) 8</span> <b>pool tokens</b> (small objects, such as coins or dice)</li>
         <li>A <b>captain figure</b> (something with table presence, such as an action figure or the deckbox)</li>
     </ul>
 
-    <section><h4 id="playing-cards">The playing cards</h4>
+    <section><h4>The deck</h4>
         <p>The 33-card deck is obtained from a standard 52-card deck. Keep the following cards:</p>
         <ul>
             <li>In &clubs; clubs, &diamondsuit; diamonds, and &hearts; hearts: Aces and 2&ndash;10</li>
@@ -172,9 +153,9 @@
         </ul>
         <p>The <b>basic</b> suits are &clubs; clubs, &diamondsuit; diamonds, and &hearts; hearts. Each basic suit has 10 cards, ranked 1 (lowest) to 10 (highest). (In Togetrick, always treat Aces as rank 1. They are the lowest rank.)</p>
         <p>The <b>trump</b> suit is &spadesuit; spades. It has 3 cards, ranked Jack (lowest), Queen, King (highest).</p>
-        <p>When any rule or scenario refers to a "number rank", it means a rank in one of the basic suits. The trump ranks are not number ranks.</p>
+        <p>A "number rank" means a rank in one of the basic suits. The trump ranks are not number ranks.</p>
         <div class="notecard callout">
-            <p>Although the remaining cards are not part of the deck, keep them handy; you might be asked to use them for tracking certain things.</p>
+            <p>Although the remaining cards are not part of the deck, keep them handy. The campaign might make use of them.</p>
         </div>
     </section>
 </section>
@@ -182,7 +163,7 @@
 
 
 <section><h2 id="playing-deal">Playing a deal</h2>
-    <p>Paths will require you to play one or more deals. Each deal follows this basic structure unless otherwise instructed. Each deal consists of three phases: <a href="#preparing-deal">preparing the deal</a>, then <a href="#seeding-pool">seeding the pool</a>, and finally <a href="#playing-trick">playing out tricks</a>.</p>
+    <p>Objectives will require you to play one or more deals. Each deal follows this basic structure unless otherwise instructed. Each deal consists of three phases: <a href="#preparing-deal">preparing the deal</a>, then <a href="#seeding-pool">seeding the pool</a>, and finally <a href="#playing-trick">playing out tricks</a>.</p>
     
     <section><h3 id="preparing-deal">Preparing the deal</h3>
         <ol>
@@ -194,7 +175,7 @@
             <li>You might have some instructions to do "after distributing cards". Do them now.</li>
         </ol>
         
-        <p>Your hand is private information. You may look at it, but do not show it to any other player. You also may not talk about your hand, or any information you can derive from your hand.</p>
+        <p>Your hand is private information. You may look at it, but do not show it to any other player or talk about anything in your hand.</p>
     </section>
     
     
@@ -208,7 +189,7 @@
         <p>There are 9 cards in the pool, and each player has <span class="boxedtext player">(3p) 8 cards / (4p) 6 cards</span> left in their hand.</p>
         
         <div class="notecard callout">
-            <p>Since you cannot talk about cards in your hand, seeding the pool is the main way of communicating to other players. At the same time, it is also a way to adjust your hand. Seeding the pool effectively is key to tackling more difficult challenges, but learning how to utilize this mechanic is something you have to learn with practice.</p>
+            <p>Seeding the pool serves multiple purposes. Most obviously, it lets you adjust your hand. It is also possible to use it to communicate certain key facts to other players, although doing this is far more difficult and requires practice and experience.</p>
             <p>You may look at who seeds what cards. You may also ask for a reminder of who seeded a particular card in the pool.</p>
         </div>
     </section>
@@ -221,16 +202,15 @@
         <p>Once all players have had a turn, the trick is over. Regardless of player count, there will be 4 cards in the trick. The winning card is determined as follows:</p>
         <ol>
             <li>If the trick contains any trump (&spadesuit; spades), the highest trump card wins the trick.</li>
-            <li>Otherwise, among the cards of the lead suit, the highest card wins the trick. (Note that Aces are always rank 1.)</li>
+            <li>Otherwise, among the cards of the lead suit, the highest card wins the trick. (Note that Aces are always rank 1 and thus are the lowest rank.)</li>
         </ol>
         <p>The player who played the winning card gathers the played cards face-up in front of themself. They become the lead player for the next trick.</p>
-        <p>A deal ends after 8 tricks. All players are out of cards, and the pool has one card remaining.</p>
-        <p>Read the instructions of the path to learn what to do with the deal. Typically, you play a deal because there is a task you need to complete, and you either succeed or fail.</p>
+        <p>A deal ends after 8 tricks. All players are out of cards, and the pool has one card remaining. The campaign will tell you what to do with the result of the deal.</p>
         
         <div class="notecard callout">
             <p>When playing a card, the only requirement is that you must follow suit if able. There are no other requirements. In some traditional trick-taking games, you might find rules such as, you can only lead trumps if someone has played it before ("breaking trumps"), or that you must play a higher card if possible, etc. Those rules do not apply in Togetrick.</p>
             <p>In traditional trick-taking games, once a trick is won, its cards are turned face-down and nobody may inspect them any more. I personally don't like the memory aspect, so the default rules is that won tricks are left face-up. However, you may choose to turn won tricks face-down for an additional challenge.</p>
-            <p>In some tasks, you may end a deal early if you can be sure that nothing will change from the rest of the deal. For example, a path might only instruct you to complete one task, and nothing else in the path cares about the rest of your performance (such as who wins how many tricks). Then you may end a deal if you're sure the task cannot be failed any more &mdash; or if you already failed the task and you want to retry quickly. Figuring out "nothing will change" is a bit tricky however, and if you're unsure, just play out the deal.</p>
+            <p>You may end a deal early if you can be sure that nothing will change from the rest of the deal. For example, perhaps the only thing that matters from this deal is whether you succeed on a certain task or not, and you can guarantee you will never fail this task any more; then you may end the deal early. However, figuring out "nothing will change" might be tricky; if you're unsure, just play out the deal.</p>
         </div>
     </section>
     
@@ -260,7 +240,7 @@
         
         <div class="notecard callout">
             <p>If you follow the above two implications (in particular the second one), you should never get into a position where it's impossible to follow the rule. If you don't play from the pool when you should have, you should undo your turn and retry it. (The other players should help catch onto this.)</p>
-            <p>It is possible that the entire group is inattentive, so that you botched up the rule and nobody else caught onto it. A mistake like this will usually become clear later in the deal, when your card counts are wrong. In this case, you have to declare the deal void. For the purpose of the path, the deal is considered to give you the worst possible case. (e.g. If each deal can score you some amount of points, you must consider it to score the minimum possible amount, regardless of what you did in the deal.)</p>
+            <p>It is possible that the entire group is inattentive, so that you botched up the rule and nobody else caught onto it. A mistake like this will usually become clear later in the deal, when your card counts are wrong. In this case, you have to declare the deal void.</p>
         </div>
     </section>
     
@@ -271,8 +251,8 @@
             <li>Sharing private information (e.g. what cards are in your hand) goes against the spirit of the game and is strictly prohibited. Similarly, talking about anything that you can only conclude from private information (e.g. "I can win the trick if you lead hearts") is also prohibited.</li>
             <li>Talking about strategy during a deal is less clear-cut, and your playgroup may decide how you want to play. I typically allow small reminders, e.g. "I still need to win a trick for the task".</li>
             <li>Talking or reminding public information, such as the number of cards in your hand, or who seeded what card in the pool, is allowed. Your group may decide otherwise.</li>
-            <li>Outside a deal, you may always communicate freely unless otherwise stated. For example, some paths comprise multiple deals; you may talk between deals to adjust the expectations for future deals.</li>
-            <li>Strictly speaking, it is possible to devise artificial conventions, similar to that of <a href="https://en.wikipedia.org/wiki/Bridge_convention">contract bridge</a> or <a href="https://hanabi.wiki/en/conventions"><cite>Hanabi</cite></a>. Devising conventions to apply broadly is discouraged, and is unlikely to be worth the effort anyway. However, some conventions to tackle particularly difficult tasks/missions are acceptable; they are called strategy.</li>
+            <li>Outside a deal, you may always communicate freely unless otherwise stated. For example, if you need to play several related deals in sequence; you may talk between deals to adjust the expectations for future deals.</li>
+            <li>Strictly speaking, it is possible to devise artificial conventions, similar to that of <a href="https://en.wikipedia.org/wiki/Bridge_convention">contract bridge</a> or <a href="https://hanabi.wiki/en/conventions"><cite>Hanabi</cite></a>. Devising conventions to apply broadly is discouraged, and is unlikely to be worth the effort anyway. However, some conventions to tackle particularly difficult challenges are acceptable; they are called strategy.</li>
         </ul>
     </section>
     
@@ -281,8 +261,8 @@
 
 
 <section><h2 id="solo-variant">Solo variant</h2><div class="notecard solo">
-    <p>The solo variant changes the game: instead of a game of limited communication, it is now a puzzle of ordering and planning. It is compatible with either 3p or 4p mode. You choose which mode you're playing at the start of the campaign, and you follow the rules for the corresponding player count.</p>
-    <p>In the solo variant, you are joined with a number of <b>bots</b>. The number of bots is equal to the player count you choose, and each bot will handle one hand. Apply the following rule changes:</p>
+    <p>The solo variant changes the game: instead of a game of limited communication, it is now a puzzle of ordering and planning.</p>
+    <p>The solo variant follows the 4p mode with some changes. You are joined with 4 <b>bots</b>, each bot handling one hand. Apply the following rule changes:</p>
     <ul>
         <li><strong>During preparation:</strong> After dealing each hand, flip each hand face-up, but <strong>do not change the order of the cards</strong>. The order of cards in the hand must be clear, from first to last. (You may splay each hand so you can see all the cards.)</li>
         <li><strong>When playing a card:</strong> If a bot plays a card <em>from its hand</em>, it will play <strong>the first legal card</strong> in its hand. If the bot can follow suit, it plays the first card of that suit in its hand. If the bot cannot follow suit (or if it leads), it simply plays the first card in its hand.</li>
@@ -294,19 +274,20 @@
             <li>You may choose any two cards from each hand. The rule about first legal card only applies when playing a card, not while seeding.</li>
         </ul></li>
         <li>Whether a bot uses a pool token, and if so, which card is played from the pool<ul>
+            <li><strong>This is important.</strong> This decision is the primary way for you to change how the bots play.</li>
             <li>You may choose any card from the pool. The rule about first legal card only applies when playing a card from a bot's hand.</li>
         </ul></li>
         <li>Any other choices called for by the campaign</li>
     </ul>
     <p>Whenever the rules or campaign refer to a "player", it means a bot.</p>
-    
-    <div class="notecard warning">
-        <p>While the solo variant is compatible with most of the campaign, there are some paths that require some solo-specific rule changes, or are simply unplayable in solo. (These usually involve tasks where one player must make a secret choice.)</p>
+    <p>Some parts of the campaign are not available in solo. (These usually involve a player making a secret choice.)</p>
+    <div class="notecard callout">
+        <p>Although the above rules state the solo variant is played with the 4p mode, it is actually fully functional with the 3p mode as well. (The main reason 4p is the default is because it is slightly easier for solo.) If you want, you may choose to play using the 3p mode rules instead. This means having 3 bots instead of 4, and following the 3p rules and campaign.</p>
     </div>
 </div></section>
 
 
-
+<!--
 <section class="notecard design"><h2 id="design-thoughts">Design thoughts</h2>
     <section><h4>Why this game was developed</h4>
         <p>In 2019, a game called <cite>The Crew: The Quest for Planet Nine</cite>. I don't remember when I was introduced to this game, but when I picked it up, I was impressed. Using the classic trick-taking formula but implementing it in a fully cooperative game was awesome. (Contract bridge had partnerships, but it was still competitive 2v2.) I particularly loved the variety of missions, and I loved how it encouraged people to design <a href="https://boardgamegeek.com/boardgame/284083/the-crew-the-quest-for-planet-nine/forums/69">their own custom missions</a>.</p>
@@ -334,7 +315,7 @@
         <p>As an aside, I knew the solo variant would never replicate the feel of the real game (with multiple players). The real game relies on limited communication and hidden information, something that is impossible solo. So I instead went for a planning puzzle: you have full information, the goal is to execute it. This is somewhat reminiscent of <cite>Space Alert</cite>, a real-time cooperative game; the full game with multiple players relies on the chaotic communication, but the solo game gives you full agency, and the challenge becomes to keep everything straight and sorted out in your head alone.</p>
     </section>
 </section>
-
+-->
 
 
     <script>
