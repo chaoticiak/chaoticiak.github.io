@@ -306,12 +306,12 @@ blockquote > footer {
     font-style: italic;
 }
 
-dd {
+dt {
     margin-top: 0.5em;
     margin-left: 0;
     font-weight: bold;
 }
-dt {
+dd {
     margin-left: 0;
     text-indent: 3ch; /* Matches <p> text-indent */
 }
