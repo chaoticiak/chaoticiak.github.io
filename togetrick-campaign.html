@@ -231,8 +231,8 @@
         <table class="task-table">
             <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
             <tr> <th scope="row">A</th> <td>Every player must win at least 1 trick.</td> </tr>
-            <tr> <th scope="row">B</th> <td>Every card with rank 9 must win its trick.</td> </tr>
-            <tr> <th scope="row">C</th> <td>The unplayed card in the pool is 6&diamondsuit; (6 of Diamonds).</td> </tr>
+            <tr> <th scope="row">B</th> <td>Every card with rank 9 must be played and must win its trick.</td> </tr>
+            <tr> <th scope="row">C</th> <td>The unplayed card in the pool must be 6&diamondsuit; (6 of Diamonds).</td> </tr>
         </table>
         
         <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on all 3 tasks</summary>
@@ -297,17 +297,17 @@
     <section><h3 id="world-selvar">Selvar</h3>
     <p class="subtitle">In Selvar, push yourself to go far.</p>
         
-        <p><strong>Special world.</strong> Selvar actually resembles a regular world in many ways. It is a collection of tasks, you mark them as completed, and you will never lose completion marks. The crucial difference is that you choose tasks <em>after</em> distributing cards, using the rules of <b>Selvar loadout</b>.</p>
-        <p>Every task in Selvar is meant to be claimed by an individual player. You look at your hand before you decide what task it's best suited for.</p>
+        <p><strong>Special world.</strong> Selvar actually resembles a regular world in many ways. It is a collection of tasks, you mark them as completed, and you will never lose completion marks. The crucial difference is that you choose tasks <em>after</em> distributing cards, using the rules of <b>Selvar Loadout</b>.</p>
+        <p>Tasks in Selvar are to be claimed by an individual player. You look at your hand before you decide what task it's best suited for.</p>
         <p>However, multiple tasks will be claimed and active at the same time, forming your loadout. Tasks have varying difficulty, and in order to be allowed to choose a certain task, you must promise your loadout difficulty meets the task's threshold.</p>
         <p><strong>Setup:</strong> Each player should have a way to indicate tasks they claim, for example with pen and paper.</p>
         
-        <section class="notecard accented" style="margin-bottom: 2em;"><h4>Selvar loadout</h4>
-            <p><strong>Task threshold and difficulty:</strong> Every task has two numbers attached to it: it's <b>threshold</b> (under column "Thr") and its <b>difficulty</b> (under column "Diff"). In order to be allowed to choose a specific task, your loadout difficulty must meet its task's threshold.</p>
-            <p><strong>Minimum loadout difficulty:</strong> Before distributing cards, you must promise a <b>minimum loadout difficulty</b>, which is a positive integer. You (as a group) <b>have access</b> to all unlocked Selvar tasks whose threshold is at most your promised minimum.</p>
-            <p><strong>Task claiming:</strong> After distributing cards (but before seeding the pool), each player may claim any task you have access to. Your <b>loadout</b> is the set of tasks you claimed, and your <b>loadout difficulty</b> is the sum of difficulties of the claimed tasks. <strong>Your loadout difficulty must meet the promised minimum.</strong> If not, the deal is immediately void and failed.</p>
+        <section class="notecard accented" style="margin-bottom: 2em;"><h4>Selvar Loadout</h4>
+            <p><strong>Task threshold and difficulty:</strong> Every task has two numbers attached to it: <b>threshold</b> (under column "Thr") and <b>difficulty</b> (under column "Diff"). In order to be allowed to claim a specific task, your loadout difficulty must meet its task's threshold.</p>
+            <p><strong>Promising a minimum:</strong> Before distributing cards, you must <b>promise a minimum</b>. You are promising that your loadout difficulty will meet this minimum. A Selvar task is <b>claimable</b> if you've unlocked it, and your promised minimum is at least as high as the task's threshold. Promising a higher minimum allows more tasks to be claimable.</p>
+            <p><strong>Task claiming:</strong> After distributing cards (but before seeding the pool), each player may claim any claimable. Your <b>loadout</b> is the set of tasks you claimed, and your <b>loadout difficulty</b> is the sum of difficulties of the claimed tasks. <strong>Your loadout difficulty must meet the promised minimum.</strong> If not, the deal is immediately void and failed.</p>
             <div class="notecard callout">
-                <p>As an example, the first group of tasks below all have threshold 3 and difficulty 1. By promising a minimum loadout difficulty of 3, you have access to these tasks. You will then have to claim tasks so that the total difficulty is at least the promised minimum, i.e. 3. Since all of these tasks have difficulty 1, to meet the promise, at least 3 players have to claim a task each.</p>
+                <p>As an example, the first group of tasks below all have threshold 3 and difficulty 1. By promising a minimum of 3, these tasks become claimable. You will then have to claim tasks so that the total difficulty is at least the promised minimum, i.e. 3. As all of these tasks have difficulty 1, in order to meet the promise, at least 3 players have to claim a task each.</p>
             </div>
             
             <hr>
@@ -315,21 +315,26 @@
             <ol>
                 <li>Declare your promised minimum loadout difficulty.</li>
                 <li>Choose the captain, and distribute cards and pool tokens as normal. You may look at your hands, but do not seed the pool yet.</li>
-                <li>The captain may claim any task you have access to (i.e. it is an unlocked Selvar task, whose threshold is at most your promised minimum). The captain may instead choose to pass and not claim any task.</li>
-                <li>In clockwise order, each other player has the same choice of claiming a task or passing. You may not claim a task already claimed by another player.</li>
+                <li>The captain may claim any claimable task (i.e. it is an unlocked Selvar task, and your promised minimum is at least as high as the task's threshold). The captain may instead choose to pass and not claim any task.</li>
+                <li>In clockwise order, each other player has the same choice of claiming a claimable task or passing. You may not claim a task already claimed by another player.</li>
                 <li>Compute your loadout difficulty (i.e. sum of difficulties of claimed tasks). If the loadout difficulty is less than the promised minimum, the deal immediately fails.</li>
             </ol>
             <p>You cannot discuss once cards have been distributed; this includes discussing what task you want or don't want to take.</p>
-            <p>Then seed the pool and play out tricks as normal. Check and record progress as with regular worlds: the deal is a success if you succeed on all tasks, and that allows you to mark all tasks in the loadout as succeeded. Note that each task is claimed by a player, so a task's text refers to that player.</p>
+            <p>Then seed the pool and play out tricks as normal. Check and record progress as with regular worlds: the deal is a success if you succeed on all tasks, and that allows you to mark all tasks in the loadout as succeeded.</p>
             
             <div class="notecard player">
-                <p>In 3p, after each other player gets a choice to claim a task or pass, the captain has one more turn to claim an additional task or pass. This is so that a deal can have 4 claimed tasks, similar to in 4p.</p>
+                <p>In 3p, if everyone claims a task, the captain (and only the captain) gets a second turn where they may claim an additional task. This is to allow the deal to have 4 claimed tasks, just like in 4p. Note that the captain only gets this second turn if everyone claims a task (i.e. doesn't pass), including the captain on their first turn of claiming a task.</p>
             </div>
             <div class="notecard callout">
-                <p>You may choose any task you have access to, regardless of whether it has been completed before. One common reason is that you don't think any of the uncompleted task suits you, so you prefer to play it safe by picking a previously-completed task that you can secure. If the deal succeeds, it lets you mark complete the tasks claimed by other players.</p>
-                <p>You may have a loadout difficulty that is higher than your promised minimum, if it is useful for you. For that reason, your promised minimum will generally match one of the unlocked thresholds, as there is no incentive to promise any other number (you can just lower your promise without changing any task access).</p>
-                <p>As you unlock more tasks, it becomes much more time-consuming to pore through the list of all tasks you have access to. You will need to figure out how to handle this problem with your play group.</p>
+                <p>You may claim any claimable task, regardless of whether it has been succeeded before. In other words, it is legal to claim a task that was previously succeeded in another deal. While you won't get to mark the task again, the task will still contribute to your loadout difficulty. The typical reason of doing this is that you don't have a good choice among the remaining tasks, so you want to play it safe.</p>
+                <p>You may have a loadout difficulty that is higher than your promised minimum, if you want. For that reason, your promised minimum will generally match one of the unlocked thresholds, as there is no incentive to promise any other number &mdash; you can just lower your promise without changing which tasks are claimable.</p>
+                <p>As you unlock more tasks, it becomes much more time-consuming to pore through the list of all claimable tasks. You will need to figure out how to deal with this with your play group.</p>
             </div>
+            <details class="notecard design"><summary>Click to read design notes of this world</summary>
+                <p>This is sort of a marriage between the task selection process in <cite>The Crew: Mission Deep Sea</cite> and in the <cite>LOTR Trick-Taking</cite> games. The <cite>LOTR Trick-Taking</cite> games have the concept of a "long chapter": every deal, each player chooses a character and tries to complete their task, and the goal is to succeed with every character at least once, across however many deals it takes. I borrowed it, and expanded it to cover all the tasks in this world.</p>
+                <p>I wanted to have tasks of varying difficulty, similar to <cite>Deep Sea</cite>. However, there was a way to "cheese" the difficulty: take just that one hard task, and everyone else takes easy tasks. To discourage that, I put in task thresholds. The threshold reminded me of <cite>Deep Sea</cite>'s missions, where the difficulty level is simply the sum of task difficulties.</p>
+                <p>In <cite>Deep Sea</cite>, it's possible some combinations of tasks are significantly easier or harder than intended. It's also possible to find such synergistic combos here, but because each task only counts once, having a combo that can be abused is less of a problem.</p>
+            </details>
         </section>
         
         <table class="task-table">
@@ -345,7 +350,7 @@
             <tr> <th scope="row">Pf</th> <th scope="row">1</th> <td>You must win some trick containing two cards of the same rank.</td> </tr>
         </table>
         
-        <details class="notecard callout"><summary><strong>Objective:</strong> Total difficulty of all Selvar tasks you've succeeded is at least 4</summary>
+        <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on Selvar tasks (overall, not necessarily in a single deal) with total difficulty 4</summary>
             <p>You've unlocked additional tasks!</p>
             
             <table class="task-table">
