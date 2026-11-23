@@ -8,6 +8,14 @@
 </channel>
 
 <item>
+    <title>Scripting changes</title>
+    <link>https://chaoticiak.github.io/updates.html#2026-11-23-scripting</link>
+    <guid>https://chaoticiak.github.io/updates.html#2026-11-23-scripting</guid>
+    <pubDate>23 Nov 2026 23:00:00 +0800</pubDate>
+    <description>Some scripting changes for creating anchors. Part of this is also moving the header checkboxes (used only in logic archive to remember which puzzles you've solved) into, well, the logic archive. Also added the functionality to remember checkbox state (whether checked or not) and details state (whether open or not).</description>
+</item>
+
+<item>
     <title>Legal notice on puzzles</title>
     <link>https://chaoticiak.github.io/updates.html#2026-10-21-legal</link>
     <guid>https://chaoticiak.github.io/updates.html#2026-10-21-legal</guid>
