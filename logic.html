@@ -14,6 +14,10 @@
         topDestination = "toc";
     </script>
     <style>
+        .header-check {
+            margin-right: 0.2em;
+        }
+        
         .code {
             /* Because I'm only taking the font-family instead of all the coloring etc of <code> */
             font-family: "Roboto Mono", monospace;
@@ -52,6 +56,7 @@
 </header>
 
 <div id="changelog">
+<p><b>Minor update <time datetime="2026-11-23">23 November 2026</time>.</b> Update behind the scenes about auto-generating the header anchors and checkboxes. Nothing should visibly change, but how it's implemented behind the scenes has been overhauled.</p>
 <p><b>Minor update <time datetime="2026-10-21">21 October 2026</time>.</b> Legal notice added, after some talk about attribution and permission. Also, added a section about 24HPC 2026, which <a href="#event-26lpc">did not happen</a>.</p>
 <p><b>Minor update <time datetime="2026-10-05">05 October 2026</time>.</b> Got reminded that pedros.works no longer work and is now a scam site, so took down the one link to it. I recognize I haven't posted about 24HPC 2026; I'm backlogged and will get to it as soon as possible.</p>
 <p><b>Last updated <time datetime="2025-09-30">30 September 2025</time>.</b> <a href="#event-2025-24hpc">24HPC 2025</a> just ended, so I'm adding a write-up about the event as well as <a href="#squarejam-2025-09-24hpc-06">my only puzzle</a> in the set.</p>
@@ -6013,6 +6018,29 @@
     </div></section>
 
 </section>
+
+
+
+<script>
+/* Add checkbox to every checkable element */
+for (el of document.querySelectorAll(".checkable")) {
+    var checkboxName = "check-" + el.id;
+    
+    /* Checkbox is in the form: <label><input type="checkbox"></label> */
+    
+    var elCheckedLabel = document.createElement("label");
+    elCheckedLabel.setAttribute("class", "header-check"); // style for .header-check is above on this page
+    
+    var elCheckedInput = document.createElement("input");
+    elCheckedInput.setAttribute("type", "checkbox");
+    elCheckedInput.setAttribute("class", "remember-checkbox"); // rememberCheckbox() in script.js will handle this
+    elCheckedInput.id = checkboxName;
+    // the DOMContentLoaded listener in script.js will automatically check the boxes
+    
+    elCheckedLabel.appendChild(elCheckedInput);
+    el.insertAdjacentElement("afterbegin", elCheckedLabel);
+}
+</script>
 
 </body>
 

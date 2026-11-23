@@ -46,6 +46,13 @@ details[open] > summary {
     <p>asdf</p>
 </details>
 
+<p id="insert">insert</p>
+
+<label><input type="checkbox" name="check1" id="check1"></label>
+<label class="no-outline"><input type="checkbox" name="check2" id="check2"></label>
+
+<details class="remember-details" id="remember-test">asdf</details>
+
 
 <script>
     function updateSize() {
@@ -63,6 +70,12 @@ details[open] > summary {
         let key = localStorage.key(i);
         document.getElementById("test").innerHTML += `${key}: ${localStorage.getItem(key)}<br>`;
     } */
+    
+    var a = 1;
+    document.getElementById("insert").insertAdjacentHTML("afterbegin", a);
+    a++;
+    document.getElementById("insert").insertAdjacentHTML("afterbegin", a);
+    a++;
 </script>
 
 </body>
