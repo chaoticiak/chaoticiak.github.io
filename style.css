@@ -161,16 +161,25 @@ a.anchor {
 /*** Checkbox styling ***/
 
 label > input[type="checkbox"] {
-    display: none;
+    opacity: 0 !important;
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    overflow: hidden;
 }
 label:has(input[type="checkbox"]) {
     cursor: pointer;
 }
 label:has(input[type="checkbox"]):not(.no-outline) {
     padding: 2px;
-    border: 1px solid #999;
+    border: 2px solid #ccc;
     border-radius: 3px;
     background-color: #ddd;
+}
+label:has(input[type="checkbox"]:focus-visible) {
+    border: 2px solid black;
+    border-radius: 3px;
 }
 label:not(.render-after):has(input[type="checkbox"]:not(:checked))::before {
     font-size: 0.9em;
