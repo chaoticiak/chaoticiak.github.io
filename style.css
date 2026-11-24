@@ -164,7 +164,6 @@ label > input[type="checkbox"] {
     display: none;
 }
 label:has(input[type="checkbox"]) {
-    font-size: 0.9em;
     cursor: pointer;
 }
 label:has(input[type="checkbox"]):not(.no-outline) {
@@ -173,10 +172,20 @@ label:has(input[type="checkbox"]):not(.no-outline) {
     border-radius: 3px;
     background-color: #ddd;
 }
-label:has(input[type="checkbox"]:not(:checked))::before {
+label:not(.render-after):has(input[type="checkbox"]:not(:checked))::before {
+    font-size: 0.9em;
     content: "\274C"; /* X sign */
 }
-label:has(input[type="checkbox"]:checked)::before {
+label:not(.render-after):has(input[type="checkbox"]:checked)::before {
+    font-size: 0.9em;
+    content: "\2705"; /* checkmark */
+}
+label.render-after:has(input[type="checkbox"]:not(:checked))::after {
+    font-size: 0.9em;
+    content: "\274C"; /* X sign */
+}
+label.render-after:has(input[type="checkbox"]:checked)::after {
+    font-size: 0.9em;
     content: "\2705"; /* checkmark */
 }
 

@@ -11,23 +11,12 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="subpage.css">
     <style>
-        /* Player-specific rules */
-        .player {
-            background-color: #cfc;
-            border-color: #6c6;
-        }
-        
-        /* Solo-specific rules */
-        .solo {
-            background-color: #efc;
-            border-color: #ac6;
-        }
-        
-        /* Design notes */
-        .design {
-            background-color: #ddf;
-            border-color: #66c;
-        }
+        /* Special colors for boxes */
+        .objective { background-color: #ddf; border-color: #66c; } /* blue */
+        .envelope  { background-color: #fff; border-color: #999; } /* white */
+        .player    { background-color: #cfc; border-color: #6c6; } /* green */
+        .solo      { background-color: #efc; border-color: #ac6; } /* lime */
+        .design    { background-color: #ddd; border-color: #999; } /* gray */
     </style>
     <script src="script.js"></script>
     <script>
@@ -60,14 +49,14 @@
         <p style="text-indent: 0; margin: 0; vertical-align: middle;"><a href="togetrick-campaign.html" target="_blank">[Campaign&nbsp;page]</a></p>
     </div>
     <div class="flex-main" style="margin: 0.5em;">
-        <p style="text-indent: 0; margin: 0; vertical-align: middle;">Togetrick is campaign-based, so this link is placed on top for easy access. (If you imagine this as a published game, this page would be the rulebook and the campaign page would be a separate book.)</p>
+        <p style="text-indent: 0; margin: 0; vertical-align: middle;">Togetrick is campaign-based. The campaign can be found on a separate webpage, and the link is placed here on top for easy access. (If you imagine this as a published game, this webpage would be the rulebook and the campaign webpage would be a separate book.)</p>
     </div>
 </div>
 
-<p><b>Togetrick</b>, invented by me (chaotic_iak / Ivan Koswara), is a campaign-based cooperative trick-taking game for 3&ndash;4 players (with a solo variant). It is designed to be playable with a standard deck of cards plus some common components.</p>
+<p><b>Togetrick</b>, designed by me (chaotic_iak / Ivan Koswara), is a campaign-based cooperative trick-taking game for 3&ndash;4 players, with a solo variant. It is designed to be playable using a standard deck of cards plus some common components.</p>
 
 <div class="notecard warning">
-    <p>This game is still a work in progress. Nothing on this page or its related pages is set in stone.</p>
+    <p>This game is still a work in progress. Nothing is set in stone.</p>
 </div>
 
 
@@ -94,7 +83,7 @@
 
 <section><h2 id="overview">Overview</h2>
     <p>Togetrick is a trick-taking game. It is a class of games often found in traditional card games: each player plays one card from their hand, following suit if possible, and the player who played the highest card "wins" the trick. However, unlike traditional games such as contract bridge and Hearts, Togetrick is a cooperative game. You win or lose together as a group, and you need to help each other if you want to succeed.</p>
-    <p>Togetrick is presented as a campaign, divided into numerous worlds. Worlds have tasks that you can complete by playing rounds of trick-taking gameplay. Completing objectives in worlds gives rewards, including access to other worlds.</p>
+    <p>Togetrick is presented as a campaign, divided into numerous worlds. Worlds have tasks and objectives that you can complete by playing rounds of trick-taking gameplay. Completing objectives in worlds gives rewards, including access to other worlds.</p>
     <p>The main mechanism in Togetrick, which distinguishes it from other trick-taking games, is the "pool": an additional communal hand which all players may play from, following certain rules. Thus, you don't always play from your hand; you will sometimes play from the pool as well.</p>
     <p>Togetrick is also designed to be played with components that are easy to come by: a standard deck of cards, plus several tokens of any kind. Together with the campaign page (and a way to record your progress), you have everything you need to play.</p>
     <p>The idea of "campaign-based cooperative trick-taking game" was originally inspired by <cite>The Crew</cite> series, with some influence from <cite>The Lords of the Rings: Trick-Taking Game</cite> series. However, Togetrick has since diverged from <cite>The Crew</cite> enough that it is essentially its own game.</p>
@@ -102,8 +91,8 @@
     <section><h3 id="navigating-this-page">Navigating this page</h3>
         <p>Togetrick has two modes: one for 3 players ("3p"), and one for 4 players ("4p"). Although the rules for 3p and 4p share many similarities, there are significant differences between them, such as how to make use of the pool. <span class="boxedtext player">Green boxes</span> indicate rules that apply only for a specific number of players.</p>
         <p>Togetrick also has a solo variant. <span class="boxedtext solo">Lime boxes</span> indicate rules that apply only for the solo variant.</p>
-        <p><span class="boxedtext accented">Brown boxes</span> indicate important rules. <span class="boxedtext callout">Gray boxes</span> indicate rules that are less important, such as rare edge cases.</p>
-        <p>I am a big fan of describing my thoughts about design. <span class="boxedtext design">Blue boxes</span> indicate design thoughts. They are not required to understand the rules of the game.</p>
+        <p><span class="boxedtext accented">Brown boxes</span> indicate important rules. <span class="boxedtext objective">Blue boxes</span> indicate rules that are less important, such as rare edge cases.</p>
+        <p>I am a big fan of describing my thoughts about design. <span class="boxedtext design">Gray boxes</span> indicate design thoughts. They are not required to understand the rules of the game.</p>
     </section>
 </section>
 
@@ -119,9 +108,9 @@
     <p>Togetrick is presented as a campaign, divided into numerous worlds. Worlds have tasks that you can complete by playing rounds of trick-taking gameplay, called <b>deals</b>.</p>
     <p>At the beginning, you only have access to the world <a href="togetrick-campaign.html#world-startia" target="_blank">Startia</a>. Open that page. You'll need to reference it, and the campaign page in general, throughout your campaign.</p>
     <p>Startia is a regular world, which means it comprises of several tasks (in this case 3), and you will attempt them one by one. Start with task A: <b>"Every player must win at least 1 trick"</b>. You need to play a deal to succeed on this task.</p>
-    <p>To play a deal, first you need to <a href="#preparing-deal">prepare the deal</a>. Follow the instructions based on your player count.</p>
+    <p>First, collect the <a href="#components">components</a> if you haven't already, then you need to <a href="#preparing-deal">prepare the deal</a>. Follow the instructions based on your player count.</p>
     <p>Each player will then need to <a href="#seeding-pool">seed the pool</a> by putting two cards into the pool. The pool is the main mechanism in Togetrick. You may also want to read about <a href="#playing-trick">playing out tricks</a> to learn how the pool is used.</p>
-    <div class="notecard callout">
+    <div class="notecard accented">
         <p>It's okay if you don't know what two cards to seed into the pool. For now, simply seed any two; the very first task is designed to be winnable with virtually any seeding. Besides, it takes practice and experience to learn how to seed the pool effectively, and experience starts with a first step.</p>
     </div>
     <p>Once the pool has been seeded, you will now <a href="#playing-trick">play out 8 tricks</a>. Follow the instructions on how to play a trick based on your player count, then repeat until everyone is out of cards. (The pool will have one card remaining.)</p>
@@ -132,7 +121,7 @@
         <p>Congratulations for succeeding on your first task! Move on to task B, then task C. Look at the campaign page for the descriptions of these tasks.</p>
         <p>Note that task B cares about what happens <em>during</em> the deal, so you need to be aware of it throughout the deal.</p>
         <p>If you fail on a task, just retry the task. You don't have to start over from the first task again.</p>
-        <p>Once you have succeeded on all 3 tasks, you have completed the <b>objective</b> in Startia! The entry for Startia on the campaign page has a block that you can open and read.</p>
+        <p>Once you have succeeded on all 3 tasks, you have completed the <b>objective</b> in Startia! The entry for Startia on the campaign page has a message box that you can open and read.</p>
     </details>
 </section>
 
@@ -155,8 +144,8 @@
         <p>The <b>basic</b> suits are &clubs; clubs, &diamondsuit; diamonds, and &hearts; hearts. Each basic suit has 10 cards, ranked 1 (lowest) to 10 (highest). (In Togetrick, always treat Aces as rank 1. They are the lowest rank.)</p>
         <p>The <b>trump</b> suit is &spadesuit; spades. It has 3 cards, ranked Jack (lowest), Queen, King (highest).</p>
         <p>A "number rank" means a rank in one of the basic suits. The trump ranks are not number ranks.</p>
-        <div class="notecard callout">
-            <p>Although the remaining cards are not part of the deck, keep them handy. The campaign might make use of them.</p>
+        <div class="notecard objective">
+            <p class="noindent">Although the remaining cards are not part of the deck, keep them handy. The campaign might make use of them.</p>
         </div>
     </section>
 </section>
@@ -189,7 +178,7 @@
         </ol>
         <p>There are 9 cards in the pool, and each player has <span class="boxedtext player">(3p) 8 cards / (4p) 6 cards</span> left in their hand.</p>
         
-        <div class="notecard callout">
+        <div class="notecard objective">
             <p>Seeding the pool serves multiple purposes. Most obviously, it lets you adjust your hand. It is also possible to use it to communicate certain key facts to other players, although doing this is far more difficult and requires practice and experience.</p>
             <p>You may look at who seeds what cards. You may also ask for a reminder of who seeded a particular card in the pool.</p>
         </div>
@@ -208,7 +197,7 @@
         <p>The player who played the winning card gathers the played cards face-up in front of themself. They become the lead player for the next trick.</p>
         <p>A deal ends after 8 tricks. All players are out of cards, and the pool has one card remaining. The campaign will tell you what to do with the result of the deal.</p>
         
-        <div class="notecard callout">
+        <div class="notecard objective">
             <p>When playing a card, the only requirement is that you must follow suit if able. There are no other requirements. In some traditional trick-taking games, you might find rules such as, you can only lead trumps if someone has played it before ("breaking trumps"), or that you must play a higher card if possible, etc. Those rules do not apply in Togetrick.</p>
             <p>In traditional trick-taking games, once a trick is won, its cards are turned face-down and nobody may inspect them any more. I personally don't like the memory aspect, so the default rules is that won tricks are left face-up. However, you may choose to turn won tricks face-down for an additional challenge.</p>
             <p>You may end a deal early if you can be sure that nothing will change from the rest of the deal. For example, perhaps the only thing that matters from this deal is whether you succeed on a certain task or not, and you can guarantee you will never fail this task any more; then you may end the deal early. However, figuring out "nothing will change" might be tricky; if you're unsure, just play out the deal.</p>
@@ -228,7 +217,7 @@
         <section class="notecard player"><h4>4-player game</h4>
             <p>In 4p, you play from the pool <strong>instead of</strong> from your hand.</p>
             <p>When it's your turn to play a card, instead of playing from your hand, you may play a card from the pool. Put one of your pool tokens on top of the card. If you have no pool token remaining, you cannot play from the pool.</p>
-            <p><strong>Note:</strong> Even though you must follow suit if able, this is only determined once you choose whether to play from your hand or from the pool. For example, even if you can follow suit from your hand and not from the pool, you may choose to play from the pool. (Then since you cannot follow suit from the pool, you may play any card from the pool.)</p>
+            <p><strong>Note:</strong> Even though you must follow suit if able, you first choose your set, i.e. where you're playing from, before you determine if you can follow suit. For example, even if you can follow suit from your hand and not from the pool, you may choose to play from the pool. (Then since you cannot follow suit from the pool, you may play any card from the pool.)</p>
         </section>
         
         <p>Regardless of player count, there is one rule that governs playing from the pool:</p>
@@ -239,7 +228,7 @@
             <li>If nobody has played from the pool this trick yet, and you are the last player with any pool token remaining (usually because you are the last player of the trick), then you must play from the pool.</li>
         </ul>
         
-        <div class="notecard callout">
+        <div class="notecard objective">
             <p>If you follow the above two implications (in particular the second one), you should never get into a position where it's impossible to follow the rule. If you don't play from the pool when you should have, you should undo your turn and retry it. (The other players should help catch onto this.)</p>
             <p>It is possible that the entire group is inattentive, so that you botched up the rule and nobody else caught onto it. A mistake like this will usually become clear later in the deal, when your card counts are wrong. In this case, you have to declare the deal void.</p>
         </div>
@@ -282,7 +271,7 @@
     </ul>
     <p>Whenever the rules or campaign refer to a "player", it means a bot.</p>
     <p>Some parts of the campaign are not available in solo. (These usually involve a player making a secret choice.)</p>
-    <div class="notecard callout">
+    <div class="notecard objective">
         <p>Although the above rules state the solo variant is played with the 4p mode, it is actually fully functional with the 3p mode as well. (The main reason 4p is the default is because it is slightly easier for solo.) If you want, you may choose to play using the 3p mode rules instead. This means having 3 bots instead of 4, and following the 3p rules and campaign.</p>
     </div>
 </div></section>
@@ -328,6 +317,13 @@
             <p>In the original design for Togetrick, there was no specific solo variant; solo simply meant all other hands were controlled by bots. This was very difficult; you had so little control over anything. However, I found out that combining this with the ghost player (see above) gave you just enough control to be able to plan things.</p>
             <p>When I moved to the pool mechanic, I also dropped the artificial players; I wanted the core game to work good enough before I wanted to support anything else. However, as a primarily-solo player, I wanted to keep the solo variant. I loved how the "everyone are bots except you control the pool" rule felt like, so I put it in again.</p>
             <p>As an aside, I knew the solo variant would never replicate the feel of the real game (with multiple players). The real game relies on limited communication and hidden information, something that is impossible solo. So I instead went for a planning puzzle: you have full information, the goal is to execute it. This is somewhat reminiscent of <cite>Space Alert</cite>, a real-time cooperative game; the full game with multiple players relies on the chaotic communication, but the solo game gives you full agency, and the challenge becomes to keep everything straight and sorted out in your head alone.</p>
+        </details>
+    </section>
+    
+    <section><h4>Why there is no 2p mode</h4>
+        <details class="notecard design"><summary>Click to read</summary>
+            <p>The reason is very simple: I haven't figured out how to make a 2p mode work well. I used to have one, but I decided it's better to focus on my main offering, 3&ndash;4p modes, first.</p>
+            <p>On the other hand, I have a solo variant because I primarily play solo board games. Also, needing only me means I can very easily test it, instead of having to schedule a game with others.</p>
         </details>
     </section>
 </section>

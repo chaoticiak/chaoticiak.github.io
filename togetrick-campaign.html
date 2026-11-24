@@ -11,28 +11,16 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="subpage.css">
     <style>
-        /* Player-specific rules */
-        .player {
-            background-color: #cfc;
-            border-color: #6c6;
-        }
-        
-        /* Solo-specific rules */
-        .solo {
-            background-color: #efc;
-            border-color: #ac6;
-        }
-        
-        /* For design notes and other tidbits */
-        .design {
-            background-color: #ddf;
-            border-color: #66c;
-        }
+        /* Special colors for boxes */
+        .objective { background-color: #ddf; border-color: #66c; } /* blue */
+        .envelope  { background-color: #fff; border-color: #999; } /* white */
+        .player    { background-color: #cfc; border-color: #6c6; } /* green */
+        .solo      { background-color: #efc; border-color: #ac6; } /* lime */
+        .design    { background-color: #ddd; border-color: #999; } /* gray */
         
         /* Hack for extensive world spacing */
-        section:has(> #list-of-worlds) section:has(> h3) {
-            margin-top: 6em;
-            margin-bottom: 6em;
+        section:has(> #list-of-worlds), section:has(> #list-of-worlds) section:has(> h3) {
+            margin-top: 8em;
         }
         
         /* Task tables are often full width, but not too large */
@@ -72,12 +60,12 @@
         <p style="text-indent: 0; margin: 0; vertical-align: middle;"><a href="togetrick.html" target="_blank">[Rules&nbsp;page]</a></p>
     </div>
     <div class="flex-main" style="margin: 0.5em;">
-        <p style="text-indent: 0; margin: 0; vertical-align: middle;">This page lists the campaign rules and content for my cooperative trick-taking game, <b>Togetrick</b>. You need to read the main rules as well for this page to make sense.</p>
+        <p style="text-indent: 0; margin: 0; vertical-align: middle;">Togetrick is campaign-based, and this webpage is for the campaign. You will also need the main rules, which can be found on a separate webpage. The link is placed here on top for easy access.</p>
     </div>
 </div>
 
 <div class="notecard warning">
-    <p>This game is still a work in progress. Nothing on this page or its related pages is set in stone.</p>
+    <p>This game is still a work in progress. Nothing is set in stone.</p>
 </div>
 
 
@@ -88,7 +76,6 @@
             <li><a href="#regular-world">Regular world</a></li>
             <li><a href="#record-campaign">Recording the campaign</a></li>
             <li><a href="#player-count">Player count</a></li>
-            <li><a href="#beyond-campaign">Beyond the campaign</a></li>
         </ul></li>
         <!-- <li><a href="#concepts">Concepts</a><ul>
             <li><a href="#individual-voting">Individual voting</a></li>
@@ -106,39 +93,41 @@
 
 
 <section><h2 id="about-campaign">About the campaign</h2>
-    <p>Togetrick is presented as a campaign, divided into numerous <b>worlds</b>. Most worlds are <a href="#regular-world"><b>regular worlds</b></a>, which are little more than collections of tasks (usually related in theme). However, <b>special worlds</b> defy categorization; each one is a new surprise. You can read <a href="#list-of-worlds">the list of worlds</a>.</p>
-    <p>At the beginning of the campaign, you only have access to the regular world <a href="#world-startia">Startia</a>. Each world has one or more <b>objectives</b>. Each objective heads a <span class="boxedtext callout">gray box</span>. When you complete the objective, you may click/tap the box to reveal its reward. The reward is usually access to a new world; this is how you can explore the worlds in the campaign. In addition, the campaign has <i>meta-progression</i>: progress in a world may affect another world. Thus sometimes it is impossible to complete an advanced objective in a world for the time being, and you need to return after you are more ready.</p>
+    <p>Togetrick is presented as a campaign, divided into numerous <b>worlds</b>. Most worlds are <a href="#regular-world"><b>regular worlds</b></a>, which follows some general rules as explaind below. Regular worlds are typically collections of tasks, usually related in theme, and sometimes with a world-wide mechanic. However, <b>special worlds</b> defy categorization; each one is a new surprise. You can read <a href="#list-of-worlds">the list of worlds</a>. At the beginning of the campaign, you only have access to one world, <a href="#world-startia">Startia</a>.</p>
+    <p>Most of the content in a world are initially inaccessible, locked behind <b>envelopes</b> represented as <span class="boxedtext envelope">white boxes</span>. Do not open these until instructed! Once you are allowed to open an envelope, click/tap it and read its text. Envelopes typically add new tasks to a regular world, but some envelopes introduce major mechanics that change the world quite drastically.</p>
+    <p>Each world has one or more <b>objectives</b>. Each objective is given in a <span class="boxedtext objective">blue box</span>. When you complete the objective, click/tap the box to reveal a reward, which typically lets you open an envelope or gives you access to new worlds. The campaign has <i>meta-progression</i>, so sometimes a reward lets you open an envelope in another world. Therefore, some advanced objectives in a world may require you to explore other worlds first.
     <p>Worlds vary wildly in size. Some worlds are small enough that they can be fully completed in a single game session. Others may require multiple hours to go through. The entire campaign will undoubtedly take a while to play, so you are recommended to <a href="#record-campaign">keep a record your campaign</a> so you can pause playing and pick it up another time.</p>
     
+    <div class="notecard design">
+        <p>Togetrick is presented as a campaign, but I always think of the campaign to be a loose thread to connect a variety of different ways to play using the same basic rules.</p>
+        <p>If you don't like the campaign, don't let it restrain you. If you don't like the unlock system, feel free to open everything. If you have your own ideas inspired by this campaign, go ahead and play them. In fact, feel free to send me your suggestions; I love to see people iterating on a design, and maybe your ideas might end up being part of the campaign.</p>
+    </div>
     
     <section><h3 id="regular-world">Regular world</h3>
-        <p>A <b>regular world</b> consists of a collection of <b>tasks</b>. Each task only cares about a single deal; there's nothing that requires you to track something across multiple deals. Therefore, when you play in a regular world, each deal is independent.</p>
+        <p>A <b>regular world</b> is a collection of <b>tasks</b>. Each task only cares about a single deal. This means, when playing in a regular world, each deal is independent; you don't have to record progress inside a task.</p>
         <p>There are two kinds of tasks: binary tasks and score tasks.</p>
         <p><b>Binary tasks</b> are yes/no. You either succeed or fail, there is no in-between.</p>
-        <p><b>Score tasks</b> award some number of points depending on your performance on the deal. Some score tasks have <b>fail conditions</b>; failing the condition results in no score.</p>
-        <p>Your progress will not get reset. Once you record a success on a binary task, it won't later become failed; once you record a certain high score, that number won't later be reduced.</p>
-        <p>Some tasks are not immediately accessible to you. Typically, completing objectives in the world &mdash; such as succeeding on enough tasks in the world or getting a high enough total high score &mdash; will unlock more tasks for you to attempt.</p>
+        <p><b>Score tasks</b> award some number of points depending on your performance on the deal. Some score tasks have <b>fail conditions</b>; meeting the fail condition means you fail the task and get no score.</p>
+        <p>In general, your records &mdash; which tasks you have succeeded, what your high scores are &mdash; will not be reset. Once you record a success on a binary task, it won't later become failed. Once you record a certain high score, that number won't later be reduced.</p>
+        <p>Some regular worlds have additional rules applicable only for that world. If they conflict with these general rules, the specific world-wide rules take precedence.</p>
         
         <div class="notecard accented">
-            <p><strong>Before distributing cards:</strong> If you play in a regular world, first choose <strong>one or more tasks</strong> to attempt. Usually you choose only one task, but it's legal to choose more (see below).</p>
-            <p>In order for a deal to be successful, you must succeed on <strong>all</strong> chosen tasks. (A score task without a fail condition will always count as succeeded.) If any of the tasks is failed, the entire deal also fails and you don't record anything from the deal.</p>
+            <h4>Playing in a regular world</h4>
+            
+            <p><strong>Before distributing cards:</strong> If you play in a regular world, first choose <strong>one or more tasks</strong> to attempt. Usually you choose only one task, but it's legal to choose more.</p>
+            <p>In order for a deal to be successful, you must succeed on <strong>all</strong> chosen tasks. (A binary task either succeeds or fails. A score task typically automatically succeeds, but it may fail if there is a fail condition.) If any of the tasks is failed, the entire deal also fails and you don't record anything from the deal.</p>
             <p>If the deal is successful, you get to record the deal. Mark all chosen binary tasks as succeeded if not yet already, and record the score (if it's a new high score) for each score task.</p>
         </div>
-        <div class="notecard callout">
-            <p>You may choose any number of tasks to attempt simultaneously. Because you must succeed on <em>every</em> chosen task simultaneously, typically you want to choose only one task at a time.</p>
-            <p>The major exception is if an objective tells you otherwise. Many advanced objectives require you to succeed on multiple tasks at once.</p>
-            <p>You may also simply attempt multiple tasks at once just because you like the challenge. If you are trying to "speedrun" the campaign by playing as few deals as possible, this is a good way to tackle more tasks in fewer deals, if you can handle the difficulty.</p>
-            <p>Tasks may be attempted in any order, you don't have to follow the same sequence as presented.</p>
-        </div>
+        
         <div class="notecard design">
-            <p>Binary tasks are simply score tasks with "score 1 point (i.e. a success) if you don't meet the fail condition", but it is much easier for people to understand binary tasks as their own thing.</p>
+            <p>The main reason you might want to attempt multiple tasks at once is because some special rule encourages or forces you to do so. However, I also recognize the early campaign is easy and experts might want a challenge already, so attempting multiple tasks at once is offered as an optional rule to spice up your campaign. Perhaps you want to "speedrun" by playing as few deals as possible.</p>
+            <p>Technically, binary tasks are simply score tasks that read: "score 1 point (i.e. a success) if you don't meet the fail condition". But it's much easier for people to understand binary tasks as their own thing.</p>
         </div>
     </section>
     
     
     <section><h3 id="record-campaign">Recording your campaign</h3>
-        <p>Currently, I don't have a built-in way to let you record your campaign. Use your own method, such as using pen and paper, or a spreadsheet.</p>
-        <p>You will need to record these items:</p>
+        <p>To record your campaign, I strongly recommend having an off-site method to do so, such as pen and paper or a spreadsheet. You will need to record these items:</p>
         <ul>
             <li>Which binary tasks you have completed, and what high score you have on each score task</li>
             <li>Which objectives you have completed</li>
@@ -146,33 +135,58 @@
             <li>Any other information you are instructed to record</li>
         </ul>
         
-        <div class="notecard callout">
-            <p>It's possible to record the progress as individual players rather than as a group. This is ideal if you have a rotating group and don't expect to play with the same group regularly. Each player records any progress they get.</p>
-            <p>When players with different progress meet, use the lowest progress. For example, a binary task is only considered completed if all players have marked it completed; a score task's high score is the lowest among all players' high scores.</p>
+        <div class="notecard accented">
+            <div class="no-js">
+                <p>If your browser has JavaScript enabled, this webpage should record the state of most checkboxes (checked or not) and message boxes (opened or not).</p>
+                <p>However, JavaScript doesn't seem to be detected on your browser. Try waiting a few seconds, or refreshing the page. In the worst case, the checkboxes and message boxes are functional, the page just won't remember the states when you refresh it.</p>
+            </div>
+            <div class="yes-js">
+                <p>This webpage should record the state of most checkboxes (checked or not) and message boxes (opened or not). So it can help you record some aspects of the campaign.</p>
+                <p>However, the records are stored in your browser. Therefore, if you use a different device, the records don't carry over. If you erase all local data of your browser, the records will also be erased. Therefore, consider this to only be a convenience; you are still encouraged to record your progress in another way.</p>
+                <hr>
+                <p>You may reset <em>all</em> campaign data stored by your browser by clicking this button: <button command="show-modal" commandfor="dialog-reset">Reset <em>all</em> campaign data</button></p>
+                <dialog id="dialog-reset">
+                    <div>Confirm to reset <em>all</em> campaign data? <strong>This cannot be undone.</strong></div>
+                    <div><button command="close" commandfor="dialog-reset">Cancel</button> <button command="close" commandfor="dialog-reset" id="button-reset-campaign">Reset data</button></div>
+                </dialog>
+                <script>
+                    const btnReset = document.getElementById("button-reset-campaign");
+                    btnReset.addEventListener("click", (e) => {
+                        const keysToRemove = [];
+                        for (let i = 0; i < localStorage.length; i++) {
+                            let keyName = localStorage.key(i);
+                            if (keyName.startsWith("check-togetrick") || keyName.startsWith("opened-togetrick"))
+                                keysToRemove.push(keyName);
+                        }
+                        for (let keyName of keysToRemove) {
+                            localStorage.removeItem(keyName);
+                        }
+                        window.location.reload();
+                    });
+                </script>
+            </div>
+        </div>
+        
+        <div class="notecard design">
+            <p>By default, the above rules only allow you to record progress as a group. However, if you have a rotating group and don't expect to play with the same group regularly, you can improvise your own rules for recording progress individually. As someone who plays in rotating groups, this is something that comes to my mind.</p>
+            <p>As an example, when players play in a group, each player separately records the progress gained from that group. If players with different progression meet, use the lowest progress. A binary task is succeeded only if all players have it succeeded. A score task has a high score equal to the lowest among all players. An envelope is opened, and a world is accessible, only if all players do so.</p>
+            <p>However, because this is improvisation, you are free to play as you wish. This is just my recommendation.</p>
         </div>
         
     </section>
     
     
     <section><h3 id="player-count">Player count</h3>
-        <p>Togetrick supports 3p and 4p modes, and this is also reflected in the campaign by using the same campaign. However, there are occasional differences to allow both modes to have similar difficulty. Most of these differences are in task details, but some worlds may be accessible only to 3p and others only to 4p.</p>
-        
-        <div class="notecard callout">
-            <p>It's possible to switch modes during the campaign; for instance, if you have a 4-player group, but one is unavailable for a session, you might proceed with the 3p mode for the session. (Note that this is largely untested, and there might be some slight balance issues, but it should largely be fine.)</p>
-        </div>
+        <p>Togetrick supports 3p and 4p modes, and the campaign is largely similar in both modes. However, there are occasional differences to allow both modes to have similar difficulty. Most of these differences are in task details, but some worlds may be accessible only to 3p and others only to 4p.</p>
         
         <div class="notecard solo">
             <p>The solo variant follows the 4p rules, with some changes specific to <a href="togetrick.html#solo-variant">the solo variant</a>.</p>
             <p>Some parts of the campaign are not available in solo. (These usually involve a player making a secret choice.)</p>
         </div>
-    </section>
-    
-    
-    <section><h3 id="beyond-campaign">Beyond the campaign</h3>
-        <p>Although Togetrick is presented as a campaign, you don't have to use it.</p>
-        <p>Perhaps you don't like the unlock system, and simply want to try everything one by one. Nothing's stopping you. Play however you want, and enjoy.</p>
-        <p>Perhaps you have completed the campaign. Congratulations! The campaign is always evolving, and I expect to continue expanding the campaign for the foreseeable future.</p>
-        <p>Perhaps you want to make use of the basic Togetrick rules, but play with your own creations. Your own tasks and worlds. That's how I came up with Togetrick in the first place, through a desire of playing my own creation. I'm always interested to hear your inventions; let me know and they might just make it to be part of the campaign.</p>
+        
+        <div class="notecard design">
+            <p>Switching between 3p and 4p in the campaign is untested, but I imagine it should be possible with minimal disruption to the campaign. Similarly, the solo variant may follow the 3p rules rather than the 4p rules if so desired.</p>
+        </div>
     </section>
     
 </section>
@@ -220,83 +234,123 @@
 
 <section><h2 id="list-of-worlds">List of worlds</h2>
     
+    
+    
+    
+    
     <section><h3 id="world-startia">Startia</h3>
     <p class="subtitle">Everyone has to start somewhere.</p>
         
         <div class="notecard accented">
             <p>Welcome to Togetrick! Startia is the first world of your Togetrick campaign. If you haven't already, read about <a href="togetrick.html#starting-campaign">starting your campaign</a>.</p>
+            <p><strong>Regular world.</strong> Succeed on each of the following tasks. You may retry tasks freely.</p>
         </div>
         
-        <p><strong>Regular world.</strong> Succeed on each of the following tasks. You may retry tasks freely.</p>
-        
         <table class="task-table">
-            <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="row">A</th> <td>Every player must win at least 1 trick.</td> </tr>
-            <tr> <th scope="row">B</th> <td>Every card with rank 9 must be played and must win its trick.</td> </tr>
-            <tr> <th scope="row">C</th> <td>The unplayed card in the pool must be 6&diamondsuit; (6 of Diamonds).</td> </tr>
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-startia-a"></label></td>
+                <td>Every player must win at least 1 trick.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-startia-b"></label></td>
+                <td>Every card with rank 9 must be played and must win its trick.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-startia-c"></label></td>
+                <td>The unplayed card in the pool must be 6&diamondsuit; (6 of Diamonds).</td> </tr>
         </table>
         
-        <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on all 3 tasks</summary>
+        <details class="notecard objective remember-details" id="togetrick-startia-done"><summary><strong>Objective:</strong> Succeed on all 3 tasks</summary>
             <p>Congratulations! You have now begun your campaign in earnest. First read <a href="#about-campaign">about the campaign</a> to learn how the campaign works in general. Once you're ready, head to your newly unlocked world <a href="#world-altrik">Altrik</a>.</p>
         </details>
         
     </section>
     
     
+    
+    
+    
     <section><h3 id="world-altrik">Altrik</h3>
     <p class="subtitle">In Altrik, all tricks want to shine.</p>
         
-        <p><strong>Regular world.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely.</p>
+        <div class="notecard accented">
+            <p><label><input type="checkbox" class="remember-checkbox" id="togetrick-altrik-unlocked"></label> Click here if you have unlocked Altrik, so your browser can remember it.</p>
+            <p><strong>Regular world.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely.</p>
+        </div>
         
-        <table class="task-table">
-            <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="row">A</th> <td>Every trick must be won by the card played from the pool.</td> </tr>
-            <tr> <th scope="row">B</th> <td>No trick may be led by a &clubs; clubs card.</td> </tr>
-            <tr> <th scope="row">C</th> <td>Every trick must contain some card whose rank is in the range 1&ndash;3.</td> </tr>
-            <tr> <th scope="row">D</th> <td>Every trick must contain some card with odd number rank and some card with even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
-        </table>
-        
-        <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on 2 Altrik tasks</summary>
-            <p>You've unlocked world <a href="#world-selvar">Selvar</a>! You may head there for a new experience.</p>
-            
-            <p>Additionally, you've unlocked <b>Altrik Matchmaker</b>! It is a special game mode in Altrik.</p>
-            
+        <details class="notecard envelope remember-details" id="togetrick-altrik-matchmaker">
+            <summary><strong>Envelope MM:</strong> Open only when instructed</summary>
             <section class="notecard accented"><h4>Altrik Matchmaker</h4>
-                <p>In Altrik Matchmaker, your goal is to form as many <b>task pairs</b> as possible.</p>
-                <p><strong>Forming a task pair:</strong> Choose any two unlocked Altrik tasks. Play a deal and succeed on both tasks simultaneously.</p>
-                <p><strong>Faithful rule:</strong> A task may only be involved in one task pair.</p>
-                <p><strong>Rearranging task pairs:</strong> You may break up a task pair at any time. You may also re-form any task pair you already formed in the past (as long as you obey the faithful rule) without having to replay the deal.</p>
+                <p>In Altrik Matchmaker, your goal is to form as many <b>simultaneous task pairs</b> as possible.</p>
                 
-                <div class="notecard callout">
-                    <p>If you happen to have attempted (and succeeded) multiple tasks at the same time while completing this objective, that deal counts toward forming task pairs.</p>
-                    <p>You may form "unofficial" task pairs involving tasks that are already in other task pairs. These unofficial task pairs won't count (because of the faithful rule), but they count as having been formed, so they may help you rearrange later.</p>
-                    <p>You may attempt more than two tasks simultaneously. If successful, you form every possible task pair among the tasks involved in the deal. Most of them will be unofficial, but again, they may help you rearrange later.</p>
-                    <p>Finally, I recommend listing down every task pair you have ever formed, so you don't have to remember them.</p>
+                <hr>
+                <p>A <b>task pair</b> is a pair of two tasks which you can complete simultaneously.</p>
+                <p><strong>Forming a task pair:</strong> Choose any two unlocked Altrik tasks. Play a deal and succeed on both tasks simultaneously. If you succeed, those two tasks become a <b>task pair</b>.</p>
+                
+                <hr>
+                <p>A task may be involved in any number of task pairs. However, Altrik is primarily concerned about <b>simultaneous task pairs</b>.</p>
+                <p><strong>Simultaneous task pairs:</strong> From the task pairs you have completed, select as many task pairs as you can that do not overlap in any way, i.e. each task is involved in at most one of the selected task pairs. The maximum number of task pairs you can select this way is how many <b>simultaneous task pairs</b> you have at once.</p>
+                <p>You may retry forming simultaneous task pairs any time you want. Your highest number of simultaneous task pairs is what matters.</p>
+                
+                <div class="notecard design">
+                    <p>It is possible to borrow concepts from graph theory. Each task is a vertex and each task pair is an edge. Then simultaneous task pairs form a <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)">matching</a>, and you want to maximize the size of your matching. This game mode came from an earlier iteration of this world, where I put <em>objectives</em> of completing task pairs. I turned it into a <em>game mode</em> instead, thus supporting it more broadly in this world.</p>
+                    <p>You can form task pairs even if they won't help you get more <em>simultaneous</em> task pairs. Those newly-formed task pairs may be helpful in the future; having more options is always good.</p>
+                    <p>There is currently no way to record task pairs on this webpage. Please record them in some other way.</p>
                 </div>
             </section>
-            
-            <div class="notecard design">
-                <p>In graph theory, task pairs form a <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)">matching</a> of tasks.</p>
-                <p>This game mode came from an earlier iteration of this world, where I put in extra objectives of completing task pairs. I turned it into its own thing.</p>
-            </div>
         </details>
         
-        <details class="notecard callout"><summary><strong>Objective:</strong> Form 1 task pair (complete the previous objective to learn about task pairs)</summary>
-            <p>You've unlocked additional tasks!</p>
+        
+        <div style="margin-top: 3em;">
             <table class="task-table">
-                <colgroup> <col style="width: 2em;"> <col style="width: auto;"> </colgroup>
-                <tr> <th scope="row">E</th> <td>In every trick, the card played from the pool must be the third card played in the trick.</td> </tr>
-                <tr> <th scope="row">F</th> <td>The 1st trick must contain some card with number rank 1; the 2nd trick must contain a 2; and so on until the 8th trick.</td> </tr>
-                <tr> <th scope="row">G</th> <td>Every trick must contain at least two different suits.</td> </tr>
-                <tr> <th scope="row">H</th> <td>In every trick, the second card played must be a &clubs; clubs card.</td> </tr>
+                <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+                <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-a"></label></td>
+                    <td>Every trick must be won by the card played from the pool.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-b"></label></td>
+                    <td>No trick may be led by a &clubs; clubs card.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-c"></label></td>
+                    <td>Every trick must contain some card whose rank is in the range 1&ndash;3.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-d"></label></td>
+                    <td>Every trick must contain some card with odd number rank and some card with even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
             </table>
+        </div>
+        <details class="notecard envelope remember-details" id="togetrick-altrik-tasks1">
+            <summary><strong>Task Envelope 1:</strong> Open only when instructed</summary>
+            <table class="task-table">
+                <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+                <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-e"></label></td>
+                    <td>In every trick, the card played from the pool must be the third card played in the trick.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-f"></label></td>
+                    <td>The 1st trick must contain some card with number rank 1; the 2nd trick must contain a 2; and so on until the 8th trick.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">G <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-g"></label></td>
+                    <td>Every trick must contain at least two different suits.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">H <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-h"></label></td>
+                    <td>In every trick, the second card played must be a &clubs; clubs card</td> </tr>
+            </table>
+        </details>
+        
+        
+        <details class="notecard objective remember-details" id="togetrick-altrik-started">
+            <summary><strong>Objective:</strong> Succeed on 2 Altrik tasks</summary>
+            <p>You have unlocked world <a href="#world-selvar">Selvar</a>! You may head there for a new experience.</p>
+            <p>Additionally, you have unlocked <b>Altrik Matchmaker!</b> It is a special game mode in Altrik. Open <b>Envelope MM</b> for the full rules.</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-altrik-1pair">
+            <summary><strong>Objective:</strong> Form 1 task pair (complete the previous objective to learn about task pairs)</summary>
+            <p>You may now open <b>Task Envelope 1</b>!</p>
         </details>
         
     </section>
     
     
+    
+    
+    
     <section><h3 id="world-selvar">Selvar</h3>
     <p class="subtitle">In Selvar, push yourself to go far.</p>
+        
+        <div class="notecard accented">
+            <p><label><input type="checkbox" class="remember-checkbox" id="togetrick-selvar-unlocked"></label> Click here if you have unlocked Selvar, so your browser can remember it.</p>
+            <p><strong>Regular world, with Selvar Loadout rules.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely. However, the process of choosing tasks is vastly different; read the <b>Selvar Loadout</b> rules below.</p>
+        </div>
+        
         
         <p><strong>Special world.</strong> Selvar actually resembles a regular world in many ways. It is a collection of tasks, you mark them as completed, and you will never lose completion marks. The crucial difference is that you choose tasks <em>after</em> distributing cards, using the rules of <b>Selvar Loadout</b>.</p>
         <p>Tasks in Selvar are to be claimed by an individual player. You look at your hand before you decide what task it's best suited for.</p>
@@ -304,71 +358,83 @@
         <p><strong>Setup:</strong> Each player should have a way to indicate tasks they claim, for example with pen and paper.</p>
         
         <section class="notecard accented" style="margin-bottom: 2em;"><h4>Selvar Loadout</h4>
-            <p><strong>Task threshold and difficulty:</strong> Every task has two numbers attached to it: <b>threshold</b> (under column "Thr") and <b>difficulty</b> (under column "Diff"). In order to be allowed to claim a specific task, your loadout difficulty must meet its task's threshold.</p>
-            <p><strong>Promising a minimum:</strong> Before distributing cards, you must <b>promise a minimum</b>. You are promising that your loadout difficulty will meet this minimum. A Selvar task is <b>claimable</b> if you've unlocked it, and your promised minimum is at least as high as the task's threshold. Promising a higher minimum allows more tasks to be claimable.</p>
-            <p><strong>Task claiming:</strong> After distributing cards (but before seeding the pool), each player may claim any claimable. Your <b>loadout</b> is the set of tasks you claimed, and your <b>loadout difficulty</b> is the sum of difficulties of the claimed tasks. <strong>Your loadout difficulty must meet the promised minimum.</strong> If not, the deal is immediately void and failed.</p>
-            <div class="notecard callout">
-                <p>As an example, the first group of tasks below all have threshold 3 and difficulty 1. By promising a minimum of 3, these tasks become claimable. You will then have to claim tasks so that the total difficulty is at least the promised minimum, i.e. 3. As all of these tasks have difficulty 1, in order to meet the promise, at least 3 players have to claim a task each.</p>
-            </div>
+            <p>Tasks in Selvar are individual. A task will be claimed by one player, and they have to succeed on the task. (Of course, other players will likely need to help.) In one deal, multiple tasks will be claimed at once by different players, and these tasks form your group's <b>loadout</b>.</p>
+            <p>However, you will claim tasks <em>after</em> you look at your hand, and you may claim from all the tasks available to you. This allows you to pick the best task your hand is most suited for.</p>
+            <p>In addition, each task has a <b>difficulty</b> (under "Diff") and a <b>threshold</b> (under "Thr"). In order to be allowed to claim a certain task, you must promise that your loadout's total difficulty adds up to at least the threshold.</p>
             
             <hr>
-            <p>Follow these modified rules for preparing a deal:</p>
+            <p><strong>Follow these modified rules for preparing a deal:</strong></p>
             <ol>
-                <li>Declare your promised minimum loadout difficulty.</li>
+                <li>Declare a natural number. This is your <b>promised minimum</b>, and you are promising your loadout's total difficulty is at least equal to this promised minimum.</li>
                 <li>Choose the captain, and distribute cards and pool tokens as normal. You may look at your hands, but do not seed the pool yet.</li>
-                <li>The captain may claim any claimable task (i.e. it is an unlocked Selvar task, and your promised minimum is at least as high as the task's threshold). The captain may instead choose to pass and not claim any task.</li>
-                <li>In clockwise order, each other player has the same choice of claiming a claimable task or passing. You may not claim a task already claimed by another player.</li>
-                <li>Compute your loadout difficulty (i.e. sum of difficulties of claimed tasks). If the loadout difficulty is less than the promised minimum, the deal immediately fails.</li>
+                <li>Starting from the captain and going clockwise, each player has one turn to choose one of the following options:<ul>
+                    <li>Claim a <b>claimable</b> task. A task is claimable if it has been unlocked, your promised minimum is greater than or equal to the task's threshold, and it has not been claimed by any other player this deal.</li>
+                    <li>Pass and do not claim any task.</li>
+                </ul></li>
+                <div class="notecard player">
+                    <p class="noindent"><strong>3p mode only:</strong> If all 3 players claim a task, the captain (and only the captain) gets a second turn to claim an additional task (or pass). If at least one player does not claim a task, the captain does not get this second turn.</p>
+                </div>
+                <li>Calculate your loadout's total difficulty, by adding up all the difficulties of the tasks you claimed. If this number is less than your promised minimum, <strong>the deal is void and immediately fails</strong>.</li>
+                <li>If your loadout's total difficulty meets the promised minimum, you may begin to play. As with usual regular worlds, you only mark the tasks as completed if you succeed on all claimed tasks.</li>
             </ol>
-            <p>You cannot discuss once cards have been distributed; this includes discussing what task you want or don't want to take.</p>
-            <p>Then seed the pool and play out tricks as normal. Check and record progress as with regular worlds: the deal is a success if you succeed on all tasks, and that allows you to mark all tasks in the loadout as succeeded.</p>
+            <p>As an example, the "P" group of tasks below all have threshold 3 and difficulty 1. By promising a minimum of 3, these tasks become claimable. Then, starting from the captain and going clockwise, you will have to claim tasks to that your loadout's total difficulty is at least the promised minimum, in this case 3. Because all claimable tasks have difficulty 1, that means at least 3 players must each claim a task.</p>
+            <p>As usual, you may not discuss once cards have been distributed. This means <strong>you may not discuss why you take or don't take a certain task</strong>. You are free to make plans before distributing cards though.</p>
+            <p>Note that <strong>you may claim any claimable task, even if you have succeeded on it before</strong>. Perhaps your hand doesn't fit any of the remaining incomplete tasks. Doing this will still count its difficulty, so it can help you meet a threshold.</p>
             
-            <div class="notecard player">
-                <p>In 3p, if everyone claims a task, the captain (and only the captain) gets a second turn where they may claim an additional task. This is to allow the deal to have 4 claimed tasks, just like in 4p. Note that the captain only gets this second turn if everyone claims a task (i.e. doesn't pass), including the captain on their first turn of claiming a task.</p>
-            </div>
-            <div class="notecard callout">
-                <p>You may claim any claimable task, regardless of whether it has been succeeded before. In other words, it is legal to claim a task that was previously succeeded in another deal. While you won't get to mark the task again, the task will still contribute to your loadout difficulty. The typical reason of doing this is that you don't have a good choice among the remaining tasks, so you want to play it safe.</p>
-                <p>You may have a loadout difficulty that is higher than your promised minimum, if you want. For that reason, your promised minimum will generally match one of the unlocked thresholds, as there is no incentive to promise any other number &mdash; you can just lower your promise without changing which tasks are claimable.</p>
-                <p>As you unlock more tasks, it becomes much more time-consuming to pore through the list of all claimable tasks. You will need to figure out how to deal with this with your play group.</p>
-            </div>
             <details class="notecard design"><summary>Click to read design notes of this world</summary>
                 <p>This is sort of a marriage between the task selection process in <cite>The Crew: Mission Deep Sea</cite> and in the <cite>LOTR Trick-Taking</cite> games. The <cite>LOTR Trick-Taking</cite> games have the concept of a "long chapter": every deal, each player chooses a character and tries to complete their task, and the goal is to succeed with every character at least once, across however many deals it takes. I borrowed it, and expanded it to cover all the tasks in this world.</p>
                 <p>I wanted to have tasks of varying difficulty, similar to <cite>Deep Sea</cite>. However, there was a way to "cheese" the difficulty: take just that one hard task, and everyone else takes easy tasks. To discourage that, I put in task thresholds. The threshold reminded me of <cite>Deep Sea</cite>'s missions, where the difficulty level is simply the sum of task difficulties.</p>
-                <p>In <cite>Deep Sea</cite>, it's possible some combinations of tasks are significantly easier or harder than intended. It's also possible to find such synergistic combos here, but because each task only counts once, having a combo that can be abused is less of a problem.</p>
+                <p>In <cite>Deep Sea</cite>, it's possible some combinations of tasks are significantly easier or harder than intended. It's also possible to find such synergistic combos here, but because you only need to succeed on a task once, having a combo that can be abused is less of a problem.</p>
+                <p>The 3p special rule is to allow a 3p group to claim 4 tasks in total, by having the captain claim twice. But if only 3 tasks are claimed, they should still be spread out to all players.</p>
             </details>
         </section>
         
-        <table class="task-table">
-            <colgroup> <col style="width: 2.5em;"> <col style="width: 2.5em;"> <col style="width: 2.5em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col">ID</th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">Task</th> </tr>
-            
-            <tr> <th scope="row" rowspan=6>3</th>
-                 <th scope="row">Pa</th> <th scope="row">1</th> <td>You must win exactly two tricks.</td> </tr>
-            <tr> <th scope="row">Pb</th> <th scope="row">1</th> <td>You must win the last trick.</td> </tr>
-            <tr> <th scope="row">Pc</th> <th scope="row">1</th> <td>You must win the three cards of rank 7.</td> </tr>
-            <tr> <th scope="row">Pd</th> <th scope="row">1</th> <td>You must win at least seven &clubs; clubs cards.</td> </tr>
-            <tr> <th scope="row">Pe</th> <th scope="row">1</th> <td>You must win some trick using a card of rank 1.</td> </tr>
-            <tr> <th scope="row">Pf</th> <th scope="row">1</th> <td>You must win some trick containing two cards of the same rank.</td> </tr>
-        </table>
         
-        <details class="notecard callout"><summary><strong>Objective:</strong> Succeed on Selvar tasks (overall, not necessarily in a single deal) with total difficulty 4</summary>
-            <p>You've unlocked additional tasks!</p>
-            
+        <div style="margin-top: 2em;">
             <table class="task-table">
-                <colgroup> <col style="width: 2.5em;"> <col style="width: 2.5em;"> <col style="width: 2.5em;"> <col style="width: auto;"> </colgroup>
+                <colgroup> <col style="width: 2.5em;"> <col style="width: 3.5em;"> <col style="width: 2.5em;"> <col style="width: auto;"> </colgroup>
+                <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col">ID</th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">Task</th> </tr>
+                
+                <tr> <th scope="row" rowspan=6>3</th>
+                     <th scope="row"><label class="render-after no-outline">Pa <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pa"></label></td>
+                    <th scope="row">1</th> <td>You must win exactly two tricks.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Pb <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pb"></label></td>
+                    <th scope="row">1</th> <td>You must win the last trick.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Pc <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pc"></label></td>
+                    <th scope="row">1</th> <td>You must win the three cards of rank 7.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Pd <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pd"></label></td>
+                    <th scope="row">1</th> <td>You must win at least seven &clubs; clubs cards.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Pe <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pe"></label></td>
+                    <th scope="row">1</th> <td>You must win some trick using a card of rank 1.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Pf <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pf"></label></td>
+                    <th scope="row">1</th> <td>You must win some trick containing two cards of the same rank.</td> </tr>
+            </table>
+        </div>
+        <details class="notecard envelope remember-details" id="togetrick-selvar-tasks1">
+            <summary><strong>Task Envelope 1:</strong> Open only when instructed</summary>
+            <table class="task-table">
+                <colgroup> <col style="width: 2.5em;"> <col style="width: 3.5em;"> <col style="width: 2.5em;"> <col style="width: auto;"> </colgroup>
                 <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col">ID</th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">Task</th> </tr>
                 
                 <tr> <th scope="row" rowspan=4>3</th>
-                     <th scope="row">Qa</th> <th scope="row">1</th> <td>You must play exactly two cards from the pool this deal, and both of them must be trumps.</td> </tr>
-                <tr> <th scope="row">Qb</th> <th scope="row">1</th> <td>You must play the 8 of Diamonds (8&diamondsuit;) as the third card of some trick.</td> </tr>
-                <tr> <th scope="row">Qc</th> <th scope="row">1</th> <td>You must win a different number of cards in each of the four suits.</td> </tr>
-                <tr> <th scope="row">Qd</th> <th scope="row">1</th> <td>At the end of the deal, you must have won the two cards with the same number rank as the leftover card in the pool. (The leftover card cannot be trump.)</td> </tr>
+                     <th scope="row"><label class="render-after no-outline">Qa <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qa"></label></td>
+                    <th scope="row">1</th> <td>You must play exactly two cards from the pool this deal, and both of them must be trumps.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Qb <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qb"></label></td>
+                    <th scope="row">1</th> <td>You must play the 8 of Diamonds (8&diamondsuit;) as the third card of some trick.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Qc <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qc"></label></td>
+                    <th scope="row">1</th> <td>You must win a different number of cards in each of the four suits.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Qd <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qd"></label></td>
+                    <th scope="row">1</th> <td>At the end of the deal, you must have won the two cards with the same number rank as the leftover card in the pool. (The leftover card cannot be trump.)</td> </tr>
                 
                 <tr> <th scope="row" rowspan=4>5</th>
-                     <th scope="row">Ra</th> <th scope="row">2</th> <td>You must win exactly 3 tricks, all in a row.</td> </tr>
-                <tr> <th scope="row">Rb</th> <th scope="row">2</th> <td>Every card you play from your hand must have a number rank that is lowest in its trick.</td> </tr>
-                <tr> <th scope="row">Rc</th> <th scope="row">2</th> <td>You must win the same number of cards in each of the three basic suits, at least one of each.</td> </tr>
-                <tr> <th scope="row">Rd</th> <th scope="row">2</th> <td>You may <em>not</em> play a card off-suit.</td> </tr>
+                     <th scope="row"><label class="render-after no-outline">Ra <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-ra"></label></td>
+                    <th scope="row">2</th> <td>You must win exactly 3 tricks, all in a row.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Rb <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-rb"></label></td>
+                    <th scope="row">2</th> <td>Every card you play from your hand must have a number rank that is lowest in its trick.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Rc <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-rc"></label></td>
+                    <th scope="row">2</th> <td>You must win the same number of cards in each of the three basic suits, at least one of each.</td> </tr>
+                <tr> <th scope="row"><label class="render-after no-outline">Rd <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-rd"></label></td>
+                    <th scope="row">2</th> <td>You may <em>not</em> play a card off-suit</td> </tr>
             </table>
             
             <details><summary>Clarifications for certain tasks</summary>
@@ -381,13 +447,18 @@
             </details>
         </details>
         
+        <details class="notecard objective remember-details" id="togetrick-selvar-total4">
+            <summary><strong>Objective:</strong> Total difficulty of your successful Selvar tasks (overall, not just a single deal) is at least 4</summary>
+            <p>You may now open <b>Task Envelope 1</b>!</p>
+        </details>
+        
     </section>
     
 </section>
 
 
 
-<section><h2 id="wilderness">The Wilderness</h2>
+<section style="margin-top: 100vh;"><h2 id="wilderness">The Wilderness</h2>
     <div class="notecard design">
         <p>"The Wilderness" is just a name, it's not an actual world. It's a place for me to put task ideas. Their quality varies. Many of them were tasks that I thought of (sometimes for an older iteration of the game), and haven't been touched up. Some of them seem to be interesting, and are just waiting playtesting to put them to the correct difficulty. Some might be basically ready, but I haven't yet found a place to put them in the campaign.</p>
         <p>(To be fair, some tasks in the campaign also haven't been tested, so they may also go back here to The Wilderness as other tasks replace them.)</p>

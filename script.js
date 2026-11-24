@@ -58,7 +58,7 @@ Details:
 - The ID must be unique globally over the entire website
 */
 function checkboxStorageName(el) {
-    return (el.id.slice(0,6) == "check-") ? el.id : "check-" + el.id;
+    return (el.id.startsWith("check-")) ? el.id : "check-" + el.id;
 }
 function rememberCheckbox(e) {
     const el = e.target;
@@ -70,7 +70,7 @@ function rememberCheckbox(e) {
 }
 
 function detailsStorageName(el) {
-    return (el.id.slice(0,7) == "opened-") ? el.id : "opened-" + el.id;
+    return (el.id.startsWith("opened-")) ? el.id : "opened-" + el.id;
 }
 function rememberDetails(e) {
     const el = e.target;
