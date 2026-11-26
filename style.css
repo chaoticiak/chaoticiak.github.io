@@ -409,7 +409,7 @@ button {
     font-family: inherit;
 }
 
-p.noindent {
+p.no-indent {
     text-indent: 0;
 }
 p.align-center {

@@ -20,7 +20,12 @@
         
         /* Hack for extensive world spacing: all worlds are h2 with ID beginning "world-" */
         section:has(> h2[id^="world-"]) {
-            margin-top: 8em;
+            margin-top: 100vh;
+        }
+        
+        /* Nunik moons want some spacing too but not as much */
+        .nunik-moon {
+            margin-top: 30vh;
         }
         
         /* Task tables are often full width, but not too large */
@@ -47,6 +52,7 @@
 </header>
 
 <div id="changelog">
+<p><b>v0.2.3, <time datetime="2026-11-27">27 November 2026</time>.</b> New world Nunik (but it's WIP), and some more templating changes. I should probably flesh out a world fully instead of having a ton of half-baked worlds.</p>
 <p><b>v0.2.2, <time datetime="2026-11-24">24 November 2026</time>.</b> Just some formatting/styling changes.</p>
 <p><b>v0.2.1, <time datetime="2026-10-06">06 October 2026</time>.</b> Altrik revision (up to H), plus Selvar (P-R blocks). The Wilderness is back just to dump ideas</p>
 <p><b>v0.2, <time datetime="2026-10-05">05 October 2026</time>.</b> Settled in on the main ruleset, now primarily designing the campaign. Lots of ideas, but very few actually penned down, and they might not even stay.</p>
@@ -78,13 +84,12 @@
             <li><a href="#record-campaign">Recording the campaign</a></li>
             <li><a href="#player-count">Player count</a></li>
         </ul></li>
-        <!-- <li><a href="#concepts">Concepts</a><ul>
-            <li><a href="#individual-voting">Individual voting</a></li>
-            <li><a href="#helper-cards">Helper cards</a></li>
-        </ul></li> -->
         <li><a href="#world-startia">Startia</a></li>
         <li><a href="#world-altrik">Altrik</a></li>
         <li><a href="#world-selvar">Selvar</a></li>
+        <li><a href="#world-nunik">Nunik</a><ul>
+            <li><a href="#world-nunik-delta">Nunik-&delta;</a></li>
+        </ul></li>
         <li><a href="#wilderness">The Wilderness</a></li>
     </ul></details>
 </section>
@@ -194,46 +199,6 @@
 
 
 
-<!--
-<section><h2 id="concepts">Concepts</h2>
-    <p>Several concepts in the campaign are repeated over multiple worlds. They are explained here. You don't have to read them until you encounter one.</p>
-    
-    
-    <section><h3 id="individual-voting">Individual voting</h3>
-        <p>Some tasks are assigned to a single player. Paths have a variety of ways to assign the tasks, but a common method is <b>individual voting</b>. If a task is to be assigned by individual voting, follow these rules.</p>
-        <div class="notecard accented">
-            <p><strong>After distributing cards:</strong> Each player simultaneously extends their thumb up or down. Then the captain chooses one player with a thumb up; they get assigned the task.</p>
-            <ul>
-                <li>The captain also extends their thumb up or down. If the captain shows a thumb up, they may choose themself.</li>
-                <li>If no player shows a thumb up, repeat this process until someone gets assigned the task.</li>
-            </ul>
-        </div>
-        
-        <div class="notecard solo">
-            <p>In the solo variant, as bots cannot vote, you make the decision on which bot gets assigned the task.</p>
-        </div>
-    </section>
-    
-    
-    <section><h3 id="helper-cards">Helper cards</h3>
-        <p>Some paths make use of the remaining cards that weren't used while preparing the 33-card deck. These cards are called <b>helper cards</b>, and they comprise of:</p>
-        <ul>
-            <li>1&ndash;10 of &spadesuit; spades</li>
-            <li>Jack, Queen, and King of &clubs; clubs, &diamondsuit; diamonds, and &hearts; hearts</li>
-            <li>(Jokers are never needed. However, in some cases, they may help substituting for other cards. You may make use of them as you see fit.)</li>
-        </ul>
-        
-        <p>Not every helper card will be used each time. Refer to setup instructions to prepare the helper cards. Helper cards are usually face up in front of a player, although sometimes they are face down.</p>
-        <p>Helper cards <strong>never</strong> go into your hand. Make sure not to mix them with cards in your hand.</p>
-        <p>At the end of the deal, make sure to separate the helper cards from the rest of the deck.</p>
-    </section>
-    
-    
-</section>
--->
-
-
-
 
 
 <section><h2 id="world-startia">Startia</h2>
@@ -272,23 +237,17 @@
         <p><strong>Regular world.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely.</p>
     </div>
     
-    <details class="notecard envelope remember-details" id="togetrick-altrik-matchmaker">
-        <summary><strong>Envelope MM:</strong> Open only when instructed</summary>
-        <section class="notecard accented"><h4>Altrik Matchmaker</h4>
-            <p>Altrik Matchmaker is a special game mode in Altrik. Your goal is to form <b>task pairs</b>, by completing two tasks simultaneously in the same deal. A task may be involved in any number of task pairs at once; however, the primary goal is to have as many <b>simultaneous task pairs</b> as possible, where you select task pairs with no overlaps.</p>
-            
-            <hr>
-            <p><strong>Forming a task pair:</strong> Choose any two unlocked Altrik tasks. Play a deal and succeed on both tasks simultaneously. If you succeed, those two tasks become a <b>task pair</b>.</p>
-            <p><strong>Simultaneous task pairs:</strong> From the task pairs you have completed, select as many task pairs as you can that do not overlap in any way, i.e. each task is involved in at most one of the selected task pairs. The selected task pairs form <b>simultaneous task pairs</b>. Many objectives in Altrik want you to have as many simultaneous task pairs as possible. You may retry forming simultaneous task pairs any time you want.</p>
-            <p>You can form task pairs even if they won't help you get more simultaneous task pairs at the moment. Keep a record of them; they may be helpful to form more simultaneous task pairs in the future.</p>
-            <p>You may play a deal with more than two tasks. If you succeed, you form every possible task pair involving those tasks.</p>
-            
-            <div class="notecard design">
-                <p>It is possible to borrow concepts from graph theory. Each task is a vertex; each task pair is an edge. Then simultaneous task pairs form a <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)">matching</a>, and you want to maximize the size of your matching.</p>
-                <p>This game mode came from an earlier iteration of this world, where I put <em>objectives</em> of completing task pairs. I turned it into a <em>game mode</em> instead, thus supporting it more broadly in this world.</p>
-                <p>There is currently no way to record task pairs on this webpage. I'm trying to figure out if there's a good way to do so on this webpage, but in the meantime, please record them yourself some other way.</p>
-            </div>
-        </section>
+    <details class="notecard accented remember-details" id="togetrick-altrik-matchmaker">
+        <summary><span class="boxedtext envelope"><strong>Envelope AM:</strong></span> Open only when instructed</summary>
+        <h4>Altrik Matchmaker</h4>
+        <p>Altrik Matchmaker is a special game mode in Altrik. Your goal is to form <b>task pairs</b>, by completing two tasks simultaneously in the same deal. A task may be involved in any number of task pairs at once; however, the primary goal is to have as many <b>simultaneous task pairs</b> as possible, where you select task pairs with no overlaps.</p>
+        
+        <hr>
+        <p><strong>Forming a task pair:</strong> Choose any two unlocked Altrik tasks. Play a deal and succeed on both tasks simultaneously. If you succeed, those two tasks become a <b>task pair</b>.</p>
+        <p><strong>Simultaneous task pairs:</strong> From the task pairs you have completed, select as many task pairs as you can that do not overlap in any way, i.e. each task is involved in at most one of the selected task pairs. The selected task pairs form <b>simultaneous task pairs</b>. Many objectives in Altrik want you to have as many simultaneous task pairs as possible. You may retry forming simultaneous task pairs any time you want.</p>
+        <p>You can form task pairs even if they won't help you get more simultaneous task pairs at the moment. Keep a record of them; they may be helpful to form more simultaneous task pairs in the future.</p>
+        <p>You may play a deal with more than two tasks. If you succeed, you form every possible task pair involving those tasks.</p>
+        <p>There is currently no way to record task pairs on this webpage. I'm trying to figure out if there's a good way to do so on this webpage, but in the meantime, please record them yourself some other way.</p>
     </details>
     
     
@@ -300,7 +259,7 @@
             <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-b"></label></td>
                 <td>No trick may be led by a &clubs; clubs card.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-c"></label></td>
-                <td>Every trick must contain some card whose rank is in the range 1&ndash;3.</td> </tr>
+                <td>Every trick must contain some card with rank 1&ndash;3.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-d"></label></td>
                 <td>Every trick must contain some card with odd number rank and some card with even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
         </table>
@@ -312,7 +271,7 @@
             <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-e"></label></td>
                 <td>In every trick, the card played from the pool must be the third card played in the trick.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-f"></label></td>
-                <td>The 1st trick must contain some card with rank 1; the 2nd trick must contain a 2; and so on until the 8th trick.</td> </tr>
+                <td>The 1st trick must contain some card with rank 1 (i.e. Ace); the 2nd trick must contain a 2; the 3rd trick must contain a 3; and so on until the 8th trick.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">G <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-g"></label></td>
                 <td>Every trick must contain at least two different suits.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">H <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-h"></label></td>
@@ -321,17 +280,23 @@
     </details>
     
     
-    <details class="notecard objective remember-details" id="togetrick-altrik-started">
+    <details class="notecard objective remember-details" id="togetrick-altrik-total2">
         <summary><strong>Objective:</strong> Succeed on 2 Altrik tasks</summary>
-        <p>You have unlocked world <a href="#world-selvar">Selvar</a>! You may head there for a new experience.</p>
-        <p>Additionally, you have unlocked <b>Altrik Matchmaker!</b> It is a special game mode in Altrik. Open <b>Envelope MM</b> for the full rules.</p>
+        <p>You have unlocked world <a href="#world-selvar">Selvar</a>!</p>
+        <p>You may also now open <b>Task Envelope 1</b>!</p>
     </details>
     
-    <details class="notecard objective remember-details" id="togetrick-altrik-1pair">
-        <summary><strong>Objective:</strong> Form 1 task pair (complete the previous objective to learn about task pairs)</summary>
-        <p>You may now open <b>Task Envelope 1</b>!</p>
+    <details class="notecard objective remember-details" id="togetrick-altrik-total5">
+        <summary><strong>Objective:</strong> Succeed on 5 Altrik tasks</summary>
+        <p>Additionally, you have unlocked <b>Altrik Matchmaker</b>! It is a special game mode in Altrik. Open <b>Envelope AM</b> for the full rules.</p>
     </details>
     
+    <details class="notecard design"><summary>Click to read Altrik's design notes (contains spoilers)</summary>
+        <p>Altrik was originally designed to be a starting world (after Startia), so it presented itself as just a regular world with a list of tasks. However, this proved to be too open to me, so I thought of a theme on the task. I decided on the theme of "all tricks": each trick has some requirement.</p>
+        <p>However, I was tempted to introduce some special rules. I wanted the focus to be on the tasks; I should not extensively modify the tasks to fit in the special rules. The simplest mechanism I could think of &mdash; which was the basis of <cite>The Crew 1 &amp; 2</cite> and a common suggestion in <cite>The Crew 3</cite> &mdash; was that there are multiple tasks active.</p>
+        <p>Originally, I simply had <em>objectives</em> of completing multiple tasks simultaneously; doing so once would complete an objective. But I decided to turn it into a <em>game mode</em> instead; this blew open the possibilities and let players try in any way they want.</p>
+        <p>Altrik Matchmaker can be phrased in terms of graph theory. Each task is a vertex, and each task pair is an edge. Then simultaneous task pairs form a <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)">matching</a>, and you want to maximize the size of the matching.</p>
+    </details>
 </section>
 
 
@@ -362,7 +327,7 @@
                 <li>Pass and do not claim any task.</li>
             </ul></li>
             <div class="notecard player">
-                <p class="noindent"><strong>3p mode only:</strong> If all 3 players claim a task, the captain (and only the captain) gets a second turn to claim an additional task (or pass). If at least one player does not claim a task, the captain does not get this second turn.</p>
+                <p class="no-indent"><strong>3p mode only:</strong> If all 3 players claim a task, the captain (and only the captain) gets a second turn to claim an additional task (or pass). If at least one player does not claim a task, the captain does not get this second turn.</p>
             </div>
             <li>Calculate your loadout's total difficulty, by adding up all the difficulties of the tasks you claimed. If this number is less than your promised minimum, <strong>the deal is void and immediately fails</strong>.</li>
             <li>If your loadout's total difficulty meets the promised minimum, you may begin to play. As with usual regular worlds, you only mark the tasks as completed if you succeed on all claimed tasks.</li>
@@ -370,61 +335,54 @@
         <p>As an example, the "P" group of tasks below all have threshold 2 and difficulty 1. By promising a minimum of 2, these tasks become claimable. Then, starting from the captain and going clockwise, you will have to claim tasks to that your loadout's total difficulty is at least the promised minimum, in this case 2. Because all claimable tasks have difficulty 1, that means at least 2 players must each claim a task.</p>
         <p>As usual, you may not discuss once cards have been distributed. This means <strong>you may not discuss why you take or don't take a certain task</strong>. You are free to make plans before distributing cards though.</p>
         <p>Note that <strong>you may claim any claimable task, even if you have succeeded on it before</strong>. Perhaps your hand doesn't fit any of the remaining incomplete tasks. Doing this will still count its difficulty, so it can help you meet a threshold.</p>
-        
-        <details class="notecard design"><summary>Click to read design notes of this world</summary>
-            <p>This is sort of a marriage between the task selection process in <cite>The Crew: Mission Deep Sea</cite> and in the <cite>LOTR Trick-Taking</cite> games. The <cite>LOTR Trick-Taking</cite> games have the concept of a "long chapter": every deal, each player chooses a character and tries to complete their task, and the goal is to succeed with every character at least once, across however many deals it takes. I borrowed it, and expanded it to cover all the tasks in this world.</p>
-            <p>I wanted to have tasks of varying difficulty, similar to <cite>Deep Sea</cite>. However, there was a way to "cheese" the difficulty: take just that one hard task, and everyone else takes easy tasks. To discourage that, I put in task thresholds. The threshold reminded me of <cite>Deep Sea</cite>'s missions, where the difficulty level is simply the sum of task difficulties.</p>
-            <p>In <cite>Deep Sea</cite>, it's possible some combinations of tasks are significantly easier or harder than intended. It's also possible to find such synergistic combos here, but because you only need to succeed on a task once, having a combo that can be abused is less of a problem.</p>
-            <p>The 3p special rule is to allow a 3p group to claim 4 tasks in total, by having the captain claim twice. But if only 3 tasks are claimed, they should still be spread out to all players.</p>
-        </details>
     </details>
     
     
     <div style="margin-top: 3em;">
         <table class="task-table">
-            <colgroup> <col style="width: 2.5em;"> <col style="width: 3.5em;"> <col style="width: 2.5em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col">ID</th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">Task</th> </tr>
+            <colgroup> <col style="width: 2.5em;"> <col style="width: 2.5em;"> <col style="width: 3.5em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">ID</th> <th scope="col">Task</th> </tr>
             
-            <tr> <th scope="row" rowspan=6 style="font-size: 150%;">2</th>
+            <tr> <th scope="row" rowspan=6 style="font-size: 125%;">2</th> <th scope="row" rowspan=6 style="font-size: 125%;">1</th>
                  <th scope="row"><label class="render-after no-outline">Pa <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pa"></label></td>
-                <th scope="row">1</th> <td>You must win exactly two tricks.</td> </tr>
+                <td>You must win exactly two tricks.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Pb <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pb"></label></td>
-                <th scope="row">1</th> <td>You must win the last trick.</td> </tr>
+                <td>You must win the last trick.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Pc <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pc"></label></td>
-                <th scope="row">1</th> <td>You must win the three cards of rank 7.</td> </tr>
+                <td>You must win the three cards of rank 7.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Pd <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pd"></label></td>
-                <th scope="row">1</th> <td>You must win at least seven &clubs; clubs cards.</td> </tr>
+                <td>You must win at least seven &clubs; clubs cards.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Pe <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pe"></label></td>
-                <th scope="row">1</th> <td>You must win some trick using a card of rank 1.</td> </tr>
+                <td>You must win some trick using a card of rank 1.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Pf <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-pf"></label></td>
-                <th scope="row">1</th> <td>You must win some trick containing two cards of the same rank.</td> </tr>
+                <td>You must win some trick containing two cards of the same rank.</td> </tr>
         </table>
     </div>
     <details class="notecard envelope remember-details" id="togetrick-selvar-tasks1">
         <summary><strong>Task Envelope 1:</strong> Open only when instructed</summary>
         <table class="task-table">
-            <colgroup> <col style="width: 2.5em;"> <col style="width: 3.5em;"> <col style="width: 2.5em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col">ID</th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">Task</th> </tr>
+            <colgroup> <col style="width: 2.5em;"> <col style="width: 2.5em;"> <col style="width: 3.5em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="col"><abbr title="Threshold">Thr</abbr></th> <th scope="col"><abbr title="Difficulty">Diff</abbr></th> <th scope="col">ID</th> <th scope="col">Task</th> </tr>
             
-            <tr> <th scope="row" rowspan=4 style="font-size: 150%;">5</th>
+            <tr> <th scope="row" rowspan=4 style="font-size: 125%;">5</th> <th scope="row" rowspan=4 style="font-size: 125%;">2</th>
                  <th scope="row"><label class="render-after no-outline">Qa <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qa"></label></td>
-                <th scope="row">2</th> <td>You must play exactly two cards from the pool this deal, and both of them must be trumps.</td> </tr>
+                <td>You must play exactly two cards from the pool this deal, and both of them must be trumps.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Qb <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qb"></label></td>
-                <th scope="row">2</th> <td>You must play the 8&diamondsuit; (8 of Diamonds) as the third card of some trick.</td> </tr>
+                <td>You must play the 8&diamondsuit; (8 of Diamonds) as the third card of some trick.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Qc <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qc"></label></td>
-                <th scope="row">2</th> <td>You must win a different number of cards in each of the four suits.</td> </tr>
+                <td>You must win a different number of cards in each of the four suits.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Qd <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-qd"></label></td>
-                <th scope="row">2</th> <td>At the end of the deal, you must have won the two cards with the same number rank as the leftover card in the pool. (The leftover card cannot be trump.)</td> </tr>
+                <td>At the end of the deal, you must have won the two cards with the same number rank as the leftover card in the pool. (The leftover card cannot be trump.)</td> </tr>
             
-            <tr> <th scope="row" rowspan=4 style="font-size: 150%;">8</th>
+            <tr> <th scope="row" rowspan=4 style="font-size: 125%;">8</th> <th scope="row" rowspan=4 style="font-size: 125%;">3</th>
                  <th scope="row"><label class="render-after no-outline">Ra <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-ra"></label></td>
-                <th scope="row">3</th> <td>You must win exactly 3 tricks, all in a row.</td> </tr>
+                <td>You must win exactly 3 tricks, all in a row.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Rb <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-rb"></label></td>
-                <th scope="row">3</th> <td>Every card you play from your hand must have a number rank that is lowest in its trick.</td> </tr>
+                <td>Every card you play from your hand must have a number rank that is lowest in its trick.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Rc <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-rc"></label></td>
-                <th scope="row">3</th> <td>You must win the same number of cards in each of the three basic suits, at least one of each.</td> </tr>
+                <td>You must win the same number of cards in each of the three basic suits, at least one of each.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">Rd <input type="checkbox" class="remember-checkbox" id="togetrick-selvar-rd"></label></td>
-                <th scope="row">3</th> <td>You may <em>not</em> play a card off-suit</td> </tr>
+                <td>You may <em>not</em> play a card off-suit.</td> </tr>
         </table>
         
         <details><summary>Clarifications for certain tasks</summary>
@@ -437,10 +395,297 @@
         </details>
     </details>
     
+    <div class="notecard objective">
+        <p>Selvar's objectives are concerned with the total difficulty of Selvar tasks you have succeeded. This counts all tasks overall, not just tasks in a single deal.</p>
+    </div>
+    
     <details class="notecard objective remember-details" id="togetrick-selvar-total4">
-        <summary><strong>Objective:</strong> Total difficulty of your successful Selvar tasks (overall, not just a single deal) is at least 4</summary>
-        <p>You may now open <b>Task Envelope 1</b>!</p>
+        <summary><strong>Objective:</strong> Succeed on a total of 4</summary>
+        <p>You have unlocked world <a href="#world-nunik">Nunik</a> and its moons!</p>
+        <p>You may also now open <b>Task Envelope 1</b>!</p>
     </details>
+    
+    <details class="notecard design"><summary>Click to read Selvar's design notes</summary>
+        <p>Selvar Loadout is sort of a marriage between the task selection process in <cite>The Crew 2</cite> and in the <cite>LOTR Trick-Taking</cite> games. The <cite>LOTR Trick-Taking</cite> games have the concept of a "long chapter": every deal, each player chooses a character and tries to complete their task, and the goal is to succeed with every character at least once, across however many deals it takes. I borrowed it, and expanded it to cover all the tasks in this world.</p>
+        <p>I wanted to have tasks of varying difficulty, similar to <cite>The Crew 2</cite>. However, there was a way to "cheese" the difficulty: take just that one hard task, and everyone else takes easy tasks. To discourage that, I put in task thresholds. The threshold reminded me of <cite>The Crew 2</cite>'s missions, where the difficulty level is simply the sum of task difficulties.</p>
+        <p>The 3p special rule is to allow a 3p group to claim 4 tasks in total, by having the captain claim twice. But if only 3 tasks are claimed, they should still be spread out to all players.</p>
+    </details>
+</section>
+
+
+
+
+
+<section><h2 id="world-nunik">Nunik</h2>
+<p class="subtitle">Nunik's moons offer new and unique experiences. Bring your own new and unique performance to Nunik.</p>
+    
+    <div class="notecard accented">
+        <p><label><input type="checkbox" class="remember-checkbox" id="togetrick-nunik-unlocked"></label> Click here if you have unlocked Nunik, so your browser can remember it.</p>
+        <p><strong>Special world.</strong> Read the <b>Nunik Spectacle</b> rules below.</p>
+    </div>
+    
+    <div class="notecard accented">
+        <p>Unlocking Nunik will also unlock all of its moons:</p>
+        <ul class="collapse">
+            <li><a href="#world-randaux">Randaux</a></li>
+            <li><a href="#world-trumphit">Trumphit</a></li>
+        </ul>
+    </div>
+    
+    <details class="notecard accented remember-details" id="togetrick-nunik-gilder">
+        <summary><strong>Nunik Spectacle:</strong> Click to read the rules</summary>
+        <p>A game in Nunik is a <b>spectacle</b> (written "<abbr>Spec.</abbr>" below) consisting of several deals. Your goal is to perform <b>stunts</b> at the right trick numbers. However, stunts are closely-guarded secrets; you have to explore Nunik's many <b>moons</b> to learn what stunts you may perform.</p>
+        
+        <hr>
+        <p><strong>Playing a game in Nunik:</strong> Choose a <b>spectacle</b>. Each spectacle lists a number of <b>targets</b>, which are numbers between 1&ndash;8. Some targets are <b>doubled</b>, indicated by the "2&times;" doubler indicator.</p>
+        <ul>
+            <li>You will have to keep track of which targets you have scored. You can use pen and paper for this; start by writing down all targets.</li>
+            <li>Alternatively, you may also use the unused cards of the deck. Take unused &spadesuit; spades cards with ranks matching the targets and lay them down on the table, together with an unused honor card to place across each doubled target.</li>
+        </ul>
+        
+        <hr>
+        <p>Each spectacle consists of several deals. In each deal, play a trick normally, but count which trick number you're at: 1st&ndash;8th.</p>
+        <p>If a trick satisfies the conditions of a <b>stunt</b>, you may <b>score</b> the trick:</p>
+        <ul>
+            <li>Check if the current trick number is a target. If so, cross it out (or flip the corresponding &spades; spades card face-down).</li>
+            <li>If the target is doubled, instead cross out the "2&times;" doubler indicator (or remove the honor card). You will need to cross this target once more in a future deal.</li>
+        </ul>
+        <p>A deal may consist of any number of different stunts, but each stunt may only be scored <strong>once per deal</strong>. It may be scored again in a future deal.</p>
+        <div class="notecard callout">
+            <p>Some edge cases:</p>
+            <ul>
+                <li>If a trick satisfies the conditions of a stunt, but the current trick number is <em>not</em> a target, ignore it. The stunt is not scored, which means you may do the stunt again later this deal.</li>
+                <li>If a trick satisfies multiple stunts, the captain chooses which stunt it will be scored as. The other non-chosen stunts are not scored, which means you may do them again later this deal.</li>
+                <li>Scoring a stunt is optional. In the rare case the captain prefers not to score a stunt, they may state so. Then the stunt is not scored, which means you may do the stunt again later this deal. (But it also means you don't get to cross out the associated target.)</li>
+                <li>You must decide whether to score a stunt before you begin the next trick.</li>
+            </ul>
+        </div>
+        
+        <hr>
+        <p>You may call off a deal once the trick number has gone past your last uncrossed target, because there's nothing else you do that will affect the spectacle. You may also call off a deal early if you wish to do so.</p>
+        <p>After completing a deal, check whether you have crossed out all targets (or flipped all the &spades; spades cards face-down). If you do, you have showcased the spectacle, you win! If not, set up another deal if you still have deals remaining. If you run out of deals, you lose; try again.</p>
+        <p>The conditions to perform stunts are all sealed in Nunik's envelopes. You need to visit Nunik's <b>moons</b> and complete their objectives in order to open these envelopes. Any stunt you learn of may be used in any of your Nunik's games.</p>
+    </details>
+    
+    
+    <div style="margin-top: 3em;">
+        <table class="task-table">
+            <colgroup> <col style="width: 4em;"> <col style="width: 4em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="col"><abbr title="Spectacle">Spec.</abbr></th> <th scope="col">Deals</th> <th scope="col">Targets</th> </tr>
+            
+            <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-nunik-a"></label></td>
+                <th scope="row">1</th> <td>8</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-nunik-b"></label></td>
+                <th scope="row">2</th> <td>3, 5, 7</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-nunik-c"></label></td>
+                <th scope="row">2</th> <td>1, 5, 6, 7, 8</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-nunik-d"></label></td>
+                <th scope="row">3</th> <td>1, 2, 4(2&times;), 5, 7, 8(2&times;)</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-nunik-e"></label></td>
+                <th scope="row">4</th> <td>1(2&times;), 2(2&times;), 3(2&times;), 4(2&times;), 5(2&times;), 6(2&times;), 7(2&times;), 8(2&times;)</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-nunik-f"></label></td>
+                <th scope="row">3</th> <td>1, 2(2&times;), 3(2&times;), 4(2&times;), 5(2&times;), 6(2&times;), 7(2&times;), 8(2&times;)</td> </tr>
+        </table>
+    </div>
+    
+    <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-r1">
+        <summary><strong>Stunt Envelope R1:</strong> Obtain opening instructions from Randaux</summary>
+        <p>The four cards of this trick, in order of being played, must be: a &clubs; clubs card, a &diamondsuit; diamonds card, a &hearts; hearts card, and a &spadesuit; spades card.</p>
+    </details>
+    
+    <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-r2">
+        <summary><strong>Stunt Envelope R2:</strong> Obtain opening instructions from Randaux</summary>
+        <p>The trick must contain exactly two different suits: one appears as the 1st and the 3rd cards played this trick, and the other appears as the 2nd and 4th cards.</p>
+    </details>
+    
+    <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-t1">
+        <summary><strong>Stunt Envelope T1:</strong> Obtain opening instructions from Trumphit</summary>
+        <p>The four cards of this trick must have number ranks, and each card played after the first must be exactly 1 greater than the previous.</p>
+    </details>
+    
+    <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-t2">
+        <summary><strong>Stunt Envelope T2:</strong> Obtain opening instructions from Trumphit</summary>
+        <p>The four cards of this trick must have number ranks, and the highest rank among them must be equal to the sum of the three other cards' ranks.</p>
+    </details>
+    
+    <details class="notecard objective remember-details" id="togetrick-nunik-objective-list">
+        <summary>Click here for the objectives (they take up a bit of space)</summary>
+        
+        <details class="notecard objective remember-details" id="togetrick-nunik-objective-a">
+            <summary><strong>Objective:</strong> Complete spectacle A</summary>
+            <p>(pending)</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-nunik-objective-b">
+            <summary><strong>Objective:</strong> Complete spectacle B</summary>
+            <p>(pending)</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-nunik-objective-c">
+            <summary><strong>Objective:</strong> Complete spectacle C</summary>
+            <p>(pending)</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-nunik-objective-d">
+            <summary><strong>Objective:</strong> Complete spectacle D</summary>
+            <p>(pending)</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-nunik-objective-e">
+            <summary><strong>Objective:</strong> Complete spectacle E</summary>
+            <p>(pending)</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-nunik-objective-f">
+            <summary><strong>Objective:</strong> Complete spectacle F</summary>
+            <p>(pending)</p>
+        </details>
+    </details>
+    
+    
+    <details class="notecard design"><summary>Click to read Nunik's design notes</summary>
+        <p>Nunik was actually originally designed as a "hub world". I had several task ideas with very weird rules. However, I didn't think I could support them in a full-fledged "main" world; most of the main worlds have special rules onto them. That led me to the idea of having a hub world leading to "moons", i.e. smaller worlds. Being a smaller world, it felt easier to justify having weird rules and nothing else.</p>
+        <p>That naturally led me into thinking, what should the moons give back to the hub world? The idea I came up with was, each moon would unlock some sort of task that could be used in the hub world. I wanted players to be encouraged to do multiple moons and unlock multiple tasks, so I decided that a task would "gild" (apply to) a trick, and you needed to gild several tricks at once without repeating tasks. From there, I hashed the details, including broadening the games to cover multiple deals.</p>
+    </details>
+    
+    
+    
+    <section><h3 class="nunik-moon" id="world-randaux">Randaux</h3>
+    <p class="subtitle">In Randaux, tasks have an element of randomness introduced by auxiliary unused cards.</p>
+        
+        <div class="notecard accented">
+            <p><strong>Regular world.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely.</p>
+            <p>This world is a moon of <a href="#world-nunik">Nunik</a>. If you have unlocked Nunik, you also unlock this world.</p>
+        </div>
+        <div class="notecard accented">
+            <h4>Randaux special rule</h4>
+            <p>All tasks in this world require <b>auxiliary cards</b>, i.e. the unused cards that don't make up the deck. <strong>Keep the auxiliary cards separate from the deck.</strong> Don't get them mixed up with your hand, the tricks you've won, etc.</p>
+            <p>The auxiliary cards are dealt "after distributing cards", i.e. after you are dealt your hand, but before you seed the pool. In some cases, you have a decision to do with the auxiliary cards; you may look at your hand before making the decision.</p>
+            <details><summary>Click here for some specific terminology about auxiliary cards</summary>
+                <ul>
+                    <li><b>"<var>N</var> unused &spadesuit; spades":</b> Unless otherwise stated, this means 1&ndash;<var>N</var> of &spadesuit; Spades. (Recall that 1 is the Ace.) For example, "8 unused &spadesuit; spades" means 1&ndash;8&spadesuit;.</li>
+                    <li><b>"Unused honors":</b> This means J&ndash;K of &clubs; Clubs, &diamondsuit; Diamonds, and &hearts; Hearts. ("Honors" by itself means the ranks J&ndash;K.) Sometimes this is restricted into e.g. "unused Jacks" or "unused red honors" (i.e. &diamondsuit; diamonds and &hearts; hearts).</li>
+                    <li><b>"Jokers":</b> Two jokers: one black, one colored. If jokers are not available, you can typically substitute with other unused cards.</li>
+                </ul>
+            </details>
+            
+            <hr>
+            <p>Every task in Randaux comes in two variants: the auxiliary cards can be dealt <strong>face-up</strong> or <strong>face-down</strong>. Face-up means everyone knows everyone's auxiliary cards. Face-down means only you know yours. The task description tells where you should deal auxiliary cards face-up or face-down.</p>
+            <p>The face-down variant is obviously more difficult than the face-up variant. Therefore, succeeding on the face-down variant also automatically succeeds the face-up variant. The two variants count as separate tasks for the purpose of counting how many tasks you've succeeded.</p>
+            <div class="notecard solo">
+                <p>When playing solo, you cannot attempt the face-down variant.</p>
+            </div>
+        </div>
+        
+        <table class="task-table" style="margin-top: 3em;">
+            <colgroup> <col style="width: 3em;"> <col style="width: 3em;"> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="col">Task</th> <th scope="col">Up</th> <th scope="col">Down</th> <th scope="col">Task text</th> </tr>
+            <tr> <th scope="row" style="font-size: 125%;">A</th>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-a-up"></label></td>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-a-down"></label></td>
+                <td>
+                    <p class="no-indent"><strong>After distributing cards:</strong> Take 8 unused &spadesuit; spades and any <span class="boxedtext player">(3p) 7 / (4p) 8</span> unused honors, shuffle, and deal (face-up/face-down) equally to each player. Discard the honors as they are dealt.</p>
+                    <p class="no-indent">Each player must win exactly as many tricks as auxiliary cards they have (excluding the honors).</p>
+                </td>
+            </tr>
+            <tr> <th scope="row" style="font-size: 125%;">B</th>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-b-up"></label></td>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-b-down"></label></td>
+                <td>
+                    <p class="no-indent"><strong>After distributing cards:</strong> Take 8 unused &spadesuit; spades and any 4 unused honors, shuffle, and deal (face-up/face-down) equally to each player. Discard the honors as they are dealt.</p>
+                    <p class="no-indent">The 1&spades; player should win the 1st trick; the 2&spades; player should win the 2nd trick; and so on until the 8&spades;. Among these 8 goals, succeed on at least 6 of them.</p>
+                </td>
+            </tr>
+            <tr> <th scope="row" style="font-size: 125%;">C</th>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-c-up"></label></td>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-c-down"></label></td>
+                <td>
+                    <p class="no-indent"><strong>After distributing cards:</strong> Take the unused Jacks. <span class="boxedtext player">In 4p, also include the 1&spades; (Ace of Spades).</span> Shuffle and deal one (face-up/face-down) to each player.</p>
+                    <p class="no-indent">Each player may not win any card whose suit matches their auxiliary card.</p>
+                </td>
+            </tr>
+            <tr> <th scope="row" style="font-size: 125%;">D</th>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-d-up"></label></td>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-d-down"></label></td>
+                <td>
+                    <p class="no-indent"><strong>After distributing cards:</strong> Take the unused &hearts; hearts honors. <span class="boxedtext player">In 4p, also include the black Joker.</span> Shuffle and deal one (face-up/face-down) to each player.</p>
+                    <p class="no-indent">The J&hearts; player must win at least one &hearts; hearts card.<br>
+                    The Q&hearts; player must win strictly more hearts cards than the J&hearts; player.<br>
+                    The K&hearts; player must win strictly more hearts cards than the Q&hearts; player.<br>
+                    <span class="boxedtext player">In 4p, the Joker player doesn't have any restrictions.</span></p>
+                </td>
+            </tr>
+            <tr> <th scope="row" style="font-size: 125%;">E</th>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-e-up"></label></td>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-e-down"></label></td>
+                <td>
+                    <p class="no-indent"><strong>After distributing cards:</strong> Take 10 unused &spades; spades, shuffle, and deal <span class="boxedtext player">(3p) 3 / (4p) 2</span> <strong>face-down</strong> to each player; discard the rest face-up. Look at your cards, then choose one to (reveal face-up / keep face-down). Discard the rest face-down.</p>
+                    <p class="no-indent">Each player must win <span class="boxedtext player">(3p) all 3 cards / (4p) at least 2 cards</span> of the same rank as their chosen auxiliary card.</span></p>
+                </td>
+            </tr>
+            <tr> <th scope="row" style="font-size: 125%;">F</th>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-f-up"></label></td>
+                <td class="align-center" style="font-size: 125%;"><label class="render-after no-outline"><input type="checkbox" class="remember-checkbox" id="togetrick-randaux-f-down"></label></td>
+                <td>
+                    <p class="no-indent"><strong>After distributing cards:</strong> Take 10 unused &spades; spades, shuffle, and deal <span class="boxedtext player">(3p) 3 / (4p) 2</span> (face-up/face-down) to each player; discard the rest face-up.</p>
+                    <p class="no-indent">After each trick, the player who played from the pool must reveal and discard an auxiliary card whose rank appears in the trick. (If there are multiple choices, they may choose any.) If they don't have a matching auxiliary card, the deal is lost.</p>
+                </td>
+            </tr>
+        </table>
+        
+        <details class="notecard objective remember-details" id="togetrick-randaux-midway">
+            <summary><strong>Objective:</strong> Succeed on 3 Randaux tasks</summary>
+            <p>You may now open Nunik's <b>Gilding Condition Envelope R1</b>!</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-randaux-all">
+            <summary><strong>Objective:</strong> Succeed on 6 Randaux tasks</summary>
+            <p>You may now open Nunik's <b>Gilding Condition Envelope R2</b>!</p>
+        </details>
+        
+    </section>
+    
+    
+    
+    <section><h3 class="nunik-moon" id="world-trumphit">Trumphit</h3>
+    <p class="subtitle">In Trumphit, trumps are hitmen that take out their entire tricks.</p>
+        
+        <div class="notecard accented">
+            <p><strong>Regular world.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely.</p>
+            <p>This world is a moon of <a href="#world-nunik">Nunik</a>. If you have unlocked Nunik, you also unlock this world.</p>
+        </div>
+        <div class="notecard accented">
+            <h4>Trumphit special rule</h4>
+            <p>For all tasks in this world: If a won trick contains a trump, <strong>discard the trick</strong> instead of its winner keeping it in front of them. The trick and its cards are treated as nonexistent by the game. The cards are not won by any player, the trick is considered to have not been played, etc. There is one exception: the discarded trick's winner will still lead the next trick.</p>
+        </div>
+        
+        <table class="task-table" style="margin-top: 3em;">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-a"></label></td>
+                <td>The number of tricks won by all players must be <span class="boxedtext player">(3p) 1, 2, 3 / (4p) 0, 1, 2, 3</span> in some order.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-b"></label></td>
+                <td>Every player must win exactly two &clubs; clubs cards.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-c"></label></td>
+                <td>Every trick must contain exactly one &clubs; clubs card.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-d"></label></td>
+                <td>Every trick must be won by a card with rank 1&ndash;5.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-e"></label></td>
+                <td>No card of rank 6 or 7 may be won by any player. (The leftover card in the pool is not won by any player.)</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-f"></label></td>
+                <td>Everyone except one player must win exactly 0 tricks.</td> </tr>
+        </table>
+        
+        <details class="notecard objective remember-details" id="togetrick-trumphit-midway">
+            <summary><strong>Objective:</strong> Succeed on 3 Trumphit tasks</summary>
+            <p>You may now open Nunik's <b>Gilding Condition Envelope T1</b>!</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-trumphit-all">
+            <summary><strong>Objective:</strong> Succeed on all Trumphit tasks</summary>
+            <p>You may now open Nunik's <b>Gilding Condition Envelope T2</b>!</p>
+        </details>
+        
+    </section>
     
 </section>
 
@@ -500,17 +745,6 @@
             <dt>(4p) Every player must win a number of clubs between 2-3.</dt>
             <dd>"None or All". The 3p version would say 3-4, but allowing 4 in general makes it significantly easier.</dd>
         </dl>
-    </section>
-    
-    
-    <section><h4>Tasks that require helper cards (i.e. the rest of the deck)</h4>
-        <ul>
-            <li>Shuffle 1 helper card of (3p: each basic suit / 4p: each suit) and deal face-up to each player. They may not win any card of that suit.</li>
-            
-            <li>Shuffle 8 honors and (3p: 7 / 4p: 8) spades cards and deal to each player. (Face-up is easier, face-down is harder.) They must win exactly as many cards as they have honors.</li>
-            
-            <li>Shuffle 10 spades. Deal (3p: 3 / 4p: 2) to each player. Each player chooses one to keep and reveals face-up. They must win (3p: all 3 / 4p: at least 2) cards of the same suit as their card.</li>
-        </ul>
     </section>
     
     
