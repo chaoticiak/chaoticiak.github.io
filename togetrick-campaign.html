@@ -52,6 +52,7 @@
 </header>
 
 <div id="changelog">
+<p><b>v0.2.4, <time datetime="2026-11-27">27 November 2026</time>.</b> An extra Nunik moon, and a few bugfixes.</p>
 <p><b>v0.2.3, <time datetime="2026-11-27">27 November 2026</time>.</b> New world Nunik (but it's WIP), and some more templating changes. I should probably flesh out a world fully instead of having a ton of half-baked worlds.</p>
 <p><b>v0.2.2, <time datetime="2026-11-24">24 November 2026</time>.</b> Just some formatting/styling changes.</p>
 <p><b>v0.2.1, <time datetime="2026-10-06">06 October 2026</time>.</b> Altrik revision (up to H), plus Selvar (P-R blocks). The Wilderness is back just to dump ideas</p>
@@ -84,11 +85,14 @@
             <li><a href="#record-campaign">Recording the campaign</a></li>
             <li><a href="#player-count">Player count</a></li>
         </ul></li>
+        <hr>
         <li><a href="#world-startia">Startia</a></li>
         <li><a href="#world-altrik">Altrik</a></li>
         <li><a href="#world-selvar">Selvar</a></li>
-        <li><a href="#world-nunik">Nunik</a><ul>
-            <li><a href="#world-nunik-delta">Nunik-&delta;</a></li>
+        <li><a href="#world-nunik">Nunik</a><ul class="collapse">
+            <li><a href="#world-poolone">Poolone</a></li>
+            <li><a href="#world-randaux">Randaux</a></li>
+            <li><a href="#world-trumphit">Trumphit</a></li>
         </ul></li>
         <li><a href="#wilderness">The Wilderness</a></li>
     </ul></details>
@@ -427,6 +431,7 @@
     <div class="notecard accented">
         <p>Unlocking Nunik will also unlock all of its moons:</p>
         <ul class="collapse">
+            <li><a href="#world-poolone">Poolone</a></li>
             <li><a href="#world-randaux">Randaux</a></li>
             <li><a href="#world-trumphit">Trumphit</a></li>
         </ul>
@@ -487,6 +492,16 @@
                 <th scope="row">3</th> <td>1, 2(2&times;), 3(2&times;), 4(2&times;), 5(2&times;), 6(2&times;), 7(2&times;), 8(2&times;)</td> </tr>
         </table>
     </div>
+    
+    <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-p1">
+        <summary><strong>Stunt Envelope P1:</strong> Obtain opening instructions from Poolone</summary>
+        <p>The trick must contain 3 cards of the same rank, none of which was played from the pool.</p>
+    </details>
+    
+    <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-p2">
+        <summary><strong>Stunt Envelope P2:</strong> Obtain opening instructions from Poolone</summary>
+        <p>The trick must contain all four different suits, and the first card played must be a trump played from the pool.</p>
+    </details>
     
     <details class="notecard envelope remember-details" id="togetrick-nunik-envelope-r1">
         <summary><strong>Stunt Envelope R1:</strong> Obtain opening instructions from Randaux</summary>
@@ -550,6 +565,64 @@
     
     
     
+    <section><h3 class="nunik-moon" id="world-poolone">Poolone</h3>
+    <p class="subtitle">Poolone's pool is only one card, but it keeps getting refreshed.</p>
+        
+        <div class="notecard accented">
+            <p><strong>Regular world.</strong> Succeed on each of the following tasks. (You may try tasks in any order; they are not necessarily ordered by difficulty.) You may retry tasks freely.</p>
+            <p>This world is a moon of <a href="#world-nunik">Nunik</a>. If you have unlocked Nunik, you also unlock this world.</p>
+        </div>
+        <div class="notecard accented">
+            <h4>Poolone special rules</h4>
+            <div class="notecard player">
+                <p>If you're playing 3 players, first follow these modified rules for preparing the deal:</p>
+                <ol>
+                    <li>Determine the captain as normal, and shuffle the deck.</li>
+                    <li>Deal <strong>only 1 card</strong> to the pool.</li>
+                    <li>The captain gets <strong>10 cards and 2 pool tokens</strong>.</li>
+                    <li>Each of the other two players gets <strong>11 cards and 3 pool tokens</strong>.</li>
+                </ol>
+                <p>This does mean the captain may only play from the pool twice.</p>
+                <p>In 4p, there is no change into preparing the deal.</p>
+            </div>
+            <p>Do <strong>not</strong> seed the pool. The pool will only have 1 card; a player that plays from the pool has no choice of what card to play.</p>
+            <p><strong>After each trick:</strong> The player who played from the pool must now select a card from their hand and put it into the pool. Thus the pool is replenished after each trick. (After the last trick, the card put into the pool becomes the leftover card in the pool.)</p>
+            <p>Note that you replenish the pool after the trick. Thus players playing in the trick don't yet know what the next pool card is going to be, but the player replenishing the pool gets to see what cards were played into the pool before replenishing.</p>
+            <div class="notecard solo">
+                <p>In solo, you may choose any card from the corresponding bot's hand to put into the pool, it doesn't have to be the first one.</p>
+            </div>
+        </div>
+        
+        <table class="task-table" style="margin-top: 3em;">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-poolone-a"></label></td>
+                <td>Cards played from the pool may <em>not</em> be off-suit. (They either lead or follow suit.)</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-poolone-b"></label></td>
+                <td>After each trick, the card replenishing the pool must have the same rank as the trick number of the finished trick. (For example, after the 3rd trick, the card replenishing the pool must have rank 3.)</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-poolone-c"></label></td>
+                <td>Starting from the second trick, each card played from the pool must have a number rank, and it cannot be the highest or the lowest number rank in its trick (even if tied).</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-poolone-d"></label></td>
+                <td>Each trick must be won by the second card played in the trick, but that card must be played from the hand.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-poolone-e"></label></td>
+                <td>Each of two different players must win 5 cards of each non-trump suit.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-poolone-f"></label></td>
+                <td>The captain must win all tricks.</td> </tr>
+        </table>
+        
+        <details class="notecard objective remember-details" id="togetrick-poolone-midway">
+            <summary><strong>Objective:</strong> Succeed on 3 Poolone tasks</summary>
+            <p>You may now open Nunik's <b>Stunt Envelope P1</b>!</p>
+        </details>
+        
+        <details class="notecard objective remember-details" id="togetrick-poolone-all">
+            <summary><strong>Objective:</strong> Succeed on all Poolone tasks</summary>
+            <p>You may now open Nunik's <b>Stunt Envelope P2</b>!</p>
+        </details>
+        
+    </section>
+    
+    
+    
     <section><h3 class="nunik-moon" id="world-randaux">Randaux</h3>
     <p class="subtitle">In Randaux, tasks have an element of randomness introduced by auxiliary unused cards.</p>
         
@@ -558,7 +631,7 @@
             <p>This world is a moon of <a href="#world-nunik">Nunik</a>. If you have unlocked Nunik, you also unlock this world.</p>
         </div>
         <div class="notecard accented">
-            <h4>Randaux special rule</h4>
+            <h4>Randaux special rules</h4>
             <p>All tasks in this world require <b>auxiliary cards</b>, i.e. the unused cards that don't make up the deck. <strong>Keep the auxiliary cards separate from the deck.</strong> Don't get them mixed up with your hand, the tricks you've won, etc.</p>
             <p>The auxiliary cards are dealt "after distributing cards", i.e. after you are dealt your hand, but before you seed the pool. In some cases, you have a decision to do with the auxiliary cards; you may look at your hand before making the decision.</p>
             <details><summary>Click here for some specific terminology about auxiliary cards</summary>
@@ -635,12 +708,12 @@
         
         <details class="notecard objective remember-details" id="togetrick-randaux-midway">
             <summary><strong>Objective:</strong> Succeed on 3 Randaux tasks</summary>
-            <p>You may now open Nunik's <b>Gilding Condition Envelope R1</b>!</p>
+            <p>You may now open Nunik's <b>Stunt Envelope R1</b>!</p>
         </details>
         
         <details class="notecard objective remember-details" id="togetrick-randaux-all">
             <summary><strong>Objective:</strong> Succeed on 6 Randaux tasks</summary>
-            <p>You may now open Nunik's <b>Gilding Condition Envelope R2</b>!</p>
+            <p>You may now open Nunik's <b>Stunt Envelope R2</b>!</p>
         </details>
         
     </section>
@@ -655,7 +728,7 @@
             <p>This world is a moon of <a href="#world-nunik">Nunik</a>. If you have unlocked Nunik, you also unlock this world.</p>
         </div>
         <div class="notecard accented">
-            <h4>Trumphit special rule</h4>
+            <h4>Trumphit special rules</h4>
             <p>For all tasks in this world: If a won trick contains a trump, <strong>discard the trick</strong> instead of its winner keeping it in front of them. The trick and its cards are treated as nonexistent by the game. The cards are not won by any player, the trick is considered to have not been played, etc. There is one exception: the discarded trick's winner will still lead the next trick.</p>
         </div>
         
@@ -677,12 +750,12 @@
         
         <details class="notecard objective remember-details" id="togetrick-trumphit-midway">
             <summary><strong>Objective:</strong> Succeed on 3 Trumphit tasks</summary>
-            <p>You may now open Nunik's <b>Gilding Condition Envelope T1</b>!</p>
+            <p>You may now open Nunik's <b>Stunt Envelope T1</b>!</p>
         </details>
         
         <details class="notecard objective remember-details" id="togetrick-trumphit-all">
             <summary><strong>Objective:</strong> Succeed on all Trumphit tasks</summary>
-            <p>You may now open Nunik's <b>Gilding Condition Envelope T2</b>!</p>
+            <p>You may now open Nunik's <b>Stunt Envelope T2</b>!</p>
         </details>
         
     </section>
