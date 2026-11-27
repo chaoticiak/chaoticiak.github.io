@@ -52,6 +52,7 @@
 </header>
 
 <div id="changelog">
+<p><b>v0.2.5, <time datetime="2026-11-28">28 November 2026</time>.</b> Lots of Altrik tasks, not tested yet though.</p>
 <p><b>v0.2.4, <time datetime="2026-11-27">27 November 2026</time>.</b> An extra Nunik moon, and a few bugfixes.</p>
 <p><b>v0.2.3, <time datetime="2026-11-27">27 November 2026</time>.</b> New world Nunik (but it's WIP), and some more templating changes. I should probably flesh out a world fully instead of having a ton of half-baked worlds.</p>
 <p><b>v0.2.2, <time datetime="2026-11-24">24 November 2026</time>.</b> Just some formatting/styling changes.</p>
@@ -261,39 +262,79 @@
             <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-a"></label></td>
                 <td>Every trick must be won by the card played from the pool.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-b"></label></td>
-                <td>No trick may be led by a &clubs; clubs card.</td> </tr>
+                <td>No trick may be won by the captain.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-c"></label></td>
-                <td>Every trick must contain some card with rank 1&ndash;3.</td> </tr>
+                <td>Every trick must contain some card with odd number rank and some card with even number rank.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-d"></label></td>
-                <td>Every trick must contain some card with odd number rank and some card with even number rank. (Trumps are not number ranks and have no parity.)</td> </tr>
+                <td>In every trick, the card played from the pool must be the third card played in the trick.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-e"></label></td>
+                <td>No trick may be led by a &clubs; clubs card.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-f"></label></td>
+                <td>The 1st trick must contain some card with rank 1 (i.e. Ace); the 2nd trick must contain a 2; the 3rd trick must contain a 3; and so on until the 8th trick.</td> </tr>
         </table>
+        <details><summary>Clarifications for certain tasks</summary>
+            <p><strong>C:</strong> Trumps are not number ranks and have no parity, so they never contribute to this task's condition.</p>
+        </details>
     </div>
     <details class="notecard envelope remember-details" id="togetrick-altrik-tasks1">
         <summary><strong>Task Envelope 1:</strong> Open only when instructed</summary>
         <table class="task-table">
             <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
-            <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-e"></label></td>
-                <td>In every trick, the card played from the pool must be the third card played in the trick.</td> </tr>
-            <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-f"></label></td>
-                <td>The 1st trick must contain some card with rank 1 (i.e. Ace); the 2nd trick must contain a 2; the 3rd trick must contain a 3; and so on until the 8th trick.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">G <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-g"></label></td>
-                <td>Every trick must contain at least two different suits.</td> </tr>
+                <td>In every trick, the second card played must be a &hearts; hearts card.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">H <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-h"></label></td>
-                <td>In every trick, the second card played must be a &clubs; clubs card.</td> </tr>
+                <td>Every trick must be won by either an odd number rank or the K&spadesuit; (King of Spades).</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">I <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-i"></label></td>
+                <td>The 1st trick must contain two cards with number ranks that differ by exactly 1; the 2nd trick must contain two cards that differ by 2; and so on until the 8th trick.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">J <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-j"></label></td>
+                <td>Every trick must be won by the second card played in the trick.</td> </tr>
         </table>
+        <details><summary>Clarifications for certain tasks</summary>
+            <p><strong>I:</strong> For example, if the 1st trick contains cards with rank 3, 4, 4, J (trump) in some order, then it fulfills the condition of this task, because it contains 3 and 4 which differ by exactly 1. Trumps are not number ranks, so they never contribute to this task's condition.</p>
+        </details>
+    </details>
+    <details class="notecard envelope remember-details" id="togetrick-altrik-tasks2">
+        <summary><strong>Task Envelope 2:</strong> Open only when instructed</summary>
+        <table class="task-table">
+            <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
+            <tr> <th scope="row"><label class="render-after no-outline">K <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-k"></label></td>
+                <td>Every trick must contain at least two different suits.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">L <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-l"></label></td>
+                <td>Every trick must contain some card matching the suit of the leftover card in the pool.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">M <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-m"></label></td>
+                <td>In the 1st trick, the sum of the ranks of the basic (non-trump) cards ends with the digit 1; in the 2nd trick, the sum ends with the digit 2; and so on until the 8th trick.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">N <input type="checkbox" class="remember-checkbox" id="togetrick-altrik-n"></label></td>
+                <td>Every trick must be led by a &diamondsuit; diamonds card.</td> </tr>
+        </table>
+        <details><summary>Clarifications for certain tasks</summary>
+            <p><strong>L:</strong> You don't know the leftover card ahead of time, so make sure to keep all the won tricks separate so you can inspect them later. You may not discuss once you begin distributing cards, although you may discuss before that.</p>
+            <p><strong>M:</strong> For example, if the 1st trick contains cards with rank 3, 4, 4, J (trump) in some order, then it fulfills the condition of this task, because the sum of its number ranks is 3+4+4 = 11. Trumps are not number ranks, so they never contribute to the sum.</p>
+        </details>
     </details>
     
     
-    <details class="notecard objective remember-details" id="togetrick-altrik-total2">
-        <summary><strong>Objective:</strong> Succeed on 2 Altrik tasks</summary>
-        <p>You have unlocked world <a href="#world-selvar">Selvar</a>!</p>
-        <p>You may also now open <b>Task Envelope 1</b>!</p>
-    </details>
+    <div class="notecard objective">
+        <p>Some Altrik objectives care about "simultaneous task pairs". You need to figure out how to open Envelope AM in order to learn about them.</p>
+        
+        <details class="notecard objective remember-details" id="togetrick-altrik-total3">
+            <summary><strong>Objective:</strong> Succeed on 3 Altrik tasks</summary>
+            <p>You have unlocked world <a href="#world-selvar">Selvar</a>!</p>
+            <p>You may also now open <b>Task Envelope 1</b>!</p>
+        </details>
+        <details class="notecard objective remember-details" id="togetrick-altrik-total6">
+            <summary><strong>Objective:</strong> Succeed on 6 Altrik tasks, including at least 1 task from Task Envelope 1</summary>
+            <p>Additionally, you have unlocked <b>Altrik Matchmaker</b>! It is a special game mode in Altrik. Open <b>Envelope AM</b> for the full rules.</p>
+        </details>
+        <details class="notecard objective remember-details" id="togetrick-altrik-taskpair2">
+            <summary><strong>Objective:</strong> Have 2 simultaneous task pairs</summary>
+            <p>You may now open <b>Task Envelope 2</b>!</p>
+        </details>
+        <details class="notecard objective remember-details" id="togetrick-altrik-taskpair4">
+            <summary><strong>Objective:</strong> Have 4 simultaneous task pairs</summary>
+            <p>(pending)</p>
+        </details>
+    </div>
     
-    <details class="notecard objective remember-details" id="togetrick-altrik-total5">
-        <summary><strong>Objective:</strong> Succeed on 5 Altrik tasks</summary>
-        <p>Additionally, you have unlocked <b>Altrik Matchmaker</b>! It is a special game mode in Altrik. Open <b>Envelope AM</b> for the full rules.</p>
-    </details>
     
     <details class="notecard design"><summary>Click to read Altrik's design notes (contains spoilers)</summary>
         <p>Altrik was originally designed to be a starting world (after Startia), so it presented itself as just a regular world with a list of tasks. However, this proved to be too open to me, so I thought of a theme on the task. I decided on the theme of "all tricks": each trick has some requirement.</p>
@@ -399,15 +440,16 @@
         </details>
     </details>
     
+    
     <div class="notecard objective">
         <p>Selvar's objectives are concerned with the total difficulty of Selvar tasks you have succeeded. This counts all tasks overall, not just tasks in a single deal.</p>
+        <details class="notecard objective remember-details" id="togetrick-selvar-total4">
+            <summary><strong>Objective:</strong> Succeed on Selvar tasks with a total difficulty of 4</summary>
+            <p>You have unlocked world <a href="#world-nunik">Nunik</a> and its moons!</p>
+            <p>You may also now open <b>Task Envelope 1</b>!</p>
+        </details>
     </div>
     
-    <details class="notecard objective remember-details" id="togetrick-selvar-total4">
-        <summary><strong>Objective:</strong> Succeed on a total of 4</summary>
-        <p>You have unlocked world <a href="#world-nunik">Nunik</a> and its moons!</p>
-        <p>You may also now open <b>Task Envelope 1</b>!</p>
-    </details>
     
     <details class="notecard design"><summary>Click to read Selvar's design notes</summary>
         <p>Selvar Loadout is sort of a marriage between the task selection process in <cite>The Crew 2</cite> and in the <cite>LOTR Trick-Taking</cite> games. The <cite>LOTR Trick-Taking</cite> games have the concept of a "long chapter": every deal, each player chooses a character and tries to complete their task, and the goal is to succeed with every character at least once, across however many deals it takes. I borrowed it, and expanded it to cover all the tasks in this world.</p>
