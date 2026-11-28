@@ -52,11 +52,12 @@
 </header>
 
 <div id="changelog">
-<p><b>v0.2.5, <time datetime="2026-11-28">28 November 2026</time>.</b> Lots of Altrik tasks, not tested yet though.</p>
-<p><b>v0.2.4, <time datetime="2026-11-27">27 November 2026</time>.</b> An extra Nunik moon, and a few bugfixes.</p>
-<p><b>v0.2.3, <time datetime="2026-11-27">27 November 2026</time>.</b> New world Nunik (but it's WIP), and some more templating changes. I should probably flesh out a world fully instead of having a ton of half-baked worlds.</p>
-<p><b>v0.2.2, <time datetime="2026-11-24">24 November 2026</time>.</b> Just some formatting/styling changes.</p>
-<p><b>v0.2.1, <time datetime="2026-10-06">06 October 2026</time>.</b> Altrik revision (up to H), plus Selvar (P-R blocks). The Wilderness is back just to dump ideas</p>
+<p><b>v0.2f, <time datetime="2026-11-29">29 November 2026</time>.</b> Startia revision, with design notes. Also Trumphit revision.</p>
+<p><b>v0.2e, <time datetime="2026-11-28">28 November 2026</time>.</b> Lots of Altrik tasks, not tested yet though.</p>
+<p><b>v0.2d, <time datetime="2026-11-27">27 November 2026</time>.</b> An extra Nunik moon, and a few bugfixes.</p>
+<p><b>v0.2c, <time datetime="2026-11-27">27 November 2026</time>.</b> New world Nunik (but it's WIP), and some more templating changes. I should probably flesh out a world fully instead of having a ton of half-baked worlds.</p>
+<p><b>v0.2b, <time datetime="2026-11-24">24 November 2026</time>.</b> Just some formatting/styling changes.</p>
+<p><b>v0.2a, <time datetime="2026-10-06">06 October 2026</time>.</b> Altrik revision (up to H), plus Selvar (P-R blocks). The Wilderness is back just to dump ideas</p>
 <p><b>v0.2, <time datetime="2026-10-05">05 October 2026</time>.</b> Settled in on the main ruleset, now primarily designing the campaign. Lots of ideas, but very few actually penned down, and they might not even stay.</p>
 <p><b>v0.1e, <time datetime="2026-09-27">27 September 2026</time>.</b> A little bit of campaign work just so I have something.</p>
 <p><b>v0.1d, <time datetime="2026-09-25">25 September 2026</time>.</b> Extensive redesign of the game.</p>
@@ -214,20 +215,34 @@
         <p><strong>Regular world.</strong> Succeed on each of the following tasks. You may retry tasks freely.</p>
     </div>
     
+    
     <table class="task-table">
         <colgroup> <col style="width: 3em;"> <col style="width: auto;"> </colgroup>
         <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-startia-a"></label></td>
             <td>Every player must win at least 1 trick.</td> </tr>
         <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-startia-b"></label></td>
-            <td>Every card with rank 9 must be played and must win its trick.</td> </tr>
+            <td>The unplayed card in the pool must be 1&hearts; (Ace of Hearts).</td> </tr>
         <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-startia-c"></label></td>
-            <td>The unplayed card in the pool must be 6&diamondsuit; (6 of Diamonds).</td> </tr>
+            <td>Every card with rank 7 must be played and must win its trick.</td> </tr>
     </table>
+    
     
     <details class="notecard objective remember-details" id="togetrick-startia-done"><summary><strong>Objective:</strong> Succeed on all 3 tasks</summary>
         <p>Congratulations! You have now begun your campaign in earnest. First read <a href="#about-campaign">about the campaign</a> to learn how the campaign works in general. Once you're ready, head to your newly unlocked world <a href="#world-altrik">Altrik</a>.</p>
     </details>
     
+    
+    <details class="notecard design"><summary>Click to read Startia's design notes</summary>
+        <p>The first version of Togetrick had scenarios instead of worlds, and one scenario was "None or All". You would play through 3 deals; in each deal, you drew a random task from a table, and choose whether to play the "none" version or the "all" version of the task. There was no starting world; instead, first-time players were recommended to play the "None or All" scenario, choosing tasks #1&ndash;#3 from the table, and playing the "none" version of them.</p>
+        <p>Having separate instructions like this is a bit overwhelming. They are also easy to miss. A Discord user, qp, called out attention to it, and suggested I should have a new introductory scenario, instead of hitching on another. This suggestion gave rise to Startia.</p>
+        <p>I knew Startia would just be a sequence of several tasks; I decided on 3 tasks.</p>
+        <ul>
+            <li>Task A must be winnable with virtually any pool, because new players need to first see the pool in action.</li>
+            <li>Task B must require something specific in the pool, but it's fine to be explicit about it, to teach about how to seed the pool.</li>
+            <li>Task C should be a bit more challenging, but the approach can be more open-ended.</li>
+        </ul>
+        <p>Designing easy tasks is actually not an easy task at all. When you're used to the mechanics, something might sound easy for you, but is actually pretty difficult for new players. So there's quite some effort about this.</p>
+    </details>
 </section>
 
 
@@ -779,15 +794,15 @@
             <tr> <th scope="row"><label class="render-after no-outline">A <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-a"></label></td>
                 <td>The number of tricks won by all players must be <span class="boxedtext player">(3p) 1, 2, 3 / (4p) 0, 1, 2, 3</span> in some order.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">B <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-b"></label></td>
-                <td>Every player must win exactly two &clubs; clubs cards.</td> </tr>
-            <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-c"></label></td>
                 <td>Every trick must contain exactly one &clubs; clubs card.</td> </tr>
+            <tr> <th scope="row"><label class="render-after no-outline">C <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-c"></label></td>
+                <td>Every player must win strictly more &hearts; hearts cards than &diamondsuit; diamonds cards.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">D <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-d"></label></td>
-                <td>Every trick must be won by a card with rank 1&ndash;5.</td> </tr>
+                <td>No player may win two cards of the same rank. <span class="boxedtext player">(4p) Additionally, the captain may not win any trick.</span></td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">E <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-e"></label></td>
-                <td>No card of rank 6 or 7 may be won by any player. (The leftover card in the pool is not won by any player.)</td> </tr>
+                <td>Every trick must contain at most two different ranks.</td> </tr>
             <tr> <th scope="row"><label class="render-after no-outline">F <input type="checkbox" class="remember-checkbox" id="togetrick-trumphit-f"></label></td>
-                <td>Everyone except one player must win exactly 0 tricks.</td> </tr>
+                <td>Everyone except the captain must win exactly 0 tricks.</td> </tr>
         </table>
         
         <details class="notecard objective remember-details" id="togetrick-trumphit-midway">
@@ -818,14 +833,12 @@
     
     <section><h4>Common tasks</h4>
         <ul>
-            <li>The captain wins no tricks. (Originally designed for starting world, very easy.)</li>
             <li>[No / Every] trick must contain 2+ cards of the same number rank. (Originally from "None or All", can probably find a home somewhere.)</li>
             <li>No card of rank 9-10 may win a trick. ("None or All", should be relatively easy.)</li>
             <li>Every card of rank 1 must win a trick. ("None or All". Incredibly hard, requires the 1 holder to be long; it's doable for one, maybe two suits, but three is RNG-heavy.)</li>
             <li>No number rank may win two tricks. ("None or All". Sounds fun and should find a home somewhere.)</li>
             <li>Every number rank 1-6 must each win a trick. ("None or All". Also incredibly hard, much like the "all 1s win" above.)</li>
             <li>No player may win a number of clubs in 1-4. ("None or All". It's a bit of a meme, either someone wins all 9-10 clubs (with one leftover) or two players win 5 each. Probably pretty poorly designed.)</li>
-            <li>[No / Every] player must win #hearts = #diamonds. ("None or All". Probably interesting, but there are some "equal in all suits" tasks too.)</li>
             <li>[No / Every] trick must be won by the last card of the trick. ("None or All". Also probably interesting. In 3p, at the moment of writing, pool card must be before card in hand, so the last card must be a card in hand, does that affect anything? By the second card of the trick might be better.)</li>
             <li>Every trick's number ranks must all have the same parity. ("None or All". The "no" version is already Altrik-D. But not sure if I want to keep either.)</li>
         </ul>
@@ -844,21 +857,8 @@
     
     <section><h4>Tasks that look better for a specific player count</h4>
         <dl>
-            <dt>(3p) Every player must win at least one &hearts; hearts card.</dt>
-            <dd>A bit inspired from some The Crew 3 task? At 4p this becomes significantly harder; if everyone follows suit, 10 hearts cards divide cleanly into 3 tricks (the last has discards) but getting to 4 requires some hand management.</dd>
-            
             <dt>(4p) [No / Every] player must win two consecutive tricks.</dt>
             <dd>Originally part of "None or All". The "no" version is easier on 4p than 3p, the "every" version is very precise in 4p and much more loose in 3p.</dd>
-            
-            <dt>(4p) No player may win two (or more) cards of the same rank.</dt>
-            <dd>Originally part of "None or All". Impossible at 3p.</dd>
-            <dd>I've been trying to think of how to make it work. Disregard tricks containing trumps? Consider the pool as an extra player?</dd>
-            
-            <dt>(4p) Every player must win all 3 cards of some rank.</dt>
-            <dd>Originally part of "None or All" (paired with the above). It's significantly easier in 3p.</dd>
-            
-            <dt>(4p) Every player must win a number of clubs between 2-3.</dt>
-            <dd>"None or All". The 3p version would say 3-4, but allowing 4 in general makes it significantly easier.</dd>
         </dl>
     </section>
     
